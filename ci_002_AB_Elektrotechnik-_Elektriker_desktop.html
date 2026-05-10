@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AB Elektrotechnik - Elektriker München | 5★ Bewertungen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1f2937;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* INFO BAR */
+        .info-bar {
+            background: #0f172a;
+            color: #e0e7ff;
+            padding: 12px 20px;
+            font-size: 12px;
+            text-align: center;
+            border-bottom: 2px solid #3b82f6;
+            position: relative;
+            z-index: 1000;
+        }
+
+        .info-bar span {
+            display: inline-block;
+            margin: 0 15px;
+        }
+
+        .info-bar a {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* WATERMARK */
+        .watermark {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            font-size: 11px;
+            color: #9ca3af;
+            background: rgba(255,255,255,0.9);
+            padding: 12px 16px;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+            z-index: 999;
+            max-width: 250px;
+            text-align: right;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        /* HEADER */
+        header {
+            position: sticky;
+            top: 0;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            z-index: 998;
+            padding: 12px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: #3b82f6;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            max-height: 52px;
+            object-fit: contain;
+            width: auto;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #374151;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #3b82f6;
+        }
+
+        .btn-header {
+            background: #3b82f6;
+            color: white;
+            padding: 10px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .btn-header:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+        }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+            padding: 120px 40px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 700px;
+            margin: 0 auto;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #3b82f6;
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s;
+            border: 2px solid white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s;
+            border: 2px solid white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-4px);
+        }
+
+        /* ÜBER UNS */
+        .about {
+            padding: 80px 40px;
+            background: #f9fafb;
+        }
+
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 42px;
+            font-weight: 800;
+            color: #1f2937;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .about-text {
+            font-size: 16px;
+            color: #4b5563;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .values {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .value-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 4px solid #3b82f6;
+            transition: all 0.3s;
+        }
+
+        .value-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(59, 130, 246, 0.15);
+        }
+
+        .value-card h3 {
+            color: #3b82f6;
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 12px;
+            font-size: 20px;
+        }
+
+        .value-card p {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        /* SERVICES */
+        .services {
+            padding: 80px 40px;
+            background: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: #f9fafb;
+            padding: 40px 30px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .service-card:hover {
+            border-color: #3b82f6;
+            background: #eff6ff;
+            transform: translateY(-8px);
+            box-shadow: 0 12px 32px rgba(59, 130, 246, 0.2);
+        }
+
+        .service-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .service-card h3 {
+            font-family: 'Poppins', sans-serif;
+            color: #1f2937;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .service-card p {
+            color: #6b7280;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* USP SECTION */
+        .usp {
+            padding: 80px 40px;
+            background: linear-gradient(135deg, #eff6ff 0%, #f0f9ff 100%);
+        }
+
+        .usp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .usp-item {
+            text-align: center;
+        }
+
+        .usp-number {
+            font-family: 'Poppins', sans-serif;
+            font-size: 48px;
+            font-weight: 800;
+            color: #3b82f6;
+            margin-bottom: 15px;
+        }
+
+        .usp-item h3 {
+            font-family: 'Poppins', sans-serif;
+            color: #1f2937;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .usp-item p {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        /* CONTACT */
+        .contact {
+            padding: 80px 40px;
+            background: white;
+        }
+
+        .contact-wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .contact-info {
+            background: #f9fafb;
+            padding: 40px;
+            border-radius: 12px;
+        }
+
+        .contact-info h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            color: #1f2937;
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            margin-bottom: 25px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .contact-icon {
+            font-size: 24px;
+            color: #3b82f6;
+            flex-shrink: 0;
+        }
+
+        .contact-item-text {
+            flex: 1;
+        }
+
+        .contact-item-text strong {
+            display: block;
+            color: #1f2937;
+            margin-bottom: 4px;
+        }
+
+        .contact-item-text a {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-item-text a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-item-text p {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #374151;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: #3b82f6;
+            color: white;
+            padding: 14px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            font-size: 16px;
+        }
+
+        .btn-submit:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+        }
+
+        /* FLOATING CTA */
+        .floating-cta {
+            position: fixed;
+            right: 30px;
+            bottom: 150px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 997;
+        }
+
+        .float-btn {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: all 0.3s;
+            animation: bounce 2s infinite;
+        }
+
+        .float-btn-call {
+            background: #3b82f6;
+            color: white;
+        }
+
+        .float-btn-call:hover {
+            background: #2563eb;
+            transform: scale(1.1);
+        }
+
+        .float-btn-email {
+            background: #3b82f6;
+            color: white;
+        }
+
+        .float-btn-email:hover {
+            background: #2563eb;
+            transform: scale(1.1);
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* FOOTER */
+        footer {
+            background: #0f172a;
+            color: #e0e7ff;
+            padding: 50px 40px 30px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-family: 'Poppins', sans-serif;
+            color: #3b82f6;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-section a {
+            display: block;
+            color: #cbd5e1;
+            text-decoration: none;
+            margin-bottom: 12px;
+            transition: color 0.3s;
+            font-size: 14px;
+        }
+
+        .footer-section a:hover {
+            color: #3b82f6;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #1e293b;
+            padding-top: 30px;
+            text-align: center;
+            font-size: 13px;
+            color: #94a3b8;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .floating-cta {
+                right: 15px;
+                bottom: 100px;
+                flex-direction: row;
+            }
+
+            header {
+                padding: 12px 20px;
+            }
+
+            .info-bar span {
+                display: block;
+                margin: 4px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="info-bar">
+        <span><strong>LEAD:</strong> AB Elektrotechnik- Elektriker</span>
+        <span><strong>WEBSITE:</strong> <a href="http://www.abelektrotechnik.eu/">http://www.abelektrotechnik.eu/</a></span>
+        <span><strong>RATING:</strong> ⭐ 5,0/5 (12 Bewertungen)</span>
+        <span><strong>STANDORT:</strong> München, Bayern</span>
+    </div>
+
+    <header>
+        <div class="logo">
+            <span style="font-size:18px;font-weight:700;color:#fff;">AB Elektrotechnik- Elektriker</span>
+        </div>
+        <nav>
+            <a href="#about">Über uns</a>
+            <a href="#services">Leistungen</a>
+            <a href="#contact">Kontakt</a>
+            <a href="tel:01601571751" class="btn-header">Anrufen</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Elektrotechnik von Experten</h1>
+            <p>Professionelle Elektroinstallationen und Reparaturen in München. Zuverlässig, schnell und mit 5★ Kundenbewertungen.</p>
+            <div class="hero-buttons">
+                <a href="tel:01601571751" class="btn-primary">📞 Jetzt anrufen</a>
+                <a href="#contact" class="btn-secondary">Anfrage senden</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="about-content">
+            <h2 class="section-title">Über AB Elektrotechnik</h2>
+            <p class="about-text">
+                AB Elektrotechnik ist Ihr verlässlicher Partner für alle Elektroarbeiten in München und Umgebung. Mit jahrelanger Erfahrung, modernem Know-how und handwerklicher Präzision lösen wir Ihre Elektroaufgaben professionell und zeitnah.
+            </p>
+            <p class="about-text">
+                Egal ob Neuinstallationen, Reparaturen oder Wartungen – unser engagiertes Team arbeitet nach höchsten Qualitätsstandards. Die zahlreichen 5★-Bewertungen unserer zufriedenen Kunden sind unser bester Beweis für Zuverlässigkeit und Qualität.
+            </p>
+            <div class="values">
+                <div class="value-card">
+                    <h3>⚡ Kompetenz</h3>
+                    <p>Moderne Elektrotechnik trifft handwerkliche Erfahrung. Wir kennen die neuesten Standards und Technologien.</p>
+                </div>
+                <div class="value-card">
+                    <h3>🛡️ Sicherheit</h3>
+                    <p>Ihre Sicherheit ist unsere Priorität. Alle Arbeiten entsprechen den gültigen VDE-Normen und Bestimmungen.</p>
+                </div>
+                <div class="value-card">
+                    <h3>⏱️ Zuverlässigkeit</h3>
+                    <p>Schnelle Reaktion, pünktliche Termine, transparente Kommunikation – das ist unser Standard.</p>
+                </div>
+                <div class="value-card">
+                    <h3>💼 Professionalität</h3>
+                    <p>Von der Planung bis zur Fertigstellung: strukturiert, sauber und gewissenhaft.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <h2 class="section-title">Unsere Leistungen</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <span class="service-icon">🔌</span>
+                <h3>Elektroinstallationen</h3>
+                <p>Neu-, Aus- und Umbauten. Moderne Elektroinstallationen für Wohnungen, Büros und Gewerbe nach aktuellen Standards.</p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">🔧</span>
+                <h3>Reparaturen & Wartung</h3>
+                <p>Schnelle Behebung von Elektrodefekten. Regelmäßige Wartung für Sicherheit und Langlebigkeit Ihrer Anlagen.</p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">💡</span>
+                <h3>Beleuchtungssysteme</h3>
+                <p>Installation und Umrüstung von modernen Beleuchtungslösungen. LED-Technik für Energieeffizienz und Komfort.</p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">🏠</span>
+                <h3>Hausanschlüsse</h3>
+                <p>Neuanschlüsse und Änderungen von Hausanschlüssen. Koordination mit Energieversorgern und Behörden.</p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">⚙️</span>
+                <h3>Industrietechnik</h3>
+                <p>Speziallösungen für gewerbliche und industrielle Anforderungen. Steuerungsanlagen und Automatisierung.</p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">☀️</span>
+                <h3>Erneuerbare Energien</h3>
+                <p>Installation von Solaranlagen und Wärmepumpen. Zukunftsorientierte Energielösungen für Ihre Immobilie.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="usp">
+        <h2 class="section-title">Warum AB Elektrotechnik?</h2>
+        <div class="usp-grid">
+            <div class="usp-item">
+                <div class="usp-number">5★</div>
+                <h3>Hervorragende Bewertungen</h3>
+                <p>12 Bewertungen mit Bestnote. Das Vertrauen unserer Kunden ist unser größtes Kapital.</p>
+            </div>
+            <div class="usp-item">
+                <div class="usp-number">24/7</div>
+                <h3>Schnelle Erreichbarkeit</h3>
+                <p>Notfallservice rund um die Uhr. Wir sind da, wenn Sie uns brauchen – in München und Umgebung.</p>
+            </div>
+            <div class="usp-item">
+                <div class="usp-number">✓</div>
+                <h3>Geprüfte Qualität</h3>
+                <p>Alle Arbeiten nach VDE-Normen und DIN-Bestimmungen. Jedes Projekt wird dokumentiert und geprüft.</p>
+            </div>
+            <div class="usp-item">
+                <div class="usp-number">💰</div>
+                <h3>Transparente Preise</h3>
+                <p>Kostenlose Besichtigung, klare Angebote, keine versteckten Gebühren. Was wir sagen, halten wir.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2 class="section-title">Kontakt & Anfrage</h2>
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h2>Kontaktdaten</h2>
+                <div class="contact-item">
+                    <span class="contact-icon">📞</span>
+                    <div class="contact-item-text">
+                        <strong>Telefon</strong>
+                        <a href="tel:01601571751">0160 1571751</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📍</span>
+                    <div class="contact-item-text">
+                        <strong>Adresse</strong>
+                        <p>Schlierseestraße<br>81541 München<br>Bayern, Deutschland</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">🕐</span>
+                    <div class="contact-item-text">
+                        <strong>Erreichbarkeit</strong>
+                        <p>Mo–Fr: 07:00 – 18:00 Uhr<br>Sa: nach Vereinbarung<br>Notfall: 24/7</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">🌐</span>
+                    <div class="contact-item-text">
+                        <strong>Website</strong>
+                        <a href="http://www.abelektrotechnik.eu/">www.abelektrotechnik.eu</a>
+                    </div>
+                </div>
+            </div>
+
+            <form class="contact-form" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label for="name">Ihr Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Telefon *</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-Mail</label>
+                    <input type="email" id="email" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="message">Ihre Anfrage *</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Anfrage senden</button>
+            </form>
+        </div>
+    </section>
+
+    <div class="floating-cta">
+        <a href="tel:01601571751" class="float-btn float-btn-call">📞</a>
+        <a href="#contact" class="float-btn float-btn-email">✉️</a>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>AB Elektrotechnik</h3>
+                <p style="color: #cbd5e1; font-size: 14px;">Professionelle Elektroinstallationen und Reparaturen in München. Zuverlässig, sicher, modern.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Navigation</h3>
+                <a href="#about">Über uns</a>
+                <a href="#services">Leistungen</a>
+                <a href="#contact">Kontakt</a>
+            </div>
+            <div class="footer-section">
+                <h3>Kontakt</h3>
+                <a href="tel:01601571751">0160 1571751</a>
+                <a href="http://www.abelektrotechnik.eu/">www.abelektrotechnik.eu</a>
+                <p style="color: #cbd5e1; font-size: 14px; margin-top: 10px;">Schlierseestraße, 81541 München</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 AB Elektrotechnik- Elektriker. Alle Rechte vorbehalten. | <a href="#" style="color: #3b82f6; text-decoration: none;">Datenschutz</a> | <a href="#" style="color: #3b82f6; text-decoration: none;">Impressum</a></p>
+        </div>
+    </footer>
+
+    <div class="watermark">
+        Vorschau erstellt von<br><strong>Gleißner & Nägel</strong><br>Web, Prozesse & Automatisierung<br><br><em>Dies ist kein echtes Angebot</em>
+    </div>
+
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+            const email = document.getElementById('email').value || 'nicht angegeben';
+            
+            alert(`Danke für Ihre Anfrage, ${name}!\n\nWir werden Sie unter ${phone} kontaktieren.\n\n(Dies ist eine Demo-Vorschau.)`);
+            event.target.reset();
+        }
+    </script>
+</body>
+</html>
