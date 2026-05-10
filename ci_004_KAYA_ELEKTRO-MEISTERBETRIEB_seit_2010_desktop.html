@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KAYA Elektro-Meisterbetrieb - Ihr Experte für Elektrotechnik in Bayern</title>
+    <meta name="description" content="Elektriker & Meisterbetrieb seit 2010 in Starnberg. Elektroinstallation, Netzwerktechnik & Kommunikationstechnik aus Meisterhand.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #2d3436;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ━━━ INFO-BAR ━━━ */
+        .info-bar {
+            background: #1a1a1a;
+            color: #fff;
+            padding: 12px 20px;
+            font-size: 12px;
+            text-align: center;
+            border-bottom: 2px solid #EF7C00;
+            position: relative;
+            z-index: 1000;
+        }
+
+        .info-bar a {
+            color: #EF7C00;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .watermark {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(239, 124, 0, 0.9);
+            color: white;
+            padding: 12px 16px;
+            border-radius: 6px;
+            font-size: 11px;
+            z-index: 999;
+            max-width: 180px;
+            text-align: center;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(239, 124, 0, 0.3);
+        }
+
+        /* ━━━ HEADER / NAVIGATION ━━━ */
+        header {
+            position: sticky;
+            top: 0;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            z-index: 500;
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 70px;
+        }
+
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 20px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #EF7C00 0%, #F26C15 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 35px;
+            height: 35px;
+            background: linear-gradient(135deg, #EF7C00 0%, #F26C15 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 18px;
+        }
+
+        nav {
+            display: flex;
+            gap: 35px;
+            align-items: center;
+        }
+
+        nav a {
+            color: #2d3436;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #EF7C00;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .cta-btn {
+            background: linear-gradient(135deg, #EF7C00 0%, #F26C15 100%);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 13px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(239, 124, 0, 0.3);
+        }
+
+        /* ━━━ HERO SECTION ━━━ */
+        .hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d3436 50%, #EF7C00 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 120px 40px;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(242, 108, 21, 0.3) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-30px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 54px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            color: #f0f0f0;
+            font-weight: 400;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #EF7C00;
+            padding: 14px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            border: 2px solid white;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 14px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            border: 2px solid white;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #EF7C00;
+        }
+
+        /* ━━━ ABOUT SECTION ━━━ */
+        .about {
+            padding: 100px 40px;
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 50px;
+            text-align: center;
+            color: #2d3436;
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 28px;
+            color: #EF7C00;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .about-text p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .about-values {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .value-item {
+            background: white;
+            padding: 20px;
+            border-left: 4px solid #EF7C00;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .value-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 4px 15px rgba(239, 124, 0, 0.15);
+        }
+
+        .value-item strong {
+            color: #EF7C00;
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .about-image {
+            background: linear-gradient(135deg, #EF7C00 0%, #F26C15 100%);
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            color: white;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+        }
+
+        /* ━━━ LEISTUNGEN SECTION ━━━ */
+        .services {
+            padding: 100px 40px;
+            background: white;
+        }
+
+        .services-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: #f8f9fa;
+            padding: 40px 30px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #EF7C00, #F26C15);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(239, 124, 0, 0.15);
+            border-color: #EF7C00;
+        }
+
+        .service-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .service-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #2d3436;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* ━━━ USP SECTION ━━━ */
+        .usp {
+            padding: 100px 40px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d3436 100%);
+            color: white;
+        }
+
+        .usp-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .usp-item {
+            text-align: center;
+            padding: 30px;
+            border-radius: 12px;
+            background: rgba(239, 124, 0, 0.1);
+            border-left: 4px solid #EF7C00;
+            transition: all 0.3s ease;
+        }
+
+        .usp-item:hover {
+            background: rgba(239, 124, 0, 0.2);
+            transform: translateY(-10px);
+        }
+
+        .usp-item h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #EF7C00;
+        }
+
+        .usp-item p {
+            color: #ddd;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* ━━━ CONTACT SECTION ━━━ */
+        .contact {
+            padding: 100px 40px;
+            background: #f8f9fa;
+        }
+
+        .contact-wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .contact-info h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #2d3436;
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .contact-item:last-child {
+            border-bottom: none;
+        }
+
+        .contact-label {
+            font-size: 12px;
+            color: #EF7C00;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .contact-value {
+            font-size: 18px;
+            color: #2d3436;
+            font-weight: 600;
+        }
+
+        .contact-value a {
+            color: #EF7C00;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-value a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #2d3436;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            background: #f8f9fa;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #EF7C00;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(239, 124, 0, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* ━━━ FLOATING CTAs ━━━ */
+        .floating-ctas {
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 998;
+        }
+
+        .float-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #EF7C00 0%, #F26C15 100%);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(239, 124, 0, 0.4);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .float-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(239, 124, 0, 0.5);
+        }
+
+        /* ━━━ FOOTER ━━━ */
+        footer {
+            background: #1a1a1a;
+            color: #aaa;
+            padding: 60px 40px 30px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h4 {
+            color: #EF7C00;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section ul li a {
+            color: #aaa;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .footer-section ul li a:hover {
+            color: #EF7C00;
+            padding-left: 8px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 30px;
+            text-align: center;
+            font-size: 13px;
+            color: #666;
+        }
+
+        /* ━━━ RESPONSIVE ━━━ */
+        @media (max-width: 768px) {
+            header {
+                padding: 0 20px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .hero {
+                padding: 80px 20px;
+                min-height: 500px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .about-content,
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .watermark {
+                bottom: 80px;
+                right: 10px;
+                font-size: 10px;
+                padding: 10px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Info Bar -->
+    <div class="info-bar">
+        ⚡ KAYA ELEKTRO-MEISTERBETRIEB seit 2010 | 📱 08151 6519840 | 🌐 http://www.kaya-kommunikationstechnik.de/ | ⭐ 5,0/5 Bewertungen | 📍 Starnberg, Bayern
+    </div>
+
+    <!-- Header / Navigation -->
+    <header>
+        <div class="logo">
+            <div class="logo-icon">⚡</div>
+            KAYA
+        </div>
+        <nav>
+            <a href="#about">Über uns</a>
+            <a href="#services">Leistungen</a>
+            <a href="#usp">Warum KAYA?</a>
+            <a href="#contact">Kontakt</a>
+            <button class="cta-btn" onclick="document.querySelector('#contact').scrollIntoView();">Anfrage</button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Elektrotechnik aus Meisterhand</h1>
+            <p>Seit 2010 Ihr zuverlässiger Partner für professionelle Elektroinstallation, Netzwerk- und Kommunikationstechnik in Oberbayern.</p>
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="document.querySelector('#contact').scrollIntoView();">Jetzt Anfrage stellen</button>
+                <a href="tel:081516519840" class="btn-secondary">Anrufen</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <h2 class="section-title">Wer wir sind</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Kompetenz. Zuverlässigkeit. Qualität.</h3>
+                <p>Von Starnberg ausgehend bedienen wir Oberbayern und darüber hinaus. Unser Ziel ist, für unsere privaten und gewerblichen Kunden durch professionelle und fachliche Arbeitsqualität einen echten Mehrwert zu schaffen.</p>
+                <p>Dies erreichen wir durch hohes Fach- und Spezialwissen und solides Handwerk in den Bereichen Elektrotechnik, Netzwerktechnik, Kommunikationstechnik und vielem mehr.</p>
+                <div class="about-values">
+                    <div class="value-item">
+                        <strong>🎯 Seit 2010</strong>
+                        Erfahrung, auf die Sie vertrauen können
+                    </div>
+                    <div class="value-item">
+                        <strong>✅ Meisterbetrieb</strong>
+                        Höchste Standards in Handwerk & Sicherheit
+                    </div>
+                    <div class="value-item">
+                        <strong>🚀 Ganzheitlich</strong>
+                        Analyse, Beratung, Planung, Umsetzung & Service
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                ⚙️
+            </div>
+        </div>
+    </section>
+
+    <!-- Leistungen / Services Section -->
+    <section class="services" id="services">
+        <h2 class="section-title">Unsere Leistungen</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <span class="service-icon">🏢</span>
+                <h3>Elektroinstallation</h3>
+                <p>Für Neu- und Altbau: Sichere, normgerechte Elektroinstallationen nach aktuellen Standards.</p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">🖥️</span>
+                <h3>Netzwerktechnik</h3>
+                <p>Strukturierte Verkabelung, Netzwerkplanung und Installation für zuverlässige Datenverbindungen.</p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">☎️</span>
+                <h3>Kommunikationstechnik</h3>
+                <p>Moderne Kommunikationslösungen: Telefon, Sprechanlagen und Sicherheitssysteme.</p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">🔧</span>
+                <h3>Wartung & Service</h3>
+                <p>Regelmäßige Wartung, Überprüfung und schnelle Instandhaltung für höchste Sicherheit.</p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">💡</span>
+                <h3>Energieeffizienz</h3>
+                <p>LED-Umrüstungen, Smart-Home-Systeme und energiesparende Lösungen für Ihr Zuhause oder Gewerbe.</p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">🛡️</span>
+                <h3>Sicherheitsanlagen</h3>
+                <p>Professionelle Planung und Installation von Überwachungs- und Alarmanlagen.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- USP / Warum KAYA Section -->
+    <section class="usp" id="usp">
+        <h2 class="section-title" style="color: white; margin-bottom: 60px;">Warum KAYA Elektro-Meisterbetrieb?</h2>
+        <div class="usp-grid">
+            <div class="usp-item">
+                <h3>⭐ Meisterqualität</h3>
+                <p>Handwerk auf höchstem Niveau durch Meister der Elektrotechnik mit jahrelanger Erfahrung.</p>
+            </div>
+            <div class="usp-item">
+                <h3>🎯 Rundum-Service</h3>
+                <p>Analyse, Beratung, Planung, Umsetzung und Wartung — alles aus einer Hand.</p>
+            </div>
+            <div class="usp-item">
+                <h3>📍 Lokal & Zuverlässig</h3>
+                <p>Seit über einem Jahrzehnt bekannt für Pünktlichkeit und professionelle Arbeitsweise in Oberbayern.</p>
+            </div>
+            <div class="usp-item">
+                <h3>💬 Persönliche Beratung</h3>
+                <p>Kompetente Fachleute, die sich Zeit für Ihre Fragen nehmen und maßgeschneiderte Lösungen bieten.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2 class="section-title">Kontakt & Anfrage</h2>
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h3>So erreichen Sie uns</h3>
+                
+                <div class="contact-item">
+                    <span class="contact-label">📱 Telefon</span>
+                    <div class="contact-value"><a href="tel:081516519840">08151 6519840</a></div>
+                </div>
+
+                <div class="contact-item">
+                    <span class="contact-label">✉️ E-Mail</span>
+                    <div class="contact-value"><a href="mailto:info@kaya-emb.de">info@kaya-emb.de</a></div>
+                </div>
+
+                <div class="contact-item">
+                    <span class="contact-label">📍 Adresse</span>
+                    <div class="contact-value">
+                        Moosstraße 12<br>
+                        82319 Starnberg<br>
+                        Bayern, Deutschland
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <span class="contact-label">⭐ Bewertung</span>
+                    <div class="contact-value">
+                        5,0/5 Sterne<br>
+                        <small style="color: #999;">Vertraut von Kunden in Oberbayern</small>
+                    </div>
+                </div>
+            </div>
+
+            <form class="contact-form" onsubmit="return handleFormSubmit(event);">
+                <div class="form-group">
+                    <label for="name">Ihr Name *</label>
+                    <input type="text" id="name" name="name" required placeholder="Max Mustermann">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-Mail *</label>
+                    <input type="email" id="email" name="email" required placeholder="max@example.de">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Telefon</label>
+                    <input type="tel" id="phone" name="phone" placeholder="089 / 1234567">
+                </div>
+
+                <div class="form-group">
+                    <label for="service">Leistung *</label>
+                    <input type="text" id="service" name="service" required placeholder="z.B. Elektroinstallation Neubau">
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Nachricht *</label>
+                    <textarea id="message" name="message" required placeholder="Beschreiben Sie Ihr Anliegen..."></textarea>
+                </div>
+
+                <button type="submit" class="cta-btn" style="width: 100%; border: none; cursor: pointer; font-size: 16px; padding: 14px;">
+                    ✉️ Anfrage senden
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Floating CTAs -->
+    <div class="floating-ctas">
+        <a href="tel:081516519840" class="float-btn" title="Jetzt anrufen">📞</a>
+        <button class="float-btn" onclick="document.querySelector('#contact').scrollIntoView();" title="Anfrage senden">✉️</button>
+    </div>
+
+    <!-- Watermark -->
+    <div class="watermark">
+        📋 Vorschau erstellt von Gleißner & Nägel · Web, Prozesse & Automatisierung · Dies ist kein echtes Angebot
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>KAYA Elektro-Meisterbetrieb</h4>
+                <p style="color: #999; font-size: 13px; margin-bottom: 15px;">Ihr Partner für professionelle Elektrotechnik seit 2010</p>
+                <p style="color: #666; font-size: 12px;">Moosstraße 12<br>82319 Starnberg<br>Bayern</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Leistungen</h4>
+                <ul>
+                    <li><a href="#services">Elektroinstallation</a></li>
+                    <li><a href="#services">Netzwerktechnik</a></li>
+                    <li><a href="#services">Kommunikationstechnik</a></li>
+                    <li><a href="#services">Sicherheitsanlagen</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Kontakt</h4>
+                <ul>
+                    <li><a href="tel:081516519840">📱 08151 6519840</a></li>
+                    <li><a href="mailto:info@kaya-emb.de">✉️ info@kaya-emb.de</a></li>
+                    <li><a href="http://www.kaya-kommunikationstechnik.de/" target="_blank">🌐 Website</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Öffnungszeiten</h4>
+                <ul>
+                    <li>Mo – Fr: 8:00 – 17:00 Uhr</li>
+                    <li>Sa: Nach Vereinbarung</li>
+                    <li>So: Geschlossen</li>
+                    <li style="margin-top: 15px;"><a href="tel:081516519840" style="color: #EF7C00; font-weight: 700;">Notfall-Hotline</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2010–2024 KAYA Elektro-Meisterbetrieb. Alle Rechte vorbehalten. | <a href="#" style="color: #666; text-decoration: none;">Datenschutz</a> | <a href="#" style="color: #666; text-decoration: none;">Impressum</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Form Submission Handler (Demo)
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            alert('✅ Vielen Dank für Ihre Anfrage!\n\nWir werden uns in Kürze bei Ihnen melden.\n\n📧 info@kaya-emb.de\n📱 08151 6519840');
+            event.target.reset();
+            return false;
+        }
+
+        // Scroll Animation für Service-Karten
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.6s ease-out forwards';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-card, .usp-item').forEach(el => {
+            el.style.opacity = '0';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
+---
+
+## 📊 **MARKENANALYSE – ZUSAMMENFASSUNG**
+
+### **Mission & Vision**
+- **Mission:** Gewerbliche und private Kunden durch professionelle Elektrofachkompetenz einen echten Mehrwert in Sicherheit, Effizienz und Zuverlässigkeit schaffen.
+- **Vision:** Der bevorzugte Meisterbetrieb für ganzheitliche Elektrotechnik in Oberbayern.
+
+### **USP / Alleinstellungsmerkmal**
+1. **Meister-Qualität seit 2010** – Nicht nur Elektriker, sondern zertifizierter Meisterbetrieb
+2. **Ganzheitliches Service-Portfolio** – Alle Leistungen unter einem Dach (keine Weitervermittlung)
+3. **Oberbayern-Spezialist** – Lokale Präsenz, schnelle Reaktion, persönliche Kundenbeziehungen
+4. **Perfekte Google-Rating** – 5,0/5 spricht für Zuverlässigkeit und Qualität
+
+### **Zielgruppe**
+- **Primär:** Hauseigentümer (Neubau/Altbau), Handwerksbetriebe, KMUs in der Region
+- **Sekundär:** Große Gewerbeimmobilien mit Netzwerk/IT-Anforderungen
+- **Kaufverhalten:** Recherche online, Empfehlungen, persönlicher Kontakt wichtig
+- **Probleme:** Sicherheit, Planung, Zuverlässigkeit, technische Komplexität
+
+### **Markenpersönlichkeit** (5 Adjektive)
+1. **Zuverlässig** – seit 14 Jahren konstante Qualität
+2. **Handwerklich-solide** – Meister-Standard, keine Kompromisse
+3. **Professionell** – aber nahbar und kundenorientiert
+4. **Modern** – aktuelle Techniken (Smart-Home, LED, EDV)
+5. **Vertrauenswürdig** – 5★ Rating, persönlich erreichbar
+
+### **Tonalität**
+- **Formal ohne Steifheit** – Fachlich korrekt, aber verständlich erklärend
+- **Direkt & Ehrlich** – Keine leeren Versprechen, echte Kompetenz
+- **Empathisch** – Verständnis für Kundenprobleme, individuelle Lösungen
+
+### **Was die Marke NICHT sein soll**
+- ❌ Billig oder qualitätsmäßig fragwürdig
+- ❌ Unpersönlich oder fachanmaßend
+- ❌ Übertrieben technisch/unverständlich
+- ❌ Langsam oder unpünktlich
+
+---
+
+## 🎨 **BRAND CI – BESTÄTIGT**
+
+| Element | Spezifikation |
+|---------|--------------|
+| **Primärfarbe** | #EF7C00 (Energetisches Orange) |
+| **Akzentfarbe** | #F26C15 (Wärmeres Orange) |
+| **Headline-Font** | Poppins 700/800 – modern, stark, vertrauenswürdig |
+| **Body-Font** | Inter 400/500/600 – lesbar, zeitgenössisch, clean |
+| **Neutral Dark** | #1a1a1a, #2d3436 (Sicherheit, Stabilität) |
+| **Neutral Hell** | #f8f9fa (luftig, modern) |
+| **Design-Stil** | Handwerklich-modern: solide Strukturen + animierte Elemente, warme Farben, icons-getrieben |
+
+---
+
+## ✅ **WEBSITE-FEATURES IMPLEMENTIERT**
+
+✔️ Info-Bar mit vollständigen Firmendaten & Rating  
+✔️ Watermark (Gleißner & Nägel)  
+✔️ Sticky Header mit Logo + Navigation  
+✔️ Vollbild-Hero mit Gradient + Call-to-Actions  
+✔️ Über uns – authentische Texte + Werte-Karten  
+✔️ 6 Service-Karten mit Icons & Hover-Animationen  
+✔️ 4 USP-Punkte mit Meisterbetrieb-Fokus  
+✔️ Kontaktsektion mit Formular + echte Daten  
+✔️ Floating CTAs (Anrufen + Anfrage)  
+✔️ Footer mit vollständiger Navigation & Kontakt  
+✔️ Responsive Design  
+✔️ Scroll-Animationen (fade-in, hover-Effekte, float-Animation)  
+✔️ Farb-Konsistenz durchgehend  
+
+---
+
+Diese Preview ist **produktionsreif** und kann direkt als HTML-Datei gespeichert und im Browser geöffnet werden! 🚀
