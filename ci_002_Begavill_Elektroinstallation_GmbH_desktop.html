@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Begavill Elektroinstallation GmbH | Elektiker Schwabach</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #3b82f6;
+            --primary-dark: #1e40af;
+            --primary-light: #dbeafe;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f9fafb;
+            --border: #e5e7eb;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background: #fff;
+        }
+
+        /* Info Bar */
+        .info-bar {
+            background: #111827;
+            color: #fff;
+            padding: 8px 16px;
+            font-size: 11px;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            letter-spacing: 0.5px;
+        }
+
+        .info-bar span {
+            margin: 0 12px;
+            display: inline-block;
+        }
+
+        /* Watermark */
+        .watermark {
+            position: fixed;
+            bottom: 12px;
+            left: 12px;
+            font-size: 9px;
+            color: #9ca3af;
+            z-index: 100;
+            background: rgba(255,255,255,0.9);
+            padding: 6px 10px;
+            border-radius: 4px;
+            max-width: 200px;
+            line-height: 1.3;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 36px;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 16px 40px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            height: 52px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            max-height: 52px;
+            width: auto;
+        }
+
+        nav {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .cta-header {
+            background: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.3s;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+        }
+
+        .cta-header:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 104px;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.25;
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.1) 0%, rgba(30, 64, 175, 0.4) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            max-width: 700px;
+            padding: 40px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 72px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.1;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 32px;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary);
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            border: 2px solid white;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-4px);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator svg {
+            width: 24px;
+            height: 24px;
+            stroke: white;
+            fill: none;
+            stroke-width: 2;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            50% {
+                transform: translateX(-50%) translateY(8px);
+            }
+        }
+
+        /* Section Spacing */
+        section {
+            padding: 80px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-dark);
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--text-light);
+            margin-bottom: 48px;
+            max-width: 600px;
+        }
+
+        /* About Section */
+        #about {
+            background: var(--bg-light);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 24px;
+            margin: 24px 0 12px 0;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .about-text p {
+            margin-bottom: 16px;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .about-image {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            height: 400px;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Services Section */
+        #services {
+            background: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .service-card {
+            background: white;
+            border: 1px solid var(--border);
+            padding: 32px 24px;
+            border-radius: 12px;
+            transition: all 0.3s;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 12px 24px rgba(59, 130, 246, 0.1);
+            transform: translateY(-8px);
+        }
+
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--primary-light);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 28px;
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Gallery Section */
+        #gallery {
+            background: var(--bg-light);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            border-radius: 12px;
+            overflow: hidden;
+            aspect-ratio: 1;
+            cursor: pointer;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* USP Section */
+        #usp {
+            background: white;
+        }
+
+        .usp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .usp-item {
+            text-align: left;
+        }
+
+        .usp-item h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--primary);
+        }
+
+        .usp-item p {
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* Reviews Section */
+        #reviews {
+            background: var(--bg-light);
+        }
+
+        .reviews-container {
+            max-width: 800px;
+        }
+
+        .review-card {
+            background: white;
+            padding: 32px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            border-left: 4px solid var(--primary);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .review-rating {
+            font-size: 14px;
+            color: #f59e0b;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .review-text {
+            color: var(--text-dark);
+            margin-bottom: 12px;
+            font-style: italic;
+        }
+
+        .review-author {
+            color: var(--text-light);
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .google-rating {
+            background: white;
+            padding: 32px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .rating-stars {
+            font-size: 28px;
+            color: #f59e0b;
+            margin-bottom: 8px;
+        }
+
+        .rating-text {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        /* Contact Section */
+        #contact {
+            background: white;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .contact-info h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 24px 0 12px 0;
+            color: var(--text-dark);
+        }
+
+        .contact-info p {
+            color: var(--text-light);
+            margin-bottom: 24px;
+        }
+
+        .contact-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            word-break: break-all;
+        }
+
+        .contact-link:hover {
+            text-decoration: underline;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 12px 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px var(--primary-light);
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .contact-form button {
+            background: var(--primary);
+            color: white;
+            padding: 14px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .contact-form button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: #111827;
+            color: #e5e7eb;
+            text-align: center;
+            padding: 32px 40px;
+            font-size: 13px;
+            border-top: 1px solid #374151;
+        }
+
+        footer p {
+            margin: 8px 0;
+        }
+
+        /* Floating CTA */
+        .floating-cta {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            background: var(--primary);
+            color: white;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+            z-index: 999;
+            text-decoration: none;
+            font-size: 24px;
+        }
+
+        .floating-cta:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.5);
+        }
+
+        /* Fade In Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                padding: 12px 20px;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 12px;
+                width: 100%;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            section {
+                padding: 60px 20px;
+            }
+
+            .section-title {
+                font-size: 36px;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .about-image {
+                height: 300px;
+            }
+
+            .floating-cta {
+                bottom: 20px;
+                right: 20px;
+                width: 48px;
+                height: 48px;
+                font-size: 20px;
+            }
+
+            nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="info-bar">
+        <span>LEAD: Begavill Elektroinstallation GmbH</span>
+        <span>|</span>
+        <span>WEBSITE: http://www.begavill.de/</span>
+        <span>|</span>
+        <span>RATING: 3,0★</span>
+        <span>|</span>
+        <span>STANDORT: Schwabach, Bayern</span>
+    </div>
+
+    <div class="watermark">
+        Vorschau erstellt von<br>Gleißner & Nägel<br>Web, Prozesse &<br>Automatisierung<br><br>Dies ist kein echtes Angebot
+    </div>
+
+    <header>
+        <div class="logo">
+            <span style="font-size:18px;font-weight:700;">Begavill Elektroinstallation GmbH</span>
+        </div>
+        <nav>
+            <a href="#about">Über uns</a>
+            <a href="#services">Leistungen</a>
+            <a href="#gallery">Arbeiten</a>
+            <a href="#reviews">Bewertungen</a>
+            <a href="#contact">Kontakt</a>
+            <a href="tel:01709577030" class="cta-header">Anrufen</a>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=1400&q=80" alt="Elektroinstallation" class="hero-bg">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Elektroinstallation mit Kompetenz</h1>
+            <p>Professionelle Elektroarbeiten für Ihr Zuhause und Unternehmen in der Region Schwabach</p>
+            <div class="hero-ctas">
+                <a href="#contact" class="btn-primary">Kostenloser Termin</a>
+                <a href="tel:01709577030" class="btn-secondary">0170 9577030</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <svg viewBox="0 0 24 24">
+                <path d="M12 5v14m0 0l-7-7m7 7l7-7"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="fade-in">
+        <div class="section-title">Über Begavill</div>
+        <p class="section-subtitle">Ihre vertrauenswürdiger Elektrofachbetrieb in Schwabach mit langjähriger Erfahrung</p>
+        
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Kompetenz & Zuverlässigkeit</h3>
+                <p>Die Begavill Elektroinstallation GmbH hat sich in der Region Schwabach etabliert als Ansprechpartner für alle Fragen rund um Elektroinstallationen. Wir verstehen die Bedürfnisse unserer Kunden und setzen diese mit modernen Techniken um.</p>
+                
+                <h3>Breites Leistungsspektrum</h3>
+                <p>Von klassischen Elektroinstallationen über Wartung und Reparaturen bis hin zu modernen Lösungen wie Smart Home-Integration — wir bieten das volle Spektrum professioneller Elektroarbeiten.</p>
+                
+                <h3>Kundenfokus</h3>
+                <p>Jedes Projekt behandeln wir individuell. Transparente Kommunikation und pünktliche Ausführung sind für uns selbstverständlich. Ihre Zufriedenheit ist unser Erfolg.</p>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1400&q=80" alt="Elektroinstallation Handwerk">
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="fade-in">
+        <div class="section-title">Unsere Leistungen</div>
+        <p class="section-subtitle">Alles aus einer Hand — von der Planung bis zur Inbetriebnahme</p>
+        
+        <div class="services-grid">
+            <div class="service-card fade-in">
+                <div class="service-icon">⚡</div>
+                <h3>Elektroinstallationen</h3>
+                <p>Professionelle Planung und Ausführung von Stromleitungen, Steckdosen und Schaltern nach aktuellen Normen</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">🔧</div>
+                <h3>Wartung & Reparatur</h3>
+                <p>Regelmäßige Inspektionen und schnelle Behebung von Elektrostörungen — 24/7 erreichbar für Notfälle</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">💡</div>
+                <h3>Beleuchtungskonzepte</h3>
+                <p>Moderne LED-Lösungen und atmosphärische Beleuchtungsplanung für Wohn- und Gewerbeflächen</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">🏠</div>
+                <h3>Smart Home Integration</h3>
+                <p>Intelligente Hausautomation für mehr Komfort, Sicherheit und Energieeffizienz in Ihrem Zuhause</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">🛡️</div>
+                <h3>Sicherheitsanlagen</h3>
+                <p>Installation von FI-Schutzschaltern, Blitzableiter und modernen Sicherheitssystemen zum Schutz Ihrer Familie</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">🔌</div>
+                <h3>Industrie & Gewerbe</h3>
+                <p>Spezialisierte Lösungen für gewerbliche Räume, Fabriken und Betriebsstätten mit hohem Energiebedarf</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="fade-in">
+        <div class="section-title">Unsere Arbeiten</div>
+        <p class="section-subtitle">Ausgewählte Projekte aus der Praxis</p>
+        
+        <div class="gallery-grid">
+            <div class="gallery-item fade-in">
+                <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=1400&q=80" alt="Elektroinstallation Projekt 1">
+            </div>
+            <div class="gallery-item fade-in">
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1400&q=80" alt="Elektroinstallation Projekt 2">
+            </div>
+            <div class="gallery-item fade-in">
+                <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1400&q=80" alt="Elektroinstallation Projekt 3">
+            </div>
+        </div>
+    </section>
+
+    <!-- USP Section -->
+    <section id="usp" class="fade-in">
+        <div class="section-title">Warum Begavill?</div>
+        <p class="section-subtitle">Das macht uns zum idealen Partner für Ihre Elektroarbeiten</p>
+        
+        <div class="usp-grid">
+            <div class="usp-item">
+                <h3>✓ Fachkompetenz</h3>
+                <p>Langjährige Erfahrung und regelmäßige Fortbildungen nach den neuesten VDE-Richtlinien und DIN-Normen</p>
+            </div>
+            <div class="usp-item">
+                <h3>✓ Pünktlichkeit</h3>
+                <p>Verbindliche Termine und transparente Kommunikation — Ihre Zeit ist kostbar und wir respektieren das</p>
+            </div>
+            <div class="usp-item">
+                <h3>✓ Faire Preise</h3>
+                <p>Kostenlose Beratung, detaillierte Angebote und keine versteckten Kosten — Preisgarantie inklusive</p>
+            </div>
+            <div class="usp-item">
+                <h3>✓ Kundennähe</h3>
+                <p>Lokal in Schwabach ansässig, persönlich erreichbar und mit echtem Interesse an Ihren Bedürfnissen</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews -->
+    <section id="reviews" class="fade-in">
+        <div class="section-title">Kundenbewertungen</div>
+        <p class="section-subtitle">Das sagen unsere Kunden über uns</p>
+        
+        <div class="reviews-container">
+            <div class="google-rating fade-in">
+                <div class="rating-stars">★ ★ ★ ☆ ☆</div>
+                <div style="font-size: 18px; font-weight: 600; color: var(--text-dark); margin-bottom: 4px;">3,0 / 5,0 Sterne</div>
+                <div class="rating-text">Basierend auf 2 Bewertungen bei Google</div>
+            </div>
+
+            <div class="review-card fade-in" style="margin-top: 32px;">
+                <div class="review-rating">★ ★ ★ ★ ★ (5 Sterne)</div>
+                <div class="review-text">"Sehr professionelle und schnelle Arbeit. Die Elektroinstallation in unserem neuen Haus wurde fehlerlos durchgeführt."</div>
+                <div class="review-author">— Zufriedener Kunde</div>
+            </div>
+
+            <div class="review-card fade-in">
+                <div class="review-rating">★ ☆ ☆ ☆ ☆ (1 Stern)</div>
+                <div class="review-text">"Enttäuschend. Ausführung war mangelhaft und Kommunikation schlecht."</div>
+                <div class="review-author">— Kritischer Kunde</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="fade-in">
+        <div class="section-title">Kontaktieren Sie uns</div>
+        <p class="section-subtitle">Wir freuen uns auf Ihre Anfrage — direkt oder über das Formular</p>
+        
+        <div class="contact-content">
+            <div class="contact-info">
+                <h3>Telefon</h3>
+                <p><a href="tel:01709577030" class="contact-link">0170 9577030</a></p>
+                
+                <h3>Adresse</h3>
+                <p>Begavill Elektroinstallation GmbH<br>
+                Am Wasserschloß 2<br>
+                91126 Schwabach<br>
+                Deutschland</p>
+                
+                <h3>Öffnungszeiten</h3>
+                <p>Montag – Freitag: 08:00 – 17:00 Uhr<br>
+                Samstag: Nach Vereinbarung<br>
+                Notfall 24/7</p>
+            </div>
+
+            <form class="contact-form">
+                <input type="text" placeholder="Ihr Name" required>
+                <input type="email" placeholder="Ihre E-Mail" required>
+                <input type="tel" placeholder="Telefon (optional)">
+                <textarea placeholder="Nachricht — beschreiben Sie Ihr Anliegen" required></textarea>
+                <button type="submit">Nachricht senden</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p><strong>Begavill Elektroinstallation GmbH</strong></p>
+        <p>Am Wasserschloß 2, 91126 Schwabach | Tel: 0170 9577030</p>
+        <p style="margin-top: 16px; border-top: 1px solid #374151; padding-top: 16px; font-size: 12px;">
+            © 2024 Begavill Elektroinstallation. Alle Rechte vorbehalten. | 
+            <a href="#" style="color: #60a5fa; text-decoration: none;">Impressum</a> | 
+            <a href="#" style="color: #60a5fa; text-decoration: none;">Datenschutz</a>
+        </p>
+    </footer>
+
+    <!-- Floating CTA -->
+    <a href="tel:01709577030" class="floating-cta" title="Anrufen">☎</a>
+
+    <script>
+        // Fade-in Animation on Scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
