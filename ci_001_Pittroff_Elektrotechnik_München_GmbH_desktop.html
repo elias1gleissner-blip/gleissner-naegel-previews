@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Website-Preview: Pittroff Elektrotechnik München GmbH (Desktop)</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #080b16; color: #ffffff; overflow-x: hidden; }
+
+#intro { position: fixed; inset: 0; background: #080b16;
+         display: flex; flex-direction: column; align-items: center; justify-content: center;
+         z-index: 9999; transition: opacity 0.9s ease, visibility 0.9s ease; }
+#intro.gone { opacity: 0; visibility: hidden; pointer-events: none; }
+.i-name { font-size: 52px; font-weight: 700; letter-spacing: -2px; color: #ffffff;
+           opacity: 0; transform: translateY(24px); text-align: center;
+           animation: up 0.9s cubic-bezier(0.16,1,0.3,1) 0.3s forwards; }
+.i-name em { color: #3b82f6; font-style: normal; }
+.i-line { width: 0; height: 2px; margin: 20px auto;
+           background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+           animation: iline 1s ease 0.7s forwards; }
+.i-sub { font-size: 12px; letter-spacing: 4px; text-transform: uppercase;
+          color: rgba(255,255,255,0.28); text-align: center;
+          opacity: 0; animation: up 0.9s cubic-bezier(0.16,1,0.3,1) 0.6s forwards; }
+@keyframes up { to { opacity: 1; transform: translateY(0); } }
+@keyframes iline { to { width: 180px; } }
+
+.meta-bar { background: #0D101B; border-bottom: 1px solid rgba(255,255,255,0.06);
+            padding: 12px 64px; display: flex; align-items: center; gap: 36px; flex-wrap: wrap; }
+.mi { display: flex; flex-direction: column; gap: 2px; }
+.ml { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.28); }
+.mv { font-size: 13px; color: rgba(255,255,255,0.55); font-weight: 500; }
+.mv.b { color: #3b82f6; }
+
+.wm { background: #3b82f6; color: rgba(255,255,255,0.9); text-align: center;
+      padding: 7px; font-size: 12px; font-weight: 500; }
+.wm strong { color: #ffffff; }
+
+header { position: sticky; top: 0; z-index: 100; background: rgba(8,11,22,0.92);
+         backdrop-filter: blur(24px); border-bottom: 1px solid rgba(255,255,255,0.06);
+         padding: 0 64px; display: flex; align-items: center; justify-content: space-between; height: 68px; }
+.lw { display: flex; align-items: center; gap: 12px; }
+.lb { width: 38px; height: 38px; border-radius: 10px; background: linear-gradient(135deg,#3b82f6,#276EE2);
+      display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; color: #ffffff; }
+.ln { font-size: 16px; font-weight: 600; color: #ffffff; }
+.hn { display: flex; gap: 10px; }
+.nl { padding: 9px 18px; border-radius: 50px; font-size: 13px; font-weight: 500; text-decoration: none; }
+.ng { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.55); }
+.np { background: #3b82f6; color: #ffffff; }
+
+.hero { min-height: 100vh; position: relative; overflow: hidden;
+        display: flex; align-items: center; padding: 120px 64px 80px; }
+.hp { position: absolute; inset: 0; background-size: cover; background-position: center; transition: opacity 1s ease; }
+.ho { position: absolute; inset: 0;
+      background: linear-gradient(105deg,rgba(8,11,22,0.93) 0%,rgba(8,11,22,0.72) 55%,rgba(8,11,22,0.38) 100%); }
+.hg { position: absolute; right: -80px; top: -80px; width: 500px; height: 500px; border-radius: 50%;
+      background: radial-gradient(circle,rgba(59,130,246,0.18) 0%,transparent 65%); pointer-events: none; }
+.hc { position: relative; z-index: 2; max-width: 600px; }
+.hbadge { display: inline-flex; align-items: center; gap: 8px; background: rgba(59,130,246,0.13);
+           border: 1px solid rgba(59,130,246,0.28); color: #3b82f6; font-size: 12px; font-weight: 500;
+           padding: 6px 14px; border-radius: 50px; margin-bottom: 28px; }
+.bd { width: 6px; height: 6px; background: #3b82f6; border-radius: 50%; animation: blink 2s ease infinite; }
+@keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+.hero h1 { font-size: 62px; font-weight: 700; line-height: 1.05; letter-spacing: -3px;
+            color: #ffffff; margin-bottom: 20px; }
+.hero h1 em { color: #3b82f6; font-style: normal; }
+.hdesc { font-size: 16px; color: rgba(255,255,255,0.55); line-height: 1.75; margin-bottom: 40px; max-width: 480px; }
+.hbtns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 56px; }
+.bm { display: inline-flex; align-items: center; gap: 10px; background: #3b82f6; color: #ffffff;
+      padding: 15px 30px; border-radius: 50px; font-size: 15px; font-weight: 600; text-decoration: none;
+      box-shadow: 0 0 48px rgba(59,130,246,0.38); }
+.bs { display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.8); padding: 15px 28px;
+      border-radius: 50px; font-size: 15px; font-weight: 500; text-decoration: none; }
+.hstats { display: flex; gap: 48px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.08); flex-wrap: wrap; }
+.stn { font-size: 34px; font-weight: 700; color: #3b82f6; letter-spacing: -1px; }
+.stl { font-size: 11px; color: rgba(255,255,255,0.28); margin-top: 4px; letter-spacing: 1.5px; text-transform: uppercase; }
+
+.usp { background: #1D64D8; padding: 20px 64px; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 12px; }
+.ui { display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.92); font-size: 14px; font-weight: 500; }
+.uico { width: 32px; height: 32px; background: rgba(255,255,255,0.18); border-radius: 8px;
+        display: flex; align-items: center; justify-content: center; }
+
+.about { padding: 96px 64px; background: #080b16; display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+.aph { border-radius: 20px; overflow: hidden; height: 420px; position: relative; }
+.aph img { width: 100%; height: 100%; object-fit: cover; }
+.apo { position: absolute; bottom: 0; left: 0; right: 0; padding: 24px;
+       background: linear-gradient(0deg,rgba(8,11,22,0.9) 0%,transparent 100%); }
+.apb { display: inline-flex; align-items: center; gap: 8px; background: #3b82f6; color: #ffffff;
+       padding: 8px 16px; border-radius: 50px; font-size: 13px; font-weight: 600; }
+.stag { font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: #3b82f6; margin-bottom: 12px; }
+.stitle { font-size: 36px; font-weight: 700; letter-spacing: -1.5px; color: #ffffff; margin-bottom: 20px; line-height: 1.15; }
+.ac p { font-size: 15px; color: rgba(255,255,255,0.55); line-height: 1.8; margin-bottom: 16px; }
+.tbadges { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
+.tb { display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; padding: 10px 16px;
+      font-size: 13px; color: rgba(255,255,255,0.55); }
+
+.services { padding: 96px 64px; background: #121520; }
+.sgrid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+.sc { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px; padding: 28px; transition: border-color 0.2s, background 0.2s; }
+.sc:hover { border-color: rgba(59,130,246,0.28); background: rgba(59,130,246,0.13); }
+.sico { width: 48px; height: 48px; background: rgba(59,130,246,0.13); border-radius: 12px;
+        display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 18px; }
+.sc h3 { font-size: 16px; font-weight: 600; color: #ffffff; margin-bottom: 8px; }
+.sc p { font-size: 14px; color: rgba(255,255,255,0.38); line-height: 1.65; }
+
+.gallery { padding: 0 64px 96px; background: #121520; }
+.gg { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 12px; border-radius: 20px; overflow: hidden; height: 340px; }
+.gi { overflow: hidden; }
+.gi img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+.gi:hover img { transform: scale(1.04); }
+
+.reviews { padding: 72px 64px; background: #080b16; display: flex; align-items: center; gap: 60px; flex-wrap: wrap; }
+.rn { font-size: 80px; font-weight: 700; color: #ffffff; letter-spacing: -4px; line-height: 1; }
+.rs { color: #f59e0b; font-size: 22px; letter-spacing: 3px; margin: 10px 0 6px; }
+.rc { font-size: 13px; color: rgba(255,255,255,0.28); }
+.rsep { width: 1px; height: 88px; background: rgba(255,255,255,0.06); flex-shrink: 0; }
+.rq { font-size: 19px; color: rgba(255,255,255,0.55); font-style: italic; line-height: 1.7; max-width: 520px; }
+.ra { font-size: 13px; color: rgba(255,255,255,0.28); margin-top: 14px; font-style: normal; }
+
+.contact { padding: 96px 64px; background: #121520; display: grid; grid-template-columns: 1fr 1fr; gap: 72px; }
+.cl h2 { font-size: 38px; font-weight: 700; letter-spacing: -1.5px; color: #ffffff; margin-bottom: 12px; line-height: 1.15; }
+.cl > p { font-size: 15px; color: rgba(255,255,255,0.38); margin-bottom: 40px; line-height: 1.7; }
+.cr { display: flex; align-items: center; gap: 16px; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.cico { width: 42px; height: 42px; background: rgba(59,130,246,0.13); border-radius: 10px;
+        display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+.ct { font-size: 15px; color: rgba(255,255,255,0.8); font-weight: 500; }
+.cs { font-size: 12px; color: rgba(255,255,255,0.28); margin-top: 2px; }
+.cf { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.06); border-radius: 20px; padding: 36px; }
+.cf h3 { font-size: 22px; font-weight: 600; color: #ffffff; margin-bottom: 28px; }
+.fr { margin-bottom: 14px; }
+.fr input, .fr textarea { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 10px; padding: 14px 16px; font-size: 14px; color: #ffffff; outline: none;
+  transition: border-color 0.2s; font-family: inherit; }
+.fr input::placeholder, .fr textarea::placeholder { color: rgba(255,255,255,0.22); }
+.fr input:focus, .fr textarea:focus { border-color: #3b82f6; }
+.fr textarea { height: 100px; resize: none; }
+.fsub { width: 100%; background: #3b82f6; color: #ffffff; border: none; padding: 15px;
+        border-radius: 10px; font-size: 15px; font-weight: 600; cursor: pointer; margin-top: 4px; }
+
+footer { background: #080b16; border-top: 1px solid rgba(255,255,255,0.06);
+         padding: 24px 64px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+.fcp { font-size: 13px; color: rgba(255,255,255,0.28); }
+.fwm { font-size: 12px; color: rgba(255,255,255,0.18); }
+.fwm strong { color: rgba(255,255,255,0.4); }
+
+.fctas { position: fixed; right: 24px; bottom: 60px; display: flex; flex-direction: column; gap: 12px; z-index: 500; }
+.fb { display: flex; align-items: center; gap: 10px; padding: 14px 22px; border-radius: 50px;
+      font-size: 14px; font-weight: 600; text-decoration: none; white-space: nowrap; }
+.fbc { background: #3b82f6; color: #ffffff; box-shadow: 0 8px 32px rgba(59,130,246,0.38); }
+.fbm { background: #121520; color: rgba(255,255,255,0.55); border: 1px solid rgba(255,255,255,0.06); }
+</style>
+</head>
+<body>
+
+<div id="intro">
+  <div class="i-name">Pittroff <em>Elektrotechnik München GmbH</em></div>
+  <div class="i-line"></div>
+  <div class="i-sub">Elektriker · Bayern</div>
+</div>
+<script>setTimeout(()=>document.getElementById('intro').classList.add('gone'),2500);</script>
+
+<div class="meta-bar">
+  <div class="mi"><span class="ml">Lead</span><span class="mv">Pittroff Elektrotechnik München GmbH</span></div>
+  <div class="mi"><span class="ml">Aktuelle Website</span><span class="mv b">https://www.pittroff.de/</span></div>
+  <div class="mi"><span class="ml">Google Rating</span><span class="mv">4,9★ · 154 Bewertungen</span></div>
+  <div class="mi"><span class="ml">Stadt</span><span class="mv">Bayern</span></div>
+</div>
+
+<div class="wm">Vorschau erstellt von <strong>Gleißner &amp; Nägel</strong> · Web, Prozesse &amp; Automatisierung · Dies ist kein echtes Angebot</div>
+
+<header>
+  <div class="lw"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjI2Ljc3cHQiIGhlaWdodD0iNTYuNzFwdCIgdmlld0JveD0iMCAwIDIyNi43NyA1Ni43MSIgdmVyc2lvbj0iMS4xIj4KPGRlZnM+CjxjbGlwUGF0aCBpZD0iY2xpcDEiPgogIDxwYXRoIGQ9Ik0gMCAwIEwgMjI2Ljc2OTUzMSAwIEwgMjI2Ljc2OTUzMSA0MiBMIDAgNDIgWiBNIDAgMCAiLz4KPC9jbGlwUGF0aD4KPGNsaXBQYXRoIGlkPSJjbGlwMiI+CiAgPHBhdGggZD0iTSAxMiA0OCBMIDE4IDQ4IEwgMTggNTYuNzEwOTM4IEwgMTIgNTYuNzEwOTM4IFogTSAxMiA0OCAiLz4KPC9jbGlwUGF0aD4KPGNsaXBQYXRoIGlkPSJjbGlwMyI+CiAgPHBhdGggZD0iTSAyMSA0OCBMIDI2IDQ4IEwgMjYgNTYuNzEwOTM4IEwgMjEgNTYuNzEwOTM4IFogTSAyMSA0OCAiLz4KPC9jbGlwUGF0aD4KPGNsaXBQYXRoIGlkPSJjbGlwNCI+CiAgPHBhdGggZD0iTSAyOSA0OCBMIDM0IDQ4IEwgMzQgNTYuNzEwOTM4IEwgMjkgNTYuNzEwOTM4IFogTSAyOSA0OCAiLz4KPC9jbGlwUGF0aD4KPGNsaXBQYXRoIGlkPSJjbGlwNSI+CiAgPHBhdGggZD0iTSAzNyA0OCBMIDQ0IDQ4IEwgNDQgNTYuNzEwOTM4IEwgMzcgNTYuNzEwOTM4IFogTSAzNyA0OCAiLz4KPC9jbGlwUGF0aD4KPGNsaXBQYXRoIGlkPSJjbGlwNiI+CiAgPHBhdGggZD0iTSA0NiA0OCBMIDUzIDQ4IEwgNTMgNTYuNzEwOTM4IEwgNDYgNTYuNzEwOTM4IFogTSA0NiA0OCAiLz4KPC9jbGlwUGF0aD4KPGNsaXBQYXRoIGlkPSJjbGlwNyI+CiAgPHBhdGggZD0iTSA1NSA0OCBMIDYyIDQ4IEwgNjIgNTYuNzEwOTM4IEwgNTUgNTYuNzEwOTM4IFogTSA1NSA0OCAiLz4KPC9jbGlwUGF0aD4KPGNsaXBQYXRoIGlkPSJjbGlwOCI+CiAgPHBhdGggZD0iTSA2NCA0OCBMIDc0IDQ4IEwgNzQgNTYuNzEwOTM4IEwgNjQgNTYuNzEwOTM4IFogTSA2NCA0OCAiLz4KPC9jbGlwUGF0aD4KPGNsaXBQYXRoIGlkPSJjbGlwOSI+CiAgPHBhdGggZD0iTSA3NSA0OCBMIDgyIDQ4IEwgODIgNTYuNzEwOTM4IEwgNzUgNTYuNzEwOTM4IFogTSA3NSA0OCAiLz4KPC9jbGlwUGF0aD4KPGNsaXBQYXRoIGlkPSJjbGlwMTAiPgogIDxwYXRoIGQ9Ik0gODQgNDggTCA5MCA0OCBMIDkwIDU2LjcxMDkzOCBMIDg0IDU2LjcxMDkzOCBaIE0gODQgNDggIi8+CjwvY2xpcFBhdGg+CjxjbGlwUGF0aCBpZD0iY2xpcDExIj4KICA8cGF0aCBkPSJNIDkzIDQ4IEwgMTAxIDQ4IEwgMTAxIDU2LjcxMDkzOCBMIDkzIDU2LjcxMDkzOCBaIE0gOTMgNDggIi8+CjwvY2xpcFBhdGg+CjxjbGlwUGF0aCBpZD0iY2xpcDEyIj4KICA8cGF0aCBkPSJNIDEwNCA0OCBMIDExMSA0OCBMIDExMSA1Ni43MTA5MzggTCAxMDQgNTYuNzEwOTM4IFogTSAxMDQgNDggIi8+CjwvY2xpcFBhdGg+CjxjbGlwUGF0aCBpZD0iY2xpcDEzIj4KICA8cGF0aCBkPSJNIDExNCA0OCBMIDEyMSA0OCBMIDEyMSA1Ni43MTA5MzggTCAxMTQgNTYuNzEwOTM4IFogTSAxMTQgNDggIi8+CjwvY2xpcFBhdGg+CjxjbGlwUGF0aCBpZD0iY2xpcDE0Ij4KICA8cGF0aCBkPSJNIDEyNCA0OCBMIDEyNiA0OCBMIDEyNiA1Ni43MTA5MzggTCAxMjQgNTYuNzEwOTM4IFogTSAxMjQgNDggIi8+CjwvY2xpcFBhdGg+CjxjbGlwUGF0aCBpZD0iY2xpcDE1Ij4KICA8cGF0aCBkPSJNIDEyOSA0OCBMIDEzNyA0OCBMIDEzNyA1Ni43MTA5MzggTCAxMjkgNTYuNzEwOTM4IFogTSAxMjkgNDggIi8+CjwvY2xpcFBhdGg+CjxjbGlwUGF0aCBpZD0iY2xpcDE2Ij4KICA8cGF0aCBkPSJNIDE0NCA0OCBMIDE1MyA0OCBMIDE1MyA1Ni43MTA5MzggTCAxNDQgNTYuNzEwOTM4IFogTSAxNDQgNDggIi8+CjwvY2xpcFBhdGg+CjxjbGlwUGF0aCBpZD0iY2xpcDE3Ij4KICA8cGF0aCBkPSJNIDE1NiA0NiBMIDE2MyA0NiBMIDE2MyA1Ni43MTA5MzggTCAxNTYgNTYuNzEwOTM4IFogTSAxNTYgNDYgIi8+CjwvY2xpcFBhdGg+CjxjbGlwUGF0aCBpZD0iY2xpcDE4Ij4KICA8cGF0aCBkPSJNIDE2NiA0OCBMIDE3MyA0OCBMIDE3MyA1Ni43MTA5MzggTCAxNjYgNTYuNzEwOTM4IFogTSAxNjYgNDggIi8+CjwvY2xpcFBhdGg+CjxjbGlwUGF0aCBpZD0iY2xpcDE5Ij4KICA8cGF0aCBkPSJNIDE3NiA0OCBMIDE4NCA0OCBMIDE4NCA1Ni43MTA5MzggTCAxNzYgNTYuNzEwOTM4IFogTSAxNzYgNDggIi8+CjwvY2xpcFBhdGg+CjxjbGlwUGF0aCBpZD0iY2xpcDIwIj4KICA8cGF0aCBkPSJNIDE4NyA0OCBMIDE5NCA0OCBMIDE5NCA1Ni43MTA5MzggTCAxODcgNTYuNzEwOTM4IFogTSAxODcgNDggIi8+CjwvY2xpcFBhdGg+CjxjbGlwUGF0aCBpZD0iY2xpcDIxIj4KICA8cGF0aCBkPSJNIDE5NyA0OCBMIDIwMyA0OCBMIDIwMyA1Ni43MTA5MzggTCAxOTcgNTYuNzEwOTM4IFogTSAxOTcgNDggIi8+CjwvY2xpcFBhdGg+CjxjbGlwUGF0aCBpZD0iY2xpcDIyIj4KICA8cGF0aCBkPSJNIDIwNiA0OCBMIDIxMyA0OCBMIDIxMyA1Ni43MTA5MzggTCAyMDYgNTYuNzEwOTM4IFogTSAyMDYgNDggIi8+CjwvY2xpcFBhdGg+CjwvZGVmcz4KPGcgaWQ9InN1cmZhY2UxIj4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXAxKSIgY2xpcC1ydWxlPSJub256ZXJvIj4KPHBhdGggc3R5bGU9IiBzdHJva2U6bm9uZTtmaWxsLXJ1bGU6bm9uemVybztmaWxsOnJnYigzOS45OTkzOSUsNDEuOTk5ODE3JSw0Mi4zOTk1OTclKTtmaWxsLW9wYWNpdHk6MTsiIGQ9Ik0gMjIxLjM0Mzc1IDI1LjI1IEwgMjEyLjI2MTcxOSAyNS4yNSBMIDIxMi4yNjE3MTkgNDAuNjIxMDk0IEwgMjA0Ljc2OTUzMSA0MC42MjEwOTQgTCAyMDQuNzY5NTMxIDAuODMyMDMxIEwgMjI2Ljc3MzQzOCAwLjgzMjAzMSBMIDIyNi43NzM0MzggNy45Njg3NSBMIDIxMi4yNjE3MTkgNy45Njg3NSBMIDIxMi4yNjE3MTkgMTguMTE3MTg4IEwgMjIxLjM0Mzc1IDE4LjExNzE4OCBaIE0gMTk1LjA5NzY1NiAyNS4yNSBMIDE4Ni4wMTU2MjUgMjUuMjUgTCAxODYuMDE1NjI1IDQwLjYyMTA5NCBMIDE3OC41MjM0MzggNDAuNjIxMDk0IEwgMTc4LjUyMzQzOCAwLjgzMjAzMSBMIDIwMC41MjM0MzggMC44MzIwMzEgTCAyMDAuNTIzNDM4IDcuOTY4NzUgTCAxODYuMDE1NjI1IDcuOTY4NzUgTCAxODYuMDE1NjI1IDE4LjExNzE4OCBMIDE5NS4wOTc2NTYgMTguMTE3MTg4IFogTSAxNTQuMTE3MTg4IDM0LjE5OTIxOSBDIDE0Ni40NDkyMTkgMzQuMTk5MjE5IDE0MC44ODI4MTMgMjguNTM1MTU2IDE0MC44ODI4MTMgMjAuNzI2NTYzIEMgMTQwLjg4MjgxMyAxMi45MTc5NjkgMTQ2LjQ0OTIxOSA3LjI1IDE1NC4xMTcxODggNy4yNSBDIDE2MS43ODUxNTYgNy4yNSAxNjcuMzUxNTYzIDEyLjkxNzk2OSAxNjcuMzUxNTYzIDIwLjcyNjU2MyBDIDE2Ny4zNTE1NjMgMjguNTM1MTU2IDE2MS43ODUxNTYgMzQuMTk5MjE5IDE1NC4xMTcxODggMzQuMTk5MjE5IFogTSAxNTQuMTE3MTg4IC0wLjAwMzkwNjI1IEMgMTQyLjQ5MjE4OCAtMC4wMDM5MDYyNSAxMzMuMzg2NzE5IDkuMTAxNTYzIDEzMy4zODY3MTkgMjAuNzI2NTYzIEMgMTMzLjM4NjcxOSAzMi4zNTE1NjMgMTQyLjQ5MjE4OCA0MS40NTcwMzEgMTU0LjExNzE4OCA0MS40NTcwMzEgQyAxNjUuNzQyMTg4IDQxLjQ1NzAzMSAxNzQuODQ3NjU2IDMyLjM1MTU2MyAxNzQuODQ3NjU2IDIwLjcyNjU2MyBDIDE3NC44NDc2NTYgOS4xMDE1NjMgMTY1Ljc0MjE4OCAtMC4wMDM5MDYyNSAxNTQuMTE3MTg4IC0wLjAwMzkwNjI1IFogTSAxMDkuMjgxMjUgNy43MzA0NjkgTCAxMTcuNDkyMTg4IDcuNzMwNDY5IEMgMTIwLjc1NzgxMyA3LjczMDQ2OSAxMjMuMzE2NDA2IDEwLjU1MDc4MSAxMjMuMzE2NDA2IDE0LjE0ODQzOCBDIDEyMy4zMTY0MDYgMTcuNzQ2MDk0IDEyMC43NTc4MTMgMjAuNTY2NDA2IDExNy40OTIxODggMjAuNTY2NDA2IEwgMTA5LjI4MTI1IDIwLjU2NjQwNiBaIE0gMTE1LjUyMzQzOCAyNi45NjQ4NDQgTCAxMjMuMzU5Mzc1IDQwLjYyMTA5NCBMIDEzMS4yNDIxODggNDAuNjIxMDk0IEwgMTIyLjY4MzU5NCAyNS44NTkzNzUgTCAxMjMuNjY0MDYzIDI1LjM2MzI4MSBDIDEyOC4wMDc4MTMgMjMuMTY0MDYzIDEzMC44MTI1IDE4Ljc2MTcxOSAxMzAuODEyNSAxNC4xNDg0MzggQyAxMzAuODEyNSA2LjgwNDY4OCAxMjQuODM1OTM4IDAuODMyMDMxIDExNy40OTIxODggMC44MzIwMzEgTCAxMDEuNzg5MDYzIDAuODMyMDMxIEwgMTAxLjc4OTA2MyA0MC42MjEwOTQgTCAxMDkuMjgxMjUgNDAuNjIxMDk0IEwgMTA5LjI4MTI1IDI2Ljg2NzE4OCBMIDExNS40NjQ4NDQgMjYuODY3MTg4IFogTSA5Ny41NDY4NzUgNy45Njg3NSBMIDg2Ljc4MTI1IDcuOTY4NzUgTCA4Ni43ODEyNSA0MC42MjEwOTQgTCA3OS4yODkwNjMgNDAuNjIxMDk0IEwgNzkuMjg5MDYzIDcuOTY4NzUgTCA2Mi4wOTM3NSA3Ljk2ODc1IEwgNjIuMDkzNzUgNDAuNjIxMDk0IEwgNTQuNTk3NjU2IDQwLjYyMTA5NCBMIDU0LjU5NzY1NiA3Ljk2ODc1IEwgNDMuODM1OTM4IDcuOTY4NzUgTCA0My44MzU5MzggMC44MzIwMzEgTCA5Ny41NDY4NzUgMC44MzIwMzEgWiBNIDM5LjU5Mzc1IDAuODMyMDMxIEwgMzkuNTkzNzUgNDAuNjIxMDk0IEwgMzIuMTAxNTYzIDQwLjYyMTA5NCBMIDMyLjEwMTU2MyAwLjgzMjAzMSBaIE0gNy40OTIxODggNy43MzA0NjkgTCAxNC44MDg1OTQgNy43MzA0NjkgQyAxOC4yOTY4NzUgNy43MzA0NjkgMjAuOTI5Njg4IDEwLjQ4ODI4MSAyMC45Mjk2ODggMTQuMTQ4NDM4IEMgMjAuOTI5Njg4IDE3LjgwODU5NCAxOC4yOTY4NzUgMjAuNTY2NDA2IDE0LjgwODU5NCAyMC41NjY0MDYgTCA3LjQ5MjE4OCAyMC41NjY0MDYgWiBNIDI4LjQyMTg3NSAxNC4xNDg0MzggQyAyOC40MjE4NzUgNi42ODM1OTQgMjIuNDQ1MzEzIDAuODMyMDMxIDE0LjgwODU5NCAwLjgzMjAzMSBMIDAgMC44MzIwMzEgTCAwIDQwLjYyMTA5NCBMIDcuNDkyMTg4IDQwLjYyMTA5NCBMIDcuNDkyMTg4IDI3LjQ2NDg0NCBMIDE0LjgwODU5NCAyNy40NjQ4NDQgQyAyMi40NDUzMTMgMjcuNDY0ODQ0IDI4LjQyMTg3NSAyMS42MTMyODEgMjguNDIxODc1IDE0LjE0ODQzOCAiLz4KPC9nPgo8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDIpIiBjbGlwLXJ1bGU9Im5vbnplcm8iPgo8cGF0aCBzdHlsZT0iIHN0cm9rZTpub25lO2ZpbGwtcnVsZTpub256ZXJvO2ZpbGw6cmdiKDc2LjQ5OTkzOSUsMTAuNTk4NzU1JSw0Ni4yOTk3NDQlKTtmaWxsLW9wYWNpdHk6MTsiIGQ9Ik0gMTcuNDg4MjgxIDU1LjA1NDY4OCBMIDE3LjQ4ODI4MSA1Ni41NTA3ODEgTCAxMi41NzAzMTMgNTYuNTUwNzgxIEwgMTIuNTcwMzEzIDQ4LjYwNTQ2OSBMIDE3LjQyOTY4OCA0OC42MDU0NjkgTCAxNy40Mjk2ODggNTAuMTAxNTYzIEwgMTQuMTQwNjI1IDUwLjEwMTU2MyBMIDE0LjE0MDYyNSA1MS43OTI5NjkgTCAxNy4xNDg0MzggNTEuNzkyOTY5IEwgMTcuMTQ4NDM4IDUzLjI2OTUzMSBMIDE0LjE0MDYyNSA1My4yNjk1MzEgTCAxNC4xNDA2MjUgNTUuMDU0Njg4IEwgMTcuNDg4MjgxIDU1LjA1NDY4OCAiLz4KPC9nPgo8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDMpIiBjbGlwLXJ1bGU9Im5vbnplcm8iPgo8cGF0aCBzdHlsZT0iIHN0cm9rZTpub25lO2ZpbGwtcnVsZTpub256ZXJvO2ZpbGw6cmdiKDc2LjQ5OTkzOSUsMTAuNTk4NzU1JSw0Ni4yOTk3NDQlKTtmaWxsLW9wYWNpdHk6MTsiIGQ9Ik0gMjUuODI4MTI1IDU1LjA1NDY4OCBMIDI1LjgyODEyNSA1Ni41NTA3ODEgTCAyMS4yMjY1NjMgNTYuNTUwNzgxIEwgMjEuMjI2NTYzIDQ4LjYwNTQ2OSBMIDIyLjc5Mjk2OSA0OC42MDU0NjkgTCAyMi43OTI5NjkgNTUuMDU0Njg4IEwgMjUuODI4MTI1IDU1LjA1NDY4OCAiLz4KPC9nPgo8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDQpIiBjbGlwLXJ1bGU9Im5vbnplcm8iPgo8cGF0aCBzdHlsZT0iIHN0cm9rZTpub25lO2ZpbGwtcnVsZTpub256ZXJvO2ZpbGw6cmdiKDc2LjQ5OTkzOSUsMTAuNTk4NzU1JSw0Ni4yOTk3NDQlKTtmaWxsLW9wYWNpdHk6MTsiIGQ9Ik0gMzMuOTk2MDk0IDU1LjA1NDY4OCBMIDMzLjk5NjA5NCA1Ni41NTA3ODEgTCAyOS4wODIwMzEgNTYuNTUwNzgxIEwgMjkuMDgyMDMxIDQ4LjYwNTQ2OSBMIDMzLjkzNzUgNDguNjA1NDY5IEwgMzMuOTM3NSA1MC4xMDE1NjMgTCAzMC42NDg0MzggNTAuMTAxNTYzIEwgMzAuNjQ4NDM4IDUxLjc5Mjk2OSBMIDMzLjY1NjI1IDUxLjc5Mjk2OSBMIDMzLjY1NjI1IDUzLjI2OTUzMSBMIDMwLjY0ODQzOCA1My4yNjk1MzEgTCAzMC42NDg0MzggNTUuMDU0Njg4IEwgMzMuOTk2MDk0IDU1LjA1NDY4OCAiLz4KPC9nPgo8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDUpIiBjbGlwLXJ1bGU9Im5vbnplcm8iPgo8cGF0aCBzdHlsZT0iIHN0cm9rZTpub25lO2ZpbGwtcnVsZTpub256ZXJvO2ZpbGw6cmdiKDc2LjQ5OTkzOSUsMTAuNTk4NzU1JSw0Ni4yOTk3NDQlKTtmaWxsLW9wYWNpdHk6MTsiIGQ9Ik0gNDIuMTQwNjI1IDU2LjU1MDc4MSBMIDM5LjMwNDY4OCA1Mi44MjgxMjUgTCAzOS4zMDQ2ODggNTYuNTUwNzgxIEwgMzcuNzM0Mzc1IDU2LjU1MDc4MSBMIDM3LjczNDM3NSA0OC42MDU0NjkgTCAzOS4zMDQ2ODggNDguNjA1NDY5IEwgMzkuMzA0Njg4IDUyLjExMzI4MSBMIDQyLjAyNzM0NCA0OC42MDU0NjkgTCA0My44MzIwMzEgNDguNjA1NDY5IEwgNDAuODk0NTMxIDUyLjQ2NDg0NCBMIDQzLjk0NTMxMyA1Ni41NTA3ODEgTCA0Mi4xNDA2MjUgNTYuNTUwNzgxICIvPgo8L2c+CjxnIGNsaXAtcGF0aD0idXJsKCNjbGlwNikiIGNsaXAtcnVsZT0ibm9uemVybyI+CjxwYXRoIHN0eWxlPSIgc3Ryb2tlOm5vbmU7ZmlsbC1ydWxlOm5vbnplcm87ZmlsbDpyZ2IoNzYuNDk5OTM5JSwxMC41OTg3NTUlLDQ2LjI5OTc0NCUpO2ZpbGwtb3BhY2l0eToxOyIgZD0iTSA1Mi42NDA2MjUgNTAuMTAxNTYzIEwgNTAuNDk2MDk0IDUwLjEwMTU2MyBMIDUwLjQ5NjA5NCA1Ni41NTA3ODEgTCA0OC45Mjk2ODggNTYuNTUwNzgxIEwgNDguOTI5Njg4IDUwLjEwMTU2MyBMIDQ2Ljc5Mjk2OSA1MC4xMDE1NjMgTCA0Ni43OTI5NjkgNDguNjA1NDY5IEwgNTIuNjQwNjI1IDQ4LjYwNTQ2OSBMIDUyLjY0MDYyNSA1MC4xMDE1NjMgIi8+CjwvZz4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXA3KSIgY2xpcC1ydWxlPSJub256ZXJvIj4KPHBhdGggc3R5bGU9IiBzdHJva2U6bm9uZTtmaWxsLXJ1bGU6bm9uemVybztmaWxsOnJnYig3Ni40OTk5MzklLDEwLjU5ODc1NSUsNDYuMjk5NzQ0JSk7ZmlsbC1vcGFjaXR5OjE7IiBkPSJNIDU3LjQ1NzAzMSA1Mi40MTc5NjkgTCA1OS4wNzAzMTMgNTIuNDE3OTY5IEMgNTkuNjYwMTU2IDUyLjQxNzk2OSA2MC4xNDg0MzggNTEuODk0NTMxIDYwLjE0ODQzOCA1MS4yMzgyODEgQyA2MC4xNDg0MzggNTAuNTc4MTI1IDU5LjY2MDE1NiA1MC4wNzAzMTMgNTkuMDcwMzEzIDUwLjA3MDMxMyBMIDU3LjQ1NzAzMSA1MC4wNzAzMTMgWiBNIDU4LjY0ODQzOCA1My43OTI5NjkgTCA1Ny40NTcwMzEgNTMuNzkyOTY5IEwgNTcuNDU3MDMxIDU2LjU1MDc4MSBMIDU1Ljg5MDYyNSA1Ni41NTA3ODEgTCA1NS44OTA2MjUgNDguNjA1NDY5IEwgNTkuMDcwMzEzIDQ4LjYwNTQ2OSBDIDYwLjUzMTI1IDQ4LjYwNTQ2OSA2MS43MTQ4NDQgNDkuNzg1MTU2IDYxLjcxNDg0NCA1MS4yMzgyODEgQyA2MS43MTQ4NDQgNTIuMjM4MjgxIDYxLjA4OTg0NCA1My4xMzI4MTMgNjAuMTc5Njg4IDUzLjU1NDY4OCBMIDYxLjk0MTQwNiA1Ni41NTA3ODEgTCA2MC4yNSA1Ni41NTA3ODEgTCA1OC42NDg0MzggNTMuNzkyOTY5ICIvPgo8L2c+CjxnIGNsaXAtcGF0aD0idXJsKCNjbGlwOCkiIGNsaXAtcnVsZT0ibm9uemVybyI+CjxwYXRoIHN0eWxlPSIgc3Ryb2tlOm5vbmU7ZmlsbC1ydWxlOm5vbnplcm87ZmlsbDpyZ2IoNzYuNDk5OTM5JSwxMC41OTg3NTUlLDQ2LjI5OTc0NCUpO2ZpbGwtb3BhY2l0eToxOyIgZD0iTSA3MS41ODIwMzEgNTIuNTc4MTI1IEMgNzEuNTgyMDMxIDUxLjA0Mjk2OSA3MC40NTcwMzEgNDkuOTY0ODQ0IDY5LjAxNTYyNSA0OS45NjQ4NDQgQyA2Ny41NzQyMTkgNDkuOTY0ODQ0IDY2LjQ1MzEyNSA1MS4wNDI5NjkgNjYuNDUzMTI1IDUyLjU3ODEyNSBDIDY2LjQ1MzEyNSA1NC4wOTc2NTYgNjcuNTc0MjE5IDU1LjE3OTY4OCA2OS4wMTU2MjUgNTUuMTc5Njg4IEMgNzAuNDU3MDMxIDU1LjE3OTY4OCA3MS41ODIwMzEgNTQuMDk3NjU2IDcxLjU4MjAzMSA1Mi41NzgxMjUgWiBNIDY0Ljg5NDUzMSA1Mi41NzgxMjUgQyA2NC44OTQ1MzEgNTAuMjUgNjYuNzIyNjU2IDQ4LjQ0NTMxMyA2OS4wMTU2MjUgNDguNDQ1MzEzIEMgNzEuMzA4NTk0IDQ4LjQ0NTMxMyA3My4xNDg0MzggNTAuMjUgNzMuMTQ4NDM4IDUyLjU3ODEyNSBDIDczLjE0ODQzOCA1NC44OTQ1MzEgNzEuMzA4NTk0IDU2LjcxMDkzOCA2OS4wMTU2MjUgNTYuNzEwOTM4IEMgNjYuNzIyNjU2IDU2LjcxMDkzOCA2NC44OTQ1MzEgNTQuODk0NTMxIDY0Ljg5NDUzMSA1Mi41NzgxMjUgIi8+CjwvZz4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXA5KSIgY2xpcC1ydWxlPSJub256ZXJvIj4KPHBhdGggc3R5bGU9IiBzdHJva2U6bm9uZTtmaWxsLXJ1bGU6bm9uemVybztmaWxsOnJnYig3Ni40OTk5MzklLDEwLjU5ODc1NSUsNDYuMjk5NzQ0JSk7ZmlsbC1vcGFjaXR5OjE7IiBkPSJNIDgxLjcxODc1IDUwLjEwMTU2MyBMIDc5LjU3NDIxOSA1MC4xMDE1NjMgTCA3OS41NzQyMTkgNTYuNTUwNzgxIEwgNzguMDAzOTA2IDU2LjU1MDc4MSBMIDc4LjAwMzkwNiA1MC4xMDE1NjMgTCA3NS44NzEwOTQgNTAuMTAxNTYzIEwgNzUuODcxMDk0IDQ4LjYwNTQ2OSBMIDgxLjcxODc1IDQ4LjYwNTQ2OSBMIDgxLjcxODc1IDUwLjEwMTU2MyAiLz4KPC9nPgo8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDEwKSIgY2xpcC1ydWxlPSJub256ZXJvIj4KPHBhdGggc3R5bGU9IiBzdHJva2U6bm9uZTtmaWxsLXJ1bGU6bm9uemVybztmaWxsOnJnYig3Ni40OTk5MzklLDEwLjU5ODc1NSUsNDYuMjk5NzQ0JSk7ZmlsbC1vcGFjaXR5OjE7IiBkPSJNIDg5Ljg4MjgxMyA1NS4wNTQ2ODggTCA4OS44ODI4MTMgNTYuNTUwNzgxIEwgODQuOTY0ODQ0IDU2LjU1MDc4MSBMIDg0Ljk2NDg0NCA0OC42MDU0NjkgTCA4OS44MjQyMTkgNDguNjA1NDY5IEwgODkuODI0MjE5IDUwLjEwMTU2MyBMIDg2LjUzMTI1IDUwLjEwMTU2MyBMIDg2LjUzMTI1IDUxLjc5Mjk2OSBMIDg5LjU0Mjk2OSA1MS43OTI5NjkgTCA4OS41NDI5NjkgNTMuMjY5NTMxIEwgODYuNTMxMjUgNTMuMjY5NTMxIEwgODYuNTMxMjUgNTUuMDU0Njg4IEwgODkuODgyODEzIDU1LjA1NDY4OCAiLz4KPC9nPgo8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDExKSIgY2xpcC1ydWxlPSJub256ZXJvIj4KPHBhdGggc3R5bGU9IiBzdHJva2U6bm9uZTtmaWxsLXJ1bGU6bm9uemVybztmaWxsOnJnYig3Ni40OTk5MzklLDEwLjU5ODc1NSUsNDYuMjk5NzQ0JSk7ZmlsbC1vcGFjaXR5OjE7IiBkPSJNIDkzLjA5Mzc1IDUyLjU3ODEyNSBDIDkzLjA5Mzc1IDUwLjI1IDk0LjgyMDMxMyA0OC40NDUzMTMgOTcuMjI2NTYzIDQ4LjQ0NTMxMyBDIDk4LjY3OTY4OCA0OC40NDUzMTMgOTkuOTY0ODQ0IDQ5LjE4MzU5NCAxMDAuNjQ0NTMxIDUwLjMyMDMxMyBMIDk5LjI5Mjk2OSA1MS4xMDE1NjMgQyA5OC45MDYyNSA1MC4zOTg0MzggOTguMTM2NzE5IDQ5Ljk2NDg0NCA5Ny4yMjY1NjMgNDkuOTY0ODQ0IEMgOTUuNjcxODc1IDQ5Ljk2NDg0NCA5NC42NTIzNDQgNTEuMDQyOTY5IDk0LjY1MjM0NCA1Mi41NzgxMjUgQyA5NC42NTIzNDQgNTQuMDk3NjU2IDk1LjY3MTg3NSA1NS4xNzk2ODggOTcuMjI2NTYzIDU1LjE3OTY4OCBDIDk4LjEzNjcxOSA1NS4xNzk2ODggOTguOTE3OTY5IDU0Ljc0NjA5NCA5OS4yOTI5NjkgNTQuMDU0Njg4IEwgMTAwLjY0NDUzMSA1NC44MzU5MzggQyA5OS45NzI2NTYgNTUuOTcyNjU2IDk4LjY5MTQwNiA1Ni43MTA5MzggOTcuMjI2NTYzIDU2LjcxMDkzOCBDIDk0LjgyMDMxMyA1Ni43MTA5MzggOTMuMDkzNzUgNTQuODk0NTMxIDkzLjA5Mzc1IDUyLjU3ODEyNSAiLz4KPC9nPgo8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDEyKSIgY2xpcC1ydWxlPSJub256ZXJvIj4KPHBhdGggc3R5bGU9IiBzdHJva2U6bm9uZTtmaWxsLXJ1bGU6bm9uemVybztmaWxsOnJnYig3Ni40OTk5MzklLDEwLjU5ODc1NSUsNDYuMjk5NzQ0JSk7ZmlsbC1vcGFjaXR5OjE7IiBkPSJNIDExMC4xODM1OTQgNDguNjA1NDY5IEwgMTEwLjE4MzU5NCA1Ni41NTA3ODEgTCAxMDguNjI4OTA2IDU2LjU1MDc4MSBMIDEwOC42Mjg5MDYgNTMuMjU3ODEzIEwgMTA1LjY3OTY4OCA1My4yNTc4MTMgTCAxMDUuNjc5Njg4IDU2LjU1MDc4MSBMIDEwNC4xMDkzNzUgNTYuNTUwNzgxIEwgMTA0LjEwOTM3NSA0OC42MDU0NjkgTCAxMDUuNjc5Njg4IDQ4LjYwNTQ2OSBMIDEwNS42Nzk2ODggNTEuNzYxNzE5IEwgMTA4LjYyODkwNiA1MS43NjE3MTkgTCAxMDguNjI4OTA2IDQ4LjYwNTQ2OSBMIDExMC4xODM1OTQgNDguNjA1NDY5ICIvPgo8L2c+CjxnIGNsaXAtcGF0aD0idXJsKCNjbGlwMTMpIiBjbGlwLXJ1bGU9Im5vbnplcm8iPgo8cGF0aCBzdHlsZT0iIHN0cm9rZTpub25lO2ZpbGwtcnVsZTpub256ZXJvO2ZpbGw6cmdiKDc2LjQ5OTkzOSUsMTAuNTk4NzU1JSw0Ni4yOTk3NDQlKTtmaWxsLW9wYWNpdHk6MTsiIGQ9Ik0gMTIwLjM3ODkwNiA0OC42MDU0NjkgTCAxMjAuMzc4OTA2IDU2LjU1MDc4MSBMIDExOS4xODc1IDU2LjU1MDc4MSBMIDExNS43ODEyNSA1MS42OTE0MDYgTCAxMTUuNzgxMjUgNTYuNTUwNzgxIEwgMTE0LjIxNDg0NCA1Ni41NTA3ODEgTCAxMTQuMjE0ODQ0IDQ4LjYwNTQ2OSBMIDExNS40MDYyNSA0OC42MDU0NjkgTCAxMTguODEyNSA1My40NTMxMjUgTCAxMTguODEyNSA0OC42MDU0NjkgTCAxMjAuMzc4OTA2IDQ4LjYwNTQ2OSAiLz4KPC9nPgo8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDE0KSIgY2xpcC1ydWxlPSJub256ZXJvIj4KPHBhdGggc3R5bGU9IiBzdHJva2U6bm9uZTtmaWxsLXJ1bGU6bm9uemVybztmaWxsOnJnYig3Ni40OTk5MzklLDEwLjU5ODc1NSUsNDYuMjk5NzQ0JSk7ZmlsbC1vcGFjaXR5OjE7IiBkPSJNIDEyNS45NzY1NjMgNDguNjA1NDY5IEwgMTI1Ljk3NjU2MyA1Ni41NTA3ODEgTCAxMjQuNDEwMTU2IDU2LjU1MDc4MSBMIDEyNC40MTAxNTYgNDguNjA1NDY5IEwgMTI1Ljk3NjU2MyA0OC42MDU0NjkgIi8+CjwvZz4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXAxNSkiIGNsaXAtcnVsZT0ibm9uemVybyI+CjxwYXRoIHN0eWxlPSIgc3Ryb2tlOm5vbmU7ZmlsbC1ydWxlOm5vbnplcm87ZmlsbDpyZ2IoNzYuNDk5OTM5JSwxMC41OTg3NTUlLDQ2LjI5OTc0NCUpO2ZpbGwtb3BhY2l0eToxOyIgZD0iTSAxMzQuMzk0NTMxIDU2LjU1MDc4MSBMIDEzMS41NTg1OTQgNTIuODI4MTI1IEwgMTMxLjU1ODU5NCA1Ni41NTA3ODEgTCAxMjkuOTkyMTg4IDU2LjU1MDc4MSBMIDEyOS45OTIxODggNDguNjA1NDY5IEwgMTMxLjU1ODU5NCA0OC42MDU0NjkgTCAxMzEuNTU4NTk0IDUyLjExMzI4MSBMIDEzNC4yODEyNSA0OC42MDU0NjkgTCAxMzYuMDg1OTM4IDQ4LjYwNTQ2OSBMIDEzMy4xNDg0MzggNTIuNDY0ODQ0IEwgMTM2LjE5OTIxOSA1Ni41NTA3ODEgTCAxMzQuMzk0NTMxIDU2LjU1MDc4MSAiLz4KPC9nPgo8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDE2KSIgY2xpcC1ydWxlPSJub256ZXJvIj4KPHBhdGggc3R5bGU9IiBzdHJva2U6bm9uZTtmaWxsLXJ1bGU6bm9uemVybztmaWxsOnJnYig3Ni40OTk5MzklLDEwLjU5ODc1NSUsNDYuMjk5NzQ0JSk7ZmlsbC1vcGFjaXR5OjE7IiBkPSJNIDE1Mi40NDE0MDYgNTYuNTUwNzgxIEwgMTUwLjg4NjcxOSA1Ni41NTA3ODEgTCAxNTAuODg2NzE5IDUxLjM5ODQzOCBMIDE0OC42NTIzNDQgNTUuMDg1OTM4IEwgMTQ4LjQ2ODc1IDU1LjA4NTkzOCBMIDE0Ni4yMzQzNzUgNTEuNDA2MjUgTCAxNDYuMjM0Mzc1IDU2LjU1MDc4MSBMIDE0NC42NjQwNjMgNTYuNTUwNzgxIEwgMTQ0LjY2NDA2MyA0OC42MDU0NjkgTCAxNDYuMjc3MzQ0IDQ4LjYwNTQ2OSBMIDE0OC41NTg1OTQgNTIuMzYzMjgxIEwgMTUwLjgyODEyNSA0OC42MDU0NjkgTCAxNTIuNDQxNDA2IDQ4LjYwNTQ2OSBMIDE1Mi40NDE0MDYgNTYuNTUwNzgxICIvPgo8L2c+CjxnIGNsaXAtcGF0aD0idXJsKCNjbGlwMTcpIiBjbGlwLXJ1bGU9Im5vbnplcm8iPgo8cGF0aCBzdHlsZT0iIHN0cm9rZTpub25lO2ZpbGwtcnVsZTpub256ZXJvO2ZpbGw6cmdiKDc2LjQ5OTkzOSUsMTAuNTk4NzU1JSw0Ni4yOTk3NDQlKTtmaWxsLW9wYWNpdHk6MTsiIGQ9Ik0gMTU5Ljc2OTUzMSA0Ny4yODUxNTYgQyAxNTkuNzY5NTMxIDQ2Ljg2NzE4OCAxNjAuMTE3MTg4IDQ2LjUxNTYyNSAxNjAuNTM5MDYzIDQ2LjUxNTYyNSBDIDE2MC45NjA5MzggNDYuNTE1NjI1IDE2MS4zMDA3ODEgNDYuODY3MTg4IDE2MS4zMDA3ODEgNDcuMjg1MTU2IEMgMTYxLjMwMDc4MSA0Ny43MDcwMzEgMTYwLjk2MDkzOCA0OC4wNDY4NzUgMTYwLjUzOTA2MyA0OC4wNDY4NzUgQyAxNjAuMTE3MTg4IDQ4LjA0Njg3NSAxNTkuNzY5NTMxIDQ3LjcwNzAzMSAxNTkuNzY5NTMxIDQ3LjI4NTE1NiBaIE0gMTU3LjYwOTM3NSA0Ny4yODUxNTYgQyAxNTcuNjA5Mzc1IDQ2Ljg2NzE4OCAxNTcuOTYwOTM4IDQ2LjUxNTYyNSAxNTguMzgyODEzIDQ2LjUxNTYyNSBDIDE1OC44MDA3ODEgNDYuNTE1NjI1IDE1OS4xNDQ1MzEgNDYuODY3MTg4IDE1OS4xNDQ1MzEgNDcuMjg1MTU2IEMgMTU5LjE0NDUzMSA0Ny43MDcwMzEgMTU4LjgwMDc4MSA0OC4wNDY4NzUgMTU4LjM4MjgxMyA0OC4wNDY4NzUgQyAxNTcuOTYwOTM4IDQ4LjA0Njg3NSAxNTcuNjA5Mzc1IDQ3LjcwNzAzMSAxNTcuNjA5Mzc1IDQ3LjI4NTE1NiBaIE0gMTU2LjQyOTY4OCA1My45NDkyMTkgTCAxNTYuNDI5Njg4IDQ4LjYwNTQ2OSBMIDE1Ny45ODQzNzUgNDguNjA1NDY5IEwgMTU3Ljk4NDM3NSA1My44MjQyMTkgQyAxNTcuOTg0Mzc1IDU0LjU5NzY1NiAxNTguMzk0NTMxIDU1LjE3OTY4OCAxNTkuNDYwOTM4IDU1LjE3OTY4OCBDIDE2MC41MjczNDQgNTUuMTc5Njg4IDE2MC45Mzc1IDU0LjU5NzY1NiAxNjAuOTM3NSA1My44MjQyMTkgTCAxNjAuOTM3NSA0OC42MDU0NjkgTCAxNjIuNTAzOTA2IDQ4LjYwNTQ2OSBMIDE2Mi41MDM5MDYgNTMuOTQ5MjE5IEMgMTYyLjUwMzkwNiA1NS42NjQwNjMgMTYxLjIxMDkzOCA1Ni43MTA5MzggMTU5LjQ2MDkzOCA1Ni43MTA5MzggQyAxNTcuNzIyNjU2IDU2LjcxMDkzOCAxNTYuNDI5Njg4IDU1LjY2NDA2MyAxNTYuNDI5Njg4IDUzLjk0OTIxOSAiLz4KPC9nPgo8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDE4KSIgY2xpcC1ydWxlPSJub256ZXJvIj4KPHBhdGggc3R5bGU9IiBzdHJva2U6bm9uZTtmaWxsLXJ1bGU6bm9uemVybztmaWxsOnJnYig3Ni40OTk5MzklLDEwLjU5ODc1NSUsNDYuMjk5NzQ0JSk7ZmlsbC1vcGFjaXR5OjE7IiBkPSJNIDE3Mi42NTIzNDQgNDguNjA1NDY5IEwgMTcyLjY1MjM0NCA1Ni41NTA3ODEgTCAxNzEuNDU3MDMxIDU2LjU1MDc4MSBMIDE2OC4wNTQ2ODggNTEuNjkxNDA2IEwgMTY4LjA1NDY4OCA1Ni41NTA3ODEgTCAxNjYuNDg4MjgxIDU2LjU1MDc4MSBMIDE2Ni40ODgyODEgNDguNjA1NDY5IEwgMTY3LjY3OTY4OCA0OC42MDU0NjkgTCAxNzEuMDg1OTM4IDUzLjQ1MzEyNSBMIDE3MS4wODU5MzggNDguNjA1NDY5IEwgMTcyLjY1MjM0NCA0OC42MDU0NjkgIi8+CjwvZz4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXAxOSkiIGNsaXAtcnVsZT0ibm9uemVybyI+CjxwYXRoIHN0eWxlPSIgc3Ryb2tlOm5vbmU7ZmlsbC1ydWxlOm5vbnplcm87ZmlsbDpyZ2IoNzYuNDk5OTM5JSwxMC41OTg3NTUlLDQ2LjI5OTc0NCUpO2ZpbGwtb3BhY2l0eToxOyIgZD0iTSAxNzYuMjczNDM4IDUyLjU3ODEyNSBDIDE3Ni4yNzM0MzggNTAuMjUgMTc3Ljk5NjA5NCA0OC40NDUzMTMgMTgwLjQwNjI1IDQ4LjQ0NTMxMyBDIDE4MS44NTkzNzUgNDguNDQ1MzEzIDE4My4xNDA2MjUgNDkuMTgzNTk0IDE4My44MjAzMTMgNTAuMzIwMzEzIEwgMTgyLjQ3MjY1NiA1MS4xMDE1NjMgQyAxODIuMDg1OTM4IDUwLjM5ODQzOCAxODEuMzEyNSA0OS45NjQ4NDQgMTgwLjQwNjI1IDQ5Ljk2NDg0NCBDIDE3OC44NDc2NTYgNDkuOTY0ODQ0IDE3Ny44MjgxMjUgNTEuMDQyOTY5IDE3Ny44MjgxMjUgNTIuNTc4MTI1IEMgMTc3LjgyODEyNSA1NC4wOTc2NTYgMTc4Ljg0NzY1NiA1NS4xNzk2ODggMTgwLjQwNjI1IDU1LjE3OTY4OCBDIDE4MS4zMTI1IDU1LjE3OTY4OCAxODIuMDk3NjU2IDU0Ljc0NjA5NCAxODIuNDcyNjU2IDU0LjA1NDY4OCBMIDE4My44MjAzMTMgNTQuODM1OTM4IEMgMTgzLjE1MjM0NCA1NS45NzI2NTYgMTgxLjg2NzE4OCA1Ni43MTA5MzggMTgwLjQwNjI1IDU2LjcxMDkzOCBDIDE3Ny45OTYwOTQgNTYuNzEwOTM4IDE3Ni4yNzM0MzggNTQuODk0NTMxIDE3Ni4yNzM0MzggNTIuNTc4MTI1ICIvPgo8L2c+CjxnIGNsaXAtcGF0aD0idXJsKCNjbGlwMjApIiBjbGlwLXJ1bGU9Im5vbnplcm8iPgo8cGF0aCBzdHlsZT0iIHN0cm9rZTpub25lO2ZpbGwtcnVsZTpub256ZXJvO2ZpbGw6cmdiKDc2LjQ5OTkzOSUsMTAuNTk4NzU1JSw0Ni4yOTk3NDQlKTtmaWxsLW9wYWNpdHk6MTsiIGQ9Ik0gMTkzLjM2MzI4MSA0OC42MDU0NjkgTCAxOTMuMzYzMjgxIDU2LjU1MDc4MSBMIDE5MS44MDg1OTQgNTYuNTUwNzgxIEwgMTkxLjgwODU5NCA1My4yNTc4MTMgTCAxODguODU1NDY5IDUzLjI1NzgxMyBMIDE4OC44NTU0NjkgNTYuNTUwNzgxIEwgMTg3LjI4OTA2MyA1Ni41NTA3ODEgTCAxODcuMjg5MDYzIDQ4LjYwNTQ2OSBMIDE4OC44NTU0NjkgNDguNjA1NDY5IEwgMTg4Ljg1NTQ2OSA1MS43NjE3MTkgTCAxOTEuODA4NTk0IDUxLjc2MTcxOSBMIDE5MS44MDg1OTQgNDguNjA1NDY5IEwgMTkzLjM2MzI4MSA0OC42MDU0NjkgIi8+CjwvZz4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXAyMSkiIGNsaXAtcnVsZT0ibm9uemVybyI+CjxwYXRoIHN0eWxlPSIgc3Ryb2tlOm5vbmU7ZmlsbC1ydWxlOm5vbnplcm87ZmlsbDpyZ2IoNzYuNDk5OTM5JSwxMC41OTg3NTUlLDQ2LjI5OTc0NCUpO2ZpbGwtb3BhY2l0eToxOyIgZD0iTSAyMDIuMzA4NTk0IDU1LjA1NDY4OCBMIDIwMi4zMDg1OTQgNTYuNTUwNzgxIEwgMTk3LjM5NDUzMSA1Ni41NTA3ODEgTCAxOTcuMzk0NTMxIDQ4LjYwNTQ2OSBMIDIwMi4yNSA0OC42MDU0NjkgTCAyMDIuMjUgNTAuMTAxNTYzIEwgMTk4Ljk2MDkzOCA1MC4xMDE1NjMgTCAxOTguOTYwOTM4IDUxLjc5Mjk2OSBMIDIwMS45Njg3NSA1MS43OTI5NjkgTCAyMDEuOTY4NzUgNTMuMjY5NTMxIEwgMTk4Ljk2MDkzOCA1My4yNjk1MzEgTCAxOTguOTYwOTM4IDU1LjA1NDY4OCBMIDIwMi4zMDg1OTQgNTUuMDU0Njg4ICIvPgo8L2c+CjxnIGNsaXAtcGF0aD0idXJsKCNjbGlwMjIpIiBjbGlwLXJ1bGU9Im5vbnplcm8iPgo8cGF0aCBzdHlsZT0iIHN0cm9rZTpub25lO2ZpbGwtcnVsZTpub256ZXJvO2ZpbGw6cmdiKDc2LjQ5OTkzOSUsMTAuNTk4NzU1JSw0Ni4yOTk3NDQlKTtmaWxsLW9wYWNpdHk6MTsiIGQ9Ik0gMjEyLjIxNDg0NCA0OC42MDU0NjkgTCAyMTIuMjE0ODQ0IDU2LjU1MDc4MSBMIDIxMS4wMTk1MzEgNTYuNTUwNzgxIEwgMjA3LjYxNzE4OCA1MS42OTE0MDYgTCAyMDcuNjE3MTg4IDU2LjU1MDc4MSBMIDIwNi4wNTA3ODEgNTYuNTUwNzgxIEwgMjA2LjA1MDc4MSA0OC42MDU0NjkgTCAyMDcuMjQyMTg4IDQ4LjYwNTQ2OSBMIDIxMC42NDg0MzggNTMuNDUzMTI1IEwgMjEwLjY0ODQzOCA0OC42MDU0NjkgTCAyMTIuMjE0ODQ0IDQ4LjYwNTQ2OSAiLz4KPC9nPgo8L2c+Cjwvc3ZnPgo=" alt="Pittroff Elektrotechnik München GmbH" style="height:36px;max-width:160px;object-fit:contain;"/></div>
+  <div class="hn">
+    <a href="#leistungen" class="nl ng">Leistungen</a>
+    <a href="#kontakt" class="nl np">Kontakt</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hp" id="heroBg" style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=85&fit=crop&crop=center')"></div>
+  <div class="ho"></div>
+  <div class="hg"></div>
+  <div class="hc">
+    <div class="hbadge"><div class="bd"></div> Ihr Elektriker in Bayern</div>
+    <h1>Pittroff<br><em>Elektrotechnik München GmbH</em></h1>
+    <p class="hdesc">Professionelle Elektriker für Privat &amp; Gewerbe in Bayern.</p>
+    <div class="hbtns">
+      <a href="tel:0899901880" class="bm">📞  089 9901880</a>
+      <a href="#kontakt" class="bs">Anfrage senden →</a>
+    </div>
+    <div class="hstats">
+      <div><div class="stn">4,9★</div><div class="stl">Google Rating</div></div>
+      <div><div class="stn">154</div><div class="stl">Bewertungen</div></div>
+      <div><div class="stn">24h</div><div class="stl">Notdienst</div></div>
+      <div><div class="stn">100%</div><div class="stl">Meisterbetrieb</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="usp">
+  <div class="ui"><div class="uico">✓</div> Zertifizierter Fachbetrieb</div>
+  <div class="ui"><div class="uico">⚡</div> Schnelle Reaktionszeit</div>
+  <div class="ui"><div class="uico">★</div> Top Google Bewertungen</div>
+  <div class="ui"><div class="uico">🔒</div> Festpreisgarantie</div>
+</div>
+
+<section class="about">
+  <div class="aph">
+    <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=85&fit=crop&crop=center" alt="Handwerker bei der Arbeit" loading="lazy"/>
+    <div class="apo"><div class="apb">✓ Ihr Experte in Bayern</div></div>
+  </div>
+  <div class="ac">
+    <div class="stag">Über uns</div>
+    <div class="stitle">Ihr verlässlicher<br>Partner vor Ort</div>
+    <p>Als lokaler Fachbetrieb in Bayern sind wir Ihr Ansprechpartner für alles rund um Elektriker — von der kleinen Reparatur bis zum Komplettauftrag.</p>
+    <p>Als zertifizierter Meisterbetrieb arbeiten wir nach höchsten Qualitätsstandards und stehen für unsere Arbeit gerade.</p>
+    <div class="tbadges">
+      <div class="tb">🏅 Meisterbetrieb</div>
+      <div class="tb">🔒 Festpreisgarantie</div>
+      <div class="tb">⚡ 24h Notdienst</div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="leistungen">
+  <div class="stag">Leistungen</div>
+  <div class="stitle">Was wir für Sie<br>tun können</div>
+  <div class="sgrid"><div class="sc"><div class="sico">⚡</div><h3>Elektroinstallation</h3><p>Neuinstallation und Erweiterung für Privat & Gewerbe nach VDE-Normen.</p></div>
+<div class="sc"><div class="sico">🏠</div><h3>Smart Home</h3><p>Moderne Hausautomation und intelligente Steuerungssysteme.</p></div>
+<div class="sc"><div class="sico">🔧</div><h3>Reparatur &amp; Wartung</h3><p>Schnelle Hilfe bei Störungen und Defekten — meist noch am selben Tag.</p></div>
+<div class="sc"><div class="sico">☀️</div><h3>Photovoltaik</h3><p>Planung, Installation und Wartung von Solaranlagen.</p></div>
+<div class="sc"><div class="sico">🔌</div><h3>E-Mobilität</h3><p>Wallbox-Installation für alle Elektrofahrzeuge.</p></div>
+<div class="sc"><div class="sico">📋</div><h3>Prüfungen &amp; E-Check</h3><p>DGUV V3, E-Check und Anlagenprüfungen nach VDE.</p></div>
+</div>
+</section>
+
+<div class="gallery">
+  <div class="gg">
+    <div class="gi"><img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=800&q=80&fit=crop" alt="" loading="lazy"/></div>
+    <div class="gi"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80&fit=crop" alt="" loading="lazy"/></div>
+    <div class="gi"><img src="https://images.unsplash.com/photo-1516156008625-3a9d6067fab5?w=600&q=80&fit=crop" alt="" loading="lazy"/></div>
+  </div>
+</div>
+
+<div class="reviews">
+  <div>
+    <div class="rn">4.9</div>
+    <div class="rs">★★★★½</div>
+    <div class="rc">154 Google Bewertungen</div>
+  </div>
+  <div class="rsep"></div>
+  <div>
+    <div class="rq">"Sehr professionell und zuverlässig. Schnelle Terminvereinbarung, saubere Arbeit, faire Preise. Absolute Empfehlung!"</div>
+    <div class="ra">— Verifizierter Google-Kunde · Bayern</div>
+  </div>
+</div>
+
+<section class="contact" id="kontakt">
+  <div class="cl">
+    <h2>Sprechen wir<br>miteinander.</h2>
+    <p>Rufen Sie uns an oder senden Sie eine kurze Anfrage. Wir melden uns innerhalb von 24 Stunden.</p>
+    <div class="cr"><div class="cico">📍</div><div><div class="ct"> St.-Johann-Straße 44, 80999 München</div><div class="cs">Standort</div></div></div>
+<div class="cr"><div class="cico">📞</div><div><div class="ct"> 089 9901880</div><div class="cs">Mo–Fr 07–17 Uhr</div></div></div>
+<div class="cr"><div class="cico">✉️</div><div><div class="ct">-</div><div class="cs">E-Mail</div></div></div>
+<div class="cr"><div class="cico">⏰</div><div><div class="ct">Mo–Fr 07:00–17:00 Uhr</div><div class="cs">Öffnungszeiten</div></div></div>
+  </div>
+  <div class="cf">
+    <h3>Kostenlose Anfrage</h3>
+    <div class="fr"><input type="text" placeholder="Ihr Name"/></div>
+    <div class="fr"><input type="text" placeholder="Telefon oder E-Mail"/></div>
+    <div class="fr"><textarea placeholder="Womit kann ich Ihnen helfen?"></textarea></div>
+    <button class="fsub">Anfrage absenden →</button>
+  </div>
+</section>
+
+<footer>
+  <div class="fcp">© 2025 Pittroff Elektrotechnik München GmbH · Bayern</div>
+  <div class="fwm">Vorschau erstellt von <strong>Gleißner &amp; Nägel</strong> · Web, Prozesse &amp; Automatisierung</div>
+</footer>
+
+<div class="fctas">
+  <a href="tel:0899901880" class="fb fbc">📞 Jetzt anrufen</a>
+  <a href="mailto:-" class="fb fbm">✉️ E-Mail senden</a>
+</div>
+
+<script>
+(function(){
+  const imgs = ["https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=85&fit=crop&crop=center", "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=1600&q=85&fit=crop&crop=center", "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1600&q=85&fit=crop&crop=center", "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1600&q=85&fit=crop&crop=center", "https://images.unsplash.com/photo-1516156008625-3a9d6067fab5?w=1600&q=85&fit=crop&crop=center"];
+  let i = 0;
+  const hp = document.getElementById('heroBg');
+  setInterval(function(){
+    hp.style.opacity='0';
+    setTimeout(function(){
+      i=(i+1)%imgs.length;
+      hp.style.backgroundImage="url('"+imgs[i]+"')";
+      hp.style.opacity='1';
+    },1000);
+  },5000);
+})();
+</script>
+</body></html>
