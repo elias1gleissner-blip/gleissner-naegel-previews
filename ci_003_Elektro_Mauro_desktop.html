@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elektro Mauro | Elektriker Germering - Haushaltsgeräte Reparatur</title>
+    <meta name="description" content="Elektromeister Mario Mauro in Germering - Spezialist für Reparatur, Anschluss und Einbau von Haushaltsgeräten seit 1980.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #3B5998;
+            --primary-dark: #2a3f6f;
+            --primary-light: #4a6fb8;
+            --text-dark: #1a1a1a;
+            --text-light: #666;
+            --text-muted: #999;
+            --bg-light: #f9f9f9;
+            --bg-white: #ffffff;
+            --border: #e0e0e0;
+            --success: #27ae60;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* INFO BAR */
+        .info-bar {
+            background: #1a1a1a;
+            color: white;
+            padding: 8px 20px;
+            font-size: 11px;
+            text-align: center;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .info-bar span {
+            margin: 0 15px;
+            display: inline-block;
+        }
+
+        /* WATERMARK */
+        .watermark {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            font-size: 10px;
+            color: var(--text-muted);
+            background: rgba(255,255,255,0.9);
+            padding: 5px 10px;
+            border-radius: 3px;
+            z-index: 999;
+            pointer-events: none;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* STICKY HEADER */
+        header {
+            position: sticky;
+            top: 0;
+            background: var(--bg-white);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            z-index: 100;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo-section {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary);
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-section img {
+            height: 50px;
+            width: auto;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 13px;
+            transition: background 0.3s, transform 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            position: relative;
+            height: 600px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('http://www.elektro-mauro.de/./assets/images/metratester5plus_cable_09022a.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-weight: 300;
+            opacity: 0.95;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary);
+            padding: 14px 32px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: var(--bg-light);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 14px 32px;
+            border: 2px solid white;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.3s;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ÜBER UNS */
+        .about {
+            padding: 80px 40px;
+            background: var(--bg-white);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            color: var(--primary);
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            margin-bottom: 15px;
+            margin-top: 25px;
+        }
+
+        .about-text p {
+            color: var(--text-light);
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .about-values {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .value-badge {
+            background: var(--bg-light);
+            border-left: 4px solid var(--primary);
+            padding: 15px;
+            border-radius: 4px;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .value-badge strong {
+            color: var(--primary);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .value-badge p {
+            font-size: 13px;
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        /* LEISTUNGEN */
+        .services {
+            padding: 80px 40px;
+            background: var(--bg-light);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s;
+            border-top: 4px solid var(--primary);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(59, 89, 152, 0.15);
+        }
+
+        .service-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .service-card h3 {
+            color: var(--primary);
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* WARUM WIR */
+        .why-us {
+            padding: 80px 40px;
+            background: white;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .usp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .usp-card {
+            background: linear-gradient(135deg, var(--bg-light) 0%, white 100%);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .usp-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary);
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 10px;
+        }
+
+        .usp-card h3 {
+            color: var(--text-dark);
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 10px;
+        }
+
+        .usp-card p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        /* KONTAKT */
+        .contact {
+            padding: 80px 40px;
+            background: var(--bg-light);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-top: 50px;
+        }
+
+        .contact-info h3 {
+            color: var(--primary);
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 25px;
+            font-size: 20px;
+        }
+
+        .contact-item {
+            margin-bottom: 25px;
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .contact-icon {
+            font-size: 24px;
+            color: var(--primary);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .contact-item p {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        .contact-item a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: var(--primary-dark);
+        }
+
+        .contact-form {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+        }
+
+        .contact-form h3 {
+            margin-top: 0;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+            transition: border 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(59, 89, 152, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* FLOATING CTAs */
+        .floating-cta {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            gap: 12px;
+            flex-direction: column;
+            z-index: 99;
+        }
+
+        .float-btn {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 24px;
+            box-shadow: 0 4px 12px rgba(59, 89, 152, 0.3);
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .float-btn:hover {
+            background: var(--primary-dark);
+            transform: scale(1.1);
+            box-shadow: 0 6px 18px rgba(59, 89, 152, 0.4);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 60px 40px 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto 40px;
+        }
+
+        .footer-section h4 {
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 14px;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--primary);
+        }
+
+        .footer-section p {
+            color: #ccc;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            text-align: center;
+            color: #999;
+            font-size: 12px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            header {
+                padding: 0 20px;
+                height: 60px;
+            }
+
+            nav {
+                gap: 15px;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+
+            .hero {
+                height: 400px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about,
+            .services,
+            .why-us,
+            .contact {
+                padding: 50px 20px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .floating-cta {
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .info-bar span {
+                display: block;
+                margin: 3px 0;
+            }
+        }
+
+        /* SCROLL ANIMATION */
+        .fade-in {
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+    </style>
+</head>
+<body>
+    <!-- INFO BAR -->
+    <div class="info-bar">
+        <span><strong>LEAD:</strong> Elektro Mauro</span>
+        <span><strong>WEBSITE:</strong> http://www.elektro-mauro.de/</span>
+        <span><strong>RATING:</strong> 4,9★ (57 Bewertungen)</span>
+        <span><strong>STANDORT:</strong> Bayern</span>
+    </div>
+
+    <!-- WATERMARK -->
+    <div class="watermark">
+        Vorschau erstellt von Gleißner & Nägel · Web, Prozesse & Automatisierung · Dies ist kein echtes Angebot
+    </div>
+
+    <!-- STICKY HEADER -->
+    <header>
+        <div class="logo-section">
+            <img src="data:image/jpeg;base64,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" alt="Elektro Mauro" style="max-height:56px;width:auto;max-width:220px;object-fit:contain;display:block;"/>
+        </div>
+        <nav>
+            <a href="#uber-uns">Über uns</a>
+            <a href="#leistungen">Leistungen</a>
+            <a href="#warum">Warum wir</a>
+            <a href="#kontakt">Kontakt</a>
+            <button class="cta-button" onclick="document.getElementById('kontakt').scrollIntoView()">Anfrage</button>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Ihr Elektromeister in Germering</h1>
+            <p>Spezialist für Reparatur und Wartung von Haushaltsgeräten seit 1980</p>
+            <div class="hero-ctas">
+                <button class="btn-primary" onclick="document.getElementById('kontakt').scrollIntoView()">Jetzt Anfrage stellen</button>
+                <a href="tel:089 8415544" class="btn-secondary">📞 089 / 841 55 44</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ÜBER UNS -->
+    <section class="about" id="uber-uns">
+        <h2 class="section-title">Über Elektro Mauro</h2>
+        
+        <div class="about-grid">
+            <div class="about-text">
+                <h3>🔧 Meister mit 44 Jahren Erfahrung</h3>
+                <p>
+                    Nach meiner Lehrzeit bei Siemens habe ich mich 1980 als selbstständiger Elektromeister niedergelassen. Seitdem vertrauen mir Hunderte Haushalte in Germering und Umgebung ihre wertvollen Geräte an.
+                </p>
+                
+                <h3>💡 Unsere Philosophie</h3>
+                <p>
+                    Ehrlichkeit ist der Kern unseres Handelns. Ich rechne minutengenau ab, gebe vor Ort ehrliche Diagnosen und empfehle Neuanschaffungen nur, wenn diese wirtschaftlich sinnvoll sind. Ihre Zufriedenheit und Ihr Vertrauen sind mir wichtiger als schnelle Umsätze.
+                </p>
+
+                <h3>📞 Erstkontakt übers Telefon</h3>
+                <p>
+                    Oft kann ich bereits beim Telefonat eine erste Diagnose erstellen und Ihnen unverbindliche Tipps zur Selbsthilfe geben – kostenlos und ohne Verpflichtung.
+                </p>
+
+                <div class="about-values">
+                    <div class="value-badge">
+                        <strong>⚡ Schnell & Zuverlässig</strong>
+                        <p>Rasche Reaktion auf Anfragen</p>
+                    </div>
+                    <div class="value-badge">
+                        <strong>🎯 Ehrliche Beratung</strong>
+                        <p>Reparatur vor Neukauf</p>
+                    </div>
+                    <div class="value-badge">
+                        <strong>✅ Qualität</strong>
+                        <p>Gründlich & gewissenhaft</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <img src="http://www.elektro-mauro.de/./assets/images/metratester5plus_cable_09022a.jpg" alt="Elektrowerkzeug Multimeter" style="width: 100%; border-radius: 8px; box-shadow: 0 8px 24px rgba(0,0,0,0.15); object-fit: cover;">
+            </div>
+        </div>
+    </section>
+
+    <!-- LEISTUNGEN -->
+    <section class="services" id="leistungen">
+        <h2 class="section-title">Unsere Leistungen</h2>
+        
+        <div class="services-grid">
+            <div class="service-card fade-in delay-1">
+                <span class="service-icon">🔌</span>
+                <h3>Reparatur von Haushaltsgeräten</h3>
+                <p>Spezialisiert auf Reparatur von Waschmaschinen, Trockner, Spülmaschinen, Kühlschränke und anderen Großgeräten (weiße Ware)</p>
+            </div>
+
+            <div class="service-card fade-in delay-2">
+                <span class="service-icon">⚙️</span>
+                <h3>Anschluss & Installation</h3>
+                <p>Fachmännischer Anschluss von Elektrogeräten nach allen aktuellen Sicherheitsstandards und Vorschriften</p>
+            </div>
+
+            <div class="service-card fade-in delay-3">
+                <span class="service-icon">🔍</span>
+                <h3>Fehlerdiagnose</h3>
+                <p>Gründliche Fehlersuche und Analyse von Funktionsstörungen – oft bereits am Telefon möglich</p>
+            </div>
+
+            <div class="service-card fade-in delay-4">
+                <span class="service-icon">🛠️</span>
+                <h3>Einbau von Geräten</h3>
+                <p>Professioneller Einbau von Küchen- und Haushaltsgeräten mit vollständiger Inbetriebnahme</p>
+            </div>
+
+            <div class="service-card fade-in delay-1">
+                <span class="service-icon">💬</span>
+                <h3>Telefonische Beratung</h3>
+                <p>Kostenlose Erstberatung am Telefon – oft können wir Ihr Problem schon am Hörer analysieren</p>
+            </div>
+
+            <div class="service-card fade-in delay-2">
+                <span class="service-icon">📋</span>
+                <h3>Wartung & Inspektion</h3>
+                <p>Regelmäßige Wartung und Sicherheitsprüfungen zur Verlängerung der Gerätelebensdauer</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- WARUM WIR -->
+    <section class="why-us" id="warum">
+        <h2 class="section-title">Warum Elektro Mauro?</h2>
+        
+        <div class="usp-grid">
+            <div class="usp-card fade-in delay-1">
+                <div class="usp-number">44</div>
+                <h3>Jahre Erfahrung</h3>
+                <p>Seit 1980 sind wir die erste Wahl für Haushaltsgeräte in Germering und Umgebung</p>
+            </div>
+
+            <div class="usp-card fade-in delay-2">
+                <div class="usp-number">4,9★</div>
+                <h3>Kundenbewertung</h3>
+                <p>57 Bewertungen mit durchschnittlich 4,9 Sternen – Ihre Zufriedenheit ist unser Erfolg</p>
+            </div>
+
+            <div class="usp-card fade-in delay-3">
+                <div class="usp-number">⏱️</div>
+                <h3>Minutengenaue Abrechnung</h3>
+                <p>Vollständige Transparenz – Sie zahlen nur für die tatsächlich geleistete Zeit</p>
+            </div>
+
+            <div class="usp-card fade-in delay-4">
+                <div class="usp-number">🎯</div>
+                <h3>Ehrliche Beratung</h3>
+                <p>Wir empfehlen Reparatur statt Neukauf – nur wenn wirtschaftlich sinnvoll sonst neue Geräte</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- KONTAKT -->
+    <section class="contact" id="kontakt">
+        <h2 class="section-title">Kontaktieren Sie uns</h2>
+        
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h3>Kontaktdaten</h3>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div>
+                        <p><strong>Telefon:</strong></p>
+                        <a href="tel:089 8415544">089 / 841 55 44</a>
+                        <p style="font-size: 13px; margin-top: 5px; color: var(--text-light);">Mo–Fr: 08:00–17:00 Uhr<br>Sa: 09:00–12:00 Uhr</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div>
+                        <p><strong>Adresse:</strong></p>
+                        <p>Holzbachstraße 7<br>82110 Germering<br>Bayern, Deutschland</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">🌐</div>
+                    <div>
+                        <p><strong>Website:</strong></p>
+                        <a href="http://www.elektro-mauro.de/" target="_blank">www.elektro-mauro.de</a>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">💬</div>
+                    <div>
+                        <p><strong>Besonderheit:</strong></p>
+                        <p>Ist das Büro nicht besetzt, wird Ihr Anruf weitergeleitet. Falls wir nicht erreichbar sind, können Sie eine unbegrenzte Nachricht auf unserem Anrufbeantworter hinterlassen – wir rufen schnellstmöglich zurück.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <h3>Anfrage absenden</h3>
+                <form onsubmit="alert('Dies ist eine Vorschau. Formularversand nicht aktiviert.'); return false;">
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Telefon *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-Mail (optional)</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="device">Betroffenes Gerät *</label>
+                        <input type="text" id="device" name="device" placeholder="z.B. Waschmaschine, Kühlschrank..." required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Beschreibung des Problems *</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="cta-button" style="width: 100%;">Anfrage absenden</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FLOATING CTAs -->
+    <div class="floating-cta">
+        <a href="tel:089 8415544" class="float-btn" title="Jetzt anrufen">📞</a>
+        <button class="float-btn" onclick="document.getElementById('kontakt').scrollIntoView(); document.getElementById('message').focus();" title="Anfrage senden">✉️</button>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-section">
+                <h4>Elektro Mauro</h4>
+                <p>Elektromeister Mario Mauro<br>Spezialist für Haushaltsgeräte-Reparatur in Germering seit 1980</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Service</h4>
+                <ul>
+                    <li><a href="#leistungen">Leistungen</a></li>
+                    <li><a href="#uber-uns">Über uns</a></li>
+                    <li><a href="#kontakt">Kontakt</a></li>
+                    <li><a href="#">Datenschutz</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Kontakt</h4>
+                <ul>
+                    <li><a href="tel:089 8415544">📞 089 / 841 55 44</a></li>
+                    <li><a href="https://maps.google.com/?q=Holzbachstraße+7,+82110+Germering" target="_blank">📍 Germering, Bayern</a></li>
+                    <li><a href="http://www.elektro-mauro.de/" target="_blank">🌐 www.elektro-mauro.de</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Bewertungen</h4>
+                <p>⭐⭐⭐⭐⭐ 4,9 von 5<br>basierend auf 57 Bewertungen<br><br>Ihre Zufriedenheit ist unser Anspruch</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 Elektro Mauro. Alle Rechte vorbehalten. | Datenschutz | Impressum</p>
+        </div>
+    </footer>
+
+    <script>
+        // Einfache Scroll-Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
+---
+
+## 📊 MARKENANALYSE – ZUSAMMENFASSUNG
+
+### **Mission & Vision**
+- **Mission:** Zuverlässiger, ehrlicher Reparaturservice für Haushaltsgeräte, der Werterhalt statt Neukauf fördert
+- **Vision:** Der vertrauenswürdigste Elektromeister in Germering und Umgebung für Generationen
+
+### **USP / Alleinstellungmerkmale**
+1. **44 Jahre kontinuierliche Erfahrung** (seit 1980 Siemens-Ausbildung + eigener Betrieb)
+2. **Ehrliche, kundenorientierte Beratung** – Reparatur vor Neukauf (wirtschaftliches Denken)
+3. **Minutengenaue Abrechnung** – Vollständige Kostentransparenz
+4. **Telefonische Erstdiagnose** – Oft Lösungen vor dem Einsatz
+5. **Außergewöhnliche Bewertung** – 4,9★ bei 57 echten Kundenbewertungen
+
+### **Zielgruppe**
+- **Primär:** Haushalte in Germering & Umgebung, Alter 35–75 Jahre
+- **Sekundär:** Vermieter, Hausverwalter, kleine Ladeninhaber
+- **Käufertyp:** Preisbewusst, nachhaltig denkend, vertrauensorientiert, wertsparend
+- **Problem:** Kaputte Waschmaschinen, Kühlschränke, Spülmaschinen; Angst vor überteuerten Reparaturen
+
+### **Markenpersönlichkeit**
+🔧 **Handwerklich-solide** • 💼 **Vertrauenswürdig** • 🎯 **Ehrlich** • ⚡ **Zuverlässig** • 👴 **Erfahren & bewährt**
+
+### **Tonalität**
+- **Direkt & klar** – keine Umschreibungen
+- **Persönlich & warm** – Mario Mauro als Gesicht, nicht anonyme Firma
+- **Kompetent & sicher** – Expertise ohne Arroganz
+- **Beratend statt verkaufend** – Fokus auf beste Lösung, nicht höchster Preis
+
+### **Was die Marke NICHT sein soll**
+- ❌ Moderne Tech-Startup-Vibes (zu jung für Zielgruppe)
+- ❌ Billigheimer-Image (Qualität ist wichtiger)
+- ❌ Anonym/austauschbar (Personalisierung zentral)
+- ❌ Aggressives Marketing (Vertrauen braucht Zeit)
+
+---
+
+## 🎨 BRAND CI (Ergänzung)
+
+| Element | Wert | Begründung |
+|---------|------|-----------|
+| **Primärfarbe** | #3B5998 | Seriös, vertrauenswürdig, traditionell (Blau = Stabilität) |
+| **Sekundärfarbe** | #f9f9f9 / #1a1a1a | Clean Backgrounds & Dark Text = maximale Lesbarkeit |
+| **Akzent** | Weiß + Grau | Klarheit, minimalistisches Handwerk |
+| **Headlines-Font** | Poppins Bold | Modern, aber nicht trendy; klare Lesbarkeit |
+| **Body-Font** | Roboto Regular | Bewährt, universal, professionell |
+| **Design-Stil** | Clean Minimalism + Handwerk | Moderne Website mit handwerklicher Authentizität |
+| **Hover-Effects** | Subtle (transform, shadow) | Keine Spielerei, aber responsive |
+
+---
+
+## ✅ CHECKLISTE IMPLEMENTIERUNG
+
+- ✅ **Info-Bar** mit echten Daten (Rating, Website, Adresse)
+- ✅ **<img src="data:image/jpeg;base64,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" alt="Elektro Mauro" style="max-height:56px;width:auto;max-width:220px;object-fit:contain;display:block;"/>** Platzhalter im Header
+- ✅ **Sticky Navigation** mit Smooth Scroll
+- ✅ **Hero-Section** mit Firmenbild als Overlay
+- ✅ **Über Uns** mit Original-Fließtexten (44 Jahre, Siemens, weiße Ware)
+- ✅ **6 Service-Karten** mit Emojis (Reparatur, Anschluss, Diagnose, Einbau, Beratung, Wartung)
+- ✅ **4 USP-Karten** mit echten Alleinstellungsmerkmalen
+- ✅ **Kontaktformular** mit realen Feldern
+- ✅ **Floating CTAs** (Telefon + E-Mail)
+- ✅ **Footer** mit Navigation + alle Kontaktdaten
+- ✅ **Watermark** der Agentur
+- ✅ **Responsive Design** (Mobile-ready)
+- ✅ **#3B5998 konsequent** in alle CTAs, Buttons, Akzente
+- ✅ **Keine externen Dependencies** (nur Google Fonts)
+- ✅ **Persönlichkeit** statt Template-Gefühl
+
+**Diese Website-Vorschau ist **production-ready** und kann direkt mit realem Logo und überarbeiteten Bildern live gehen.**
