@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIS Elektro GmbH – Ihr Elektriker für Erding, Freising und München</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #00F2EA;
+            --accent: #FFA133;
+            --dark: #0F172A;
+            --light: #F8F9FA;
+            --gray: #64748B;
+            --success: #10B981;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Info Bar */
+        .info-bar {
+            background: var(--dark);
+            color: white;
+            padding: 12px 20px;
+            font-size: 13px;
+            text-align: center;
+            border-bottom: 2px solid var(--primary);
+            font-weight: 600;
+            position: relative;
+            z-index: 1000;
+        }
+
+        .info-bar span {
+            margin: 0 20px;
+            display: inline-block;
+        }
+
+        /* Watermark */
+        .watermark {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            font-size: 11px;
+            color: rgba(15, 23, 42, 0.4);
+            background: rgba(255, 255, 255, 0.8);
+            padding: 8px 12px;
+            border-radius: 6px;
+            z-index: 999;
+            backdrop-filter: blur(10px);
+            max-width: 180px;
+            text-align: right;
+        }
+
+        /* Header / Sticky */
+        header {
+            position: sticky;
+            top: 0;
+            background: white;
+            border-bottom: 1px solid #E2E8F0;
+            padding: 12px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 500;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            max-width: 180px;
+            max-height: 52px;
+            object-fit: contain;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 14px;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover:after {
+            width: 100%;
+        }
+
+        .cta-header {
+            background: var(--primary);
+            color: var(--dark);
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-header:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 242, 234, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 700px;
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://tiselektro.de/wp-content/uploads/2023/01/TIS-GMBH-03-1500x630.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.25;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            max-width: 700px;
+            padding: 40px;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero h1 .highlight {
+            color: var(--primary);
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            color: #E2E8F0;
+            font-weight: 400;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--dark);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0, 242, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: var(--dark);
+        }
+
+        /* Section */
+        section {
+            padding: 80px 40px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        h2 .accent {
+            color: var(--accent);
+        }
+
+        .section-subtitle {
+            font-size: 16px;
+            color: var(--gray);
+            margin-bottom: 60px;
+            max-width: 600px;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--light);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            color: var(--dark);
+            margin: 30px 0 15px;
+        }
+
+        .about-text p {
+            color: var(--gray);
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .values {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .value-item {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .value-item strong {
+            color: var(--accent);
+            font-size: 16px;
+        }
+
+        .value-item p {
+            margin-top: 8px;
+            font-size: 14px;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Services Section */
+        .services {
+            background: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .service-card {
+            background: white;
+            border: 1px solid #E2E8F0;
+            border-radius: 10px;
+            padding: 35px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--primary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            box-shadow: 0 15px 40px rgba(0, 242, 234, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            color: var(--dark);
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: var(--gray);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        /* USP Section */
+        .usp {
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+            color: white;
+        }
+
+        .usp h2 {
+            color: white;
+        }
+
+        .usp .accent {
+            color: var(--primary);
+        }
+
+        .usp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .usp-item {
+            padding: 30px;
+            border-left: 4px solid var(--primary);
+            position: relative;
+        }
+
+        .usp-item::before {
+            content: '✓';
+            position: absolute;
+            left: -12px;
+            top: 25px;
+            font-size: 24px;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .usp-item h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+
+        .usp-item p {
+            color: #CBD5E1;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            background: var(--light);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            height: 250px;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: white;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+            margin-top: 50px;
+        }
+
+        .contact-info {
+            background: var(--light);
+            padding: 40px;
+            border-radius: 10px;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+            align-items: flex-start;
+        }
+
+        .contact-icon {
+            font-size: 28px;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        .contact-item h4 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+
+        .contact-item p {
+            color: var(--gray);
+            font-size: 14px;
+        }
+
+        .contact-item a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--dark);
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 12px 15px;
+            border: 1px solid #E2E8F0;
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 242, 234, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 50px 40px 30px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .footer-section a {
+            display: block;
+            color: #CBD5E1;
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #334155;
+            padding-top: 30px;
+            text-align: center;
+            color: #94A3B8;
+            font-size: 13px;
+        }
+
+        /* Floating CTAs */
+        .floating-ctas {
+            position: fixed;
+            bottom: 120px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 900;
+        }
+
+        .float-cta {
+            background: white;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 12px 18px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .float-cta:hover {
+            background: var(--primary);
+            color: var(--dark);
+            transform: translateX(-5px);
+        }
+
+        .float-cta.phone {
+            background: var(--primary);
+            color: var(--dark);
+            border-color: var(--primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            header {
+                padding: 12px 20px;
+            }
+
+            .hero {
+                height: 500px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            h2 {
+                font-size: 32px;
+            }
+
+            section {
+                padding: 50px 20px;
+            }
+
+            .floating-ctas {
+                bottom: auto;
+                top: auto;
+                right: 10px;
+                left: 10px;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+                bottom: 10px;
+            }
+
+            .float-cta {
+                padding: 10px 14px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Info Bar -->
+    <div class="info-bar">
+        <span>🏢 <strong>LEAD:</strong> TIS Elektro GmbH</span>
+        <span>🌐 <strong>WEBSITE:</strong> http://www.tiselektro.de/</span>
+        <span>⭐ <strong>RATING:</strong> 4,8/5 (25 Bewertungen)</span>
+        <span>📍 <strong>STANDORT:</strong> Bayern</span>
+    </div>
+
+    <!-- Watermark -->
+    <div class="watermark">
+        <strong>Vorschau erstellt von</strong><br>
+        Gleißner & Nägel<br>
+        <em>Web, Prozesse & Automatisierung</em><br><br>
+        Dies ist kein echtes Angebot
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div>
+            <img src="data:image/webp;base64,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" alt="TIS Elektro GmbH" style="max-height:52px;width:auto;max-width:200px;object-fit:contain;display:block;"/>
+        </div>
+        <nav>
+            <a href="#about">Über uns</a>
+            <a href="#services">Leistungen</a>
+            <a href="#contact">Kontakt</a>
+            <a href="tel:01737564145" class="cta-header">☎️ Anrufen</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Ihr <span class="highlight">Elektriker</span> für Bayern</h1>
+            <p>Über 20 Jahre Erfahrung. Meisterbetrieb. Zuverlässig seit Tag 1.</p>
+            <div class="hero-ctas">
+                <a href="#contact" class="btn btn-primary">⚡ Jetzt Anfragen</a>
+                <a href="tel:01737564145" class="btn btn-secondary">📞 Sofort anrufen</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2>Über <span class="accent">TIS Elektro</span></h2>
+            <p class="section-subtitle">Ein handwerklicher Meisterbetrieb mit Leidenschaft für sichere, moderne Elektrotechnik.</p>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        Nach mehr als 20 Jahren Berufserfahrung haben wir uns zum zuverlässigen Partner für professionelle Elektroinstallation entwickelt. Unsere Kunden aus Erding, Freising und München schätzen unsere Genauigkeit, Schnelligkeit und transparente Kommunikation.
+                    </p>
+                    
+                    <h3>Was uns auszeichnet</h3>
+                    <p>
+                        Als Meisterbetrieb setzen wir nicht nur Standards um — wir übertreffen sie. Von klassischen Elektroinstallationen über moderne E-Mobilität bis zu sicherheitskritischen Batterieanlagen und Notbeleuchtungssystemen: Wir beherrschen die ganze Breite des Handwerks.
+                    </p>
+                    
+                    <h3>Unser Anspruch</h3>
+                    <p>
+                        Jedes Projekt wird mit derselben Gewissenhaftigkeit behandelt — ob Privathaushalt oder Industrieanlage. Sicherheit, Qualität und Zuverlässigkeit sind nicht verhandelbar.
+                    </p>
+
+                    <div class="values">
+                        <div class="value-item">
+                            <strong>⚡ Sicherheit</strong>
+                            <p>Zertifizierte Prüfungen nach DGUV V3</p>
+                        </div>
+                        <div class="value-item">
+                            <strong>🎯 Präzision</strong>
+                            <p>Meisterbetrieb mit Handwerkskunst</p>
+                        </div>
+                        <div class="value-item">
+                            <strong>🚀 Innovation</strong>
+                            <p>Moderne Techniken wie E-Mobilität</p>
+                        </div>
+                        <div class="value-item">
+                            <strong>📞 Erreichbar</strong>
+                            <p>Schnelle Reaktion, auch im Notfall</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-image">
+                    <img src="https://tiselektro.de/wp-content/uploads/2023/01/TIS-GMBH-04-1500x630.jpg" alt="TIS Elektro Team">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2>Unsere <span class="accent">Leistungen</span></h2>
+            <p class="section-subtitle">Alles aus einer Hand — von der Planung bis zur Abnahme.</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">⚡</div>
+                    <h3>Elektroinstallation</h3>
+                    <p>Moderne Elektroinstallationen für Wohnräume und Gewerbeflächen. Sicher, normgerecht und zukunftsfähig.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🚗</div>
+                    <h3>E-Mobilität</h3>
+                    <p>Wallbox-Installation und Ladesysteme für Privatfahrzeuge und Flottenmanagement.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">✓</div>
+                    <h3>DGUV V3 Prüfung</h3>
+                    <p>Sicherheitsprüfungen für Elektrogeräte und Anlagen nach aktuellen Standards.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🚨</div>
+                    <h3>Notbeleuchtung</h3>
+                    <p>Zuverlässige Notbeleuchtungssysteme für Gebäude und öffentliche Einrichtungen in Bayern und Baden-Württemberg.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🔋</div>
+                    <h3>Batterieanlagen</h3>
+                    <p>Batteriespeicher für Solaranlagen und Eigenversorgung. Professionelle Planung und Installation.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">⚙️</div>
+                    <h3>USV-Anlagen</h3>
+                    <p>Unterbrechungsfreie Stromversorgung für kritische Anwendungen — zuverlässiger Backup im Ernstfall.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- USP Section -->
+    <section class="usp">
+        <div class="container">
+            <h2>Warum <span class="accent">TIS Elektro?</span></h2>
+            <p class="section-subtitle">Die Gründe, warum hunderte Kunden uns vertrauen.</p>
+
+            <div class="usp-grid">
+                <div class="usp-item">
+                    <h3>20+ Jahre Erfahrung</h3>
+                    <p>Zwei Jahrzehnte im Handwerk. Wir wissen, worauf es ankommt — und liefern konsistent ab.</p>
+                </div>
+
+                <div class="usp-item">
+                    <h3>Meisterbetrieb</h3>
+                    <p>Zertifiziert und geprüft. Ihr Garant für normgerechte Arbeiten und Qualität nach Handwerksstandard.</p>
+                </div>
+
+                <div class="usp-item">
+                    <h3>Großflächige Kompetenz</h3>
+                    <p>Lokal in Erding, Freising und München aktiv. Regional und überregional in Bayern und Baden-Württemberg unterwegs.</p>
+                </div>
+
+                <div class="usp-item">
+                    <h3>Rating 4,8/5</h3>
+                    <p>25+ zufriedene Kunden sprechen unsere Sprache. Zuverlässigkeit ist kein Versprechen — es ist unser Standard.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery">
+        <div class="container">
+            <h2>Projekte & <span class="accent">Referenzen</span></h2>
+            <p class="section-subtitle">Einblicke in unsere Arbeiten.</p>
+
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://tiselektro.de/wp-content/uploads/2023/01/elektroinstallation.webp" alt="Elektroinstallation Projekt">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://tiselektro.de/wp-content/uploads/2023/01/tiselektro-e-mobilitaet.webp" alt="E-Mobilität Wallbox">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://tiselektro.de/wp-content/uploads/2023/01/TIS-GMBH-03-1500x630.jpg" alt="TIS Elektro Referenz">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Kontakt & <span class="accent">Anfrage</span></h2>
+            <p class="section-subtitle">Erreichen Sie uns — unkompliziert und zügig.</p>
+
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <h4>Adresse</h4>
+                            <p>Landshuter Straße 15<br>Hans-Sachs-Weg 3<br>85435 Erding</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <h4>Telefon</h4>
+                            <p><a href="tel:01737564145">0173 7564145</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div>
+                            <h4>E-Mail</h4>
+                            <p><a href="mailto:info@tiselektro.de">info@tiselektro.de</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">🌐</div>
+                        <div>
+                            <h4>Website</h4>
+                            <p><a href="http://www.tiselektro.de/" target="_blank">www.tiselektro.de</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Ihr Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">E-Mail-Adresse *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Telefon (optional)</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Ihre Nachricht *</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="align-self: flex-start;">
+                        📬 Anfrage senden
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating CTAs -->
+    <div class="floating-ctas">
+        <a href="tel:01737564145" class="float-cta phone">📞 Anrufen</a>
+        <a href="#contact" class="float-cta">✉️ Anfrage</a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Unternehmen</h4>
+                <a href="#about">Über uns</a>
+                <a href="#services">Leistungen</a>
+                <a href="#contact">Kontakt</a>
+            </div>
+
+            <div class="footer-section">
+                <h4>Leistungen</h4>
+                <a href="#services">Elektroinstallation</a>
+                <a href="#services">E-Mobilität</a>
+                <a href="#services">DGUV V3 Prüfung</a>
+                <a href="#services">Notbeleuchtung</a>
+            </div>
+
+            <div class="footer-section">
+                <h4>Kontakt</h4>
+                <a href="tel:01737564145">📞 0173 7564145</a>
+                <a href="mailto:info@tiselektro.de">✉️ info@tiselektro.de</a>
+                <a href="#">Erding, Freising, München</a>
+            </div>
+
+            <div class="footer-section">
+                <h4>Online</h4>
+                <a href="http://www.tiselektro.de/" target="_blank">Website</a>
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            © 2024 TIS Elektro GmbH · Meisterbetrieb · Alle Rechte vorbehalten
+        </div>
+    </footer>
+</body>
+</html>
