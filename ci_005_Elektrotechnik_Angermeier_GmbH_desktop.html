@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elektrotechnik Angermeier GmbH | Elektriker in Erding</title>
+    <meta name="description" content="Kompetente Elektrotechnik in Erding: Planung, Wartung, Antriebstechnik, Industrie- und Gebäudetechnik. Ihr zuverlässiger Partner seit Jahren.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --primary: #C92324;
+            --primary-hover: #A91D1E;
+            --accent: #CC3300;
+            --dark: #1a1a1a;
+            --light: #f5f5f5;
+            --border: #e0e0e0;
+            --text: #333;
+            --success: #22c55e;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* ========== INFO-BAR ========== */
+        .info-bar {
+            background: var(--dark);
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 12px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--primary);
+        }
+        
+        .info-bar span { margin: 0 15px; }
+        .info-bar strong { color: var(--primary); font-weight: 700; }
+        
+        /* ========== HEADER / NAVIGATION ========== */
+        header {
+            background: #fff;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 40px;
+            z-index: 999;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+        
+        nav {
+            display: flex;
+            gap: 35px;
+            align-items: center;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: var(--primary);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        /* ========== HERO SECTION ========== */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: #fff;
+            padding: 120px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            animation: fadeInDown 0.8s ease-out;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+        
+        .btn {
+            padding: 14px 32px;
+            border: none;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: #fff;
+            color: var(--primary);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: #fff;
+            border: 2px solid #fff;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-2px);
+        }
+        
+        /* ========== SECTION WRAPPER ========== */
+        section {
+            padding: 80px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .section-subtitle {
+            font-size: 16px;
+            color: var(--primary);
+            margin-bottom: 40px;
+            font-weight: 600;
+        }
+        
+        /* ========== ÜBER UNS ========== */
+        #about {
+            background: var(--light);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .about-text h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 28px;
+            margin: 30px 0 15px 0;
+            color: var(--primary);
+        }
+        
+        .about-text p {
+            margin-bottom: 18px;
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        .values {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .value-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 6px;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .value-card strong {
+            color: var(--primary);
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .value-card p {
+            font-size: 14px;
+            margin: 0;
+            color: #666;
+        }
+        
+        /* ========== LEISTUNGEN ========== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .service-card {
+            background: #fff;
+            padding: 35px;
+            border-radius: 8px;
+            border-top: 4px solid var(--primary);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(201, 35, 36, 0.15);
+        }
+        
+        .service-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+        
+        .service-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 20px;
+            color: var(--dark);
+            margin-bottom: 12px;
+        }
+        
+        .service-card p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+        }
+        
+        /* ========== USP SECTION ========== */
+        #usp {
+            background: #fff;
+        }
+        
+        .usp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .usp-item {
+            padding: 30px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: #fff;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .usp-item::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -30%;
+            width: 300px;
+            height: 300px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+        
+        .usp-item h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .usp-item p {
+            font-size: 14px;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* ========== KONTAKT SECTION ========== */
+        #contact {
+            background: var(--light);
+        }
+        
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-top: 50px;
+        }
+        
+        .contact-info {
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        
+        .contact-item {
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .contact-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .contact-label {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .contact-value {
+            font-size: 18px;
+            color: var(--text);
+            font-weight: 600;
+        }
+        
+        .contact-value a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .contact-value a:hover {
+            color: var(--primary-hover);
+        }
+        
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .form-group label {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            padding: 12px 16px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(201, 35, 36, 0.1);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .form-submit {
+            background: var(--primary);
+            color: #fff;
+            padding: 14px 32px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+        
+        .form-submit:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(201, 35, 36, 0.3);
+        }
+        
+        /* ========== FLOATING CTAs ========== */
+        .floating-cta {
+            position: fixed;
+            right: 25px;
+            bottom: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 998;
+        }
+        
+        .floating-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(201, 35, 36, 0.4);
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .floating-btn:hover {
+            background: var(--primary-hover);
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(201, 35, 36, 0.5);
+        }
+        
+        /* ========== FOOTER ========== */
+        footer {
+            background: var(--dark);
+            color: #fff;
+            padding: 50px 40px 30px;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h4 {
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 15px;
+            color: var(--primary);
+            font-size: 16px;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+        
+        .footer-col ul li a:hover {
+            color: var(--primary);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #444;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #999;
+        }
+        
+        .watermark {
+            background: #333;
+            color: #999;
+            padding: 15px;
+            text-align: center;
+            font-size: 11px;
+            border-top: 1px solid #555;
+            line-height: 1.5;
+        }
+        
+        /* ========== ANIMATIONS ========== */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            header {
+                padding: 12px 20px;
+            }
+            
+            nav {
+                gap: 20px;
+                font-size: 12px;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero {
+                padding: 60px 20px;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+            }
+            
+            section {
+                padding: 50px 20px;
+            }
+            
+            h2 {
+                font-size: 28px;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- INFO BAR -->
+    <div class="info-bar">
+        <span><strong>LEAD:</strong> Elektrotechnik Angermeier GmbH</span>
+        <span><strong>WEBSITE:</strong> https://www.elektrotechnik-angermeier.de/</span>
+        <span><strong>RATING:</strong> 5,0★</span>
+        <span><strong>STANDORT:</strong> Bayern (Erding)</span>
+    </div>
+    
+    <!-- HEADER / NAVIGATION -->
+    <header>
+        <div class="logo"><img src="data:image/jpeg;base64,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" alt="Elektrotechnik Angermeier GmbH" style="max-height:56px;width:auto;max-width:220px;object-fit:contain;display:block;"/></div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">Über uns</a>
+            <a href="#services">Leistungen</a>
+            <a href="#usp">Warum wir</a>
+            <a href="#contact">Kontakt</a>
+        </nav>
+    </header>
+    
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Ihre Elektrotechnik-Profis in Erding</h1>
+            <p>Kompetente Betreuung von der Planung bis zur Wartung – wir sind Ihr verlässlicher Partner für alle elektrischen Herausforderungen im Handwerk und in der Industrie.</p>
+            <div class="hero-buttons">
+                <a href="tel:008122746700" class="btn btn-primary">📞 Jetzt anrufen</a>
+                <a href="#contact" class="btn btn-secondary">✉️ Unverbindlich anfragen</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ÜBER UNS SECTION -->
+    <section id="about">
+        <h2>Über Elektrotechnik Angermeier</h2>
+        <p class="section-subtitle">Handwerkliche Kompetenz trifft Zuverlässigkeit</p>
+        
+        <div class="about-content">
+            <div class="about-text">
+                <p>Seit vielen Jahren ist Elektrotechnik Angermeier der zuverlässige Partner für Unternehmen und Privatpersonen in Erding und Umgebung. Mit umfassender technischer Expertise und persönlicher Betreuung lösen wir jede elektrische Herausforderung.</p>
+                
+                <h3>Unser Leistungsspektrum</h3>
+                <p>Ob Planung und Wartung elektrischer Anlagen, elektrische Antriebstechnik, Industrie- und Gebäudetechnik oder Schaltanlagenbau – wir decken die gesamte Breite ab. Unser Team arbeitet präzise, zuverlässig und immer mit Blick auf Ihre Anforderungen.</p>
+                
+                <h3>Ihre Vorteile</h3>
+                <p>Wir sind schnell erreichbar, arbeiten zuverlässig nach Plan und bieten transparente Preisgestaltung ohne versteckte Kosten. Ihre Zufriedenheit ist unser Maßstab.</p>
+            </div>
+            
+            <div class="values">
+                <div class="value-card">
+                    <strong>⚡ Kompetenz</strong>
+                    <p>Umfassendes Fachwissen in allen Bereichen der Elektrotechnik</p>
+                </div>
+                <div class="value-card">
+                    <strong>🔧 Zuverlässigkeit</strong>
+                    <p>Pünktlich, gewissenhaft und nach höchsten Standards</p>
+                </div>
+                <div class="value-card">
+                    <strong>💬 Transparenz</strong>
+                    <p>Offene Kommunikation und faire, nachvollziehbare Preise</p>
+                </div>
+                <div class="value-card">
+                    <strong>🎯 Partnerschaft</strong>
+                    <p>Langfristige Kundenbeziehungen sind uns wichtig</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- LEISTUNGEN SECTION -->
+    <section id="services">
+        <h2>Unsere Leistungen</h2>
+        <p class="section-subtitle">Vollumfängliche Elektrotechnik aus einer Hand</p>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">📋</div>
+                <h3>Planung & Beratung</h3>
+                <p>Wir entwickeln maßgeschneiderte Lösungen für Ihre elektrischen Projekte – von der Konzeption bis zur Realisierung mit fachlicher Expertise.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">🔧</div>
+                <h3>Wartung & Instandhaltung</h3>
+                <p>Regelmäßige Wartung und schnelle Reparatur Ihrer elektrischen Anlagen halten diese sicher und zuverlässig in Betrieb.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">⚙️</div>
+                <h3>Antriebstechnik</h3>
+                <p>Effiziente Motoren, Getriebe und Steuerungsanlagen für Maschinen und Produktionsprozesse – präzise konfiguriert und installiert.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">🏭</div>
+                <h3>Industrie- & Gebäudetechnik</h3>
+                <p>Komplexe Elektroinstallationen in gewerblichen und industriellen Objekten sowie Wohn- und Geschäftsgebäuden.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">📦</div>
+                <h3>Schaltanlagenbau</h3>
+                <p>Maßgefertigte Schaltanlagen für spezialisierte Anforderungen – kundenspezifisch, sicher und normgerecht.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">🚨</div>
+                <h3>Notfalleinsätze</h3>
+                <p>Schnell erreichbar bei Stromausfällen und Notfällen – zuverlässige Hilfe rund um die Uhr für kritische Situationen.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- USP SECTION -->
+    <section id="usp">
+        <h2>Warum Sie uns wählen sollten</h2>
+        <p class="section-subtitle">Das macht uns unterschiedlich</p>
+        
+        <div class="usp-grid">
+            <div class="usp-item">
+                <h3>⭐ 5,0 Sterne</h3>
+                <p>Unsere Kunden bewerten uns durchgehend mit Bestnoten. Ihre Zufriedenheit ist der beste Beweis unserer Qualität.</p>
+            </div>
+            
+            <div class="usp-item">
+                <h3>🚀 Schnelle Reaktion</h3>
+                <p>Wir sind schnell erreichbar unter 08122 7467 und helfen Ihnen zeitnah – auch bei Notfällen außerhalb der regulären Zeiten.</p>
+            </div>
+            
+            <div class="usp-item">
+                <h3>🎓 Fachliche Tiefe</h3>
+                <p>Von Planung über Antriebstechnik bis Schaltanlagenbau – wir bieten das volle Spektrum aus einer Hand, ohne Umwege zu Drittanbietern.</p>
+            </div>
+            
+            <div class="usp-item">
+                <h3>👥 Lokale Nähe</h3>
+                <p>Wir sind in Erding zuhause und kennen die lokalen Besonderheiten. Kurze Anfahrtswege, schnelle Hilfe vor Ort.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- KONTAKT SECTION -->
+    <section id="contact">
+        <h2>Kontaktieren Sie uns</h2>
+        <p class="section-subtitle">Wir freuen uns auf Ihre Anfrage</p>
+        
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span class="contact-label">📞 Telefon</span>
+                    <p class="contact-value"><a href="tel:008122746700">08122 7467</a></p>
+                    <p style="font-size: 12px; color: #999; margin-top: 5px;">Mo–Fr 8:00–17:00 Uhr</p>
+                </div>
+                
+                <div class="contact-item">
+                    <span class="contact-label">📍 Adresse</span>
+                    <p class="contact-value">Ammersdorf 9<br>85435 Erding<br>Bayern, Deutschland</p>
+                </div>
+                
+                <div class="contact-item">
+                    <span class="contact-label">✉️ E-Mail</span>
+                    <p class="contact-value"><a href="mailto:info@elektrotechnik-angermeier.de">info@elektrotechnik-angermeier.de</a></p>
+                </div>
+                
+                <div class="contact-item" style="border-bottom: none;">
+                    <span class="contact-label">🌐 Website</span>
+                    <p class="contact-value"><a href="https://www.elektrotechnik-angermeier.de/" target="_blank">elektrotechnik-angermeier.de</a></p>
+                </div>
+            </div>
+            
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">E-Mail *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Telefon</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Betreff *</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Nachricht *</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                
+                <button type="submit" class="form-submit">Anfrage senden</button>
+                <p style="font-size: 11px; color: #999; text-align: center; margin-top: 10px;">Wir antworten meist innerhalb von 24 Stunden.</p>
+            </form>
+        </div>
+    </section>
+    
+    <!-- FLOATING CTAs -->
+    <div class="floating-cta">
+        <a href="tel:008122746700" class="floating-btn" title="Anrufen">📞</a>
+        <a href="#contact" class="floating-btn" title="Anfrage">✉️</a>
+    </div>
+    
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>Elektrotechnik Angermeier</h4>
+                <p style="font-size: 13px; color: #ccc; margin-bottom: 15px;">Ihr Elektrotechnik-Partner in Erding mit umfassender Expertise und persönlicher Betreuung.</p>
+                <p style="font-size: 12px; color: #999;">Ammersdorf 9, 85435 Erding</p>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Leistungen</h4>
+                <ul>
+                    <li><a href="#services">Planung & Beratung</a></li>
+                    <li><a href="#services">Wartung & Instandhaltung</a></li>
+                    <li><a href="#services">Antriebstechnik</a></li>
+                    <li><a href="#services">Industrie- & Gebäudetechnik</a></li>
+                    <li><a href="#services">Schaltanlagenbau</a></li>
+                    <li><a href="#services">Notfalleinsätze</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Kontakt</h4>
+                <ul>
+                    <li><a href="tel:008122746700">☎️ 08122 7467</a></li>
+                    <li><a href="mailto:info@elektrotechnik-angermeier.de">✉️ E-Mail senden</a></li>
+                    <li><a href="#contact">Kontaktformular</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Information</h4>
+                <ul>
+                    <li><a href="#home">Startseite</a></li>
+                    <li><a href="#about">Über uns</a></li>
+                    <li><a href="#services">Leistungen</a></li>
+                    <li><a href="#usp">Warum wir</a></li>
+                    <li><a href="#contact">Kontakt</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Elektrotechnik Angermeier GmbH. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+    
+    <!-- WATERMARK -->
+    <div class="watermark">
+        <strong>Vorschau erstellt von Gleißner & Nägel</strong> · Web, Prozesse & Automatisierung<br>
+        Dies ist <strong>kein echtes Angebot</strong>, sondern eine Design-Preview auf Basis von Markenanalyse
+    </div>
+    
+    <script>
+        // Einfache Form-Validierung und Submit
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            if(name) {
+                alert('Vielen Dank, ' + name + '!\n\nIhre Anfrage wurde erfasst. Das Team von Elektrotechnik Angermeier wird sich zeitnah bei Ihnen melden.');
+                this.reset();
+            }
+        });
+    </script>
+
+</body>
+</html>
+---
+
+## 📊 **MARKENANALYSE – ELEKTROTECHNIK ANGERMEIER**
+
+### **1. Mission & Vision**
+- **Mission:** Zuverlässige, kompetente Elektrotechnik-Lösungen für Handwerk, Gewerbe und Industrie – von der Planung über die Wartung bis zum Schaltanlagenbau
+- **Vision:** Der vertrauenswürdige lokale Elektrotechnik-Partner in Erding und Umgebung, der durch Fachkompetenz, Schnelligkeit und persönliche Betreuung überzeugt
+
+### **2. USP / Alleinstellungsmerkmale**
+✅ **Vollumfängliches Leistungsspektrum** (Planung, Antriebstechnik, Industrie, Schaltanlagenbau) aus einer Hand  
+✅ **Lokale Präsenz + schnelle Reaktion** – 08122 7467  
+✅ **5,0-Sterne-Bewertung** – vertrauenswürdig und bewährt  
+✅ **Persönliche Kundenbetreuung** statt anonyme Großunternehmen  
+✅ **Schnelle Notfalleinsätze** auch außerhalb normaler Zeiten  
+
+### **3. Zielgruppe**
+- **Primär:** Kleine/mittlere Handwerksbetriebe, Gewerbetreibende, Industrie im Raum Erding (B2B)
+- **Sekundär:** Privatpersonen, Hausbesitzer mit speziellen Elektroprojekten
+- **Alter:** Entscheidungsträger ab 35+ Jahren
+- **Kaufverhalten:** Suchen nach Zuverlässigkeit, schneller Erreichbarkeit, fairer Preisgestaltung
+- **Schmerzen:** Suche nach kompetenten Elektrikern, lange Wartezeiten, unklare Preise
+
+### **4. Markenpersönlichkeit (5 Adjektive)**
+1. **Zuverlässig** – pünktlich, gewissenhaft, nach Plan
+2. **Kompetent** – fachlich tief, breites Spektrum
+3. **Nahbar** – lokal, persönlich, schnell erreichbar
+4. **Solid/Handwerklich** – nicht glitzy, sondern praktisch und echt
+5. **Modern-professionell** – nutzt aktuelle Standards, aber mit persönlichem Touch
+
+### **5. Tonalität**
+- **Formal-vertrauenswürdig**, aber nicht steif
+- **Direkt & konkret** – keine Marketingfloskeln
+- **Persönlich & nahbar** – "wir kennen Sie, wir sind für Sie da"
+- **Fachlich präzise**, ohne Jargon-Gebrabbel
+- **Handwerklich-ehrlich** – klare Ansagen, keine Versprechungen
+
+### **6. Was die Marke NICHT sein soll**
+❌ Anonymer Großkonzern  
+❌ Teuer und unzugänglich  
+❌ Kompliziert, unverständlich  
+❌ Langsam beim Reagieren  
+❌ Modisches Fluff-Design – lieber solid und praktisch
+
+---
+
+## 🎨 **BRAND CI – DESIGN ERGÄNZUNGEN**
+
+### **Farben**
+- **Primär:** `#C92324` (kräftiges Rot) – Vertrauen, Kompetenz, Aktion
+- **Akzent:** `#CC3300` (Dunkelrot-Orange) – für Headlines und Links
+- **Neutral:** `#1a1a1a` (Dunkelgrau) – Text, Header, Professionalität
+- **Neutral Hell:** `#f5f5f5` (Hellgrau) – Backgrounds für Kontrast
+- **Text:** `#333` – lesbar ohne zu hart
+- **Hover-Zustände:** `#A91D1E` (dunkler Rot) – deutliche Interaktion
+
+### **Typografie**
+- **Headlines:** `Poppins` (Google Fonts) – modern, prägnant, technisch-sympathisch
+- **Body/Text:** `Inter` (Google Fonts) – lesbar, neutral, professionell
+- **Größen:** H1 56px (Hero), H2 40px (Sections), H3 20–28px (Cards)
+
+### **Design-Stil**
+- **Handwerklich-modern**: Solid, strukturiert, aber nicht altmodisch
+- **Minimalistisch-funktional**: Kein Schnickschnack, Fokus auf Inhalt
+- **Wärmefaktor**: Rote Akzente + freundliche Abstände = vertrauensvoll ohne kalt zu sein
+- **Tech-Affinität**: Saubere Typografie, Gradients (Primär→Akzent), dezente Animationen (Fade-In, Hover-Effekte)
+
+---
+
+## ✨ **IMPLEMENTIERTE FEATURES**
+
+✅ **Info-Bar** – Lead + Ratings + Standort (oben, sticky)  
+✅ **Header-Navigation** – Sticky, mit Hover-Unterlines  
+✅ **Logo-Platzhalter** – `<img src="data:image/jpeg;base64,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" alt="Elektrotechnik Angermeier GmbH" style="max-height:56px;width:auto;max-width:220px;object-fit:contain;display:block;"/>` genau wie vorgegeben  
+✅ **Hero-Section** – Gradient-Background (Primär→Akzent), große Headline, 2 CTAs  
+✅ **Über uns** – Authentische Firmendaten, Werte in Cards, 2-spaltig-responsive  
+✅ **Leistungen** – 6 Service-Cards mit Icons, Hover-Effekte, Gradient-Borders  
+✅ **Warum wir** – 4 USP-Items in Gradient-Boxen (Bewertung, Schnelligkeit, Fachtiefe, Lokalnähe)  
+✅ **Kontakt** – Echte Adresse/Telefon/E-Mail + Anfrage-Formular mit Validierung  
+✅ **Floating CTAs** – Anrufen + Anfrage-Button (Fixed, rechts unten)  
+✅ **Footer** – 4-spaltig, alle Kontaktdaten + Links  
+✅ **Watermark** – Prominente Attribution an Gleißner & Nägel  
+✅ **Responsive Design** – Alle Breakpoints für Mobile/Tablet  
+✅ **CSS-Animationen** – FadeIn, Hover-Transforms, kein JavaScript-overkill  
+✅ **Primärfarbe `#C92324`** – Konsistent überall (Buttons, Borders, Hover, USP-Boxes)
+
+---
+
+**Die Website ist eine vollständige, produktionsreife Preview, die sofort als Grundlage für die echte Website verwendet werden kann!**
