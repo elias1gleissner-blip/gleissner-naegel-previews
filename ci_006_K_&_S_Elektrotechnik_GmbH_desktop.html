@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Website-Preview: K &amp; S Elektrotechnik GmbH (Desktop)</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #080b16; color: #ffffff; overflow-x: hidden; }
+
+#intro { position: fixed; inset: 0; background: #080b16;
+         display: flex; flex-direction: column; align-items: center; justify-content: center;
+         z-index: 9999; transition: opacity 0.9s ease, visibility 0.9s ease; }
+#intro.gone { opacity: 0; visibility: hidden; pointer-events: none; }
+.i-name { font-size: 52px; font-weight: 700; letter-spacing: -2px; color: #ffffff;
+           opacity: 0; transform: translateY(24px); text-align: center;
+           animation: up 0.9s cubic-bezier(0.16,1,0.3,1) 0.3s forwards; }
+.i-name em { color: #FFBB00; font-style: normal; }
+.i-line { width: 0; height: 2px; margin: 20px auto;
+           background: linear-gradient(90deg, transparent, #FFBB00, transparent);
+           animation: iline 1s ease 0.7s forwards; }
+.i-sub { font-size: 12px; letter-spacing: 4px; text-transform: uppercase;
+          color: rgba(255,255,255,0.28); text-align: center;
+          opacity: 0; animation: up 0.9s cubic-bezier(0.16,1,0.3,1) 0.6s forwards; }
+@keyframes up { to { opacity: 1; transform: translateY(0); } }
+@keyframes iline { to { width: 180px; } }
+
+.meta-bar { background: #0D101B; border-bottom: 1px solid rgba(255,255,255,0.06);
+            padding: 12px 64px; display: flex; align-items: center; gap: 36px; flex-wrap: wrap; }
+.mi { display: flex; flex-direction: column; gap: 2px; }
+.ml { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.28); }
+.mv { font-size: 13px; color: rgba(255,255,255,0.55); font-weight: 500; }
+.mv.b { color: #FFBB00; }
+
+.wm { background: #0089BC; color: rgba(255,255,255,0.9); text-align: center;
+      padding: 7px; font-size: 12px; font-weight: 500; }
+.wm strong { color: #ffffff; }
+
+header { position: sticky; top: 0; z-index: 100; background: rgba(8,11,22,0.92);
+         backdrop-filter: blur(24px); border-bottom: 1px solid rgba(255,255,255,0.06);
+         padding: 0 64px; display: flex; align-items: center; justify-content: space-between; height: 68px; }
+.lw { display: flex; align-items: center; gap: 12px; }
+.lb { width: 38px; height: 38px; border-radius: 10px; background: linear-gradient(135deg,#0089BC,#-1475A8);
+      display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; color: #ffffff; }
+.ln { font-size: 16px; font-weight: 600; color: #ffffff; }
+.hn { display: flex; gap: 10px; }
+.nl { padding: 9px 18px; border-radius: 50px; font-size: 13px; font-weight: 500; text-decoration: none; }
+.ng { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.55); }
+.np { background: #0089BC; color: #ffffff; }
+
+.hero { min-height: 100vh; position: relative; overflow: hidden;
+        display: flex; align-items: center; padding: 120px 64px 80px; }
+.hp { position: absolute; inset: 0; background-size: cover; background-position: center; transition: opacity 1s ease; }
+.ho { position: absolute; inset: 0;
+      background: linear-gradient(105deg,rgba(8,11,22,0.93) 0%,rgba(8,11,22,0.72) 55%,rgba(8,11,22,0.38) 100%); }
+.hg { position: absolute; right: -80px; top: -80px; width: 500px; height: 500px; border-radius: 50%;
+      background: radial-gradient(circle,rgba(0,137,188,0.18) 0%,transparent 65%); pointer-events: none; }
+.hc { position: relative; z-index: 2; max-width: 600px; }
+.hbadge { display: inline-flex; align-items: center; gap: 8px; background: rgba(0,137,188,0.13);
+           border: 1px solid rgba(0,137,188,0.28); color: #FFBB00; font-size: 12px; font-weight: 500;
+           padding: 6px 14px; border-radius: 50px; margin-bottom: 28px; }
+.bd { width: 6px; height: 6px; background: #FFBB00; border-radius: 50%; animation: blink 2s ease infinite; }
+@keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+.hero h1 { font-size: 62px; font-weight: 700; line-height: 1.05; letter-spacing: -3px;
+            color: #ffffff; margin-bottom: 20px; }
+.hero h1 em { color: #FFBB00; font-style: normal; }
+.hdesc { font-size: 16px; color: rgba(255,255,255,0.55); line-height: 1.75; margin-bottom: 40px; max-width: 480px; }
+.hbtns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 56px; }
+.bm { display: inline-flex; align-items: center; gap: 10px; background: #0089BC; color: #ffffff;
+      padding: 15px 30px; border-radius: 50px; font-size: 15px; font-weight: 600; text-decoration: none;
+      box-shadow: 0 0 48px rgba(0,137,188,0.38); }
+.bs { display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.8); padding: 15px 28px;
+      border-radius: 50px; font-size: 15px; font-weight: 500; text-decoration: none; }
+.hstats { display: flex; gap: 48px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.08); flex-wrap: wrap; }
+.stn { font-size: 34px; font-weight: 700; color: #FFBB00; letter-spacing: -1px; }
+.stl { font-size: 11px; color: rgba(255,255,255,0.28); margin-top: 4px; letter-spacing: 1.5px; text-transform: uppercase; }
+
+.usp { background: #-1E6B9E; padding: 20px 64px; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 12px; }
+.ui { display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.92); font-size: 14px; font-weight: 500; }
+.uico { width: 32px; height: 32px; background: rgba(255,255,255,0.18); border-radius: 8px;
+        display: flex; align-items: center; justify-content: center; }
+
+.about { padding: 96px 64px; background: #080b16; display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+.aph { border-radius: 20px; overflow: hidden; height: 420px; position: relative; }
+.aph img { width: 100%; height: 100%; object-fit: cover; }
+.apo { position: absolute; bottom: 0; left: 0; right: 0; padding: 24px;
+       background: linear-gradient(0deg,rgba(8,11,22,0.9) 0%,transparent 100%); }
+.apb { display: inline-flex; align-items: center; gap: 8px; background: #0089BC; color: #ffffff;
+       padding: 8px 16px; border-radius: 50px; font-size: 13px; font-weight: 600; }
+.stag { font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: #FFBB00; margin-bottom: 12px; }
+.stitle { font-size: 36px; font-weight: 700; letter-spacing: -1.5px; color: #ffffff; margin-bottom: 20px; line-height: 1.15; }
+.ac p { font-size: 15px; color: rgba(255,255,255,0.55); line-height: 1.8; margin-bottom: 16px; }
+.tbadges { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
+.tb { display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; padding: 10px 16px;
+      font-size: 13px; color: rgba(255,255,255,0.55); }
+
+.services { padding: 96px 64px; background: #121520; }
+.sgrid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+.sc { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px; padding: 28px; transition: border-color 0.2s, background 0.2s; }
+.sc:hover { border-color: rgba(0,137,188,0.28); background: rgba(0,137,188,0.13); }
+.sico { width: 48px; height: 48px; background: rgba(0,137,188,0.13); border-radius: 12px;
+        display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 18px; }
+.sc h3 { font-size: 16px; font-weight: 600; color: #ffffff; margin-bottom: 8px; }
+.sc p { font-size: 14px; color: rgba(255,255,255,0.38); line-height: 1.65; }
+
+.gallery { padding: 0 64px 96px; background: #121520; }
+.gg { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 12px; border-radius: 20px; overflow: hidden; height: 340px; }
+.gi { overflow: hidden; }
+.gi img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+.gi:hover img { transform: scale(1.04); }
+
+.reviews { padding: 72px 64px; background: #080b16; display: flex; align-items: center; gap: 60px; flex-wrap: wrap; }
+.rn { font-size: 80px; font-weight: 700; color: #ffffff; letter-spacing: -4px; line-height: 1; }
+.rs { color: #f59e0b; font-size: 22px; letter-spacing: 3px; margin: 10px 0 6px; }
+.rc { font-size: 13px; color: rgba(255,255,255,0.28); }
+.rsep { width: 1px; height: 88px; background: rgba(255,255,255,0.06); flex-shrink: 0; }
+.rq { font-size: 19px; color: rgba(255,255,255,0.55); font-style: italic; line-height: 1.7; max-width: 520px; }
+.ra { font-size: 13px; color: rgba(255,255,255,0.28); margin-top: 14px; font-style: normal; }
+
+.contact { padding: 96px 64px; background: #121520; display: grid; grid-template-columns: 1fr 1fr; gap: 72px; }
+.cl h2 { font-size: 38px; font-weight: 700; letter-spacing: -1.5px; color: #ffffff; margin-bottom: 12px; line-height: 1.15; }
+.cl > p { font-size: 15px; color: rgba(255,255,255,0.38); margin-bottom: 40px; line-height: 1.7; }
+.cr { display: flex; align-items: center; gap: 16px; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.cico { width: 42px; height: 42px; background: rgba(0,137,188,0.13); border-radius: 10px;
+        display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+.ct { font-size: 15px; color: rgba(255,255,255,0.8); font-weight: 500; }
+.cs { font-size: 12px; color: rgba(255,255,255,0.28); margin-top: 2px; }
+.cf { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.06); border-radius: 20px; padding: 36px; }
+.cf h3 { font-size: 22px; font-weight: 600; color: #ffffff; margin-bottom: 28px; }
+.fr { margin-bottom: 14px; }
+.fr input, .fr textarea { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 10px; padding: 14px 16px; font-size: 14px; color: #ffffff; outline: none;
+  transition: border-color 0.2s; font-family: inherit; }
+.fr input::placeholder, .fr textarea::placeholder { color: rgba(255,255,255,0.22); }
+.fr input:focus, .fr textarea:focus { border-color: #0089BC; }
+.fr textarea { height: 100px; resize: none; }
+.fsub { width: 100%; background: #0089BC; color: #ffffff; border: none; padding: 15px;
+        border-radius: 10px; font-size: 15px; font-weight: 600; cursor: pointer; margin-top: 4px; }
+
+footer { background: #080b16; border-top: 1px solid rgba(255,255,255,0.06);
+         padding: 24px 64px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+.fcp { font-size: 13px; color: rgba(255,255,255,0.28); }
+.fwm { font-size: 12px; color: rgba(255,255,255,0.18); }
+.fwm strong { color: rgba(255,255,255,0.4); }
+
+.fctas { position: fixed; right: 24px; bottom: 60px; display: flex; flex-direction: column; gap: 12px; z-index: 500; }
+.fb { display: flex; align-items: center; gap: 10px; padding: 14px 22px; border-radius: 50px;
+      font-size: 14px; font-weight: 600; text-decoration: none; white-space: nowrap; }
+.fbc { background: #0089BC; color: #ffffff; box-shadow: 0 8px 32px rgba(0,137,188,0.38); }
+.fbm { background: #121520; color: rgba(255,255,255,0.55); border: 1px solid rgba(255,255,255,0.06); }
+</style>
+</head>
+<body>
+
+<div id="intro">
+  <div class="i-name">K <em>&amp; S Elektrotechnik GmbH</em></div>
+  <div class="i-line"></div>
+  <div class="i-sub">Elektriker · Bayern</div>
+</div>
+<script>setTimeout(()=>document.getElementById('intro').classList.add('gone'),2500);</script>
+
+<div class="meta-bar">
+  <div class="mi"><span class="ml">Lead</span><span class="mv">K &amp; S Elektrotechnik GmbH</span></div>
+  <div class="mi"><span class="ml">Aktuelle Website</span><span class="mv b">https://www.kunds-elektrotechnik-gmbh.de/</span></div>
+  <div class="mi"><span class="ml">Google Rating</span><span class="mv">5,0★ · 4 Bewertungen</span></div>
+  <div class="mi"><span class="ml">Stadt</span><span class="mv">Bayern</span></div>
+</div>
+
+<div class="wm">Vorschau erstellt von <strong>Gleißner &amp; Nägel</strong> · Web, Prozesse &amp; Automatisierung · Dies ist kein echtes Angebot</div>
+
+<header>
+  <div class="lw"><img src="data:image/webp;base64,UklGRkAwAABXRUJQVlA4WAoAAAA0AAAAKwEAAAEASUNDUEgMAAAAAAxITGlubwIQAABtbnRyUkdCIFhZWiAHzgACAAkABgAxAABhY3NwTVNGVAAAAABJRUMgc1JHQgAAAAAAAAAAAAAAAAAA9tYAAQAAAADTLUhQICAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABFjcHJ0AAABUAAAADNkZXNjAAABhAAAAGx3dHB0AAAB8AAAABRia3B0AAACBAAAABRyWFlaAAACGAAAABRnWFlaAAACLAAAABRiWFlaAAACQAAAABRkbW5kAAACVAAAAHBkbWRkAAACxAAAAIh2dWVkAAADTAAAAIZ2aWV3AAAD1AAAACRsdW1pAAAD+AAAABRtZWFzAAAEDAAAACR0ZWNoAAAEMAAAAAxyVFJDAAAEPAAACAxnVFJDAAAEPAAACAxiVFJDAAAEPAAACAx0ZXh0AAAAAENvcHlyaWdodCAoYykgMTk5OCBIZXdsZXR0LVBhY2thcmQgQ29tcGFueQAAZGVzYwAAAAAAAAASc1JHQiBJRUM2MTk2Ni0yLjEAAAAAAAAAAAAAABJzUkdCIElFQzYxOTY2LTIuMQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWFlaIAAAAAAAAPNRAAEAAAABFsxYWVogAAAAAAAAAAAAAAAAAAAAAFhZWiAAAAAAAABvogAAOPUAAAOQWFlaIAAAAAAAAGKZAAC3hQAAGNpYWVogAAAAAAAAJKAAAA+EAAC2z2Rlc2MAAAAAAAAAFklFQyBodHRwOi8vd3d3LmllYy5jaAAAAAAAAAAAAAAAFklFQyBodHRwOi8vd3d3LmllYy5jaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABkZXNjAAAAAAAAAC5JRUMgNjE5NjYtMi4xIERlZmF1bHQgUkdCIGNvbG91ciBzcGFjZSAtIHNSR0IAAAAAAAAAAAAAAC5JRUMgNjE5NjYtMi4xIERlZmF1bHQgUkdCIGNvbG91ciBzcGFjZSAtIHNSR0IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAZGVzYwAAAAAAAAAsUmVmZXJlbmNlIFZpZXdpbmcgQ29uZGl0aW9uIGluIElFQzYxOTY2LTIuMQAAAAAAAAAAAAAALFJlZmVyZW5jZSBWaWV3aW5nIENvbmRpdGlvbiBpbiBJRUM2MTk2Ni0yLjEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHZpZXcAAAAAABOk/gAUXy4AEM8UAAPtzAAEEwsAA1yeAAAAAVhZWiAAAAAAAEwJVgBQAAAAVx/nbWVhcwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAo8AAAACc2lnIAAAAABDUlQgY3VydgAAAAAAAAQAAAAABQAKAA8AFAAZAB4AIwAoAC0AMgA3ADsAQABFAEoATwBUAFkAXgBjAGgAbQByAHcAfACBAIYAiwCQAJUAmgCfAKQAqQCuALIAtwC8AMEAxgDLANAA1QDbAOAA5QDrAPAA9gD7AQEBBwENARMBGQEfASUBKwEyATgBPgFFAUwBUgFZAWABZwFuAXUBfAGDAYsBkgGaAaEBqQGxAbkBwQHJAdEB2QHhAekB8gH6AgMCDAIUAh0CJgIvAjgCQQJLAlQCXQJnAnECegKEAo4CmAKiAqwCtgLBAssC1QLgAusC9QMAAwsDFgMhAy0DOANDA08DWgNmA3IDfgOKA5YDogOuA7oDxwPTA+AD7AP5BAYEEwQgBC0EOwRIBFUEYwRxBH4EjASaBKgEtgTEBNME4QTwBP4FDQUcBSsFOgVJBVgFZwV3BYYFlgWmBbUFxQXVBeUF9gYGBhYGJwY3BkgGWQZqBnsGjAadBq8GwAbRBuMG9QcHBxkHKwc9B08HYQd0B4YHmQesB78H0gflB/gICwgfCDIIRghaCG4IggiWCKoIvgjSCOcI+wkQCSUJOglPCWQJeQmPCaQJugnPCeUJ+woRCicKPQpUCmoKgQqYCq4KxQrcCvMLCwsiCzkLUQtpC4ALmAuwC8gL4Qv5DBIMKgxDDFwMdQyODKcMwAzZDPMNDQ0mDUANWg10DY4NqQ3DDd4N+A4TDi4OSQ5kDn8Omw62DtIO7g8JDyUPQQ9eD3oPlg+zD88P7BAJECYQQxBhEH4QmxC5ENcQ9RETETERTxFtEYwRqhHJEegSBxImEkUSZBKEEqMSwxLjEwMTIxNDE2MTgxOkE8UT5RQGFCcUSRRqFIsUrRTOFPAVEhU0FVYVeBWbFb0V4BYDFiYWSRZsFo8WshbWFvoXHRdBF2UXiReuF9IX9xgbGEAYZRiKGK8Y1Rj6GSAZRRlrGZEZtxndGgQaKhpRGncanhrFGuwbFBs7G2MbihuyG9ocAhwqHFIcexyjHMwc9R0eHUcdcB2ZHcMd7B4WHkAeah6UHr4e6R8THz4faR+UH78f6iAVIEEgbCCYIMQg8CEcIUghdSGhIc4h+yInIlUigiKvIt0jCiM4I2YjlCPCI/AkHyRNJHwkqyTaJQklOCVoJZclxyX3JicmVyaHJrcm6CcYJ0kneierJ9woDSg/KHEooijUKQYpOClrKZ0p0CoCKjUqaCqbKs8rAis2K2krnSvRLAUsOSxuLKIs1y0MLUEtdi2rLeEuFi5MLoIuty7uLyQvWi+RL8cv/jA1MGwwpDDbMRIxSjGCMbox8jIqMmMymzLUMw0zRjN/M7gz8TQrNGU0njTYNRM1TTWHNcI1/TY3NnI2rjbpNyQ3YDecN9c4FDhQOIw4yDkFOUI5fzm8Ofk6Njp0OrI67zstO2s7qjvoPCc8ZTykPOM9Ij1hPaE94D4gPmA+oD7gPyE/YT+iP+JAI0BkQKZA50EpQWpBrEHuQjBCckK1QvdDOkN9Q8BEA0RHRIpEzkUSRVVFmkXeRiJGZ0arRvBHNUd7R8BIBUhLSJFI10kdSWNJqUnwSjdKfUrESwxLU0uaS+JMKkxyTLpNAk1KTZNN3E4lTm5Ot08AT0lPk0/dUCdQcVC7UQZRUFGbUeZSMVJ8UsdTE1NfU6pT9lRCVI9U21UoVXVVwlYPVlxWqVb3V0RXklfgWC9YfVjLWRpZaVm4WgdaVlqmWvVbRVuVW+VcNVyGXNZdJ114XcleGl5sXr1fD19hX7NgBWBXYKpg/GFPYaJh9WJJYpxi8GNDY5dj62RAZJRk6WU9ZZJl52Y9ZpJm6Gc9Z5Nn6Wg/aJZo7GlDaZpp8WpIap9q92tPa6dr/2xXbK9tCG1gbbluEm5rbsRvHm94b9FwK3CGcOBxOnGVcfByS3KmcwFzXXO4dBR0cHTMdSh1hXXhdj52m3b4d1Z3s3gReG54zHkqeYl553pGeqV7BHtje8J8IXyBfOF9QX2hfgF+Yn7CfyN/hH/lgEeAqIEKgWuBzYIwgpKC9INXg7qEHYSAhOOFR4Wrhg6GcobXhzuHn4gEiGmIzokziZmJ/opkisqLMIuWi/yMY4zKjTGNmI3/jmaOzo82j56QBpBukNaRP5GokhGSepLjk02TtpQglIqU9JVflcmWNJaflwqXdZfgmEyYuJkkmZCZ/JpomtWbQpuvnByciZz3nWSd0p5Anq6fHZ+Ln/qgaaDYoUehtqImopajBqN2o+akVqTHpTilqaYapoum/adup+CoUqjEqTepqaocqo+rAqt1q+msXKzQrUStuK4trqGvFq+LsACwdbDqsWCx1rJLssKzOLOutCW0nLUTtYq2AbZ5tvC3aLfguFm40blKucK6O7q1uy67p7whvJu9Fb2Pvgq+hL7/v3q/9cBwwOzBZ8Hjwl/C28NYw9TEUcTOxUvFyMZGxsPHQce/yD3IvMk6ybnKOMq3yzbLtsw1zLXNNc21zjbOts83z7jQOdC60TzRvtI/0sHTRNPG1EnUy9VO1dHWVdbY11zX4Nhk2OjZbNnx2nba+9uA3AXcit0Q3ZbeHN6i3ynfr+A24L3hROHM4lPi2+Nj4+vkc+T85YTmDeaW5x/nqegy6LzpRunQ6lvq5etw6/vshu0R7ZzuKO6070DvzPBY8OXxcvH/8ozzGfOn9DT0wvVQ9d72bfb794r4Gfio+Tj5x/pX+uf7d/wH/Jj9Kf26/kv+3P9t//9BTFBIRwAAAAEvoJBtBMifdgi7RyIi0gNFbRtJexAYCANlTwbLH1JeKyWi/xNwD9LXC9JRmSSU0H/6T//pPw1V1FnoP/2n//5U2ZmMe5A+AFZQOCDeHwAAEIsAnQEqLAEBAT5tMJRGpCMiISuTm0iADYlobr5rAN1Yv+d61zifaP7Z+2P9q93ysP1T+5fpD+5/szz4VX+Z15B+t/77+/flN8uP9r/tPZb+sv+7/efgE/i/9I/7v92/1ntG+r/zF/uT+3Pu3f9D1n/171Cf6D/mf/H2L3oI/up6bf7ufDV/Wf+P+43tU///2AP/pjrf77p3vls185P7f/wuMngKfkX6s4VocTLIWEqBH6c9YD/a8rX1t7B/8y/unWU9Ev9ukGRb9D+yaQnKHYi89GA490dEHZfIIOy4V8Vd1N1fH3QeeQpi/vyEC+C2az5Pdw5sEUkDDD00jyXeVn8UlyJGvQMi6JUekbSxit9tx31fUT9qWxcBbpFuueb9CeSMwLXGOUwX8KIw8adMi+HKFBjea7eAT7HCeZPXpSNTvaAiGf83U6SBdVn6FSSJVnYlb9diXDHSw1vqxfA1UXOZaIrbqjlbr2ysaHBsSf/u4MaurjIyl9atoAyD6Apwf+1dke8lYoJjZ0lzJtlMhvteSQdGItZAtWJETM02NY2mi9sCdTK/rCN9gs1oq8fKyu3pnOT7lSk49cGYRR82kiOIlmKPDcrEyIv/pGZbe4ax0x/QBlZsQcV4OodeuPUs+kh3f6rl+jB5oEg8Wog9uqZq34WTmuhvhO9eQOYOmtO6BBZ6PG2/vLuhiQe0ASEUfvXHRlTsv3FzSLUHKyBbF9/fR4gx5p2QxE6EMubBB9LBn+pgKCs0nctxCHeIQo7JpRmw/rwUTkU4YnrQdP4Moj8xNfW4TWi+wCFdBvqJ034QSfLqGeSB6Q1uLFuRCBnuSXuHnETXNqF3DOd84T6wOYwMaHyzCrxx2/jRPgAnIOwjm2t3qkWOJJM82+3uE+tYp6Dqhu546jdrpG2Enf0VJ9hjDDpF2KabeltuiqF/QVKVjdcqVbD01U7Qtisnj7O6lSktBc3vzX54v7OkM0aUdbXwMtJiQPvp6AS37BRV2e9JyeF08NlpF2B6iTUQkfNW08Kt7SWwIyahhM0UFXYlStd7eYafr1fRcOgYldNOM+uTN7qgTl7EQVDLbpzUvS88xuORnXsKoLipw9LGMRCivhcozXNUPXW15xbpBn7DvG6e92nZv+xqwUiLEy79/h/A3RbG35xjr3GxGXJYbrKiH/Q0CnOjcsPL3f9AwZFXyOMf1G/MibdMAumTPK/ppQU9O+VDJNem3ffSJcikeF8ECcX1aXrfoqykw9o872fzVs4OT/faGwPtJC2DBk6ssPrb3y6exnR3BJp5D1RU84+9+QTQXKzSppQXgoY6TJzuIcD1JF2AGwRNeJ32Xp1BTAxVUfcPXA2sEBQB45xeIa1JAp/wcborpLAG3O8qBaMlZusPWyCEvB3WqBC9XtZx1SL5TwikgbAXpQSK5p1kC/4hpN0qjwZ5y6KH3OejurucXhEU2CKSBsQnT5yUKE3MxeCLJgQEvkEHZfIYzgFhb9EHX4AA/v7IADgxhse7g0ORzehG5QS6GqwxfDi2Ga7JaRjBf1Z6hhQN7eB+R0hWm7rCmcb4RDXJUghaVE2FcNUEpmjT+8dOiR+viVsLSHIQS8/sM3990hmfSLVhnxYwG/6h2AE6tWVGoP2uXUrXHsKm0GmJCALs5fOPNSTlLY7/i2LPS+0Web24uw+ZPWelbZ4qndZVOqObHRDPMy4j0EjE2K/cvmxCr1dt56Lyq6arhUGGP/70z9WCQl5WiR3jR5faq+J+xfwX5JlrmfaVHh8fw49ey1MdD6VdVYeIxcunecwlN/czKz62WQvZia/4qOYOafhrlG6cghghaRy+0qKASFWriymcIKvjFR4vrSd7stgxknhbRy4AHuXYEnLE9fmRYkvAvDgk/vN2PZK++oKHp0+8EIpUQ/JpLdWXEdzL6ckCtjATeKitBCg7SF0TKyq9IduJRn0nuk3Z7ahI/8OL2TSVqor7q0Ix9tlWkRvYZWVxQ8LNa+PEdurYs1+PqjLBeyrdbFPAYyQr+swdYYxkfnieXiluh0SnUokzRaloSMq6mRBWyWMLcU1UxnNqdTKBCwjNAzZyUHJmflVQssKrB4HFdc7LsKb1Xup6+mTBUZ1oE+/Y6EZGqgNapGK533YuAnMYnDOGq+CfPPuWFQBFivddt1nUk7J7Sy4+sM5rO3Wcyd2x/GjpZlGNAIjadhK0Ghqq0o2qCbwHzQoNkbEdkVXgK2AXc1gDwzFgmxhrtQihoZ/mytfUOBV5IUV7+3rix1gVjfq9NJVHN9gAbtEhuoRBaasoLkKlijm3lQPPkXHqx2RpUaopttW81TSrk7aD0e9JoOfZzsDWORKlGLEpAghKLfGGDedBpCkT0Bk5qkPIhUzfkycZbVpLQVWc3efXVgzlUG0urDLZUgpNQF+3TsGNgisI2mbiOhGoO8Q9F8n4GCUdzHaq1h8mSY4jqMfbmf7QVJ1UpGpGnG1eFRdxWhXScTu/xtvQeA2aT7Nsqgu02XjuVUYX1U97L0+eFm0F8cyCatrVcdN5Cr+1vCppCSVPFClLlFa8S5JS7lmZjzC06eFEAEClG5pHTfDj9YArFAy/7kqf22XuwL/+xncHtpstWZ/mB66DXe+gfALy1l4a/RFWrNc2K5B38NHz2yjhDxhvC02tAY/q0+ro8W+t6Hf9mfzY8w5qH01pfk09T004fEJVFowP31qN6l4rC7QkNl/9rx/r/a5MEB2It0PzLw/kJ81ttx8w9tuX9bc19Y66peoPRXmkbEqZldnadG0+V4cstReFS7571G37VD+VwzbXh7LZhl4KQS4j//2aI/FbKJVPpVDgAQ8xWKtyqfwMHtCFgru9Vv6glwNQhUJsgetc/6PO3ok3Osy1IH7cL2IBiSy8LRUdbv3AaJiesG9E6pJpwMjpynkEXdibXQPswq5SFHt51zJrB3XSLnnXaFQ4++NAT7/Ty+c9MrXIls5GikGyj9107yYDdJRZuMzu/48dbdIVgByWoKSn5jWs1buHRlO6/5pZzAULJ0KGzbr+OE4NDQ4bQ5GijHbdQdYwgPwpCqfvfyMZ8Xq4xpXjBLrprHJA0LUJ35QJOB8trIDCxlO9m2XHGtZAHzDmtlvFG1j62KV4VNPjncT4I8mSRxALYtPhR1YJKwNf9pV8/IIQzClg4l+oi0jM/yyykDSECz+WydRmy7zrojp/rwvGY2FmvmVlTtmcUeE7hkOJ57Is1LwVacyedyuvj/tpSRPSkzMg8NoPz++V7wvQMaiwZ8Fl6WlfGRhUVKQZcc1IZQHjZWBqXjG6Fa90ST6bkWTzTNwtxVY+7vja+XqKDp34YgTd0+UE+AqJO0lFPVkXqdz30ktq52pau7yjiJ+BeRhuwmin6281cvMxvY0pNqrYhP5BCk0ZggyxWvN/4S6numrowt28RjXx7ExrlAM1IXNSaN+83Tyvw1MXj1F66ovx7KUqVC5D5AuM+8inJdc7bAU5M7CixNAoYQHIY31mAZTbi8LxzttNtYxjTOX/5aE5fTovVY8S/TIAVSzfce6Hq5grFHmpWjvsLN1il6ECQp4rGJcaeYNbxpW8iSlvu34I+v/z3a9xRFGE2EfpvXDlF4ePHJwi+VGDftkoyWsmZZAVH04luzeLLu3+8JJq06DD+QUvBiosl1DmAKtv+VpkU3oyYW/INX7MSJATQpjHzlvEoM6P8jqic3xMFmV53xfN+XUdl5f1vs1RvtT+i1qaFwbXDHI5aW+Rjku+J7j2gsHnXmIjs/57Awm0ULYjF4vUwle7K5q5LUG+ln0gwaDwbjdzyslLhatjjeVGMNeomCKEEjAYluZAPLSTp1leBUqSFz5HNZ+3xFC2pNTx+Blt07jpCfiOru3A5xwmfwqQgXTE+wXzLB5Q0N+UPtxGDPnupMts6H0pvyHvZ7XgYvlHa+Z+ecDq9sLuAfrHhCP6Oeg2BhTf+lhpUM/2QSiajdvnO/6+ZEmz25+rwE63V8dzbBgE2yZ9rkah+mrhr3VgN6QqvZbOEWPmuc12ajzgBhzqWgOT58Je2H971A4jOBIEt3SuG8e8xGPvBsakAALOmFJRl1c0ofHvfJK4aWVrtyHRzd12e/5LgOPbPwmuMf8xKRwQ/GjhFtpzVePRNlpxgjfKY5FFnB0PTdNH6I7hUhZp8jUqHk1yaS5p36ChOlNYXYVGxbRuwPWYQwon2OcMSVrmVw/oo2Odjb6Jn+B10oHv68e7uEXSl9ICFxkK6PEFaLsprU5ATjzxo+f80OX4IxW9EUXLbUQO219Cp3LfseVOwpBtPI+4HWatmTXIhKhDUxOF/cs80P3SNWWouMNLVI7sbrufuJDswtMldhDH50hpApqtzNbBMu74s37Uvy/YsqKnjHZGG9cB7o0j9CzdcKPeCANO23QTFck0d8ZoHZsbyMpWZ1vvdlKY9z7WhTzozdGP4CT/W9O+1NYjZZXt8Zn1ckAGroycl+0OyG3T5rcnlO9wSKwRDdxSHaRWmVQwYjKlfpPdmtr/FKXUNwvRHtVi/1fcfy10BXJbsVuiK9ZDcK0blPbTaECaXsZgfack1Bje49cs5ylo104SVCfzV9ahDx1TCU+U6tYru2orciYcuB3gefAnideoLG26P9JmyxM+AX03gYcDiNc41bAx4ydi1PBDOaWjBXP8Kj7VFGYMPnXOoR8rO+N9btq5BfCKfP4Lkbu7x+mDii9GsTSEnV7AxxW8UaouvuoTHgim7KKMuBr94jx/HS5Y64Z/p5HkxtjmahPisfn2moZHZd/32ZlyZAreSTjyZD3iTFWeqFrW6tcrn1+dfKRPuvu7YXyJBask7aJbksIvDRN8dtLMkTp0hoHsJEa00qosT5UvZRgiA9StPDs2uif6wwZNoC9J3Iyk9KdCmO2T5gCWbbou3MLwEdDikSwD5GwTgYzAl5lxLOCdsSywSfswzhC1GcMUycZNzWuKCWX2DU/h/zFgXl4j3xLDyr7ymXnk52NSTQroVBHsnHpZCQW4QvMbSzXMjYVAq+/HuZ1Sw+a9+zi7FNamPxu+XSqIzRIfgaW6zYxvSrXZnFDmpnFdF65xWMvKfB7naT4r7vBm2g+zzncrzCcEnyx5GEHjpq1AGZ5vEaW9lFa4fN+qM8dV1mvymOzCan5IzFxE0sTx+vVr5ZVwtHT+0GCy02GxNyXpETW+AtewB/SrJQ/VWySSajtMdTGKyiRJd0FXsZL6KMiwxYpuKnNvPsGJfnQAGbguoV43Tc9CJZtDobCMqQ3q/B37jPc8okOTsv5kg/3A0rFDx7k2YjdF87QaseY1Q2iEAfxg0N3ckmpzrYcFCos6K30Sq8W7FrCPMzcJd4MiHAlwvGFbXpuOMbx1tv79vRLqoDrdfUjZGeAg/+boUg/LN8kxkjMagEuRXbCXESV1ll91cZQgPoumBl67/NBr5Fpq/GttHjp+JvyI9dbVHcAuVHML6oayACQqx/8XFvOWMoatyLhSXPO/aMgyxn/Qv7bQWyrKZr/frVZwGWRa8EeAKytfDE3dqFZ6gGyUL8m7rDDuJIz7nKaNfSRz1cnQv31ItlIIVhJCtGXlaiyhXVyCtqFhLKQZte0FxcLfpMa0Tqf79jMkFje0fbRlPKKuch5aNtQry8jpk4wyMWaMA2a9Qyueluw9qqb8IB55Y+D5MZetJKtNMay9Ych2FfN4ECdMKLWoYnAsi516fz7CcWOC3LEWgQSAs8ns8DytcQ9rckOKlxagY20L12fEH2GHZefjxbT/Io1ynduMZwyzzFO+bDD6WxbPr9aHmOZdKrhyqPMvBZYt6dCVrXJwGFEA+dn/9J4OWQbuXsTGo4T826fXdK1yN+UZNhaWXtzU0867ZGdBzTp59JhsMbnWwD/9fRgUuODEQ+YPHs3dnxglOOTCgSodV/2LXbcD6Jptmhu6L1/WxFZW7C6vw6BM3a5tH2d4680vin81DAUsT41AMqSWmHXwLki7Tm4iQ4K5786NNESI9thZ3VC0/m16lkL6sf07+FR0Jlj5zNysjORrhxuSG78F/Ku45Y7t/zMV036+xtb9QcLw2IxAQNKwAq76vZBvvSvw7UbJt/Dlon/iTySPuR20JRxBvQmESBBrQGllSa1V37oefWurdxOCnVUQ5TiM9h3U29ZOR4k2uLr3tfS2nHZff7Bfhr7s++AGEE6iKQlkx9VFUaKG9+aYg1nK1aeopeFt7TfMtdj0RoGShCwEVcIlJbdZvR1muzNWyKcOCL5lJfZ1a++J/x7/cvZCdRr+cV4b1WNxE+XBZwB1ClejeXS5gnJTaydXf6/X8Rn27XBwUREe5PraPoJX+oh3jgdgMfOkQm+Xmhc0guH5osfoY+f/xFEhu55s2CEilKcaiJoe6sxsHq9ZkpN76KLxbwLDQ9zlk07/8sPOy//P1xJPqJo1HOT8+QwZIeGhhUSoMn5KuptrSz38/MszpAGyhSSzIrO8OqnhOvDzd/SNkmldNW7H7ZdZprkgINw/yv9VR5smipMMYXLZ/YO/RxqX9vhI9gs2b+OajFte5O3bCaE/8c8Gmp9IinbE8hi8J03crmiF4iJn9qJ/mg8M5voKB5QUVssAbFFep5GmtqoUS9X/y5OYWuLsoaFpooetGRzLaKgVEZFmdQhzWL34qbnf6wqEX4OGaj1g47ez0r4UeiV7dRyogClrGTWy4Kv26m0U0rfgcO3FWWdgpQsT53vqMWoxrBDakgUDUwUMlAZpCx4BVZcn3mfL0105cStvNHwUSBBYYYD/jb8+sSDmB6zr/IFtsNKjedp15wzNJ9Dm9BdgEWCi6eLRckgZM2FOJzG7ugpsQUAaD3FZPq8UeGVkBbCmN6ji9PvIlJoeQ2xMWCIQ0hIZgEh7CVGr7/Fuu19xGjsizb5pHx+TRPCnsHSwTr7+YEXK0v5YXa4EvP085n8W1JFG/1ju9BNI1uCWQFS6Lk3kAE+eFWnj3zY2dmCt6A/e9zwTUk+WQL9mqbYdM5GFraWJf2spchhh1DnwPbWcyxY9NYN+wEhfM7Er2fst4yUlzsgLEgxlUcRG2SU7KLDG0+4Id54nHqcNrECeSsDLyO3RUsJz6403Kpv4pwkUjC6n+VvLcQhDNe3rngnMO9O5mp2Kfavoa6Z7UpZjK95nGpFRVJdQ0nqMPDyFbPjrBQIsfDON63AlGhRDN7Z9zRgwdJm0Ml1Sh3qVjPy+sy/wyvzr8gGJ/03pav4eNmYkm8UjCaAAyxyBtM7wmnyTe9+orTGMvK5MP0nJ78uLRJKeEVB9yYltlFovI1kWerw0x3WFv63ABpXl3yu1/qUydqfsb/HyUyeH6+owq8aoeQ+4SZe6BXwZdy937MkO/bRSgUuFE94GzqTuqyW7jkrYwXb8zf2iC57/WWj1XeXRQzhGVfYrSM39tlAG4G+0SGdHjV0ucGmHECMoMg/ua5Bs+AYz9PBIIxAhHaiHiejt2RH+JgFcyIVpfB7X0YMQ/BVGbtoOPVOebfeJqRTSPPdfcmo3kS3ch2KOhh3h4HdQQaKMxX7vZToqiz7XAA6pSkICD3xDVo4g+afPpxaxFxgbx7e7xZ680uevR8AiHhhH6R3jqNqjdpm0dzyR2OX06EJcbmbKzN+1NKjkwUhW46bQuMVKEJ9LtNLI8yVENpDY3N7jYa6X4VKS3TuEL8c7JL4DHPe8pc8ygLgkcOXYytj0GDgB6hymR5+Gc2Nc0L4KFu81UquJJ9LxEMCEwZ+xAWCnvVeEKNe++uj/yKmqH6U0U9rYVppbgiIYHqAajQrO1wlU2Odv8JolUcqRfkIorJmzAUTw14gjvk28UjenTWKJSoJzj+nym/gNox+n0/j5VZ/tJAZaOvWCi8N6zx5G00U6hc9ScW2A7X8dIjqZAvYlgk6EcSpZleDCk3WQ3pzYvP7KLYri2MnV//823NZRYBz88q3/GjFqztY7UQu6RNTRp592zxi2L+1IV3Vk8lCxlnbrJPaHYUo9wU2x6QTEIz+0NR53aHOj4pyu8uW3egxiBey/Vo9XRQljJLX0a0YQNts3vvz4yIu3DkS6ptVuP7QZWwu6DmBz8WpQeU6/80R0WtRLX3gUtBIQ7AYJUC7idBd4UhxPo6cNEzMsdmytmpzqG68J7S0Rscmq4n8Q35A+z0N1JK8F5/5+P9FnSyvqQ6cXRqY3WRUzLqzCu7ghCxPsIq/LO4yffYTRLsWjVRTJyO6/u+wmOFYuTiJvt3+H0RbYlVOmDUiI96LJEzVK2W6Hrh1ut9LgCngb7mw3eRpGpBFEPud30K3Obsxw8MUwjjT++a2uWk+mVCtWXRLlVGu0eWTQ4pPd/h1Bw+ienhZYgk0qzhb50Xj2nJxu3Tg8SfhFtyIms1/noZit0CaIsHPsvnh0/DlBcMUvGkLnU8H3fCWaLjTHSccZhE1JXOJ8cqo9DeSmPn5f61jzp4sV97FmzFJ/dyNweN5Z8GEimlvcDY+4j0BjA7K6fu8K72FSAbE4WgxMmPWwB8TjHJJLLzaBImwLN4spSqBCiVUCM5shQm/zzUSuZtxyZx6TneKe5khP9Pur7YX5NxZbyJmWsbfAoAcIL87lDKGHKJCa10RtKIs5ke3NBK5C+r5EDknxm+AD96Z5eyumOeqgmnUreDA1L+QeKJKbesI7fHgbfiEjszUXbpFY0C3Gt5u2loxcqKtO4L0pOxROwlzDlTrlaTSXiwGU0d6x1AXo/F9fNe19RT9L2V+f5PYbJ/+UxRgZPBltnda6LeA8XBipIfMpWxjwCbAobk+D8QMjKFeZwhn4Kn71cswjPYYfwqmj2UdBSQ+SLUJEewZ035tVP2B6gyQVC1I/lFV78dmnfxm+weAfHUPfdNlZk5TslhTyK+ZV5aX5qAjEtwFBfGjPnEwgwQTuZVR3XfQQxVGBnyo/3lSkws3FsKJDNGlM3b1Lx1GHo3nExmWlom4BG+sQLjuvWMt1JtcvlB81399z3I2E1JcwtHxCaL45sb3fbTAc9z+k/6MUVpvUNL4jux6BQVNMIZu78euPEbOnrfdroBr830ii7JJYTgjApTE1IOSStX3Jz4GVkIRklzt2nfEdyzSrh8tqxV2h3s7WPGk3u3iKkpY5SgyUimBZOAd8K0rzmimOL78q9iC1HwDNKR+2G7vwk1a1G86foXPCf3xWccI+MkQqpODh9GVj+IZBYZvowAABR/sKTxzY/7IhT0D3OVdjgVhPG1NAnkL7v03NwbpHsq2HxcPJPAMO/7Xpf1sjU8fG6KCayGHRXJTHp1Zk+W9yyZobYW2bF59/YOsTe47GFaOynZLz7TXq79v/MDMAdO2yYrp0R2hd1gsTLC3KniIyVYjdkCE7rRmyV2izTx1dCpyIy+uEkQ5E1JAfpqCeHpbNZQSOasnBZbLvqPxaErCS3DZVDFO+4kGdkbvuO1UbDCcur1kXPRqscCV9o1KmSmqpmKeo9I/rPIIYz0mBVXniFKo1M6jTV9AHAi+NGA/YjPy2WTWOR1EXNblj6mWompVNGrfXebVpSNVujEfKkWut520YJ6FdNAdskZwQiJZmJRQyT/rBQB/XZAJg9W42ZeW7WbjKYxUA2M8488OX9y6psycAGGAlcDvDKcXrQI9IIKt80AI0bdRYfc/nnRJFI+2cMjyIyygQ357WooiQ7EZcPjPlxt0lL9g8RAfzoEQFEdLYwqnzl1OnsVUiy6tv4Bx+9Q9A1nDCaXrl6FfAZlRBrsXTNGxzLgf5xpyx/wD+UFMDzr1m4ElQ/6x+aWVu7HaZ+0LTABnVV15yBiVZGMo9RD0bMJvMINRo+dwDbdEWo8vhoS+2TqmDYLyfaYuAODxdI86BU2YPBJyBe93H8jzAykAWn82C24Z7G2BmhHZTHfcByodzez3sJV0p15SRvpDtJAO5svJ0YvaRxRs18eSQIH9P1wFI2yoKCsK5+4QApeCIlySjdC03BzHfPFO7/86Mvc4BcWrXNadv8mUAeZQa7EDD2vblFeGj7W6h8aWbn5jk3icJXhyIZuMDbCWNyspyre085CzbP9w0b6vkCXy6Taql9kLNQh7bNSzqgtIX78/IsEQzbXTHuoteLdilOBM2J8LAKyc01mq3kfEsBd9w9GqSzjq8Wr/hHHKDe3da8qjgA74gXhtY3L+ljxTDDPMWSbogtRRt14ciAvAAmvCsx64OxAAwH3gSv3bSBuO5FM+Kudb4qk9Ui0YBeamG6HBaq8G7FaiANeasTuk37zW/PqrDcnX2AsI5xu2koi8ZFhuBavkAD4nImyvZRCwqR2g7ZGGKeCl116jlDiuNepAh80k/ZJ8qE/G9GIJSeEOLq47ZqxlirbladYRPkPp8lvZ9Si8V2fCwLVZ8W+8ncy2/J7N4b09YE8aEFen54IDOaq8tpedsBGqob6lziVNTrGKn2qBGw8rhPDKmxGIkujA8e2nsC8cc/+JTgx2+NPUYCcODiCUn8BJooXwupSsw9j6st3HvNyeHK6CdpAwyfvmnFBmPJWhm3F7BAEDBjotE3aFGeODKmjfPZ/aElmpTWpkJ58ABToQCSwN6FBJ91OgTaH1a2E16Ff1E5vtGonsWOWG7NZNI9PzH/fDb2rutg50EgcT8gJ1DKD+7BO78XOcKP3iiNqZKaT0wBq+A9GvGu/5+9D0vEDKEkW+kLWrqBe+QFpaLDh9z7vRFcc4rZOoL6vcVOjGNTxdMZXwd/nhXtB5v7PwB+1rJQBewJgZj5F7IpUO0vnEZoEwpv4X1ZhAZJ3B3fDHE3WrJ5TzJ8psAEOAA7iyjwmnGLIwv8nscY+HUZbub2tw4B753+bJklBqo2OtFnDtQ1nMMuqtjlugA+nDzliVJyvPEsNsxfzJmfvoVoLEhkh1c9WEPbDF4ZAyn9Tg2hcAAAAAAAAAAAFhNUCCcAwAAPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iWE1QIENvcmUgNi4wLjAiPgogICA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPgogICAgICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIgogICAgICAgICAgICB4bWxuczpleGlmPSJodHRwOi8vbnMuYWRvYmUuY29tL2V4aWYvMS4wLyIKICAgICAgICAgICAgeG1sbnM6dGlmZj0iaHR0cDovL25zLmFkb2JlLmNvbS90aWZmLzEuMC8iCiAgICAgICAgICAgIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyI+CiAgICAgICAgIDxleGlmOlBpeGVsWURpbWVuc2lvbj4yNTc8L2V4aWY6UGl4ZWxZRGltZW5zaW9uPgogICAgICAgICA8ZXhpZjpQaXhlbFhEaW1lbnNpb24+MzAwPC9leGlmOlBpeGVsWERpbWVuc2lvbj4KICAgICAgICAgPHRpZmY6UmVzb2x1dGlvblVuaXQ+MjwvdGlmZjpSZXNvbHV0aW9uVW5pdD4KICAgICAgICAgPHRpZmY6WFJlc29sdXRpb24+NzIwMDAwLzEwMDAwPC90aWZmOlhSZXNvbHV0aW9uPgogICAgICAgICA8dGlmZjpPcmllbnRhdGlvbj4xPC90aWZmOk9yaWVudGF0aW9uPgogICAgICAgICA8dGlmZjpZUmVzb2x1dGlvbj43MjAwMDAvMTAwMDA8L3RpZmY6WVJlc29sdXRpb24+CiAgICAgICAgIDx4bXA6TWV0YWRhdGFEYXRlPjIwMjQtMTAtMTVUMTI6Mjc6MjYrMDI6MDA8L3htcDpNZXRhZGF0YURhdGU+CiAgICAgICAgIDx4bXA6Q3JlYXRvclRvb2w+UGl4ZWxtYXRvciBQcm8gMy42Ljk8L3htcDpDcmVhdG9yVG9vbD4KICAgICAgICAgPHhtcDpDcmVhdGVEYXRlPjIwMjQtMTAtMTVUMTI6MTE6MjkrMDI6MDA8L3htcDpDcmVhdGVEYXRlPgogICAgICA8L3JkZjpEZXNjcmlwdGlvbj4KICAgPC9yZGY6UkRGPgo8L3g6eG1wbWV0YT4K" alt="K &amp; S Elektrotechnik GmbH" style="max-height:52px;width:auto;max-width:200px;object-fit:contain;display:block;"/></div>
+  <div class="hn">
+    <a href="#leistungen" class="nl ng">Leistungen</a>
+    <a href="#kontakt" class="nl np">Kontakt</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hp" id="heroBg" style="background-image:url('https://www.kunds-elektrotechnik-gmbh.de/files/daten/bilder/strom.webp')"></div>
+  <div class="ho"></div>
+  <div class="hg"></div>
+  <div class="hc">
+    <div class="hbadge"><div class="bd"></div> Ihr Elektriker in Bayern</div>
+    <h1>K<br><em>&amp; S Elektrotechnik GmbH</em></h1>
+    <p class="hdesc">Professionelle Elektriker für Privat &amp; Gewerbe in Bayern.</p>
+    <div class="hbtns">
+      <a href="tel:08131273306" class="bm">📞  08131 273306</a>
+      <a href="#kontakt" class="bs">Anfrage senden →</a>
+    </div>
+    <div class="hstats">
+      <div><div class="stn">5,0★</div><div class="stl">Google Rating</div></div>
+      <div><div class="stn">4</div><div class="stl">Bewertungen</div></div>
+      <div><div class="stn">24h</div><div class="stl">Notdienst</div></div>
+      <div><div class="stn">100%</div><div class="stl">Meisterbetrieb</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="usp">
+  <div class="ui"><div class="uico">✓</div> Zertifizierter Fachbetrieb</div>
+  <div class="ui"><div class="uico">⚡</div> Schnelle Reaktionszeit</div>
+  <div class="ui"><div class="uico">★</div> Top Google Bewertungen</div>
+  <div class="ui"><div class="uico">🔒</div> Festpreisgarantie</div>
+</div>
+
+<section class="about">
+  <div class="aph">
+    <img src="https://www.kunds-elektrotechnik-gmbh.de/assets/images/p/adobestock_164719838-9nkz635f1v3f79r.jpg" alt="Handwerker bei der Arbeit" loading="lazy"/>
+    <div class="apo"><div class="apb">✓ Ihr Experte in Bayern</div></div>
+  </div>
+  <div class="ac">
+    <div class="stag">Über uns</div>
+    <div class="stitle">Ihr verlässlicher<br>Partner vor Ort</div>
+    <p>Als lokaler Fachbetrieb in Bayern sind wir Ihr Ansprechpartner für alles rund um Elektriker — von der kleinen Reparatur bis zum Komplettauftrag.</p>
+    <p>Als zertifizierter Meisterbetrieb arbeiten wir nach höchsten Qualitätsstandards und stehen für unsere Arbeit gerade.</p>
+    <div class="tbadges">
+      <div class="tb">🏅 Meisterbetrieb</div>
+      <div class="tb">🔒 Festpreisgarantie</div>
+      <div class="tb">⚡ 24h Notdienst</div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="leistungen">
+  <div class="stag">Leistungen</div>
+  <div class="stitle">Was wir für Sie<br>tun können</div>
+  <div class="sgrid"><div class="sc"><div class="sico">⚡</div><h3>Elektroinstallation</h3><p>Neuinstallation und Erweiterung für Privat & Gewerbe nach VDE-Normen.</p></div>
+<div class="sc"><div class="sico">🏠</div><h3>Smart Home</h3><p>Moderne Hausautomation und intelligente Steuerungssysteme.</p></div>
+<div class="sc"><div class="sico">🔧</div><h3>Reparatur &amp; Wartung</h3><p>Schnelle Hilfe bei Störungen und Defekten — meist noch am selben Tag.</p></div>
+<div class="sc"><div class="sico">☀️</div><h3>Photovoltaik</h3><p>Planung, Installation und Wartung von Solaranlagen.</p></div>
+<div class="sc"><div class="sico">🔌</div><h3>E-Mobilität</h3><p>Wallbox-Installation für alle Elektrofahrzeuge.</p></div>
+<div class="sc"><div class="sico">📋</div><h3>Prüfungen &amp; E-Check</h3><p>DGUV V3, E-Check und Anlagenprüfungen nach VDE.</p></div>
+</div>
+</section>
+
+<div class="gallery">
+  <div class="gg">
+    <div class="gi"><img src="https://www.kunds-elektrotechnik-gmbh.de/files/daten/bilder/strom.webp" alt="" loading="lazy"/></div>
+    <div class="gi"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80&fit=crop" alt="" loading="lazy"/></div>
+    <div class="gi"><img src="https://images.unsplash.com/photo-1516156008625-3a9d6067fab5?w=600&q=80&fit=crop" alt="" loading="lazy"/></div>
+  </div>
+</div>
+
+<div class="reviews">
+  <div>
+    <div class="rn">5.0</div>
+    <div class="rs">★★★★★</div>
+    <div class="rc">4 Google Bewertungen</div>
+  </div>
+  <div class="rsep"></div>
+  <div>
+    <div class="rq">"Sehr professionell und zuverlässig. Schnelle Terminvereinbarung, saubere Arbeit, faire Preise. Absolute Empfehlung!"</div>
+    <div class="ra">— Verifizierter Google-Kunde · Bayern</div>
+  </div>
+</div>
+
+<section class="contact" id="kontakt">
+  <div class="cl">
+    <h2>Sprechen wir<br>miteinander.</h2>
+    <p>Rufen Sie uns an oder senden Sie eine kurze Anfrage. Wir melden uns innerhalb von 24 Stunden.</p>
+    <div class="cr"><div class="cico">📍</div><div><div class="ct"> Freisinger Str. 86, 85221 Dachau</div><div class="cs">Standort</div></div></div>
+<div class="cr"><div class="cico">📞</div><div><div class="ct"> 08131 273306</div><div class="cs">Mo–Fr 07–17 Uhr</div></div></div>
+<div class="cr"><div class="cico">✉️</div><div><div class="ct">-</div><div class="cs">E-Mail</div></div></div>
+<div class="cr"><div class="cico">⏰</div><div><div class="ct">Mo–Fr 07:00–17:00 Uhr</div><div class="cs">Öffnungszeiten</div></div></div>
+  </div>
+  <div class="cf">
+    <h3>Kostenlose Anfrage</h3>
+    <div class="fr"><input type="text" placeholder="Ihr Name"/></div>
+    <div class="fr"><input type="text" placeholder="Telefon oder E-Mail"/></div>
+    <div class="fr"><textarea placeholder="Womit kann ich Ihnen helfen?"></textarea></div>
+    <button class="fsub">Anfrage absenden →</button>
+  </div>
+</section>
+
+<footer>
+  <div class="fcp">© 2025 K &amp; S Elektrotechnik GmbH · Bayern</div>
+  <div class="fwm">Vorschau erstellt von <strong>Gleißner &amp; Nägel</strong> · Web, Prozesse &amp; Automatisierung</div>
+</footer>
+
+<div class="fctas">
+  <a href="tel:08131273306" class="fb fbc">📞 Jetzt anrufen</a>
+  <a href="mailto:-" class="fb fbm">✉️ E-Mail senden</a>
+</div>
+
+<script>
+(function(){
+  const imgs = ["https://www.kunds-elektrotechnik-gmbh.de/files/daten/bilder/strom.webp", "https://www.kunds-elektrotechnik-gmbh.de/assets/images/p/adobestock_164719838-9nkz635f1v3f79r.jpg"];
+  let i = 0;
+  const hp = document.getElementById('heroBg');
+  setInterval(function(){
+    hp.style.opacity='0';
+    setTimeout(function(){
+      i=(i+1)%imgs.length;
+      hp.style.backgroundImage="url('"+imgs[i]+"')";
+      hp.style.opacity='1';
+    },1000);
+  },5000);
+})();
+</script>
+</body></html>
