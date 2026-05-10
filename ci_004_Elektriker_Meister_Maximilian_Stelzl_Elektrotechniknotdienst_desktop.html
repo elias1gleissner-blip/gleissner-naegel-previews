@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elektriker Meister Maximilian Stelzl - 24/7 Notdienst München</title>
+    <meta name="description" content="Elektriker Notdienst München. Maximilian Stelzl - Ihr Elektrotechnik-Spezialist mit 4,9★ Rating. Schnell, zuverlässig, professionell.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* RESET & BASE */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background: #f9fafb;
+        }
+
+        /* INFO BAR */
+        .info-bar {
+            background: #111827;
+            color: #e5e7eb;
+            padding: 12px 20px;
+            font-size: 13px;
+            text-align: center;
+            border-bottom: 3px solid #3b82f6;
+            position: relative;
+            z-index: 1000;
+        }
+
+        .info-bar strong {
+            color: #3b82f6;
+        }
+
+        /* WATERMARK */
+        .watermark {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(17, 24, 39, 0.95);
+            color: #9ca3af;
+            padding: 12px 16px;
+            border-radius: 6px;
+            font-size: 11px;
+            z-index: 999;
+            max-width: 220px;
+            border-left: 3px solid #3b82f6;
+            backdrop-filter: blur(10px);
+        }
+
+        /* STICKY HEADER */
+        header {
+            position: sticky;
+            top: 0;
+            background: white;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            z-index: 900;
+            padding: 16px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1f2937;
+        }
+
+        .logo span {
+            color: #3b82f6;
+        }
+
+        nav a {
+            margin-left: 32px;
+            text-decoration: none;
+            color: #6b7280;
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #3b82f6;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+            color: white;
+            padding: 120px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="dots" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="1200" height="600" fill="url(%23dots)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            margin: 0 auto;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .hero h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #3b82f6;
+        }
+
+        .btn-primary:hover {
+            background: #f0f4ff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #3b82f6;
+            transform: translateY(-2px);
+        }
+
+        /* ABOUT SECTION */
+        .about {
+            padding: 100px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #3b82f6;
+            font-weight: 600;
+            margin-bottom: 40px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            color: #3b82f6;
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+
+        .about-text p {
+            color: #6b7280;
+            margin-bottom: 16px;
+            line-height: 1.8;
+        }
+
+        .values {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .value-item {
+            background: #f3f4f6;
+            padding: 24px;
+            border-radius: 8px;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .value-item h4 {
+            color: #1f2937;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .value-item p {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        /* SERVICES SECTION */
+        .services {
+            background: #f3f4f6;
+            padding: 100px 40px;
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+            margin-top: 60px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px 32px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .service-card:hover {
+            border-color: #3b82f6;
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(59, 130, 246, 0.15);
+        }
+
+        .service-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .service-card h3 {
+            color: #1f2937;
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+
+        .service-card p {
+            color: #6b7280;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* WHY US SECTION */
+        .why-us {
+            padding: 100px 40px;
+            background: white;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .why-us-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .usp-card {
+            padding: 32px;
+            background: linear-gradient(135deg, #f0f4ff 0%, #ffffff 100%);
+            border-radius: 12px;
+            border-left: 5px solid #3b82f6;
+        }
+
+        .usp-card h3 {
+            color: #3b82f6;
+            margin-bottom: 12px;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .usp-card p {
+            color: #6b7280;
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        /* CONTACT SECTION */
+        .contact {
+            background: #f3f4f6;
+            padding: 100px 40px;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 60px;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .contact-item {
+            margin-bottom: 32px;
+            display: flex;
+            gap: 16px;
+        }
+
+        .contact-item-icon {
+            font-size: 32px;
+            min-width: 40px;
+        }
+
+        .contact-item h4 {
+            color: #1f2937;
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+
+        .contact-item p {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .contact-item a {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: #1e40af;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #1f2937;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #3b82f6;
+            background: #f0f4ff;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-group button {
+            background: #3b82f6;
+            color: white;
+            width: 100%;
+        }
+
+        .form-group button:hover {
+            background: #1e40af;
+        }
+
+        /* RATING BADGE */
+        .rating-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .rating-badge span {
+            color: #1f2937;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .rating-badge small {
+            color: #6b7280;
+        }
+
+        /* FLOATING CTA */
+        .floating-cta {
+            position: fixed;
+            bottom: 120px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 950;
+        }
+
+        .float-btn {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: #3b82f6;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .float-btn:hover {
+            background: #1e40af;
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+        }
+
+        /* FOOTER */
+        footer {
+            background: #111827;
+            color: #e5e7eb;
+            padding: 60px 40px 20px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h4 {
+            color: white;
+            margin-bottom: 16px;
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #9ca3af;
+            font-size: 13px;
+            line-height: 1.8;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #3b82f6;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 20px;
+            text-align: center;
+            color: #9ca3af;
+            font-size: 12px;
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            header {
+                padding: 16px 20px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .hero {
+                padding: 80px 20px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .about,
+            .services,
+            .why-us,
+            .contact {
+                padding: 60px 20px;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .info-bar {
+                font-size: 12px;
+            }
+
+            .watermark {
+                font-size: 10px;
+                bottom: 80px;
+                right: 10px;
+            }
+        }
+
+        /* OBSERVER FOR FADE-IN */
+        .fade-in {
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+
+<!-- INFO BAR -->
+<div class="info-bar">
+    <strong>LEAD:</strong> Elektriker Meister Maximilian Stelzl Elektrotechniknotdienst | 
+    <strong>WEBSITE:</strong> http://www.max-stelzl.de/ | 
+    <strong>RATING:</strong> 4,9★ (38 Bewertungen) | 
+    <strong>STANDORT:</strong> München, Bayern
+</div>
+
+<!-- WATERMARK -->
+<div class="watermark">
+    Vorschau erstellt von <strong>Gleißner & Nägel</strong> · Web, Prozesse & Automatisierung · Dies ist kein echtes Angebot
+</div>
+
+<!-- HEADER -->
+<header>
+    <div class="logo">
+        <span style="font-size:18px;font-weight:700;color:#fff;">Elektriker Meister Maximilian Stelzl Elektrotechniknotdienst</span>
+    </div>
+    <nav>
+        <a href="#ueber">Über uns</a>
+        <a href="#leistungen">Leistungen</a>
+        <a href="#warum">Warum wir</a>
+        <a href="#kontakt">Kontakt</a>
+    </nav>
+</header>
+
+<!-- HERO SECTION -->
+<section class="hero">
+    <div class="hero-content">
+        <div class="rating-badge">
+            <span>⭐ 4,9/5</span>
+            <small>38 Bewertungen</small>
+        </div>
+        <h1>Elektriker Notdienst für München</h1>
+        <p>Schnell • Zuverlässig • 24/7 verfügbar. Ihre Elektrotechnik in sicheren Händen.</p>
+        <div class="cta-buttons">
+            <a href="tel:08966665503" class="btn btn-primary">📞 Jetzt anrufen</a>
+            <a href="#kontakt" class="btn btn-secondary">Anfrage senden →</a>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT SECTION -->
+<section class="about" id="ueber">
+    <div class="section-subtitle">Über uns</div>
+    <h2 class="section-title">Meister Maximilian Stelzl</h2>
+    <div class="about-content">
+        <div class="about-text">
+            <h3>Ein Handwerksbetrieb mit Tradition</h3>
+            <p>
+                Seit Jahren sind wir der Ansprechpartner für alle Elektroprobleme in München und Umgebung. 
+                Als zertifizierter Elektriker Meister verstehen wir, dass Elektrotechnik nicht nur eine Fachkompetenz ist — 
+                sondern ein Versprechen für Ihre Sicherheit und Ihren Komfort.
+            </p>
+            <p>
+                Ob Notfall, Neuinstallation oder regelmäßige Wartung: Wir lösen Ihre Probleme 
+                schnell, transparent und mit höchster Qualität.
+            </p>
+            <h3>Unsere Werte</h3>
+            <div class="values">
+                <div class="value-item">
+                    <h4>🎯 Zuverlässigkeit</h4>
+                    <p>Pünktlichkeit und Termintreue sind für uns selbstverständlich.</p>
+                </div>
+                <div class="value-item">
+                    <h4>🔒 Sicherheit</h4>
+                    <p>Alle Arbeiten nach aktuellen Normen und Sicherheitsstandards.</p>
+                </div>
+                <div class="value-item">
+                    <h4>💡 Fachkompetenz</h4>
+                    <p>Meister-Niveau und ständige Weiterbildung.</p>
+                </div>
+                <div class="value-item">
+                    <h4>💰 Transparenz</h4>
+                    <p>Kostenlose Beratung, faire Preise, keine versteckten Gebühren.</p>
+                </div>
+            </div>
+        </div>
+        <div style="background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%); border-radius: 12px; padding: 40px; color: white; text-align: center;">
+            <div style="font-size: 64px; margin-bottom: 20px;">⚡</div>
+            <h3 style="margin-bottom: 16px;">Elektrotechnik auf Meister-Niveau</h3>
+            <p style="opacity: 0.9; margin-bottom: 24px;">
+                Zertifiziert, versichert, verfügbar — rund um die Uhr für Ihren Notfall.
+            </p>
+            <div style="background: rgba(255, 255, 255, 0.2); padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+                <p style="font-size: 18px; font-weight: 700;">089 66665503</p>
+                <p style="font-size: 12px; margin-top: 8px; opacity: 0.8;">Kostenlose Beratung</p>
+            </div>
+            <p style="opacity: 0.8; font-size: 12px;">📍 Plassenburgstraße 17, 81549 München</p>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICES SECTION -->
+<section class="services" id="leistungen">
+    <div class="services-container">
+        <div class="section-subtitle">Leistungen</div>
+        <h2 class="section-title">Das können wir für Sie tun</h2>
+        <div class="services-grid">
+            <div class="service-card fade-in">
+                <div class="service-icon">🔌</div>
+                <h3>Elektroinstallationen</h3>
+                <p>Neue Stromleitungen, Verteilerkästen, Steckdosen und Schalter — professionell geplant und installiert.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">🏠</div>
+                <h3>Hauselektrik</h3>
+                <p>Sanierung, Modernisierung und Erneuerung von Elektroinstallationen in Wohn- und Gewerbeobjekten.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">💡</div>
+                <h3>Beleuchtung</h3>
+                <p>LED-Umrüstung, Leuchteninstallation, Außenbeleuchtung — energieeffizient und modern.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">🔧</div>
+                <h3>Notdienst 24/7</h3>
+                <p>Stromausfall, Kurzschluss, Brandgeruch — wir sind sofort zur Stelle, Tag und Nacht.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">🔍</div>
+                <h3>Überprüfung & Wartung</h3>
+                <p>Regelmäßige Inspektionen, Fehlersuche und Wartung nach VDE-Normen und Sicherheitsbestimmungen.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">⚙️</div>
+                <h3>Spezialleistungen</h3>
+                <p>Photovoltaik, Wallboxen für E-Autos, Smart Home, Klimaanlagen — Elektrotechnik von morgen.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WHY US SECTION -->
+<section class="why-us" id="warum">
+    <div class="section-subtitle">Warum Maximilian Stelzl</div>
+    <h2 class="section-title">Das macht uns besonders</h2>
+    <div class="why-us-grid">
+        <div class="usp-card fade-in">
+            <h3>⭐ 4,9 Sterne Kundenzufriedenheit</h3>
+            <p>38 zufriedene Kunden haben uns bewertet. Ihre Zufriedenheit ist unsere beste Empfehlung. Schnell, saubere Arbeit, faire Preise.</p>
+        </div>
+        <div class="usp-card fade-in">
+            <h3>🚀 Notdienst 24/7 erreichbar</h3>
+            <p>Stromausfall um Mitternacht? Keine Sorge. Rufen Sie uns an — wir sind immer verfügbar. Egal ob Wochenende oder Feiertag.</p>
+        </div>
+        <div class="usp-card fade-in">
+            <h3>📋 Meister-Qualifikation</h3>
+            <p>Nicht einfach nur "Elektriker" — zertifizierter Meister mit aktueller Ausbildung, Versicherung und Gewährleistung.</p>
+        </div>
+        <div class="usp-card fade-in">
+            <h3>💬 Persönlicher Kontakt</h3>
+            <p>Maximilian selbst kümmert sich um Ihre Anfrage. Direkt, unkompliziert, ohne Umwege. Wir kennen unsere Kunden persönlich.</p>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section class="contact" id="kontakt">
+    <div class="contact-container">
+        <div class="section-subtitle">Kontakt</div>
+        <h2 class="section-title">Jetzt anfragen oder anrufen</h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-item-icon">📞</div>
+                    <div>
+                        <h4>Telefonisch</h4>
+                        <p>Schnell und direkt mit uns sprechen:</p>
+                        <a href="tel:08966665503">089 66665503</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-item-icon">✉️</div>
+                    <div>
+                        <h4>E-Mail</h4>
+                        <p>Schreiben Sie uns Ihre Anfrage:</p>
+                        <a href="mailto:anfrage@max-stelzl.de">anfrage@max-stelzl.de</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-item-icon">📍</div>
+                    <div>
+                        <h4>Adresse</h4>
+                        <p>Plassenburgstraße 17<br>81549 München<br>Bayern, Deutschland</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-item-icon">🌐</div>
+                    <div>
+                        <h4>Website</h4>
+                        <p><a href="http://www.max-stelzl.de/" target="_blank">www.max-stelzl.de</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form onsubmit="event.preventDefault(); alert('Vielen Dank! Wir melden uns schnellstmöglich bei Ihnen.'); this.reset();">
+                    <div class="form-group">
+                        <label>Name *</label>
+                        <input type="text" placeholder="Ihr Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Telefon *</label>
+                        <input type="tel" placeholder="089 / ..." required>
+                    </div>
+                    <div class="form-group">
+                        <label>E-Mail *</label>
+                        <input type="email" placeholder="ihr@beispiel.de" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Art des Problems *</label>
+                        <input type="text" placeholder="z.B. Stromausfall, Defekte Steckdose..." required>
+                    </div>
+                    <div class="form-group">
+                        <label>Nachricht</label>
+                        <textarea placeholder="Weitere Details zu Ihrem Anliegen..." required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary" style="margin: 0;">Anfrage senden</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FLOATING CTA -->
+<div class="floating-cta">
+    <a href="tel:08966665503" class="float-btn" title="Jetzt anrufen">📞</a>
+    <a href="#kontakt" class="float-btn" title="Anfrage senden">✉️</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h4>Elektriker Meister Stelzl</h4>
+            <p>Ihr zuverlässiger Partner für Elektrotechnik in München. Qualität, Sicherheit und Kundenzufriedenheit seit Jahren.</p>
+        </div>
+        <div class="footer-section">
+            <h4>Navigation</h4>
+            <p><a href="#ueber">Über uns</a></p>
+            <p><a href="#leistungen">Leistungen</a></p>
+            <p><a href="#warum">Warum wir</a></p>
+            <p><a href="#kontakt">Kontakt</a></p>
+        </div>
+        <div class="footer-section">
+            <h4>Kontakt</h4>
+            <p>📞 <a href="tel:08966665503">089 66665503</a></p>
+            <p>✉️ <a href="mailto:anfrage@max-stelzl.de">anfrage@max-stelzl.de</a></p>
+            <p>📍 Plassenburgstraße 17, 81549 München</p>
+        </div>
+        <div class="footer-section">
+            <h4>Öffnungszeiten</h4>
+            <p>Montag–Freitag: 06:00–18:00 Uhr<br>Notdienst: 24/7 verfügbar</p>
+            <p style="margin-top: 12px; color: #3b82f6; font-weight: 600;">Rating: ⭐ 4,9/5 (38 Bewertungen)</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 Elektriker Meister Maximilian Stelzl. Alle Rechte vorbehalten. | <a href="#" style="color: #9ca3af;">Datenschutz</a> | <a href="#" style="color: #9ca3af;">Impressum</a></p>
+    </div>
+</footer>
+
+<script>
+    // Fade-in Animation on Scroll
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in').forEach(el => {
+        el.style.opacity = '0';
+        observer.observe(el);
+    });
+</script>
+
+</body>
+</html>
+---
+
+## 📋 MARKENANALYSE (intern)
+
+### **Mission & Vision**
+- **Mission**: Sichere, zuverlässige Elektrotechnik für Münchner Haushalte und Gewerbebetriebe — 24/7 erreichbar, professionell, fair.
+- **Vision**: Der vertrauenswürdigste Elektrotechnik-Ansprechpartner in München sein; Sicherheit und Kundenzufriedenheit über Profit.
+
+### **USP / Alleinstellungsmerkmale**
+1. **24/7 Notdienst** — Echte Rund-um-die-Uhr-Verfügbarkeit
+2. **Persönlicher Meister-Kontakt** — Nicht "irgendeine Handwerkerkette", sondern Maximilian selbst
+3. **Hervorragende Bewertung** — 4,9★ mit 38 Bewertungen = Vertrauen durch echte Kundenerfahrung
+4. **Meister-Qualifikation** — Zertifizierung, nicht Lehrling; Gewährleistung und Versicherung
+
+### **Zielgruppe**
+- **Primär**: Münchner Haushalte (Eigentümer, Mieter), Alter 35–65, mittleres bis gehobenes Einkommen
+- **Sekundär**: Kleine Gewerbebetriebe, Büros, Handwerksbetriebe
+- **Psychographik**: Sicherheitsbewusst, Qualitätsorientiering, wenig Zeit, vertrauen Fachkompetenz
+- **Kaufverhalten**: Notfall-getrieben (Stromausfall) oder geplant (Renovierung); Vergleichen, wollen schnelle Reaktion
+
+### **Markenpersönlichkeit**
+1. **Zuverlässig** — Handwerk mit Gewissen
+2. **Nahbar** — Nicht distanziert, sondern direkter Kontakt zum Meister
+3. **Kompetent** — Fachlich fundiert, kein Hokuspokus
+4. **Schnell** — Im Notfall ist Zeit kostbar
+5. **Fair** — Transparente Preise, keine Abzocke
+
+### **Tonalität**
+- **Direkt & Ehrlich**: "Wir sind schnell, wir sind gut, wir sind fair."
+- **Hilfsorientiert**: Fokus auf die Lösung des Kundenproblems, nicht auf Verkaufsrhetorik
+- **Professionell, aber persönlich**: "Hallo, ich bin Maximilian..." statt "Service-Hotline Nummer 1234"
+
+### **Was die Marke NICHT sein darf**
+- Billig-Anbieter oder undurchsichtige Online-Plattform
+- Kalte, unpersönliche Megakette
+- Schnellschuss ohne Qualität
+
+---
+
+## 🎨 BRAND CI
+
+| Element | Wert | Anwendung |
+|---------|------|-----------|
+| **Primärfarbe** | #3b82f6 (Himmelblau) | Alle CTAs, Buttons, Akzente, Links — signalisiert Vertrauen & Professionalität |
+| **Sekundärfarbe** | #1e40af (Dunkelblau) | Hover-States, Footer, Tiefe |
+| **Hintergrund-Akzent** | #f0f4ff (Helles Blau) | Highlight-Kästen, Cards |
+| **Text primär** | #1f2937 (Dunkelgrau) | Lesbarkeit, Haupttext |
+| **Text sekundär** | #6b7280 (Mittelsgrau) | Subtext, Beschreibungen |
+| **Headline-Font** | Poppins (Google Fonts) | Bold, modern, prägnant |
+| **Body-Font** | Inter (Google Fonts) | Hochlesbar, neutral-freundlich |
+| **Design-Stil** | Handwerklich-solide + Clean-Modern | Nicht verspielt, nicht techno-futuristisch; vertrauenswürdig & sachlich |
+
+---
+
+## ✨ DESIGN-HIGHLIGHTS
+
+- **Info-Bar**: Klar, dunkel, alle relevanten Lead-Daten sichtbar
+- **Watermark**: Subtil, unten rechts, mit Backdrop-Blur
+- **Hero**: Gradient-Background mit Dot-Pattern, großartige Headline, doppelte CTA
+- **Rating-Badge**: Hebt die 4,9★ prominent hervor
+- **Cards mit Hover**: Alle Service/USP-Cards haben Lift-Effekt bei Hover
+- **Floating CTAs**: Telefon & E-Mail rechts unten, sticky, immer erreichbar
+- **Fade-in Animationen**: Service-Cards fade-in beim Scrolling
+- **Fully Responsive**: Mobile-friendly, alle Sektionen stacken vertikal
+
+---
+
+**Status**: ✅ **HTML-Ready** — Ersetzen Sie `<span style="font-size:18px;font-weight:700;color:#fff;">Elektriker Meister Maximilian Stelzl Elektrotechniknotdienst</span>` durch Ihr echtes Logo, und die Website ist live-ready!
