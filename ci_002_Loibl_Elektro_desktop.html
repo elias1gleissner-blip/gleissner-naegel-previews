@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loibl Elektro - Elektriker & Photovoltaik im Raum Freising</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1a1a1a;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Info Bar */
+        .info-bar {
+            background: #0a0a0a;
+            color: #fff;
+            padding: 12px 20px;
+            font-size: 12px;
+            text-align: center;
+            letter-spacing: 0.5px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .info-bar strong {
+            color: #FFFF00;
+        }
+        
+        /* Header */
+        .header {
+            background: #fff;
+            padding: 16px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 32px;
+            z-index: 999;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        
+        .logo {
+            max-height: 52px;
+            object-fit: contain;
+            max-width: 180px;
+        }
+        
+        .nav {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+        
+        .nav a {
+            text-decoration: none;
+            color: #1a1a1a;
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+        
+        .nav a:hover {
+            color: #FFFF00;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #001a4d 0%, #003d99 100%);
+        }
+        
+        .hero-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.25;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: #fff;
+            max-width: 800px;
+            padding: 40px;
+            animation: fadeInUp 0.8s ease;
+        }
+        
+        .hero h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero h1 span {
+            color: #FFFF00;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 32px;
+            opacity: 0.95;
+        }
+        
+        .cta-group {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 14px 32px;
+            font-size: 15px;
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: #FFFF00;
+            color: #001a4d;
+        }
+        
+        .btn-primary:hover {
+            background: #e6e600;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(255,255,0,0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: #FFFF00;
+            border: 2px solid #FFFF00;
+        }
+        
+        .btn-secondary:hover {
+            background: #FFFF00;
+            color: #001a4d;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Sections */
+        section {
+            padding: 80px 40px;
+        }
+        
+        section h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 42px;
+            margin-bottom: 50px;
+            text-align: center;
+            color: #1a1a1a;
+        }
+        
+        section h2 span {
+            color: #FFFF00;
+        }
+        
+        /* Über uns */
+        .about {
+            background: #f9f9f9;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .about-text h3 {
+            color: #FFFF00;
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 16px;
+            font-size: 18px;
+        }
+        
+        .about-text p {
+            margin-bottom: 16px;
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        .about-img {
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+        
+        /* Leistungen */
+        .services {
+            background: #fff;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .service-card {
+            background: #f5f5f5;
+            padding: 32px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+            text-align: center;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+            border-left-color: #FFFF00;
+            background: #fff;
+        }
+        
+        .service-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+        
+        .service-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+        }
+        
+        .service-card p {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        /* USP */
+        .usp {
+            background: linear-gradient(135deg, #001a4d 0%, #003d99 100%);
+            color: #fff;
+        }
+        
+        .usp h2 {
+            color: #FFFF00;
+        }
+        
+        .usp-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .usp-item {
+            text-align: center;
+        }
+        
+        .usp-number {
+            font-family: 'Poppins', sans-serif;
+            font-size: 48px;
+            color: #FFFF00;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+        
+        .usp-item h3 {
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+        
+        .usp-item p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        /* Kontakt */
+        .contact {
+            background: #f9f9f9;
+        }
+        
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+        
+        .contact-item {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+        
+        .contact-icon {
+            font-size: 28px;
+            color: #FFFF00;
+            width: 40px;
+            text-align: center;
+        }
+        
+        .contact-text h3 {
+            color: #1a1a1a;
+            margin-bottom: 4px;
+            font-size: 16px;
+        }
+        
+        .contact-text p {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .contact-text a {
+            color: #FFFF00;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            padding: 12px 16px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        /* Floating CTA */
+        .floating-cta {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 12px;
+            z-index: 100;
+        }
+        
+        .float-btn {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: #FFFF00;
+            color: #001a4d;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(255,255,0,0.4);
+            text-decoration: none;
+        }
+        
+        .float-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(255,255,0,0.6);
+        }
+        
+        /* Footer */
+        .footer {
+            background: #0a0a0a;
+            color: #fff;
+            padding: 60px 40px 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            color: #FFFF00;
+            margin-bottom: 16px;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+        
+        .footer-col a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-col a:hover {
+            color: #FFFF00;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #999;
+        }
+        
+        .watermark {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            font-size: 9px;
+            color: rgba(0,0,0,0.3);
+            z-index: 1;
+            max-width: 200px;
+            line-height: 1.4;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+            
+            .services-grid,
+            .usp-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="watermark">
+        Vorschau erstellt von Gleißner & Nägel · Web, Prozesse & Automatisierung · Dies ist kein echtes Angebot
+    </div>
+    
+    <div class="info-bar">
+        <strong>LEAD:</strong> Loibl Elektro | <strong>WEBSITE:</strong> https://loiblelektro.de/ | <strong>RATING:</strong> 4,8★ (17 Bewertungen) | <strong>STANDORT:</strong> Freising, Bayern
+    </div>
+    
+    <header class="header">
+        <img src="<img src="data:image/png;base64,/9j/4QC8RXhpZgAASUkqAAgAAAAGABIBAwABAAAAAQAAABoBBQABAAAAVgAAABsBBQABAAAAXgAAACgBAwABAAAAAgAAABMCAwABAAAAAQAAAGmHBAABAAAAZgAAAAAAAAA4YwAA6AMAADhjAADoAwAABgAAkAcABAAAADAyMTABkQcABAAAAAECAwAAoAcABAAAADAxMDABoAMAAQAAAP//AAACoAQAAQAAADsAAAADoAQAAQAAADkAAAAAAAAA/9sAQwAGBAUGBQQGBgUGBwcGCAoQCgoJCQoUDg8MEBcUGBgXFBYWGh0lHxobIxwWFiAsICMmJykqKRkfLTAtKDAlKCko/9sAQwEHBwcKCAoTCgoTKBoWGigoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgo/8AAEQgAOQA7AwEiAAIRAQMRAf/EABsAAQACAwEBAAAAAAAAAAAAAAAFBwEEBggD/8QAKRAAAQQCAgEDBAIDAAAAAAAAAQACAwQFEQYSIQcxQRMUMnEigRVC4f/EABoBAQADAQEBAAAAAAAAAAAAAAACAwQBBQb/xAAgEQACAgIBBQEAAAAAAAAAAAAAAQIDBBExBRIhQVHx/9oADAMBAAIRAxEAPwDz4iItB44RfSGJ88zIoml0j3BrWj5JXeM4NVgbVhuWbElydwBEIAazzo63+Wv+qUYOXBmyMurHaVj8sr9FOct47Y43khWneJYnt7xSgaD2/r4IUGuNOL0y2q2F0FZW9phERcLAiLKAluJxOm5HQYyeKB/1OzHyjbewGwD+z4/tXTBj7JcySWOUyMB0X2QHN3766ggKgGkhwLSQ4HYI+FbWE9SKLcUxuWbYF6NunfTZsSa+d78ErTjzitqTPnOu42TY42UR7vTXv8Iv1cbN1xxnl/EuDIpHNdLrQ24kf678DflVwpTkmXnzmXmu2B1LzpjPhjR7BRipskpSbR6/T6JY+PCufK+BFhFA2BTvBadfI81wNK7EJati/BFLG72cx0gBH9gqCW1jLctDJVblaV0M1eVsrJG+7HNOwR+ijOp6ezvcBhsVFf57k7FCK/FgOzq2Pc9wjd2sGMOf1Oyxg8kbHx5U/V45gsxxRvI/8RXozWcPkZPtInO+kJYHMDZ4wSSB/IgjZG1xMvqDyabJVshLmpRbhL2B7Io27Y/XYOAaA8HXkOBWtkOY5q/PbtWstYksywGkB1aGfbO/JgaAA0e3gAKOmT74/C8M3wbix5PRqwYbFmCPOxUXtoySbZC6uXllkOP5l3lpb40PJXm2yGtszNZrq17gAD7DZXZX/Ubkd+xHZs5y0Z6crbFTrHG0fVA693ANAc4N8AkFQvKuQXeQvqT5K663PHGWkmJjOu/JH8QN+dok0J2RlwiDWERSKwiIgCIiAyiwiAIiID//2Q==" alt="Loibl Elektro" style="max-height:52px;width:auto;max-width:200px;object-fit:contain;display:block;"/>" alt="Loibl Elektro" class="logo">
+        <nav>
+            <ul class="nav">
+                <li><a href="#home">Start</a></li>
+                <li><a href="#services">Dienstleistungen</a></li>
+                <li><a href="#about">Über Uns</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="hero" id="home">
+        <img src="https://img1.wsimg.com/isteam/ip/69beff2e-f5ed-41d2-addb-7c119f0c1e94/blob.png" alt="Hero Background" class="hero-bg">
+        <div class="hero-content">
+            <h1>Elektro-Bauleitung & <span>Fachinstallationen</span></h1>
+            <p>Meisterlich geplant, effizient umgesetzt — Ihr Partner für Photovoltaik, MSR-Technik, Smart Home und elektrotechnische Projektkoordination im Raum Freising.</p>
+            <div class="cta-group">
+                <a href="tel:017655409790" class="btn btn-primary">📞 Angebot anfordern</a>
+                <a href="#contact" class="btn btn-secondary">Mehr erfahren</a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="about" id="about">
+        <h2>Über <span>Loibl Elektro</span></h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Meisterbetrieb mit Erfahrung</h3>
+                <p>Als Meisterbetrieb mit technischer Leitungserfahrung stehen wir für zuverlässige Projektführung, fachgerechte Installation und strukturierte Umsetzung — ob im privaten Wohnbau oder in gewerblichen Großprojekten.</p>
+                <p>Mit über 17 zufriedenen Kunden und einer Google-Bewertung von 4,8 Sternen zeigen wir täglich unser Engagement für höchste Qualität und Kundenzufriedenheit.</p>
+                <h3>Unsere Stärken</h3>
+                <p><strong>✓ Elektro-Bauleitung</strong> für komplexe Projekte</p>
+                <p><strong>✓ Fachinstallationen</strong> mit Meister-Standard</p>
+                <p><strong>✓ Photovoltaik-Lösungen</strong> für Eigenheime und Gewerbe</p>
+                <p><strong>✓ Smart-Home-Integration</strong> für modernes Wohnen</p>
+            </div>
+            <div class="about-img">
+                <img src="https://img1.wsimg.com/isteam/ip/69beff2e-f5ed-41d2-addb-7c119f0c1e94/blob.png/:/rs=h:100,cg:true,m/qt=q:95" alt="Loibl Elektro Team">
+            </div>
+        </div>
+    </section>
+    
+    <section class="services" id="services">
+        <h2>Unsere <span>Leistungen</span></h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">⚡</div>
+                <h3>Elektroinstallationen</h3>
+                <p>Professionelle Installation und Wartung aller Stromverteilungsanlagen im privaten und gewerblichen Bereich.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">☀️</div>
+                <h3>Photovoltaik-Anlagen</h3>
+                <p>Komplettlösungen für Solaranlagen — von der Planung bis zur Inbetriebnahme mit maximaler Effizienz.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🏗️</div>
+                <h3>Bauleitung</h3>
+                <p>Elektrotechnische Projektkoordination und Bauleitung für Neubau-, Umbau- und Renovierungsprojekte.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🏠</div>
+                <h3>Smart-Home-Systeme</h3>
+                <p>Intelligente Heimautomation für maximalen Komfort, Sicherheit und Energieeffizienz in Ihrem Zuhause.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎛️</div>
+                <h3>MSR-Technik</h3>
+                <p>Messtechnik, Steuer- und Regeltechnik für industrielle und gewerbliche Anwendungen auf höchstem Niveau.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔧</div>
+                <h3>Wartung & Service</h3>
+                <p>Regelmäßige Wartung, Inspektionen und Instandhaltung aller elektrotechnischen Anlagen und Systeme.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="usp">
+        <h2>Warum <span>Loibl Elektro</span>?</h2>
+        <div class="usp-grid">
+            <div class="usp-item">
+                <div class="usp-number">4,8★</div>
+                <h3>Google Rating</h3>
+                <p>17 zufriedene Kunden mit Topbewertungen</p>
+            </div>
+            <div class="usp-item">
+                <div class="usp-number">20+</div>
+                <h3>Jahre Erfahrung</h3>
+                <p>Meisterbetrieb mit bewährter Expertise</p>
+            </div>
+            <div class="usp-item">
+                <div class="usp-number">100%</div>
+                <h3>Zuverlässigkeit</h3>
+                <p>Pünktliche Projektabwicklung garantiert</p>
+            </div>
+            <div class="usp-item">
+                <div class="usp-number">24/7</div>
+                <h3>Erreichbarkeit</h3>
+                <p>Schnelle Reaktion bei Notfällen</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="contact" id="contact">
+        <h2>Kontakt & <span>Angebot</span></h2>
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div class="contact-text">
+                        <h3>Adresse</h3>
+                        <p>Kirchgasse 4<br>85354 Freising<br>Bayern, Deutschland</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div class="contact-text">
+                        <h3>Telefon</h3>
+                        <p><a href="tel:017655409790">0176 55409790</a></p>
+                        <p style="font-size: 12px; margin-top: 4px;">Erreichbar Mo–Fr 8–17 Uhr</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">✉️</div>
+                    <div class="contact-text">
+                        <h3>E-Mail</h3>
+                        <p><a href="mailto:astigma@astigmatic.com">astigma@astigmatic.com</a></p>
+                        <p style="font-size: 12px; margin-top: 4px;">Antwort innerhalb von 24h</p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <form class="form-group" onsubmit="return handleFormSubmit(event);">
+                    <input type="text" placeholder="Ihr Name" required>
+                    <input type="email" placeholder="Ihre E-Mail" required>
+                    <input type="tel" placeholder="Telefonnummer">
+                    <textarea placeholder="Ihre Anfrage oder Projektbeschreibung"></textarea>
+                    <button type="submit" class="btn btn-primary">Kostenlos Angebot anfordern</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <div class="floating-cta">
+        <a href="tel:017655409790" class="float-btn" title="Jetzt anrufen">📞</a>
+        <a href="mailto:astigma@astigmatic.com" class="float-btn" title="E-Mail senden">✉️</a>
+    </div>
+    
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>Loibl Elektro</h3>
+                <p>Ihr zuverlässiger Partner für Elektroinstallationen, Photovoltaik und Smart-Home-Lösungen im Raum Freising und München.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Leistungen</h3>
+                <ul>
+                    <li><a href="#services">Elektroinstallationen</a></li>
+                    <li><a href="#services">Photovoltaik</a></li>
+                    <li><a href="#services">Bauleitung</a></li>
+                    <li><a href="#services">Smart-Home</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Unternehmen</h3>
+                <ul>
+                    <li><a href="#about">Über Uns</a></li>
+                    <li><a href="#contact">Kontakt</a></li>
+                    <li><a href="https://loiblelektro.de/" target="_blank">Website</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Kontakt</h3>
+                <p style="font-size: 14px; margin-bottom: 8px;">
+                    <a href="tel:017655409790">0176 55409790</a><br>
+                    <a href="mailto:astigma@astigmatic.com">astigma@astigmatic.com</a><br>
+                    Kirchgasse 4, 85354 Freising
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Loibl Elektro. Alle Rechte vorbehalten. | Meisterbetrieb für Elektrotechnik</p>
+        </div>
+    </footer>
+    
+    <script>
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            alert('Vielen Dank! Ihre Anfrage wurde erfolgreich versendet. Wir melden uns schnellstmöglich bei Ihnen.');
+            e.target.reset();
+            return false;
+        }
+        
+        // Scroll Animation
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255,255,255,0.95)';
+            } else {
+                header.style.background = '#fff';
+            }
+        });
+    </script>
+</body>
+</html>
