@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>emp-electric GmbH | Elektroinstallation & Smart Home in Dachau</title>
+    <meta name="description" content="Elektriker in Dachau. Fundierte Beratung. Überzeugender Service. Elektroinstallation, Smart Home, Bestandssanierung.">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --primary: #A99002;
+            --primary-dark: #8B7600;
+            --accent: #B72B45;
+            --accent-light: #E8536B;
+            --bg-light: #FAFAFA;
+            --bg-dark: #1a1a1a;
+            --text-dark: #2c2c2c;
+            --text-light: #666;
+            --border: #E5E5E5;
+            --success: #2E7D32;
+        }
+        
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Sora', sans-serif;
+            color: var(--text-dark);
+            background: white;
+            line-height: 1.6;
+        }
+        
+        /* INFO BAR */
+        .info-bar {
+            background: var(--bg-dark);
+            color: #fff;
+            padding: 12px 20px;
+            font-size: 12px;
+            text-align: center;
+            font-family: 'Space Mono', monospace;
+            border-bottom: 2px solid var(--primary);
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .info-bar span { font-weight: 600; }
+        .info-bar .highlight { color: var(--primary); }
+        
+        /* WATERMARK */
+        .watermark {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.8);
+            color: #fff;
+            padding: 12px 16px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-family: 'Space Mono', monospace;
+            z-index: 999;
+            max-width: 200px;
+            line-height: 1.4;
+            backdrop-filter: blur(10px);
+        }
+        
+        /* STICKY HEADER */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 900;
+            background: white;
+            border-bottom: 1px solid var(--border);
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--text-dark);
+        }
+        
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 22px;
+        }
+        
+        nav {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 14px;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        nav a:hover { color: var(--primary); }
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+        nav a:hover::after { width: 100%; }
+        
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(135deg, var(--bg-dark) 0%, rgba(42,42,42,0.95) 50%, var(--primary) 100%);
+            color: white;
+            padding: 120px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: rgba(169, 144, 2, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(20px); }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+        
+        .hero .tagline {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .hero p {
+            font-size: 16px;
+            margin-bottom: 40px;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+        
+        .hero-ctas {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 14px 32px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-family: 'Sora', sans-serif;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(169, 144, 2, 0.3);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: var(--text-dark);
+            border: 2px solid white;
+        }
+        
+        .btn-secondary:hover {
+            background: transparent;
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        /* SECTION SPACING */
+        section {
+            padding: 100px 40px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 42px;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+        
+        .section-title p {
+            font-size: 18px;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* ÜBER UNS */
+        #ueber {
+            background: var(--bg-light);
+        }
+        
+        .ueber-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .ueber-text h3 {
+            font-size: 28px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .ueber-text p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+            color: var(--text-dark);
+        }
+        
+        .ueber-values {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .value-item {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+        
+        .value-icon {
+            font-size: 28px;
+            min-width: 40px;
+        }
+        
+        .value-item h4 {
+            font-size: 16px;
+            color: var(--accent);
+            margin-bottom: 5px;
+        }
+        
+        .value-item p {
+            font-size: 14px;
+            margin: 0;
+        }
+        
+        .ueber-image {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+        
+        .ueber-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* LEISTUNGEN */
+        #leistungen {
+            background: white;
+        }
+        
+        .leistungen-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .service-card {
+            background: var(--bg-light);
+            padding: 40px 30px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(169, 144, 2, 0.15);
+        }
+        
+        .service-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover .service-icon {
+            transform: scale(1.15) rotate(5deg);
+        }
+        
+        .service-card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+        
+        .service-card p {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+        
+        /* USP SECTION */
+        #usp {
+            background: linear-gradient(135deg, var(--bg-dark), rgba(42,42,42,0.95));
+            color: white;
+        }
+        
+        #usp .section-title h2,
+        #usp .section-title p {
+            color: white;
+        }
+        
+        #usp .section-title p {
+            opacity: 0.9;
+        }
+        
+        .usp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .usp-item {
+            background: rgba(255,255,255,0.08);
+            padding: 35px;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .usp-item:hover {
+            background: rgba(169, 144, 2, 0.15);
+            transform: translateX(10px);
+        }
+        
+        .usp-item h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+            color: var(--primary);
+        }
+        
+        .usp-item p {
+            font-size: 14px;
+            line-height: 1.7;
+            opacity: 0.9;
+        }
+        
+        /* CONTACT */
+        #kontakt {
+            background: var(--bg-light);
+        }
+        
+        .kontakt-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+        
+        .kontakt-info h3 {
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: var(--text-dark);
+        }
+        
+        .kontakt-item {
+            margin-bottom: 25px;
+            display: flex;
+            gap: 15px;
+        }
+        
+        .kontakt-icon {
+            font-size: 24px;
+            color: var(--primary);
+            min-width: 30px;
+        }
+        
+        .kontakt-item p {
+            margin: 0;
+        }
+        
+        .kontakt-item a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .kontakt-item a:hover {
+            text-decoration: underline;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .form-group label {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+            font-size: 14px;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            padding: 12px 16px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-family: 'Sora', sans-serif;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(169, 144, 2, 0.1);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .form-group button {
+            background: var(--primary);
+            color: white;
+            padding: 14px 32px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+        
+        .form-group button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(169, 144, 2, 0.3);
+        }
+        
+        /* FLOATING CTAs */
+        .floating-ctas {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 800;
+        }
+        
+        .float-btn {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 4px 12px rgba(169, 144, 2, 0.3);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .float-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 24px rgba(169, 144, 2, 0.5);
+        }
+        
+        .float-btn.accent {
+            background: var(--accent);
+            box-shadow: 0 4px 12px rgba(183, 43, 69, 0.3);
+        }
+        
+        .float-btn.accent:hover {
+            box-shadow: 0 8px 24px rgba(183, 43, 69, 0.5);
+        }
+        
+        /* FOOTER */
+        footer {
+            background: var(--bg-dark);
+            color: white;
+            padding: 60px 40px 30px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h4 {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .footer-col a,
+        .footer-col p {
+            font-size: 14px;
+            color: #ccc;
+            text-decoration: none;
+            line-height: 1.8;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-col a:hover {
+            color: var(--primary);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
+            text-align: center;
+            font-size: 13px;
+            color: #999;
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px 20px;
+            }
+            
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            
+            .hero {
+                padding: 80px 20px;
+                min-height: auto;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .ueber-grid,
+            .kontakt-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            section {
+                padding: 60px 20px;
+            }
+            
+            .floating-ctas {
+                left: 15px;
+                bottom: 15px;
+            }
+            
+            .info-bar {
+                gap: 15px;
+                font-size: 11px;
+            }
+        }
+        
+        /* SCROLL ANIMATION */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- INFO BAR -->
+    <div class="info-bar">
+        <span>LEAD: emp-electric GmbH</span>
+        <span>WEBSITE: <a style="color: var(--primary); text-decoration: none;" href="http://emp-electric.de/" target="_blank">emp-electric.de</a></span>
+        <span>RATING: <span class="highlight">4,8★</span> (20 Bewertungen)</span>
+        <span>STANDORT: <span class="highlight">Dachau, Bayern</span></span>
+    </div>
+    
+    <!-- WATERMARK -->
+    <div class="watermark">
+        Vorschau erstellt von<br><strong>Gleißner & Nägel</strong><br>Web, Prozesse & Automatisierung<br><br>Dies ist kein echtes Angebot
+    </div>
+    
+    <!-- HEADER -->
+    <header>
+        <div class="logo-box">
+            <div class="logo-img">⚡</div>
+            <span>emp-electric</span>
+        </div>
+        <nav>
+            <a href="#ueber">Über uns</a>
+            <a href="#leistungen">Leistungen</a>
+            <a href="#usp">Warum wir</a>
+            <a href="#kontakt">Kontakt</a>
+        </nav>
+    </header>
+    
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <p class="tagline">Sowas von Strom!</p>
+            <h1>Elektriker mit Leidenschaft für Technik</h1>
+            <p>Fundierte Beratung. Überzeugender Service. EMPfehlenswert.<br>Wir begleiten Sie von der Elektroinstallation bis zum intelligenten Zuhause.</p>
+            <div class="hero-ctas">
+                <a href="tel:081313564660" class="btn btn-primary">📞 Jetzt anrufen</a>
+                <a href="#kontakt" class="btn btn-secondary">✉️ Anfrage senden</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ÜBER UNS -->
+    <section id="ueber">
+        <div class="ueber-grid">
+            <div class="ueber-text">
+                <h3>Elektriker ist nicht gleich Elektriker</h3>
+                <p>Seit Jahren beliefern wir private Haushalte und Gewerbekunden mit professionellen Elektroinstallationen. Ob Neubau, Sanierung oder intelligente Aufrüstung – wir verstehen Ihre Anforderungen und setzen sie verantwortungsvoll um.</p>
+                <p>Immer mehr Menschen möchten ihr Zuhause intelligent steuern. Wir beraten Sie gerne zu modernen Lösungen, die Ihren Alltag erleichtern – sparsam, effizient und umweltfreundlich.</p>
+                
+                <div class="ueber-values">
+                    <div class="value-item">
+                        <span class="value-icon">🔧</span>
+                        <div>
+                            <h4>Handwerk trifft Technik</h4>
+                            <p>Solide Ausführung mit modernster Technologie</p>
+                        </div>
+                    </div>
+                    <div class="value-item">
+                        <span class="value-icon">💡</span>
+                        <div>
+                            <h4>Nachhaltige Beratung</h4>
+                            <p>Energieeffiziente Lösungen, die Umwelt und Geldbeutel schonen</p>
+                        </div>
+                    </div>
+                    <div class="value-item">
+                        <span class="value-icon">🤝</span>
+                        <div>
+                            <h4>Zuverlässiger Partner</h4>
+                            <p>Von der Planung bis zum finalen Check – persönlich und gewissenhaft</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ueber-image">
+                <img src="https://emp-electric.de/wp-content/uploads/2021/04/iStock-1192834365-emp-aspect-ratio-2-1.2-1024x614.jpg" alt="emp-electric Team bei der Arbeit">
+            </div>
+        </div>
+    </section>
+    
+    <!-- LEISTUNGEN -->
+    <section id="leistungen">
+        <div class="section-title">
+            <h2>Unsere Leistungen</h2>
+            <p>Von klassischer Elektroinstallation bis zum intelligenten Smart Home – wir decken das komplette Spektrum ab</p>
+        </div>
+        
+        <div class="leistungen-grid">
+            <div class="service-card fade-in">
+                <span class="service-icon">🏠</span>
+                <h3>Elektroinstallation Neubau</h3>
+                <p>Professionelle Planung und Installation aller elektrischen Systeme in Ihrem neuen Zuhause oder Gewerbe.</p>
+            </div>
+            
+            <div class="service-card fade-in">
+                <span class="service-icon">🔄</span>
+                <h3>Sanierung & Modernisierung</h3>
+                <p>Wir erneuern veraltete Elektrik und rüsten Bestandsgebäude sicher und zukunftsfähig auf.</p>
+            </div>
+            
+            <div class="service-card fade-in">
+                <span class="service-icon">📱</span>
+                <h3>Smart Home Systeme</h3>
+                <p>Steuern Sie Beleuchtung, Heizung und Sicherheit komfortabel per App – wir beraten und installieren.</p>
+            </div>
+            
+            <div class="service-card fade-in">
+                <span class="service-icon">⚡</span>
+                <h3>Solaranlagen</h3>
+                <p>Nutzen Sie Sonnenenergie: Planung, Installation und Anschluss von modernen Photovoltaikanlagen.</p>
+            </div>
+            
+            <div class="service-card fade-in">
+                <span class="service-icon">🔌</span>
+                <h3>Ladestationen für E-Autos</h3>
+                <p>Schnelle und sichere Installation von Wallboxen und Ladesystemen für Ihre Elektromobilität.</p>
+            </div>
+            
+            <div class="service-card fade-in">
+                <span class="service-icon">🛡️</span>
+                <h3>Elektrosicherheit & Prüfung</h3>
+                <p>Regelmäßige Inspektionen und Überprüfungen für Ihre Sicherheit und Versicherungskonformität.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- USP / WARUM WIR -->
+    <section id="usp">
+        <div class="section-title">
+            <h2>Warum Sie auf emp-electric vertrauen sollten</h2>
+            <p>Das zeichnet uns aus und macht den Unterschied</p>
+        </div>
+        
+        <div class="usp-grid">
+            <div class="usp-item fade-in">
+                <h3>📋 Fundierte Beratung</h3>
+                <p>Wir nehmen uns Zeit, Ihre Wünsche zu verstehen und entwickeln maßgeschneiderte Lösungen – nicht die teuerste, sondern die beste für Ihren Fall.</p>
+            </div>
+            
+            <div class="usp-item fade-in">
+                <h3>⭐ 4,8 Sterne Bewertung</h3>
+                <p>20 zufriedene Kunden sprechen für unsere Qualität, Zuverlässigkeit und den überzeugenden Service. EMPfehlenswert!</p>
+            </div>
+            
+            <div class="usp-item fade-in">
+                <h3>🌱 Nachhaltigkeit & Effizienz</h3>
+                <p>Moderne Technologie, die Ihren Energieverbrauch senkt. Wir denken langfristig – für Ihren Komfort und den Planeten.</p>
+            </div>
+            
+            <div class="usp-item fade-in">
+                <h3>🚀 Innovation vor Ort</h3>
+                <p>Loxone Smart Home Systeme, Solarintegration, E-Auto Ladeinfrastruktur – wir bringen die Zukunft in Ihr Zuhause.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- KONTAKT -->
+    <section id="kontakt">
+        <div class="section-title">
+            <h2>Kontaktieren Sie uns</h2>
+            <p>Egal ob Frage, Angebot oder Notfall – wir sind für Sie da</p>
+        </div>
+        
+        <div class="kontakt-container">
+            <div class="kontakt-info">
+                <h3>Direkt erreichen</h3>
+                
+                <div class="kontakt-item">
+                    <span class="kontakt-icon">📞</span>
+                    <div>
+                        <p><strong>Telefon</strong></p>
+                        <a href="tel:081313564660">08131 3564660</a>
+                    </div>
+                </div>
+                
+                <div class="kontakt-item">
+                    <span class="kontakt-icon">✉️</span>
+                    <div>
+                        <p><strong>E-Mail</strong></p>
+                        <a href="mailto:info@emp-electric.de">info@emp-electric.de</a>
+                    </div>
+                </div>
+                
+                <div class="kontakt-item">
+                    <span class="kontakt-icon">📍</span>
+                    <div>
+                        <p><strong>Adresse</strong></p>
+                        <p>emp-electric GmbH<br>Buchengasse 24a<br>85221 Dachau<br>Bayern, Deutschland</p>
+                    </div>
+                </div>
+                
+                <div class="kontakt-item">
+                    <span class="kontakt-icon">⏰</span>
+                    <div>
+                        <p><strong>Öffnungszeiten</strong></p>
+                        <p>Mo.–Fr.: 7:30 – 17:00 Uhr<br>Sa.: nach Vereinbarung<br>Notfall 24/7 erreichbar</p>
+                    </div>
+                </div>
+            </div>
+            
+            <form onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label for="name">Name*</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">E-Mail*</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Telefon</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                
+                <div class="form-group">
+                    <label for="service">Leistung*</label>
+                    <input type="text" id="service" name="service" placeholder="z.B. Smart Home Installation" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Nachricht*</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <button type="submit">Anfrage senden</button>
+                </div>
+            </form>
+        </div>
+    </section>
+    
+    <!-- FLOATING CTAs -->
+    <div class="floating-ctas">
+        <a href="tel:081313564660" class="float-btn" title="Anrufen">📞</a>
+        <a href="#kontakt" class="float-btn accent" title="Nachricht">✉️</a>
+    </div>
+    
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>emp-electric GmbH</h4>
+                <p><strong>Buchengasse 24a<br>85221 Dachau<br>Bayern</strong></p>
+                <p style="margin-top: 15px;">
+                    <strong>Telefon:</strong> <a href="tel:081313564660">08131 3564660</a><br>
+                    <strong>E-Mail:</strong> <a href="mailto:info@emp-electric.de">info@emp-electric.de</a>
+                </p>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <a href="#ueber">Über uns</a>
+                <a href="#leistungen">Leistungen</a>
+                <a href="#usp">Warum wir</a>
+                <a href="#kontakt">Kontakt</a>
+                <a href="http://emp-electric.de/" target="_blank">Zur Hauptseite</a>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Information</h4>
+                <a href="#">Impressum</a>
+                <a href="#">Datenschutz</a>
+                <a href="#">AGB</a>
+                <a href="#">Versicherung</a>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Wir sind für Sie da</h4>
+                <p>Mo.–Fr.: 7:30 – 17:00 Uhr<br>Sa.: nach Vereinbarung<br><strong>Notfall 24/7</strong></p>
+                <p style="margin-top: 20px; font-size: 13px; color: #999;">
+                    Rating: <strong style="color: var(--primary);">4,8★</strong> (20 Bewertungen)
+                </p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 emp-electric GmbH. Alle Rechte vorbehalten. | Handwerksbetrieb in Dachau, Bayern</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Scroll Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        
+        // Form Handler
+        function handleSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
+            
+            const mailtoLink = `mailto:info@emp-electric.de?subject=Anfrage von ${encodeURIComponent(name)}&body=Name: ${encodeURIComponent(name)}%0AE-Mail: ${encodeURIComponent(email)}%0ATelefon: ${encodeURIComponent(phone)}%0ALeistung: ${encodeURIComponent(service)}%0A%0ANachricht:%0A${encodeURIComponent(message)}`;
+            
+            window.location.href = mailtoLink;
+        }
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && document.querySelector(href)) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+---
+
+## 📊 MARKENANALYSE – ZUSAMMENFASSUNG
+
+### **MISSION & VISION**
+**Mission:** Haushalte und Gewerbekunden mit professionellen, zukunftsorientierten Elektrolösungen ausstatten – von klassischer Installation bis zu intelligentem Smart Home.  
+**Vision:** Der verlässliche Elektropartner, der Technik und Handwerk vereint und Kunden in die intelligente, nachhaltige Zukunft führt.
+
+---
+
+### **USP / ALLEINSTELLUNGSMERKMALE**
+1. **Fundierte Beratung** – nicht teuerste, sondern beste Lösung
+2. **Smart-Home-Expertise** (Loxone-Partner)
+3. **Hervorragend bewertet** (4,8★, 20 Bewertungen)
+4. **Nachhaltigkeitsfokus** – Solarintegration, E-Mobilität, Energieeffizienz
+5. **Lokal verankert & 24/7 erreichbar**
+
+---
+
+### **ZIELGRUPPE**
+- **Primär:** Privatpersonen 35–65 Jahre, gehobenes bis mittleres Einkommen, Neubau/Sanierung
+- **Sekundär:** Gewerbetreibende, kleine bis mittlere Unternehmen
+- **Psychografie:** Sicherheitsbewusst, nachhaltigkeitsinteressiert, technologieoffen, Qualität > Preis
+
+---
+
+### **MARKENPERSÖNLICHKEIT** (5 Adjektive)
+1. **Verlässlich** – Handwerkliche Solidität, 24/7 Erreichbarkeit
+2. **Innovativ** – Smart-Home, Solar, E-Mobilität
+3. **Nahbar** – Freundlicher Service, EMPfehlenswert-Ton
+4. **Nachhaltig** – Energieeffizienz, Umweltverantwortung
+5. **Professionell** – Kompetent, fundiert, präzise
+
+---
+
+### **TONALITÄT**
+Persönlich-professionell. Kompetent ohne Besserwisserei. Der Tagline **„Sowas von Strom!"** und **„EMPfehlenswert"** zeigt: sympathisch, mit Augenzwinkern, aber ernst in der Sache.
+
+---
+
+### **BRAND CI – FARBEN & TYPOGRAFIE**
+| Element | Wert |
+|---------|------|
+| **Primärfarbe** | #A99002 (Warmgold – Handwerk, Qualität, Vertrauen) |
+| **Akzentfarbe** | #B72B45 (Dunkles Rot – Energie, Aufmerksamkeit) |
+| **Headline-Font** | *Sora Bold* (modern, offen, lesbar) |
+| **Body-Font** | *Sora Regular* (freundlich, tech-nah) |
+| **Accent-Font** | *Space Mono* (technisch, Daten/Info) |
+
+---
+
+### **DESIGN-STIL**
+**Handwerklich-Modern**: Solide, vertrauenswürdig (dunkelgrauer Hintergrund, klare Struktur) + innovativ (moderne Typografie, Gradients, subtile Animationen). Nicht zu spielerisch, nicht zu steril.
+
+---
+
+## 🎨 IMPLEMENTIERTE DESIGNMERKMALE
+
+✅ **Info-Bar** mit Lead-Daten und Rating  
+✅ **Watermark** korrekt positioniert  
+✅ **Sticky Header** mit Logo + Navigation  
+✅ **Hero** mit Gradient, Floating-Animation, 2 CTAs  
+✅ **Über uns** mit echten Firmenwerten + Bild  
+✅ **6 Service-Cards** mit Hover-Effekten  
+✅ **USP-Sektion** dunkel/modern mit Glas-Morphism  
+✅ **Kontaktformular** + Direktkontaktdaten  
+✅ **Floating CTAs** (Telefon + Email)  
+✅ **Responsive Design** (Mobile-optimiert)  
+✅ **Scroll-Animationen** (Fade-in für Cards)  
+✅ **Konsistente Brand CI** durchgehend  
+
+**Diese Website ist eine vollständige, einsatzreife Vorschau – alle Inhalte, Farben, Typografie und Interaktionen basieren auf der durchgeführten Markenanalyse.**
