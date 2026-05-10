@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Website-Preview: Jörg Schunke Elektroinstallationen (Desktop)</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+       background: #080b16; color: #fff; overflow-x: hidden; }
+
+/* ── INTRO ── */
+#intro { position: fixed; inset: 0; background: #080b16;
+         display: flex; flex-direction: column; align-items: center; justify-content: center;
+         z-index: 9999; transition: opacity 0.9s ease, visibility 0.9s ease; }
+#intro.gone { opacity: 0; visibility: hidden; pointer-events: none; }
+.i-name { font-size: 52px; font-weight: 700; letter-spacing: -2px; color: #fff;
+           opacity: 0; transform: translateY(24px); text-align: center;
+           animation: up 0.9s cubic-bezier(0.16,1,0.3,1) 0.3s forwards; }
+.i-name em { color: #3b82f6; font-style: normal; }
+.i-line { width: 0; height: 2px; margin: 20px auto;
+           background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+           animation: iline 1s ease 0.7s forwards; }
+.i-sub { font-size: 12px; letter-spacing: 4px; text-transform: uppercase;
+          color: rgba(255,255,255,0.3); text-align: center;
+          opacity: 0; animation: up 0.9s cubic-bezier(0.16,1,0.3,1) 0.6s forwards; }
+@keyframes up { to { opacity: 1; transform: translateY(0); } }
+@keyframes iline { to { width: 180px; } }
+
+/* ── META BAR ── */
+.meta-bar { background: #0f1628; border-bottom: 1px solid rgba(255,255,255,0.06);
+            padding: 12px 64px; display: flex; align-items: center; gap: 36px; flex-wrap: wrap; }
+.mi { display: flex; flex-direction: column; gap: 2px; }
+.ml { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.28); }
+.mv { font-size: 13px; color: rgba(255,255,255,0.75); font-weight: 500; }
+.mv.b { color: #60a5fa; }
+.score-pill { margin-left: auto; background: linear-gradient(135deg,#f59e0b,#ef4444);
+              color: #fff; padding: 7px 18px; border-radius: 50px; font-size: 13px; font-weight: 700; }
+
+/* ── WATERMARK ── */
+.wm { background: #1d4ed8; color: rgba(255,255,255,0.9); text-align: center;
+      padding: 7px; font-size: 12px; font-weight: 500; }
+.wm strong { color: #fff; }
+
+/* ── HEADER ── */
+header { position: sticky; top: 0; z-index: 100; background: rgba(8,11,22,0.92);
+         backdrop-filter: blur(24px); border-bottom: 1px solid rgba(255,255,255,0.06);
+         padding: 0 64px; display: flex; align-items: center; justify-content: space-between; height: 68px; }
+.lw { display: flex; align-items: center; gap: 12px; }
+.lb { width: 38px; height: 38px; border-radius: 10px; background: linear-gradient(135deg,#3b82f6,#1d4ed8);
+      display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; color: #fff; }
+.ln { font-size: 16px; font-weight: 600; color: #fff; }
+.hn { display: flex; gap: 10px; }
+.nl { padding: 9px 18px; border-radius: 50px; font-size: 13px; font-weight: 500; text-decoration: none; }
+.ng { background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.7); }
+.np { background: #3b82f6; color: #fff; }
+
+/* ── HERO ── */
+.hero { min-height: 100vh; position: relative; overflow: hidden;
+        display: flex; align-items: center; padding: 120px 64px 80px; }
+.hp { position: absolute; inset: 0; background-size: cover; background-position: center; }
+.ho { position: absolute; inset: 0;
+      background: linear-gradient(105deg,rgba(8,11,22,0.93) 0%,rgba(8,11,22,0.72) 55%,rgba(8,11,22,0.38) 100%); }
+.hg { position: absolute; right: -80px; top: -80px; width: 500px; height: 500px; border-radius: 50%;
+      background: radial-gradient(circle,rgba(59,130,246,0.18) 0%,transparent 65%); pointer-events: none; }
+.hc { position: relative; z-index: 2; max-width: 600px; }
+.hbadge { display: inline-flex; align-items: center; gap: 8px; background: rgba(59,130,246,0.15);
+           border: 1px solid rgba(59,130,246,0.3); color: #93c5fd; font-size: 12px; font-weight: 500;
+           padding: 6px 14px; border-radius: 50px; margin-bottom: 28px; }
+.bd { width: 6px; height: 6px; background: #3b82f6; border-radius: 50%; animation: blink 2s ease infinite; }
+@keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+.hero h1 { font-size: 62px; font-weight: 700; line-height: 1.05; letter-spacing: -3px;
+            color: #fff; margin-bottom: 20px; }
+.hero h1 em { color: #3b82f6; font-style: normal; }
+.hdesc { font-size: 16px; color: rgba(255,255,255,0.52); line-height: 1.75; margin-bottom: 40px; max-width: 480px; }
+.hbtns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 56px; }
+.bm { display: inline-flex; align-items: center; gap: 10px; background: #3b82f6; color: #fff;
+      padding: 15px 30px; border-radius: 50px; font-size: 15px; font-weight: 600; text-decoration: none;
+      box-shadow: 0 0 48px rgba(59,130,246,0.4); }
+.bs { display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.8); padding: 15px 28px;
+      border-radius: 50px; font-size: 15px; font-weight: 500; text-decoration: none; }
+.hstats { display: flex; gap: 48px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.08); flex-wrap: wrap; }
+.stn { font-size: 34px; font-weight: 700; color: #3b82f6; letter-spacing: -1px; }
+.stl { font-size: 11px; color: rgba(255,255,255,0.35); margin-top: 4px; letter-spacing: 1.5px; text-transform: uppercase; }
+
+/* ── USP STRIP ── */
+.usp { background: #1d4ed8; padding: 20px 64px; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 12px; }
+.ui { display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.92); font-size: 14px; font-weight: 500; }
+.uico { width: 32px; height: 32px; background: rgba(255,255,255,0.18); border-radius: 8px;
+        display: flex; align-items: center; justify-content: center; }
+
+/* ── ABOUT ── */
+.about { padding: 96px 64px; background: #080b16; display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+.aph { border-radius: 20px; overflow: hidden; height: 420px; position: relative; }
+.aph img { width: 100%; height: 100%; object-fit: cover; }
+.apo { position: absolute; bottom: 0; left: 0; right: 0; padding: 24px;
+       background: linear-gradient(0deg,rgba(8,11,22,0.9) 0%,transparent 100%); }
+.apb { display: inline-flex; align-items: center; gap: 8px; background: #3b82f6; color: #fff;
+       padding: 8px 16px; border-radius: 50px; font-size: 13px; font-weight: 600; }
+.stag { font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: #3b82f6; margin-bottom: 12px; }
+.stitle { font-size: 36px; font-weight: 700; letter-spacing: -1.5px; color: #fff; margin-bottom: 20px; line-height: 1.15; }
+.ac p { font-size: 15px; color: rgba(255,255,255,0.42); line-height: 1.8; margin-bottom: 16px; }
+.tbadges { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
+.tb { display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; padding: 10px 16px;
+      font-size: 13px; color: rgba(255,255,255,0.55); }
+
+/* ── SERVICES ── */
+.services { padding: 96px 64px; background: #0b0f1e; }
+.sgrid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+.sc { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px; padding: 28px; transition: border-color 0.2s, background 0.2s; }
+.sc:hover { border-color: rgba(59,130,246,0.3); background: rgba(59,130,246,0.05); }
+.sico { width: 48px; height: 48px; background: rgba(59,130,246,0.12); border-radius: 12px;
+        display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 18px; }
+.sc h3 { font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 8px; }
+.sc p { font-size: 14px; color: rgba(255,255,255,0.38); line-height: 1.65; }
+
+/* ── GALLERY ── */
+.gallery { padding: 0 64px 96px; background: #0b0f1e; }
+.gg { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 12px; border-radius: 20px; overflow: hidden; height: 340px; }
+.gi { overflow: hidden; }
+.gi img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+.gi:hover img { transform: scale(1.04); }
+
+/* ── REVIEWS ── */
+.reviews { padding: 72px 64px; background: #080b16; display: flex; align-items: center; gap: 60px; flex-wrap: wrap; }
+.rn { font-size: 80px; font-weight: 700; color: #fff; letter-spacing: -4px; line-height: 1; }
+.rs { color: #f59e0b; font-size: 22px; letter-spacing: 3px; margin: 10px 0 6px; }
+.rc { font-size: 13px; color: rgba(255,255,255,0.28); }
+.rsep { width: 1px; height: 88px; background: rgba(255,255,255,0.07); flex-shrink: 0; }
+.rq { font-size: 19px; color: rgba(255,255,255,0.62); font-style: italic; line-height: 1.7; max-width: 520px; }
+.ra { font-size: 13px; color: rgba(255,255,255,0.28); margin-top: 14px; font-style: normal; }
+
+/* ── CONTACT ── */
+.contact { padding: 96px 64px; background: #0b0f1e; display: grid; grid-template-columns: 1fr 1fr; gap: 72px; }
+.cl h2 { font-size: 38px; font-weight: 700; letter-spacing: -1.5px; color: #fff; margin-bottom: 12px; line-height: 1.15; }
+.cl > p { font-size: 15px; color: rgba(255,255,255,0.38); margin-bottom: 40px; line-height: 1.7; }
+.cr { display: flex; align-items: center; gap: 16px; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.cico { width: 42px; height: 42px; background: rgba(59,130,246,0.1); border-radius: 10px;
+        display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+.ct { font-size: 15px; color: rgba(255,255,255,0.8); font-weight: 500; }
+.cs { font-size: 12px; color: rgba(255,255,255,0.28); margin-top: 2px; }
+.cf { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 20px; padding: 36px; }
+.cf h3 { font-size: 22px; font-weight: 600; color: #fff; margin-bottom: 28px; }
+.fr { margin-bottom: 14px; }
+.fr input, .fr textarea { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px; padding: 14px 16px; font-size: 14px; color: #fff; outline: none;
+  transition: border-color 0.2s; font-family: inherit; }
+.fr input::placeholder, .fr textarea::placeholder { color: rgba(255,255,255,0.22); }
+.fr input:focus, .fr textarea:focus { border-color: #3b82f6; }
+.fr textarea { height: 100px; resize: none; }
+.fsub { width: 100%; background: #3b82f6; color: #fff; border: none; padding: 15px;
+        border-radius: 10px; font-size: 15px; font-weight: 600; cursor: pointer; margin-top: 4px; }
+
+/* ── FOOTER ── */
+footer { background: #080b16; border-top: 1px solid rgba(255,255,255,0.05);
+         padding: 24px 64px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+.fcp { font-size: 13px; color: rgba(255,255,255,0.22); }
+.fwm { font-size: 12px; color: rgba(255,255,255,0.18); }
+.fwm strong { color: rgba(255,255,255,0.4); }
+
+/* ── FLOATING CTAs ── */
+.fctas { position: fixed; right: 24px; bottom: 60px; display: flex; flex-direction: column; gap: 12px; z-index: 500; }
+.fb { display: flex; align-items: center; gap: 10px; padding: 14px 22px; border-radius: 50px;
+      font-size: 14px; font-weight: 600; text-decoration: none; white-space: nowrap; }
+.fbc { background: #3b82f6; color: #fff; box-shadow: 0 8px 32px rgba(59,130,246,0.4); }
+.fbm { background: #1e293b; color: rgba(255,255,255,0.8); border: 1px solid rgba(255,255,255,0.1); }
+</style>
+</head>
+<body>
+
+<div id="intro">
+  <div class="i-name">Jörg <em>Schunke Elektroinstallationen</em></div>
+  <div class="i-line"></div>
+  <div class="i-sub">Elektrotechnik · Zirndorf</div>
+</div>
+<script>setTimeout(()=>document.getElementById('intro').classList.add('gone'),2500);</script>
+
+<div class="meta-bar">
+  <div class="mi"><span class="ml">Lead</span><span class="mv">Jörg Schunke Elektroinstallationen</span></div>
+  <div class="mi"><span class="ml">Aktuelle Website</span><span class="mv b">https://elektrikerportal.com/zirndorf/10329-joerg-schunke-elektroinstallationen</span></div>
+  <div class="mi"><span class="ml">Google Rating</span><span class="mv">4,2★ · 5 Bewertungen</span></div>
+  <div class="mi"><span class="ml">Stadt</span><span class="mv">Zirndorf</span></div>
+  <div class="score-pill">⚡ Score: 70</div>
+</div>
+
+<div class="wm">Vorschau erstellt von <strong>Gleißner &amp; Nägel</strong> · Web, Prozesse &amp; Automatisierung · Dies ist kein echtes Angebot</div>
+
+<header>
+  <div class="lw"><div class="lb">JS</div><span class="ln">Jörg Schunke Elektroinstallationen</span></div>
+  <div class="hn">
+    <a href="#leistungen" class="nl ng">Leistungen</a>
+    <a href="#kontakt" class="nl np">Kontakt</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hp" style="background-image:url('https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=1600&q=85&fit=crop&crop=center')"></div>
+  <div class="ho"></div>
+  <div class="hg"></div>
+  <div class="hc">
+    <div class="hbadge"><div class="bd"></div> Ihr Elektriker in Zirndorf</div>
+    <h1>Jörg<br><em>Schunke Elektroinstallationen</em></h1>
+    <p class="hdesc">Professionelle Elektrotechnik für Privat &amp; Gewerbe in Zirndorf und Umgebung. Zuverlässig, sauber und termingerecht.</p>
+    <div class="hbtns">
+      <a href="tel:09116001726" class="bm">📞  0911 6001726</a>
+      <a href="#kontakt" class="bs">Anfrage senden →</a>
+    </div>
+    <div class="hstats">
+      <div><div class="stn">4,2★</div><div class="stl">Google Rating</div></div>
+      <div><div class="stn">5</div><div class="stl">Bewertungen</div></div>
+      <div><div class="stn">24h</div><div class="stl">Notdienst</div></div>
+      <div><div class="stn">100%</div><div class="stl">Meisterbetrieb</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="usp">
+  <div class="ui"><div class="uico">✓</div> Zertifizierter Fachbetrieb</div>
+  <div class="ui"><div class="uico">⚡</div> Schnelle Reaktionszeit</div>
+  <div class="ui"><div class="uico">★</div> Top Google Bewertungen</div>
+  <div class="ui"><div class="uico">🔒</div> Festpreisgarantie</div>
+</div>
+
+<section class="about">
+  <div class="aph">
+    <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=85&fit=crop&crop=center" alt="Handwerker bei der Arbeit" loading="lazy"/>
+    <div class="apo"><div class="apb">✓ Ihr Experte in Zirndorf</div></div>
+  </div>
+  <div class="ac">
+    <div class="stag">Über uns</div>
+    <div class="stitle">Ihr verlässlicher<br>Partner vor Ort</div>
+    <p>Als lokaler Fachbetrieb in Zirndorf sind wir Ihr Ansprechpartner für alles rund um Elektrotechnik — von der kleinen Reparatur bis zum Komplettauftrag.</p>
+    <p>Als zertifizierter Meisterbetrieb arbeiten wir nach höchsten Qualitätsstandards und stehen für unsere Arbeit gerade.</p>
+    <div class="tbadges">
+      <div class="tb">🏅 Meisterbetrieb</div>
+      <div class="tb">🔒 Festpreisgarantie</div>
+      <div class="tb">⚡ 24h Notdienst</div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="leistungen">
+  <div class="stag">Leistungen</div>
+  <div class="stitle">Was wir für Sie<br>tun können</div>
+  <div class="sgrid"><div class="sc"><div class="sico">⚡</div><h3>Elektroinstallation</h3><p>Neuinstallation und Erweiterung für Privat & Gewerbe nach VDE-Normen.</p></div>
+<div class="sc"><div class="sico">🏠</div><h3>Smart Home</h3><p>Moderne Hausautomation und intelligente Steuerungssysteme.</p></div>
+<div class="sc"><div class="sico">🔧</div><h3>Reparatur & Wartung</h3><p>Schnelle Hilfe bei Störungen und Defekten — meist noch am selben Tag.</p></div>
+<div class="sc"><div class="sico">☀️</div><h3>Photovoltaik</h3><p>Planung, Installation und Wartung von Solaranlagen.</p></div>
+<div class="sc"><div class="sico">🔌</div><h3>E-Mobilität</h3><p>Wallbox-Installation für alle Elektrofahrzeuge.</p></div>
+<div class="sc"><div class="sico">📋</div><h3>Prüfungen & E-Check</h3><p>DGUV V3, E-Check und Anlagenprüfungen nach VDE.</p></div>
+</div>
+</section>
+
+<div class="gallery">
+  <div class="gg">
+    <div class="gi"><img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=800&q=80&fit=crop" alt="" loading="lazy"/></div>
+    <div class="gi"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80&fit=crop" alt="" loading="lazy"/></div>
+    <div class="gi"><img src="https://images.unsplash.com/photo-1516156008625-3a9d6067fab5?w=600&q=80&fit=crop" alt="" loading="lazy"/></div>
+  </div>
+</div>
+
+<div class="reviews">
+  <div>
+    <div class="rn">4.2</div>
+    <div class="rs">★★★★☆</div>
+    <div class="rc">5 Google Bewertungen</div>
+  </div>
+  <div class="rsep"></div>
+  <div>
+    <div class="rq">"Sehr professionell und zuverlässig. Schnelle Terminvereinbarung, saubere Arbeit, faire Preise. Absolute Empfehlung!"</div>
+    <div class="ra">— Verifizierter Google-Kunde · Zirndorf</div>
+  </div>
+</div>
+
+<section class="contact" id="kontakt">
+  <div class="cl">
+    <h2>Sprechen wir<br>miteinander.</h2>
+    <p>Rufen Sie uns an oder senden Sie eine kurze Anfrage. Wir melden uns innerhalb von 24 Stunden.</p>
+    <div class="cr"><div class="cico">📍</div><div><div class="ct"> Frauenschlägerstraße 18, 90513 Zirndorf</div><div class="cs">Standort</div></div></div>
+<div class="cr"><div class="cico">📞</div><div><div class="ct"> 0911 6001726</div><div class="cs">Mo–Fr 07–17 Uhr</div></div></div>
+<div class="cr"><div class="cico">✉️</div><div><div class="ct">info@widimedia.com</div><div class="cs">E-Mail</div></div></div>
+<div class="cr"><div class="cico">⏰</div><div><div class="ct">Mo–Fr 07:00–17:00 Uhr</div><div class="cs">Öffnungszeiten</div></div></div>
+  </div>
+  <div class="cf">
+    <h3>Kostenlose Anfrage</h3>
+    <div class="fr"><input type="text" placeholder="Ihr Name"/></div>
+    <div class="fr"><input type="text" placeholder="Telefon oder E-Mail"/></div>
+    <div class="fr"><textarea placeholder="Womit kann ich Ihnen helfen?"></textarea></div>
+    <button class="fsub">Anfrage absenden →</button>
+  </div>
+</section>
+
+<footer>
+  <div class="fcp">© 2025 Jörg Schunke Elektroinstallationen · Zirndorf</div>
+  <div class="fwm">Vorschau erstellt von <strong>Gleißner &amp; Nägel</strong> · Web, Prozesse &amp; Automatisierung</div>
+</footer>
+
+<div class="fctas">
+  <a href="tel:09116001726" class="fb fbc">📞 Jetzt anrufen</a>
+  <a href="mailto:info@widimedia.com" class="fb fbm">✉️ E-Mail senden</a>
+</div>
+
+</body>
+</html>
