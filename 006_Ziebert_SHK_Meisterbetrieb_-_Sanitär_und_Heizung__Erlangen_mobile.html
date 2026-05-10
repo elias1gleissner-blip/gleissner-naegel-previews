@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Mobile-Preview: Ziebert SHK Meisterbetrieb - Sanitär und Heizung | Erlangen</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #f0f2f5; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
+
+.meta-bar { width: 100%; background: #0f1628; padding: 10px 16px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+.ml { font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,0.3); }
+.mv { font-size: 12px; color: rgba(255,255,255,0.75); font-weight: 500; }
+.score-pill { background: linear-gradient(135deg,#f59e0b,#ef4444); color: #fff; padding: 4px 12px; border-radius: 50px; font-size: 11px; font-weight: 700; }
+.wm { width: 100%; background: #1d4ed8; color: rgba(255,255,255,0.9); text-align: center; padding: 5px; font-size: 11px; }
+
+.pf { width: 390px; background: #080b16; border-radius: 44px; box-shadow: 0 24px 80px rgba(0,0,0,0.4), 0 0 0 10px #1a1a2e; overflow: hidden; margin: 20px 0; }
+.pn { height: 36px; background: #080b16; display: flex; align-items: center; justify-content: center; }
+.np { width: 120px; height: 28px; background: #000; border-radius: 20px; }
+.ps { overflow: hidden; max-height: 844px; overflow-y: auto; scrollbar-width: none; }
+.ps::-webkit-scrollbar { display: none; }
+
+.mh { position: sticky; top: 0; z-index: 100; background: rgba(8,11,22,0.95); backdrop-filter: blur(20px); padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.mlw { display: flex; align-items: center; gap: 8px; }
+.mlb { width: 32px; height: 32px; border-radius: 8px; background: linear-gradient(135deg,#3b82f6,#1d4ed8); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: #fff; }
+.mln { font-size: 13px; font-weight: 600; color: #fff; }
+.mcta { background: #3b82f6; color: #fff; padding: 7px 14px; border-radius: 20px; font-size: 12px; font-weight: 600; text-decoration: none; }
+
+.mhero { position: relative; height: 420px; background-image: url('https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=1600&q=85&fit=crop&crop=center'); background-size: cover; background-position: center; }
+.mho { position: absolute; inset: 0; background: linear-gradient(180deg,rgba(8,11,22,0.25) 0%,rgba(8,11,22,0.88) 100%); }
+.mhc { position: absolute; bottom: 0; left: 0; right: 0; padding: 20px 16px; }
+.mbadge { display: inline-flex; align-items: center; gap: 6px; background: rgba(59,130,246,0.2); border: 1px solid rgba(59,130,246,0.4); color: #93c5fd; font-size: 10px; padding: 4px 10px; border-radius: 20px; margin-bottom: 10px; }
+.mh1 { font-size: 28px; font-weight: 700; color: #fff; letter-spacing: -1px; line-height: 1.1; margin-bottom: 8px; }
+.mh1 em { color: #3b82f6; font-style: normal; }
+.mdesc { font-size: 12px; color: rgba(255,255,255,0.58); line-height: 1.6; margin-bottom: 14px; }
+.mbtns { display: flex; gap: 8px; }
+.mbcall { flex: 1; background: #3b82f6; color: #fff; padding: 12px 16px; border-radius: 25px; font-size: 13px; font-weight: 600; text-align: center; text-decoration: none; }
+.mbsec { flex: 1; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 12px 16px; border-radius: 25px; font-size: 13px; font-weight: 500; text-align: center; text-decoration: none; }
+
+.mstats { background: #0f1628; padding: 16px; display: grid; grid-template-columns: repeat(4,1fr); gap: 8px; }
+.mst { text-align: center; }
+.mstn { font-size: 18px; font-weight: 700; color: #3b82f6; }
+.mstl { font-size: 9px; color: rgba(255,255,255,0.3); margin-top: 2px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+.musp { background: #1d4ed8; padding: 14px 16px; display: flex; gap: 10px; overflow-x: auto; scrollbar-width: none; }
+.musp::-webkit-scrollbar { display: none; }
+.mui { display: flex; align-items: center; gap: 6px; white-space: nowrap; color: rgba(255,255,255,0.9); font-size: 12px; font-weight: 500; }
+
+.msec { padding: 24px 16px; background: #080b16; }
+.mstag { font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #3b82f6; margin-bottom: 6px; }
+.mstitle { font-size: 22px; font-weight: 700; letter-spacing: -0.5px; color: #fff; margin-bottom: 16px; }
+.maimg { width: 100%; height: 180px; object-fit: cover; border-radius: 14px; margin-bottom: 14px; }
+.mat { font-size: 13px; color: rgba(255,255,255,0.42); line-height: 1.7; }
+
+.svlist { display: flex; flex-direction: column; gap: 8px; }
+.sv { display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 14px 16px; font-size: 14px; color: rgba(255,255,255,0.8); font-weight: 500; }
+.svico { font-size: 20px; }
+
+.mgal { padding: 0 16px 24px; background: #080b16; }
+.mgg { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; border-radius: 14px; overflow: hidden; height: 200px; }
+.mgg .big { grid-row: span 2; }
+.mgi { overflow: hidden; }
+.mgi img { width: 100%; height: 100%; object-fit: cover; }
+
+.mrev { padding: 20px 16px; background: #0b0f1e; }
+.mrn { font-size: 52px; font-weight: 700; color: #fff; letter-spacing: -2px; }
+.mrs { color: #f59e0b; font-size: 16px; letter-spacing: 2px; }
+.mrq { font-size: 14px; color: rgba(255,255,255,0.58); font-style: italic; line-height: 1.65; margin-top: 12px; }
+
+.mcon { padding: 24px 16px; background: #080b16; }
+.mcr { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.mcico { width: 36px; height: 36px; background: rgba(59,130,246,0.1); border-radius: 9px; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+.mct { font-size: 13px; color: rgba(255,255,255,0.8); font-weight: 500; }
+.mcs { font-size: 11px; color: rgba(255,255,255,0.28); }
+.minp { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 13px 14px; font-size: 14px; color: #fff; margin-bottom: 10px; outline: none; font-family: inherit; }
+.minp::placeholder { color: rgba(255,255,255,0.22); }
+.msub { width: 100%; background: #3b82f6; color: #fff; border: none; padding: 14px; border-radius: 10px; font-size: 15px; font-weight: 600; cursor: pointer; margin-top: 4px; }
+
+.mfooter { background: #080b16; border-top: 1px solid rgba(255,255,255,0.05); padding: 16px; text-align: center; }
+.mfc { font-size: 11px; color: rgba(255,255,255,0.2); margin-bottom: 3px; }
+.mfw { font-size: 10px; color: rgba(255,255,255,0.15); }
+
+.mbb { position: sticky; bottom: 0; display: flex; gap: 8px; padding: 12px 16px; background: rgba(8,11,22,0.95); backdrop-filter: blur(20px); border-top: 1px solid rgba(255,255,255,0.06); }
+.mbbc { flex: 1; background: #3b82f6; color: #fff; padding: 13px; border-radius: 25px; font-size: 14px; font-weight: 600; text-align: center; text-decoration: none; }
+.mbbm { flex: 1; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.8); padding: 13px; border-radius: 25px; font-size: 14px; font-weight: 500; text-align: center; text-decoration: none; }
+.phi { height: 28px; background: #080b16; display: flex; align-items: center; justify-content: center; }
+.phi-bar { width: 100px; height: 4px; background: rgba(255,255,255,0.3); border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<div class="meta-bar">
+  <div>
+    <div class="ml">Lead (Mobile-Ansicht)</div>
+    <div class="mv">Ziebert SHK Meisterbetrieb - Sanitär und Heizung | Erlangen · Erlangen</div>
+  </div>
+  <div class="score-pill">⚡ Score: 85</div>
+</div>
+<div class="wm">Vorschau von <strong>Gleißner &amp; Nägel</strong> · Mobile-Ansicht</div>
+
+<div class="pf">
+  <div class="pn"><div class="np"></div></div>
+  <div class="ps">
+
+    <div class="mh">
+      <div class="mlw"><div class="mlb">ZS</div><span class="mln">Ziebert SHK Meisterbetrieb - Sanitär und Heizung | Erlangen</span></div>
+      <a href="tel:015251560372" class="mcta">Anrufen</a>
+    </div>
+
+    <div class="mhero">
+      <div class="mho"></div>
+      <div class="mhc">
+        <div class="mbadge">📍 Elektriker in Erlangen</div>
+        <div class="mh1">Ziebert<br><em>SHK Meisterbetrieb - Sanitär und Heizung | Erlangen</em></div>
+        <div class="mdesc">Elektrotechnik für Privat &amp; Gewerbe in Erlangen.</div>
+        <div class="mbtns">
+          <a href="tel:015251560372" class="mbcall">📞  01525 1560372</a>
+          <a href="#kontakt" class="mbsec">Anfrage →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mstats">
+      <div class="mst"><div class="mstn">5,0★</div><div class="mstl">Rating</div></div>
+      <div class="mst"><div class="mstn">58</div><div class="mstl">Bewert.</div></div>
+      <div class="mst"><div class="mstn">24h</div><div class="mstl">Notdienst</div></div>
+      <div class="mst"><div class="mstn">100%</div><div class="mstl">Meister</div></div>
+    </div>
+
+    <div class="musp">
+      <div class="mui">✓ Fachbetrieb</div>
+      <div class="mui">⚡ Schnell</div>
+      <div class="mui">★ Top-Bewertungen</div>
+      <div class="mui">🔒 Festpreis</div>
+    </div>
+
+    <div class="msec">
+      <div class="mstag">Über uns</div>
+      <div class="mstitle">Ihr Experte<br>in Erlangen</div>
+      <img class="maimg" src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=85&fit=crop&crop=center" alt="Handwerker" loading="lazy"/>
+      <p class="mat">Als lokaler Fachbetrieb in Erlangen sind wir Ihr verlässlicher Partner. Zertifiziert, erfahren und fair.</p>
+    </div>
+
+    <div class="msec" style="padding-top:0">
+      <div class="mstag">Leistungen</div>
+      <div class="mstitle">Was wir anbieten</div>
+      <div class="svlist"><div class="sv"><span class="svico">⚡</span> Elektroinstallation</div>
+<div class="sv"><span class="svico">🏠</span> Smart Home</div>
+<div class="sv"><span class="svico">🔧</span> Reparatur & Wartung</div>
+<div class="sv"><span class="svico">☀️</span> Photovoltaik</div>
+<div class="sv"><span class="svico">🔌</span> E-Mobilität</div>
+</div>
+    </div>
+
+    <div class="mgal">
+      <div class="mgg">
+        <div class="mgi big"><img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=800&q=80&fit=crop" alt="" loading="lazy"/></div>
+        <div class="mgi"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80&fit=crop" alt="" loading="lazy"/></div>
+        <div class="mgi"><img src="https://images.unsplash.com/photo-1516156008625-3a9d6067fab5?w=600&q=80&fit=crop" alt="" loading="lazy"/></div>
+      </div>
+    </div>
+
+    <div class="mrev">
+      <div class="mrn">5.0</div>
+      <div class="mrs">★★★★★</div>
+      <div class="mrq">"Sehr professionell und zuverlässig. Schnelle Terminvereinbarung, saubere Arbeit! Klare Empfehlung."</div>
+    </div>
+
+    <div class="mcon" id="kontakt">
+      <div class="mstag">Kontakt</div>
+      <div class="mstitle">Jetzt anfragen</div>
+      <div class="mcr"><div class="mcico">📍</div><div><div class="mct"> Sonnenstraße 12 - 14, 91058 Erlangen</div><div class="mcs">Adresse</div></div></div>
+      <div class="mcr"><div class="mcico">📞</div><div><div class="mct"> 01525 1560372</div><div class="mcs">Telefon</div></div></div>
+      <input class="minp" type="text" placeholder="Ihr Name"/>
+      <input class="minp" type="text" placeholder="Telefon oder E-Mail"/>
+      <textarea class="minp" style="height:80px;resize:none;" placeholder="Ihre Nachricht"></textarea>
+      <button class="msub">Anfrage absenden →</button>
+    </div>
+
+    <div class="mfooter">
+      <div class="mfc">© 2025 Ziebert SHK Meisterbetrieb - Sanitär und Heizung | Erlangen · Erlangen</div>
+      <div class="mfw">Vorschau von Gleißner &amp; Nägel</div>
+    </div>
+
+    <div class="mbb">
+      <a href="tel:015251560372" class="mbbc">📞 Anrufen</a>
+      <a href="mailto:info@ziebert-bad.de" class="mbbm">✉️ E-Mail</a>
+    </div>
+
+  </div>
+  <div class="phi"><div class="phi-bar"></div></div>
+</div>
+
+</body>
+</html>
