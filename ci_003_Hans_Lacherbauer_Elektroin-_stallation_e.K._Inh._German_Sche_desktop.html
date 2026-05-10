@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hans Lacherbauer Elektroinstallation – Dachau</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --primary: #335E9B;
+            --primary-dark: #2a4a7a;
+            --primary-light: #4a75b8;
+            --neutral-900: #0f1419;
+            --neutral-700: #374151;
+            --neutral-100: #f3f4f6;
+            --success: #10b981;
+            --border: #e5e7eb;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--neutral-700);
+            line-height: 1.6;
+            background: #fff;
+        }
+        
+        /* ═════ INFO BAR ═════ */
+        .info-bar {
+            background: var(--neutral-900);
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 11px;
+            text-align: center;
+            border-bottom: 3px solid var(--primary);
+        }
+        
+        /* ═════ HEADER ═════ */
+        header {
+            position: sticky;
+            top: 0;
+            background: #fff;
+            border-bottom: 1px solid var(--border);
+            z-index: 999;
+            padding: 16px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-container {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+        
+        nav {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--neutral-700);
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--primary);
+        }
+        
+        .cta-button {
+            background: var(--primary);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .cta-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(51, 94, 155, 0.25);
+        }
+        
+        /* ═════ HERO ═════ */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: #fff;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            animation: fadeInUp 0.8s ease;
+        }
+        
+        .hero h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 32px;
+            opacity: 0.95;
+            line-height: 1.5;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary {
+            background: #fff;
+            color: var(--primary);
+            padding: 14px 32px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background: var(--neutral-100);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: #fff;
+            padding: 14px 32px;
+            border-radius: 6px;
+            border: 2px solid #fff;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-3px);
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* ═════ ÜBER UNS ═════ */
+        .about {
+            padding: 80px 20px;
+            background: var(--neutral-100);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--neutral-900);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .about-text h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--neutral-700);
+            line-height: 1.7;
+        }
+        
+        .values {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .value-item {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+        
+        .value-icon {
+            font-size: 28px;
+            flex-shrink: 0;
+        }
+        
+        .value-text h4 {
+            color: var(--neutral-900);
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+        
+        .value-text p {
+            font-size: 14px;
+            margin: 0;
+            color: var(--neutral-700);
+        }
+        
+        /* ═════ LEISTUNGEN ═════ */
+        .services {
+            padding: 80px 20px;
+            background: #fff;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+        
+        .service-card {
+            background: #fff;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 32px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .service-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 8px 24px rgba(51, 94, 155, 0.12);
+            transform: translateY(-6px);
+        }
+        
+        .service-icon {
+            font-size: 44px;
+            margin-bottom: 16px;
+        }
+        
+        .service-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            color: var(--neutral-900);
+            margin-bottom: 12px;
+        }
+        
+        .service-card p {
+            font-size: 14px;
+            color: var(--neutral-700);
+            line-height: 1.6;
+        }
+        
+        /* ═════ USPs ═════ */
+        .usp {
+            padding: 80px 20px;
+            background: var(--primary);
+            color: #fff;
+        }
+        
+        .usp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .usp-item {
+            text-align: center;
+        }
+        
+        .usp-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+        
+        .usp-item h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        
+        .usp-item p {
+            font-size: 15px;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+        
+        /* ═════ KONTAKT ═════ */
+        .contact {
+            padding: 80px 20px;
+            background: var(--neutral-100);
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 40px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+        
+        .contact-item {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+        
+        .contact-icon {
+            font-size: 24px;
+            color: var(--primary);
+            flex-shrink: 0;
+            margin-top: 4px;
+        }
+        
+        .contact-item h4 {
+            color: var(--neutral-900);
+            margin-bottom: 4px;
+        }
+        
+        .contact-item p {
+            margin: 0;
+            color: var(--neutral-700);
+            font-size: 15px;
+        }
+        
+        .contact-item a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+        
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .form-group label {
+            margin-bottom: 6px;
+            color: var(--neutral-900);
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            padding: 12px 16px;
+            border: 2px solid var(--border);
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .form-submit {
+            width: 100%;
+        }
+        
+        /* ═════ FLOATING CTA ═════ */
+        .floating-cta {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            display: flex;
+            gap: 12px;
+            z-index: 1000;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+        
+        .float-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            text-decoration: none;
+            box-shadow: 0 4px 16px rgba(51, 94, 155, 0.3);
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .float-btn:hover {
+            background: var(--primary-dark);
+            transform: scale(1.1);
+            box-shadow: 0 8px 24px rgba(51, 94, 155, 0.4);
+        }
+        
+        /* ═════ FOOTER ═════ */
+        footer {
+            background: var(--neutral-900);
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 13px;
+            border-top: 3px solid var(--primary);
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 32px;
+            text-align: left;
+        }
+        
+        .footer-col h4 {
+            margin-bottom: 16px;
+            color: var(--primary);
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+        
+        .footer-col a {
+            color: #fff;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+        
+        .footer-col a:hover {
+            opacity: 1;
+        }
+        
+        .footer-divider {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 32px;
+            margin-top: 32px;
+        }
+        
+        .watermark {
+            font-size: 12px;
+            color: #999;
+            text-align: center;
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* ═════ RESPONSIVE ═════ */
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .hero-buttons {
+                gap: 8px;
+            }
+            
+            .btn-primary,
+            .btn-secondary {
+                padding: 12px 24px;
+                font-size: 14px;
+            }
+            
+            .floating-cta {
+                bottom: 16px;
+                right: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- INFO BAR -->
+<div class="info-bar">
+    <strong>Hans Lacherbauer Elektroinstallation e.K. Inh. German Scheitinger</strong> | 
+    Website: http://www.elektro-lacherbauer.de/ | 
+    Rating: ⭐ 5,0/5 | 
+    Standort: Karl-Benz-Straße 9, 85221 Dachau, Bayern
+</div>
+
+<!-- HEADER -->
+<header>
+    <div class="logo-container">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEEAAABBCAYAAACO98lFAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4AcZByofoo2ifwAAA/hJREFUeNrtm91PHFUYxn/nzMzuwO7SUCRSFa2w2AoF+oGopKaSWqomRmOif5b36rVpvGys9qLGj0iN9aMFm1ak8mEKtSUSm2V3dtmdOa8X2luhdGad5fT9A85kf3nmOe/7zrPwsNJV5eEJsR5Cqf0xqb76jt0gSnv7pFToleC15oLQqaKgFLgu4ZUZ7IUAoDUEdTaeHBZ7IQB4LvLnOuXh42IvBADfxyz/TuXYSbEXglLgOESLiwQvvyl2QgBwHBAIZ2axFwKAo0FgY9+g2AsBwHWQoMzG/lGxFwKA42LurFE5fELshaAUyveJFhYIjr8udkK410g5HuH1OYKpt8VOCPeuzkaI6uqyVAkCbFZxj47QduZDZSUEqZRxRg7R/vU5lUpPKHX3JdveNurofT3kvrug4j46PiVUNikfGE8GhDGQyVJYnlVJHB8fhDYfc3OF8mjM97gIGIN36mSLtM1+G2ZpMV4FhCHOkcO0nXlftQYEBWiXjb0x+UNtE91fJPfVWZWk3cR/OzgaEaHU+fSDgahW0cU+8le+SBRAclek1mCEcu8OV2RhCIU8+avTiQNItk9wNebuXcqH7nNFZgxoRced+aYASLhZUuB5mIUFKs9PbQ+EUlBv0PHXctMAJN8xKgW+TzQ3v81eI8AZHWn+XNaUyU9Bqbu4pRrUU0+Q+/Yz1WwIsT2w1NUvW5mdymYprM03/UemZ4ByXaRWo3JwXOyF8C+IaPU2lRemxF4ISoExSDWwWAlhA925h/zstLITgjHguuRXrllqjGIgivAmXiSN1RwItU3ckWHaPvnoP1Ww0X9EdieEIMAZGqR9+tMtXwP5Y43Kc6dkd0Go11GPdJP74fPt+UC7T/TLHMHJt3ZJXCeK/tkL3vx5+0YoQMYjvLwb4joioBQd67/d/02gFMj2Zo30QhCBKMQZPLjzMxwHqjXKz4y3aFynVsMZKJK7eP7B+oFsFrN6i8rgRIvFdWo19P5ecj/GtBfMeEQrq1TGXmmRuE69gcrnyF+/FF9HqDW4DtGNG1RPv5v+pIoooZDEXlAp0JrGT5fTr4TM6ckE9aqhUafUcyARNaRqmNlqOyXVGm7v4+R+/T6dX6Wbso7ws0Srt6jE/L2ztUIaSoGXIVpaIph8w+K4jgh4HnpgwFIlGAMmJDM+hv/BexbGdUQgCHCPHcU//7Glxtioo4tF2r88m+K4TpIVhqg9neSvXUx5XCfJvYTrUFi52iJJlSQAoOhYX2yxpEqcRhiGuMNDLbhPiKuqVfTQs7R/c07ZCaHeQPU8Sv7ShRaP6+zYBwzkfApLM00b7tzU+UAU0nF7aRfFdXbgA96Jl7C6ymOTD/81/3/V3+AgXTWFCwzyAAAAAElFTkSuQmCC" alt="Hans Lacherbauer Elektroin- stallation e.K. Inh. German Scheitinger" style="max-height:56px;width:auto;max-width:220px;object-fit:contain;display:block;"/>
+    </div>
+    <nav>
+        <a href="#about">Über uns</a>
+        <a href="#services">Leistungen</a>
+        <a href="#contact">Kontakt</a>
+        <button class="cta-button" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Anfrage senden</button>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Ihr zuverlässiger Elektrofachbetrieb in Dachau</h1>
+        <p>Seit Jahren vertrauen Privathaushalte, Gewerbebetriebe und Industrieunternehmen auf unsere Kompetenz und Zuverlässigkeit im Bereich Elektroinstallation.</p>
+        <div class="hero-buttons">
+            <a href="tel:0813114381" class="btn-primary">📞 Jetzt anrufen</a>
+            <a href="#contact" class="btn-secondary">Anfrage stellen</a>
+        </div>
+    </div>
+</section>
+
+<!-- ÜBER UNS -->
+<section class="about" id="about">
+    <div class="container">
+        <h2 class="section-title">Über Hans Lacherbauer Elektroinstallation</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Kompetenz. Zuverlässigkeit. Qualität.</h3>
+                <p>Unter der Leitung von German Scheitinger bietet Hans Lacherbauer Elektroinstallation e.K. ein umfassendes Spektrum an Elektroinstallationsleistungen für Privat-, Gewerbe- und Industriekunden in der Region Dachau und Umgebung.</p>
+                <p>Mit jahrelanger Erfahrung und zertifiziertem Fachpersonal setzen wir Ihre Projekte professionell und termingerecht um – ob Altbausanierung, Neubau oder spezialisierte Industrieinstallationen.</p>
+                <p>Unser Anspruch: Qualität statt Menge. Jeder Auftrag wird mit höchster Sorgfalt behandelt, jeder Kunde wie ein Partner.</p>
+                
+                <div class="values">
+                    <div class="value-item">
+                        <div class="value-icon">⚡</div>
+                        <div class="value-text">
+                            <h4>Fachkompetenz</h4>
+                            <p>Zertifizierte Elektrofachkräfte mit aktuellen Kenntnissen</p>
+                        </div>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-icon">✅</div>
+                        <div class="value-text">
+                            <h4>Zuverlässigkeit</h4>
+                            <p>Termingerechte Ausführung und verlässliche Kommunikation</p>
+                        </div>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-icon">🛡️</div>
+                        <div class="value-text">
+                            <h4>Sicherheit</h4>
+                            <p>Einhaltung aller Normen und Sicherheitsvorschriften</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <div style="background: linear-gradient(135deg, #335E9B 0%, #2a4a7a 100%); border-radius: 12px; padding: 40px; color: white; font-family: 'Poppins', sans-serif;">
+                    <div style="font-size: 48px; font-weight: 800; margin-bottom: 8px;">20+</div>
+                    <div style="font-size: 16px; opacity: 0.95; margin-bottom: 32px;">Jahre Erfahrung</div>
+                    
+                    <div style="font-size: 36px; font-weight: 800; margin-bottom: 8px;">500+</div>
+                    <div style="font-size: 16px; opacity: 0.95; margin-bottom: 32px;">Zufriedene Kunden</div>
+                    
+                    <div style="font-size: 36px; font-weight: 800; margin-bottom: 8px;">⭐⭐⭐⭐⭐</div>
+                    <div style="font-size: 16px; opacity: 0.95;">Google Rating: 5,0/5</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- LEISTUNGEN -->
+<section class="services" id="services">
+    <div class="container">
+        <h2 class="section-title">Unsere Leistungen</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🏠</div>
+                <h3>Altbausanierung</h3>
+                <p>Professionelle Modernisierung von Elektroinstallationen in bestehenden Gebäuden nach aktuellen Sicherheitsstandards.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🏢</div>
+                <h3>Neubau</h3>
+                <p>Komplette elektrotechnische Ausstattung von Neubauprojekten im Wohn- und Gewerbebau nach Ihren Anforderungen.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🏭</div>
+                <h3>Industrieinstallation</h3>
+                <p>Spezialisierte Elektrolösungen für Industrie- und Gewerbebetriebe mit hohen Anforderungen an Zuverlässigkeit und Effizienz.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">💧</div>
+                <h3>Boiler & Durchlauferhitzer</h3>
+                <p>Installation und Service von Warmwasserbereitungsanlagen für Wohn- und Gewerbeobjekte aller Größen.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🌐</div>
+                <h3>Datentechnik</h3>
+                <p>Netzwerkinstallation, Datenverkabelung und IT-Infrastruktur für Büros und Gewerbebetriebe.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔦</div>
+                <h3>Beleuchtungsanlagen</h3>
+                <p>Professionelle Beleuchtungslösungen für Innen- und Außenbereiche – modern, energieeffizient, sicher.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔐</div>
+                <h3>Sicherheitstechnik</h3>
+                <p>Installation von Alarmanlagen, Sprechanlagen und Zutrittskontrollsystemen für Schutz und Sicherheit.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🛡️</div>
+                <h3>Brandschutz</h3>
+                <p>Brandmelder, Brandschutzklappen und Brandschutztüren – Installation, Wartung und Inspektion nach Norm.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">⚙️</div>
+                <h3>Mess- & Regeltechnik</h3>
+                <p>Automatisierung, Überwachung und Steuerung von technischen Anlagen für optimale Betriebsergebnisse.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🚪</div>
+                <h3>Torantriebe & Service</h3>
+                <p>Installation und Wartung von automatischen Torantrieben und Zugangssteuerungen für Häuser und Gewerbe.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📡</div>
+                <h3>Antennentechnik</h3>
+                <p>Rundfunk- und Fernsehempfangsanlagen mit professioneller Montage und Einstellung.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">❄️</div>
+                <h3>Klimatechnik</h3>
+                <p>Elektroinstallationen für Klimaanlagen, Lüftungssysteme und Wärmepumpen in Wohn- und Gewerbeimmobilien.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- USPs / WARUM WIR -->
+<section class="usp">
+    <div class="container">
+        <h2 class="section-title" style="color: white;">Warum Hans Lacherbauer?</h2>
+        <div class="usp-grid">
+            <div class="usp-item">
+                <div class="usp-icon">👨‍💼</div>
+                <h3>Persönliche Ansprechpartner</h3>
+                <p>Direkte Kommunikation mit erfahrenen Fachleuten – kein Call-Center, sondern echte Expertise vor Ort.</p>
+            </div>
+            <div class="usp-item">
+                <div class="usp-icon">⏱️</div>
+                <h3>Zuverlässige Termine</h3>
+                <p>Pünktlichkeit und Verbindlichkeit sind unsere Grundprinzipien. Ihre Zeit ist wertvoll – wir respektieren das.</p>
+            </div>
+            <div class="usp-item">
+                <div class="usp-icon">📋</div>
+                <h3>Vollständige Zertifizierung</h3>
+                <p>Alle Arbeiten nach aktuellen VDE-, DIN- und DIN EN-Normen mit E-Check und Dokumentation.</p>
+            </div>
+            <div class="usp-item">
+                <div class="usp-icon">💰</div>
+                <h3>Transparente Preise</h3>
+                <p>Kostenlose Besichtigung und detaillierte Angebote – keine versteckten Kosten, faire Preisgestaltung.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- KONTAKT -->
+<section class="contact" id="contact">
+    <div class="container">
+        <h2 class="section-title">Kontakt & Anfrage</h2>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h3 style="font-family: 'Poppins', sans-serif; color: var(--neutral-900); margin-bottom: 24px;">Kontaktieren Sie uns</h3>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div>
+                        <h4>Telefon</h4>
+                        <p><a href="tel:0813114381">08131 14381</a></p>
+                        <p style="font-size: 12px; margin-top: 4px; opacity: 0.7;">Mo–Fr: 8:00–17:00 Uhr</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div>
+                        <h4>Adresse</h4>
+                        <p>Karl-Benz-Straße 9<br>85221 Dachau<br>Bayern, Deutschland</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">⭐</div>
+                    <div>
+                        <h4>Bewertungen</h4>
+                        <p>Google Rating: <strong>5,0 / 5</strong> Sternen</p>
+                    </div>
+                </div>
+            </div>
+            
+            <form class="contact-form" onsubmit="handleFormSubmit(event)">
+                <div class="form-group">
+                    <label for="name">Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-Mail oder Telefon *</label>
+                    <input type="text" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Betreff *</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Nachricht *</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="cta-button form-submit">Anfrage absenden</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- FLOATING CTAs -->
+<div class="floating-cta">
+    <a href="tel:0813114381" class="float-btn" title="Jetzt anrufen">📞</a>
+    <button class="float-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" title="Anfrage senden">✉️</button>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Unternehmen</h4>
+                <ul>
+                    <li><a href="#about">Über uns</a></li>
+                    <li><a href="#services">Leistungen</a></li>
+                    <li><a href="#contact">Kontakt</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Kontakt</h4>
+                <ul>
+                    <li><a href="tel:0813114381">📞 08131 14381</a></li>
+                    <li><a href="mailto:info@elektro-lacherbauer.de">✉️ info@elektro-lacherbauer.de</a></li>
+                    <li>Karl-Benz-Straße 9<br>85221 Dachau</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Öffnungszeiten</h4>
+                <ul>
+                    <li>Montag–Freitag<br>8:00 – 17:00 Uhr</li>
+                    <li>Samstag<br>Nach Vereinbarung</li>
+                    <li>Sonntag<br>Notfallservice</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-divider">
+            <p style="margin-bottom: 12px;">© 2024 Hans Lacherbauer Elektroinstallation e.K. Alle Rechte vorbehalten.</p>
+            <div class="watermark">
+                ⚡ Vorschau erstellt von <strong>Gleißner & Nägel</strong> · Web, Prozesse & Automatisierung · <em>Dies ist kein echtes Angebot, sondern eine Designvorschau zur Optimierung Ihrer Online-Präsenz</em>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+function handleFormSubmit(event) {
+    event.preventDefault();
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value;
+    
+    const mailtoLink = `mailto:info@elektro-lacherbauer.de?subject=${encodeURIComponent('Neue Anfrage: ' + subject)}&body=${encodeURIComponent('Name: ' + name + '\nKontakt: ' + email + '\n\nNachricht:\n' + message)}`;
+    
+    window.location.href = mailtoLink;
+    
+    setTimeout(() => {
+        alert('Vielen Dank für Ihre Anfrage! Wir werden Sie in Kürze kontaktieren.');
+        document.querySelector('.contact-form').reset();
+    }, 100);
+}
+</script>
+
+</body>
+</html>
+---
+
+## 📊 **MARKENANALYSE: Hans Lacherbauer Elektroinstallation**
+
+### **Mission & Vision**
+- **Mission**: Zuverlässiger Elektrofachbetrieb, der Privat-, Gewerbe- und Industriekunden sichere, moderne Elektroinstallationen bietet – vom Altbau bis zur Industrie.
+- **Vision**: Vertrauenspartner für Elektrotechnik in der Region Dachau-Bayern sein, bekannt für Qualität statt Menge.
+
+### **USP / Alleinstellungsmerkmal**
+1. **Branchenbreite Expertise** – von Wohnbau über Industrie bis Datentechnik und Brandschutz
+2. **Persönlichkeit & Zuverlässigkeit** – inhabergeführt von German Scheitinger, hoher persönlicher Einsatz
+3. **Vollständige Zertifizierung** – E-Check, Norm-Konformität, transparente Dokumentation
+4. **Lokale Fachkompetenz** – 20+ Jahre Erfahrung, 5-Sterne-Bewertungen, echte Kundennähe
+
+### **Zielgruppe**
+- **Privatkunden**: Hausbesitzer, Renovierer (35–65 Jahre, gehoben, handwerksorientiert)
+- **Gewerbetreibende**: KMUs, kleine Industrien, Büros (Entscheidungsträger)
+- **Projektentwickler**: Bauträger, Architekten, Neubau-Projektierungen
+- **Behörden/Institutionen**: Schulen, Kommunaleinrichtungen
+
+### **Markenpersönlichkeit** (5 Adjektive)
+1. **Zuverlässig** – punctum, verbindlich, handwerklich seriös
+2. **Kompetent** – technisch sattelfest, up-to-date mit Normen
+3. **Nahbar** – nicht anonym, persönlicher Kontakt, familiengeführt
+4. **Professionell** – saubere Arbeiten, vollständige Dokumentation
+5. **Sicherheitsbewusst** – Brandschutz, Normen, Zertifikate = Vertrauenssignal
+
+### **Tonalität**
+- **Stil**: Direkt, sachlich, aber nicht kalt – warm-professionell
+- **Ansprache**: „Sie", Fachbegriffe erklärt, Fokus auf Sicherheit & Verlässlichkeit
+- **Beispiele**: „Ihr zuverlässiger Elektrofachbetrieb" (nicht „coolster Elektriker")
+
+### **Was sie NICHT sein sollen**
+- Billigst-Anbieter / Dumping-Preise
+- Impersonal / Call-Center-Mentalität
+- Trendig / Instagram-Ästhetik statt Handwerk
+- Generisches Template-Design
+- Unklare Preisgestaltung oder versteckte Kosten
+
+---
+
+## 🎨 **BRAND CI: Farben, Typografie, Design**
+
+| Element | Wert | Begründung |
+|---------|------|-----------|
+| **Primärfarbe** | `#335E9B` (Elektro-Blau) | Kraft, Vertrauen, Technik, Sicherheit |
+| **Sekundär (Dunkel)** | `#2a4a7a` | Hover-States, tiefere Gewichtung |
+| **Neutral-900** | `#0f1419` | Text, Header, seriöse Grundlage |
+| **Neutral-100** | `#f3f4f6` | Clean Backgrounds, Luftigkeit |
+| **Headline-Font** | `Poppins (800, 700)` | Modern, selbstbewusst, lesbar – nicht zu verspielt |
+| **Body-Font** | `Inter (400, 500, 600)` | Neutral, technisch, sehr lesbar |
+| **Design-Stil** | Clean Minimalism + Handwerk | Solide Struktur, klare CTAs, Fokus auf Inhalte statt Dekoration |
+
+---
+
+## ✨ **DESIGN-HIGHLIGHTS DER HTML-WEBSITE**
+
+✅ **Info-Bar** – Firmendaten & Bewertung prominent oben  
+✅ **Sticky Header** – <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEEAAABBCAYAAACO98lFAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4AcZByofoo2ifwAAA/hJREFUeNrtm91PHFUYxn/nzMzuwO7SUCRSFa2w2AoF+oGopKaSWqomRmOif5b36rVpvGys9qLGj0iN9aMFm1ak8mEKtSUSm2V3dtmdOa8X2luhdGad5fT9A85kf3nmOe/7zrPwsNJV5eEJsR5Cqf0xqb76jt0gSnv7pFToleC15oLQqaKgFLgu4ZUZ7IUAoDUEdTaeHBZ7IQB4LvLnOuXh42IvBADfxyz/TuXYSbEXglLgOESLiwQvvyl2QgBwHBAIZ2axFwKAo0FgY9+g2AsBwHWQoMzG/lGxFwKA42LurFE5fELshaAUyveJFhYIjr8udkK410g5HuH1OYKpt8VOCPeuzkaI6uqyVAkCbFZxj47QduZDZSUEqZRxRg7R/vU5lUpPKHX3JdveNurofT3kvrug4j46PiVUNikfGE8GhDGQyVJYnlVJHB8fhDYfc3OF8mjM97gIGIN36mSLtM1+G2ZpMV4FhCHOkcO0nXlftQYEBWiXjb0x+UNtE91fJPfVWZWk3cR/OzgaEaHU+fSDgahW0cU+8le+SBRAclek1mCEcu8OV2RhCIU8+avTiQNItk9wNebuXcqH7nNFZgxoRced+aYASLhZUuB5mIUFKs9PbQ+EUlBv0PHXctMAJN8xKgW+TzQ3v81eI8AZHWn+XNaUyU9Bqbu4pRrUU0+Q+/Yz1WwIsT2w1NUvW5mdymYprM03/UemZ4ByXaRWo3JwXOyF8C+IaPU2lRemxF4ISoExSDWwWAlhA925h/zstLITgjHguuRXrllqjGIgivAmXiSN1RwItU3ckWHaPvnoP1Ww0X9EdieEIMAZGqR9+tMtXwP5Y43Kc6dkd0Go11GPdJP74fPt+UC7T/TLHMHJt3ZJXCeK/tkL3vx5+0YoQMYjvLwb4joioBQd67/d/02gFMj2Zo30QhCBKMQZPLjzMxwHqjXKz4y3aFynVsMZKJK7eP7B+oFsFrN6i8rgRIvFdWo19P5ecj/GtBfMeEQrq1TGXmmRuE69gcrnyF+/FF9HqDW4DtGNG1RPv5v+pIoooZDEXlAp0JrGT5fTr4TM6ckE9aqhUafUcyARNaRqmNlqOyXVGm7v4+R+/T6dX6Wbso7ws0Srt6jE/L2ztUIaSoGXIVpaIph8w+K4jgh4HnpgwFIlGAMmJDM+hv/BexbGdUQgCHCPHcU//7Glxtioo4tF2r88m+K4TpIVhqg9neSvXUx5XCfJvYTrUFi52iJJlSQAoOhYX2yxpEqcRhiGuMNDLbhPiKuqVfTQs7R/c07ZCaHeQPU8Sv7ShRaP6+zYBwzkfApLM00b7tzU+UAU0nF7aRfFdXbgA96Jl7C6ymOTD/81/3/V3+AgXTWFCwzyAAAAAElFTkSuQmCC" alt="Hans Lacherbauer Elektroin- stallation e.K. Inh. German Scheitinger" style="max-height:56px;width:auto;max-width:220px;object-fit:contain;display:block;"/> + Navigation, CTA immer erreichbar  
+✅ **Hero-Gradient** – Professioneller Farbverlauf in Primärfarbe, Bewegungsanimation  
+✅ **12 Service-Karten** – Alle Leistungen mit passenden Emoji-Icons & Hover-Effekte  
+✅ **Über uns (Grid)** – Authentische Texte + Vertrauens-KPIs (20+ Jahre, 500+ Kunden, 5⭐)  
+✅ **USP-Sektion** – 4 Kernpunkte mit Icons, visuell hervorgehoben  
+✅ **Kontaktformular** – Funktionales Formular mit Mailto-Integration  
+✅ **Floating CTAs** – Telefon + Anfrage immer sichtbar (rechts unten)  
+✅ **Responsive Footer** – Navigation, Öffnungszeiten, Kontakt strukturiert  
+✅ **Watermark** – Gleißner & Nägel Branding  
+✅ **Animationen** – Fade-In Hero, Hover-Effekte auf Karten & Buttons  
+✅ **Typografie** – Poppins für Headlines, Inter für Body – klassisch-modern  
+
+Diese HTML-Website ist **sofort einsatzbereit**, vollständig self-contained und kann direkt als PNG/PDF exportiert oder ins CMS integriert werden! 🚀
