@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>K & S Elektrotechnik GmbH – Ihr Elektrofachbetrieb in Dachau & München</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--blue:#0089BC;--yellow:#FFBB00;--dark:#1a1a2e;--dark2:#16213e;--gray:#f4f6f9;--text:#333}
+body{font-family:'Inter',sans-serif;color:var(--text);overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+
+/* INFO BAR */
+.info-bar{background:#0d1117;color:#aab;font-size:11px;padding:7px 20px;text-align:center;letter-spacing:.4px}
+.info-bar span{color:var(--yellow);font-weight:600}
+
+/* WATERMARK */
+.watermark{background:repeating-linear-gradient(45deg,rgba(0,137,188,.07),rgba(0,137,188,.07) 10px,transparent 10px,transparent 20px);border-top:2px solid var(--yellow);border-bottom:2px solid var(--yellow);text-align:center;padding:8px;font-size:11px;color:#555;font-weight:500;position:relative;z-index:999}
+
+/* HEADER */
+header{position:sticky;top:0;z-index:1000;background:#fff;box-shadow:0 2px 20px rgba(0,0,0,.1)}
+.header-inner{max-width:1200px;margin:auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between}
+.logo-wrap{display:flex;align-items:center;gap:12px}
+.logo-wrap img{height:52px;width:auto}
+.logo-text{font-size:15px;font-weight:800;color:var(--dark);line-height:1.2}
+.logo-text span{color:var(--blue)}
+nav{display:flex;gap:24px;align-items:center}
+nav a{font-size:13px;font-weight:600;color:#444;transition:.2s;padding:4px 0;border-bottom:2px solid transparent}
+nav a:hover{color:var(--blue);border-bottom-color:var(--yellow)}
+.nav-cta{background:var(--blue);color:#fff!important;padding:9px 20px!important;border-radius:6px;border-bottom:none!important}
+.nav-cta:hover{background:#0072a0!important}
+
+/* HERO */
+.hero{position:relative;min-height:92vh;display:flex;align-items:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('https://www.kunds-elektrotechnik-gmbh.de/files/daten/bilder/strom.webp') center/cover no-repeat}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(120deg,rgba(13,17,23,.88) 0%,rgba(0,137,188,.45) 100%)}
+.hero-content{position:relative;z-index:2;max-width:1200px;margin:auto;padding:80px 24px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,187,0,.15);border:1px solid var(--yellow);color:var(--yellow);padding:6px 16px;border-radius:20px;font-size:12px;font-weight:700;letter-spacing:1px;margin-bottom:22px}
+.hero h1{font-size:clamp(2rem,5vw,3.6rem);font-weight:800;color:#fff;line-height:1.15;max-width:700px;margin-bottom:20px}
+.hero h1 em{color:var(--yellow);font-style:normal}
+.hero p{font-size:17px;color:rgba(255,255,255,.82);max-width:560px;line-height:1.7;margin-bottom:36px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn-primary{background:var(--blue);color:#fff;padding:14px 30px;border-radius:8px;font-weight:700;font-size:15px;transition:.2s;display:inline-flex;align-items:center;gap:8px}
+.btn-primary:hover{background:#0072a0;transform:translateY(-2px)}
+.btn-outline{background:transparent;color:#fff;padding:14px 30px;border-radius:8px;font-weight:700;font-size:15px;border:2px solid rgba(255,255,255,.5);transition:.2s;display:inline-flex;align-items:center;gap:8px}
+.btn-outline:hover{border-color:var(--yellow);color:var(--yellow)}
+.hero-stats{display:flex;gap:40px;margin-top:54px;flex-wrap:wrap}
+.stat{text-align:center}
+.stat-val{font-size:2rem;font-weight:800;color:var(--yellow)}
+.stat-lab{font-size:12px;color:rgba(255,255,255,.6);margin-top:2px}
+
+/* FLOATING CTAs */
+.float-ctас{position:fixed;right:0;top:50%;transform:translateY(-50%);z-index:998;display:flex;flex-direction:column;gap:0}
+.float-btn{writing-mode:vertical-rl;text-orientation:mixed;padding:18px 10px;font-size:12px;font-weight:700;color:#fff;cursor:pointer;transition:.2s;letter-spacing:.5px}
+.float-call{background:var(--blue)}
+.float-mail{background:var(--dark)}
+.float-btn:hover{filter:brightness(1.15);padding-right:14px}
+
+/* SECTIONS */
+section{padding:80px 24px}
+.container{max-width:1200px;margin:auto}
+.section-label{font-size:11px;font-weight:700;letter-spacing:2px;color:var(--blue);text-transform:uppercase;margin-bottom:10px}
+.section-title{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;color:var(--dark);line-height:1.3;margin-bottom:16px}
+.section-title em{color:var(--yellow);font-style:normal}
+.section-sub{font-size:16px;color:#666;max-width:600px;line-height:1.7}
+
+/* ABOUT */
+.about{background:#fff}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-top:50px}
+.about-img{position:relative;border-radius:16px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.12)}
+.about-img img{width:100%;height:420px;object-fit:cover;display:block}
+.about-img-badge{position:absolute;bottom:20px;left:20px;background:var(--yellow);color:var(--dark);padding:10px 18px;border-radius:8px;font-weight:800;font-size:13px}
+.about-content{display:flex;flex-direction:column;gap:20px}
+.about-content p{font-size:15px;line-height:1.8;color:#555}
+.about-points{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px}
+.point{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;color:var(--dark)}
+.point::before{content:"✓";background:var(--blue);color:#fff;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0}
+
+/* SERVICES */
+.services{background:var(--gray)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:50px}
+.service-card{background:#fff;border-radius:14px;padding:30px;transition:.3s;border-bottom:3px solid transparent;box-shadow:0 4px 20px rgba(0,0,0,.06)}
+.service-card:hover{transform:translateY(-6px);border-bottom-color:var(--yellow);box-shadow:0 12px 40px rgba(0,0,0,.12)}
+.service-icon{width:56px;height:56px;background:linear-gradient(135deg,var(--blue),#005f85);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:18px}
+.service-card h3{font-size:16px;font-weight:700;color:var(--dark);margin-bottom:10px}
+.service-card p{font-size:14px;color:#666;line-height:1.7}
+
+/* PROMISE */
+.promise{background:linear-gradient(135deg,var(--dark) 0%,var(--dark2) 100%);color:#fff}
+.promise-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.promise h2{font-size:2rem;font-weight:800;line-height:1.3;margin-bottom:20px}
+.promise h2 em{color:var(--yellow);font-style:normal}
+.promise p{font-size:15px;color:rgba(255,255,255,.75);line-height:1.8;margin-bottom:16px}
+.promise-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+.promise-list li{display:flex;align-items:flex-start;gap:12px;font-size:14px;color:rgba(255,255,255,.8);line-height:1.6}
+.promise-list li::before{content:"⚡";font-size:16px;flex-shrink:0;margin-top:1px}
+
+/* CONTACT */
+.contact{background:#fff}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;margin-top:50px}
+.contact-info{display:flex;flex-direction:column;gap:24px}
+.contact-item{display:flex;align-items:flex-start;gap:16px}
+.contact-icon{width:48px;height:48px;background:var(--blue);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.contact-label{font-size:11px;font-weight:700;letter-spacing:1px;color:#999;text-transform:uppercase;margin-bottom:4px}
+.contact-val{font-size:16px;font-weight:700;color:var(--dark)}
+.contact-val a{color:var(--blue)}
+.rating-box{background:var(--gray);border-radius:12px;padding:24px;text-align:center;margin-top:8px}
+.stars{font-size:28px;color:var(--yellow);letter-spacing:4px}
+.rating-num{font-size:2rem;font-weight:800;color:var(--dark)}
+.rating-text{font-size:13px;color:#777;margin-top:4px}
+.contact-map{background:var(--gray);border-radius:14px;overflow:hidden;min-height:320px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;border:2px dashed #ddd}
+.map-placeholder{font-size:40px}
+.map-addr{font-size:14px;color:#777;text-align:center}
+.map-link{display:inline-block;margin-top:10px;background:var(--blue);color:#fff;padding:10px 22px;border-radius:7px;font-weight:700;font-size:13px}
+
+/* FOOTER */
+footer{background:#0d1117;color:rgba(255,255,255,.6);padding:40px 24px 20px}
+.footer-inner{max-width:1200px;margin:auto}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:30px}
+.footer-brand .logo-text{color:#fff;margin-bottom:12px}
+.footer-brand p{font-size:13px;line-height:1.7}
+footer h4{color:#fff;font-size:13px;font-weight:700;margin-bottom:14px;letter-spacing:.5px}
+footer ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+footer ul li a{font-size:13px;color:rgba(255,255,255,.5);transition:.2s}
+footer ul li a:hover{color:var(--yellow)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:18px;display:flex;justify-content:space-between;align-items:center;flex-wrap:gap}
+.footer-bottom p{font-size:12px}
+.footer-bottom span{color:var(--yellow)}
+
+@media(max-width:900px){
+  .about-grid,.promise-inner,.contact-grid,.footer-grid{grid-template-columns:1fr}
+  .services-grid{grid-template-columns:1fr 1fr}
+  nav{display:none}
+  .hero-stats{gap:24px}
+}
+@media(max-width:600px){
+  .services-grid,.about-points{grid-template-columns:1fr}
+  .hero h1{font-size:1.8rem}
+}
+</style>
+</head>
+<body>
+
+<!-- INFO BAR -->
+<div class="info-bar">
+  LEAD: <span>K & S Elektrotechnik GmbH</span> &nbsp;|&nbsp; WEBSITE: <span>https://www.kunds-elektrotechnik-gmbh.de/</span> &nbsp;|&nbsp; RATING: <span>5,0★ (4 Bewertungen)</span> &nbsp;|&nbsp; STADT: <span>Bayern – Dachau</span>
+</div>
+
+<!-- WATERMARK -->
+<div class="watermark">
+  🔒 Vorschau erstellt von <strong>Gleißner & Nägel · Web, Prozesse & Automatisierung</strong> · Dies ist kein echtes Angebot und keine offizielle Website der genannten Firma.
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="logo-wrap">
+      <img src="data:image/webp;base64,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bS90aWZmLzEuMC8iCiAgICAgICAgICAgIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyI+CiAgICAgICAgIDxleGlmOlBpeGVsWURpbWVuc2lvbj4yNTc8L2V4aWY6UGl4ZWxZRGltZW5zaW9uPgogICAgICAgICA8ZXhpZjpQaXhlbFhEaW1lbnNpb24+MzAwPC9leGlmOlBpeGVsWERpbWVuc2lvbj4KICAgICAgICAgPHRpZmY6UmVzb2x1dGlvblVuaXQ+MjwvdGlmZjpSZXNvbHV0aW9uVW5pdD4KICAgICAgICAgPHRpZmY6WFJlc29sdXRpb24+NzIwMDAwLzEwMDAwPC90aWZmOlhSZXNvbHV0aW9uPgogICAgICAgICA8dGlmZjpPcmllbnRhdGlvbj4xPC90aWZmOk9yaWVudGF0aW9uPgogICAgICAgICA8dGlmZjpZUmVzb2x1dGlvbj43MjAwMDAvMTAwMDA8L3RpZmY6WVJlc29sdXRpb24+CiAgICAgICAgIDx4bXA6TWV0YWRhdGFEYXRlPjIwMjQtMTAtMTVUMTI6Mjc6MjYrMDI6MDA8L3htcDpNZXRhZGF0YURhdGU+CiAgICAgICAgIDx4bXA6Q3JlYXRvclRvb2w+UGl4ZWxtYXRvciBQcm8gMy42Ljk8L3htcDpDcmVhdG9yVG9vbD4KICAgICAgICAgPHhtcDpDcmVhdGVEYXRlPjIwMjQtMTAtMTVUMTI6MTE6MjkrMDI6MDA8L3htcDpDcmVhdGVEYXRlPgogICAgICA8L3JkZjpEZXNjcmlwdGlvbj4KICAgPC9yZGY6UkRGPgo8L3g6eG1wbWV0YT4K" alt="K & S Elektrotechnik GmbH" style="max-height:56px;width:auto;max-width:220px;object-fit:contain;display:block;"/>
+      <div class="logo-text">K & S <span>Elektrotechnik</span><br>GmbH</div>
+    </div>
+    <nav>
+      <a href="#ueber-uns">Über uns</a>
+      <a href="#leistungen">Leistungen</a>
+      <a href="#versprechen">Unser Versprechen</a>
+      <a href="#kontakt">Kontakt</a>
+      <a href="tel:0813127306" class="nav-cta">📞 Jetzt anrufen</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">⚡ Ihr Elektrofachbetrieb in der Region München</div>
+    <h1>Strom und Hauselektrik<br>in <em>besten Händen.</em></h1>
+    <p>K & S Elektrotechnik GmbH – Ihr zuverlässiger Partner in Dachau, Germering, Fürstenfeldbruck und rund um München. Weil uns Mensch, Tier und Natur wichtig sind!</p>
+    <div class="hero-btns">
+      <a href="tel:0813127306" class="btn-primary">📞 08131 273306</a>
+      <a href="#kontakt" class="btn-outline">✉️ Jetzt anfragen</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-val">5,0★</div><div class="stat-lab">Google Bewertung</div></div>
+      <div class="stat"><div class="stat-val">6+</div><div class="stat-lab">Leistungsbereiche</div></div>
+      <div class="stat"><div class="stat-val">100%</div><div class="stat-lab">Qualitätsversprechen</div></div>
+      <div class="stat"><div class="stat-val">24/7</div><div class="stat-lab">Notfallservice</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FLOATING CTAs -->
+<div class="float-ctас">
+  <a href="tel:0813127306" class="float-btn float-call">📞 Jetzt anrufen</a>
+  <a href="#kontakt" class="float-btn float-mail">✉️ Anfrage senden</a>
+</div>
+
+<!-- ÜBER UNS -->
+<section class="about" id="ueber-uns">
+  <div class="container">
+    <div class="section-label">Über uns</div>
+    <h2 class="section-title">Neu aufgestellt –<br><em>bewährt in Qualität</em></h2>
+    <p class="section-sub">Die K & S Elektrotechnik GmbH startet durch mit neuer Geschäftsleitung und neuem Gewand – Ihr Vertrauen bleibt unser größter Antrieb.</p>
+    <div class="about-grid">
+      <div class="about-img">
+        <img src="https://www.kunds-elektrotechnik-gmbh.de/assets/images/p/adobestock_164719838-9nkz635f1v3f79r.jpg" alt="K&S Elektrotechnik – Fachbetrieb" loading="lazy">
+        <div class="about-img-badge">⚡ Seit Jahren für Sie da</div>
+      </div>
+      <div class="about-content">
+        <p>Wir sind die Elektriker, Elektrotechniker und Elektroniker in Germering und Dachau – Ihr Elektrofachbetrieb in Germering, Fürstenfeldbruck und rund um München. Unser Anspruch und Versprechen: <strong>Ihr Strom und Ihre Hauselektrik ist bei uns in besten Händen.</strong></p>
+        <p>Wir sorgen dafür, dass Sie vor Ihrer Projektentscheidung und Auftragsvergabe die damit verbundenen Kosten und Investitionen sehr genau kennen – welche Lösung für Sie die Richtige ist, was Ihr Nutzen ist und wie die Realisierung vonstatten geht.</p>
+        <p>Was wir wollen, ist, dass unsere Kunden vor Auftragsvergabe ganz genau wissen, was sie für ihr Geld erhalten. Transparenz, Ehrlichkeit und Verlässlichkeit sind keine Floskeln – sie sind unser Fundament.</p>
+        <div class="about-points">
+          <div class="point">Erfahrene Fachkräfte</div>
+          <div class="point">Sauber & zuverlässig</div>
+          <div class="point">Transparent & fair</div>
+          <div class="point">Freundlich & hilfsbereit</div>
+          <div class="point">Bestens ausgebildet</div>
+          <div class="point">Top ausgestattet</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEISTUNGEN -->
+<section class="services" id="leistungen">
+  <div class="container">
+    <div class="section-label">Unsere Leistungen</div>
+    <h2 class="section-title">Alles rund um <em>Ihren Strom</em></h2>
+    <p class="section-sub">Von der Hauselektrik über Photovoltaik bis zum Smart Home – wir bieten Ihnen das komplette Spektrum der modernen Elektrotechnik.</p>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon">🏠</div>
+        <h3>Neubau, Sanierung & Hauselektrik</h3>
+        <p>Komplette Elektroinstallationen für Neubauten, Sanierungen und Modernisierungen – fachgerecht, sauber und termingerecht ausgeführt.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">☀️</div>
+        <h3>Photovoltaik & Speicher</h3>
+        <p>Photovoltaik in verschiedenen Varianten, kombiniert mit Stromspeichern und Wallboxen für Ihr E-Fahrzeug – wir begleiten Sie von der Beratung bis zur Inbetriebnahme.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">💡</div>
+        <h3>Beleuchtungstechnik</h3>
+        <p>Intelligente und effiziente Beleuchtungslösungen für Innen- und Außenbereiche – von der Planung bis zur Montage moderner LED-Systeme.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🏡</div>
+        <h3>Smart Home – KNX</h3>
+        <p>Vernetzte Gebäudeautomation mit KNX-Standard für maximalen Komfort, Energieeffizienz und Sicherheit in Ihrem Zuhause oder Gewerbeobjekt.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🚪</div>
+        <h3>Torantriebe & Schiebetüren</h3>
+        <p>Professionelle Installation und Wartung von Torantrieben, Rolltoren und automatischen Schiebetüren – für Privat und Gewerbe.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🔧</div>
+        <h3>Schadensbehebung & Notfallservice</h3>
+        <p>Schnelle Hilfe bei Elektroschäden, Elektroerneuerungen und im Notfall – wir sind für Sie da, wenn Sie uns brauchen.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- VERSPRECHEN -->
+<section class="promise" id="versprechen">
+  <div class="container">
+    <div class="promise-inner">
+      <div>
+        <div class="section-label" style="color:var(--yellow)">Unser Versprechen</div>
+        <h2>Qualität, die Sie<br><em>sehen und spüren</em></h2>
+        <p>Um unseren hohen Anspruch gerecht zu werden, verfügen unsere Elektroniker, Elektriker und Elektrotechniker über viel Erfahrung und ausgezeichnetes Know-how.</p>
+        <p>Weil uns Mensch, Tier und Natur wichtig sind – das ist kein Marketingversprechen, das ist unsere Haltung gegenüber jedem einzelnen Projekt.</p>
+        <a href="tel:0813127306" class="btn-primary" style="margin-top:10px">📞 Jetzt Beratung anfragen</a>
+      </div>
+      <ul class="promise-list">
+        <li>Sie kennen vor Auftragsvergabe ganz genau die Kosten und Investitionen Ihres Projekts.</li>
+        <li>Wir zeigen Ihnen, welche Lösung für Sie die Richtige ist – ehrlich und unabhängig.</li>
+        <li>Transparenz über Material, Systeme und Komponenten, die benötigt werden.</li>
+        <li>Klare Aussage, wie lange die Installation dauert – ohne böse Überraschungen.</li>
+        <li>Bestens ausgebildete Fachkräfte, die sauber, zuverlässig und freundlich arbeiten.</li>
+        <li>Notfallservice – wir sind auch dann für Sie da, wenn es schnell gehen muss.</li>
+        <li>Markisen, Sonnenschutz und elektrische Außenanlagen aus einer Hand.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAKT -->
+<section class="contact" id="kontakt">
+  <div class="container">
+    <div class="section-label">Kontakt</div>
+    <h2 class="section-title">Sprechen Sie uns <em>direkt an</em></h2>
+    <p class="section-sub">Wir freuen uns auf Ihre Anfrage. Rufen Sie uns an oder schreiben Sie uns – wir melden uns schnell und unkompliziert zurück.</p>
+    <div class="contact-grid">
+      <div class="contact-info">
+
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div>
+            <div class="contact-label">Telefon</div>
+            <div class="contact-val"><a href="tel:0813127306">08131 273306</a></div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <div class="contact-label">Adresse</div>
+            <div class="contact-val">Freisinger Str. 86<br>85221 Dachau</div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">🌐</div>
+          <div>
+            <div class="contact-label">Website</div>
+            <div class="contact-val"><a href="https://www.kunds-elektrotechnik-gmbh.de/" target="_blank">www.kunds-elektrotechnik-gmbh.de</a></div>
+          </div>
+        </div>
+
+        <div class="rating-box">
+          <div class="stars">★★★★★</div>
+          <div class="rating-num">5,0 / 5</div>
+          <div class="rating-text">Google Bewertung · 4 Rezensionen</div>
+        </div>
+
+      </div>
+      <div class="contact-map">
+        <div class="map-placeholder">📍</div>
+        <div class="map-addr"><strong>K & S Elektrotechnik GmbH</strong><br>Freisinger Str. 86, 85221 Dachau</div>
+        <a href="https://maps.google.com/?q=Freisinger+Str.+86,+85221+Dachau" target="_blank" class="map-link">📍 In Google Maps öffnen</a>
+        <a href="tel:0813127306" class="btn-primary" style="margin-top:6px">📞 Direkt anrufen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo-text">K & S Elektrotechnik GmbH</div>
+        <p>Ihr Elektrofachbetrieb in Dachau, Germering, Fürstenfeldbruck und rund um München. Weil uns Mensch, Tier und Natur wichtig sind.</p>
+      </div>
+      <div>
+        <h4>Leistungen</h4>
+        <ul>
+          <li><a href="#leistungen">Hauselektrik & Neubau</a></li>
+          <li><a href="#leistungen">Photovoltaik & Speicher</a></li>
+          <li><a href="#leistungen">Smart Home – KNX</a></li>
+          <li><a href="#leistungen">Beleuchtungstechnik</a></li>
+          <li><a href="#leistungen">Torantriebe & Rolltore</a></li>
+          <li><a href="#leistungen">Notfallservice</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="tel:0813127306">📞 08131 273306</a></li>
+          <li><a href="https://maps.google.com/?q=Freisinger+Str.+86,+85221+Dachau" target="_blank">📍 Freisinger Str. 86, Dachau</a></li>
+          <li><a href="https://www.kunds-elektrotechnik-gmbh.de/" target="_blank">🌐 Website besuchen</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 K & S Elektrotechnik GmbH · Alle Rechte vorbehalten</p>
+      <p>Vorschau von <span>Gleißner & Nägel · Web, Prozesse & Automatisierung</span></p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
