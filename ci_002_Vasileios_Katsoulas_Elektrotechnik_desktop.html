@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vasileios Katsoulas Elektrotechnik | Elektriker in Dachau</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #3b82f6;
+            --primary-dark: #1e40af;
+            --primary-light: #60a5fa;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f9fafb;
+            --bg-white: #ffffff;
+            --border: #e5e7eb;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Info Bar */
+        .info-bar {
+            background: #0f172a;
+            color: #f1f5f9;
+            padding: 10px 20px;
+            font-size: 12px;
+            text-align: center;
+            font-weight: 500;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            background: var(--bg-white);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 52px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            max-height: 52px;
+            object-fit: contain;
+            max-width: 200px;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 400px;
+            height: 400px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+            transform: translate(100px, -100px);
+        }
+
+        .hero-content {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 35px;
+            opacity: 0.95;
+            font-weight: 400;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: transparent;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Section */
+        section {
+            padding: 80px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .section-subtitle {
+            color: var(--text-light);
+            font-size: 16px;
+            margin-bottom: 50px;
+            max-width: 600px;
+        }
+
+        /* About */
+        #about {
+            background: var(--bg-light);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--primary);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .values {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .value {
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .value strong {
+            color: var(--text-dark);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .value span {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        /* Services */
+        #services {
+            background: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            padding: 35px 25px;
+            background: var(--bg-light);
+            border-radius: 12px;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.15);
+        }
+
+        .service-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .service-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Why Us */
+        #whyus {
+            background: var(--bg-light);
+        }
+
+        .whyus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 35px;
+        }
+
+        .whyus-item {
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            border-top: 4px solid var(--primary);
+            text-align: center;
+        }
+
+        .whyus-number {
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .whyus-item h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .whyus-item p {
+            color: var(--text-light);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Contact */
+        #contact {
+            background: white;
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .contact-icon {
+            font-size: 28px;
+            color: var(--primary);
+            margin-top: 5px;
+        }
+
+        .contact-item h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .contact-item p {
+            color: var(--text-light);
+            font-size: 15px;
+        }
+
+        .contact-item a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: var(--primary-dark);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-dark);
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid var(--border);
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Floating CTAs */
+        .floating-ctas {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 99;
+        }
+
+        .float-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .float-btn:hover {
+            background: var(--primary-dark);
+            transform: scale(1.1);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 50px 20px 25px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .footer-col p,
+        .footer-col a {
+            font-size: 14px;
+            color: #9ca3af;
+            margin-bottom: 10px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 25px;
+            text-align: center;
+            font-size: 12px;
+            color: #6b7280;
+        }
+
+        .watermark {
+            font-size: 11px;
+            color: #4b5563;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #374151;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .about-content,
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 50px 20px;
+            }
+
+            .floating-ctas {
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Info Bar -->
+    <div class="info-bar">
+        LEAD: Vasileios Katsoulas Elektrotechnik | WEBSITE: http://vk-elektrotechnik.de/ | RATING: 5,0★ (36 Bewertungen) | STANDORT: 85221 Dachau, Bayern
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <span style="font-size:18px;font-weight:700;color:#fff;">Vasileios Katsoulas Elektrotechnik</span>
+            </div>
+            <nav>
+                <a href="#about">Über uns</a>
+                <a href="#services">Leistungen</a>
+                <a href="#whyus">Warum wir</a>
+                <a href="#contact">Kontakt</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Zuverlässige Elektrotechnik für Dachau & Umgebung</h1>
+            <p>Professionelle Elektroinstallationen, Wartung und Reparaturen — schnell, sauber, kompetent</p>
+            <div class="cta-group">
+                <a href="tel:015566444904" class="btn btn-primary">📞 Jetzt anrufen</a>
+                <a href="#contact" class="btn btn-secondary">Anfrage senden</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+        <div class="container">
+            <h2>Über uns</h2>
+            <p class="section-subtitle">Ihr kompetenter Partner für Elektrotechnik seit vielen Jahren</p>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Wer wir sind</h3>
+                    <p>Vasileios Katsoulas Elektrotechnik ist Ihr zuverlässiger Ansprechpartner für alle elektrotechnischen Belange in Dachau und Umgebung. Mit langjähriger Erfahrung, handwerklicher Sorgfalt und kundenorientiertem Service setzen wir Maßstäbe in der Branche.</p>
+                    
+                    <p>Ob private Haushalte, Gewerbebetriebe oder Neubauprojekte — wir lösen Ihre Probleme professionell und effizient. Unsere 5,0-Sterne-Bewertung von unseren Kunden spricht für sich.</p>
+
+                    <p>Wir arbeiten nach höchsten Sicherheitsstandards, nutzen moderne Techniken und Material und beachten alle geltenden Vorschriften und Richtlinien.</p>
+
+                    <div class="values">
+                        <div class="value">
+                            <strong>⚡ Zuverlässigkeit</strong>
+                            <span>Pünktlichkeit und Qualität in jedem Projekt</span>
+                        </div>
+                        <div class="value">
+                            <strong>🛠️ Fachkompetenz</strong>
+                            <span>Ausgebildete Fachleute mit aktuellem Wissen</span>
+                        </div>
+                        <div class="value">
+                            <strong>💼 Transparenz</strong>
+                            <span>Klare Preise und offene Kommunikation</span>
+                        </div>
+                        <div class="value">
+                            <strong>🚀 Innovation</strong>
+                            <span>Moderne Lösungen für zeitgemäße Anforderungen</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div style="background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%); border-radius: 12px; padding: 40px; color: white; text-align: center;">
+                        <div style="font-size: 48px; font-weight: 700; margin-bottom: 10px;">36</div>
+                        <p style="margin-bottom: 20px;">zufriedene Kunden</p>
+                        <div style="background: rgba(255,255,255,0.2); padding: 15px; border-radius: 8px; font-size: 13px;">
+                            <strong>⭐ 5,0/5 Sterne Bewertung</strong><br>
+                            "Schnell, sauber, kompetent — jederzeit wieder!"
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services">
+        <div class="container">
+            <h2>Unsere Leistungen</h2>
+            <p class="section-subtitle">Alles aus einer Hand — vom Neubau bis zur Wartung</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <span class="service-icon">🏠</span>
+                    <h3>Elektroinstallationen</h3>
+                    <p>Neuinstallationen, Umbauten und Modernisierungen in privaten Haushalten und Gewerbe</p>
+                </div>
+
+                <div class="service-card">
+                    <span class="service-icon">🔧</span>
+                    <h3>Reparatur & Wartung</h3>
+                    <p>Schnelle Fehlersuche und Reparatur von Elektrodefekten, regelmäßige Wartung</p>
+                </div>
+
+                <div class="service-card">
+                    <span class="service-icon">💡</span>
+                    <h3>Lichttechnik</h3>
+                    <p>Planung und Installation von Beleuchtungssystemen für optimales Licht</p>
+                </div>
+
+                <div class="service-card">
+                    <span class="service-icon">🔌</span>
+                    <h3>Sicherheitstechnik</h3>
+                    <p>Überprüfung und Neuinstallation von Schutzschaltern und Sicherungssystemen</p>
+                </div>
+
+                <div class="service-card">
+                    <span class="service-icon">🌱</span>
+                    <h3>Erneuerbare Energien</h3>
+                    <p>Photovoltaik-Anlagen, Wärmepumpen und nachhaltige Elektrolösungen</p>
+                </div>
+
+                <div class="service-card">
+                    <span class="service-icon">📱</span>
+                    <h3>Smart Home</h3>
+                    <p>Intelligente Hausautomation und moderne Gebäudetechnik</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us -->
+    <section id="whyus">
+        <div class="container">
+            <h2>Warum Vasileios Katsoulas Elektrotechnik?</h2>
+            <p class="section-subtitle">Das spricht für unsere Arbeit</p>
+            
+            <div class="whyus-grid">
+                <div class="whyus-item">
+                    <div class="whyus-number">100%</div>
+                    <h3>Zufriedenheit</h3>
+                    <p>5,0★-Bewertung von allen unseren Kunden — das ist nicht zufällig, sondern System</p>
+                </div>
+
+                <div class="whyus-item">
+                    <div class="whyus-number">24h</div>
+                    <h3>Notfalldienst</h3>
+                    <p>Elektrische Notfälle warten nicht — wir sind schnell zur Stelle</p>
+                </div>
+
+                <div class="whyus-item">
+                    <div class="whyus-number">✓</div>
+                    <h3>Garantie</h3>
+                    <p>Alle Arbeiten mit Sicherheit und Gewährleistung — kein Risiko für Sie</p>
+                </div>
+
+                <div class="whyus-item">
+                    <div class="whyus-number">📍</div>
+                    <h3>Lokal</h3>
+                    <p>Ansässig in Dachau — kurze Wege, schnelle Anfahrtszeiten, persönlicher Service</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <div class="container">
+            <h2>Kontaktieren Sie uns</h2>
+            <p class="section-subtitle">Wir freuen uns auf Ihre Nachricht — oder rufen Sie uns direkt an</p>
+            
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <div>
+                            <h3>Adresse</h3>
+                            <p>Konrad-Adenauer-Straße 23<br>85221 Dachau</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <span class="contact-icon">📞</span>
+                        <div>
+                            <h3>Telefon</h3>
+                            <p><a href="tel:015566444904">01556 6444904</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <span class="contact-icon">⏰</span>
+                        <div>
+                            <h3>Erreichbarkeit</h3>
+                            <p>Mo–Fr: 7:00–17:00 Uhr<br>Notfalldienst 24h</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <span class="contact-icon">🌐</span>
+                        <div>
+                            <h3>Website</h3>
+                            <p><a href="http://vk-elektrotechnik.de/">vk-elektrotechnik.de</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <form onsubmit="event.preventDefault(); alert('Vielen Dank für Ihre Anfrage! Wir kontaktieren Sie in Kürze.');">
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" name="name" required placeholder="Ihr Name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Telefon</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Ihre Telefonnummer">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Nachricht *</label>
+                        <textarea id="message" name="message" required placeholder="Wie können wir Ihnen helfen?"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Anfrage senden</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating CTAs -->
+    <div class="floating-ctas">
+        <a href="tel:015566444904" class="float-btn" title="Anrufen">📞</a>
+        <a href="#contact" class="float-btn" title="Nachricht">✉️</a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>Unternehmen</h4>
+                <a href="#about">Über uns</a>
+                <a href="#services">Leistungen</a>
+                <a href="#whyus">Warum wir</a>
+            </div>
+
+            <div class="footer-col">
+                <h4>Service</h4>
+                <a href="tel:015566444904">Jetzt anrufen</a>
+                <a href="#contact">Anfrage senden</a>
+                <p>24h Notfalldienst</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Kontakt</h4>
+                <p>Konrad-Adenauer-Straße 23<br>85221 Dachau</p>
+                <p><a href="tel:015566444904">01556 6444904</a></p>
+                <p><a href="http://vk-elektrotechnik.de/">vk-elektrotechnik.de</a></p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 Vasileios Katsoulas Elektrotechnik. Alle Rechte vorbehalten.</p>
+            <div class="watermark">
+                Vorschau erstellt von Gleißner &amp; Nägel · Web, Prozesse &amp; Automatisierung · Dies ist kein echtes Angebot
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
