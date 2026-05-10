@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bittner & Kappler Elektrotechnik GmbH - Elektroinstallateur in Schwabach</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #222;
+            overflow-x: hidden;
+        }
+        
+        /* TOP INFO BAR */
+        .info-bar {
+            background: #1a1a1a;
+            color: #fff;
+            padding: 12px 20px;
+            font-size: 13px;
+            text-align: center;
+            border-bottom: 2px solid #0040B6;
+        }
+        
+        .info-bar span {
+            margin: 0 15px;
+        }
+        
+        /* WATERMARK */
+        .watermark {
+            position: fixed;
+            top: 70px;
+            right: 20px;
+            background: rgba(0, 64, 182, 0.08);
+            border: 1px solid #0040B6;
+            padding: 10px 14px;
+            border-radius: 4px;
+            font-size: 11px;
+            color: #0040B6;
+            z-index: 999;
+            max-width: 160px;
+            text-align: center;
+            font-weight: 500;
+        }
+        
+        /* HEADER */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: #fff;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            height: 52px;
+            object-fit: contain;
+        }
+        
+        nav {
+            display: flex;
+            gap: 35px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #222;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #0040B6;
+        }
+        
+        /* FLOATING BUTTONS */
+        .floating-ctas {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 200;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .float-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #0040B6;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 64, 182, 0.3);
+            transition: all 0.3s;
+        }
+        
+        .float-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 64, 182, 0.4);
+        }
+        
+        /* HERO SECTION */
+        .hero {
+            position: relative;
+            height: 600px;
+            background: linear-gradient(135deg, #0040B6 0%, #0055e0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://www.bittner-kappler.de/s/img/emotionheader.jpg?1313569151.590px.170px');
+            background-size: cover;
+            background-position: center;
+            object-fit: cover;
+            opacity: 0.25;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            padding: 0 20px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .hero h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            font-weight: 400;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 14px 32px;
+            border: none;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: #0040B6;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #0032a0;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 64, 182, 0.3);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: #0040B6;
+            border: 2px solid #0040B6;
+        }
+        
+        .btn-secondary:hover {
+            background: #f5f5f5;
+            transform: translateY(-2px);
+        }
+        
+        /* SECTION SPACING */
+        section {
+            padding: 80px 40px;
+        }
+        
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 50px;
+            text-align: center;
+            color: #222;
+        }
+        
+        .section-title span {
+            color: #0040B6;
+        }
+        
+        /* ABOUT SECTION */
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-text h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #0040B6;
+        }
+        
+        .about-text p {
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .values {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .value-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        
+        .value-item span {
+            color: #0040B6;
+            font-size: 20px;
+            margin-top: 2px;
+        }
+        
+        .value-item p {
+            margin: 0;
+            font-weight: 600;
+            color: #222;
+        }
+        
+        .about-img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* SERVICES SECTION */
+        .services {
+            background: #f8f9fa;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 35px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+            border-top: 4px solid #0040B6;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 64, 182, 0.15);
+        }
+        
+        .service-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+        
+        .service-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: #222;
+        }
+        
+        .service-card p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* WHY US SECTION */
+        .why-us {
+            background: white;
+        }
+        
+        .usp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .usp-card {
+            text-align: center;
+        }
+        
+        .usp-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: #e8f0ff;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+        }
+        
+        .usp-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 22px;
+            margin-bottom: 12px;
+            color: #0040B6;
+        }
+        
+        .usp-card p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+        }
+        
+        /* GALLERY SECTION */
+        .gallery {
+            background: #f8f9fa;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .gallery-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .gallery-img:hover {
+            transform: scale(1.05);
+        }
+        
+        /* CONTACT SECTION */
+        .contact {
+            background: white;
+        }
+        
+        .contact-wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        
+        .contact-item {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+        
+        .contact-item-icon {
+            font-size: 24px;
+            color: #0040B6;
+            margin-top: 3px;
+            min-width: 30px;
+        }
+        
+        .contact-item div p:first-child {
+            font-weight: 600;
+            color: #222;
+            margin-bottom: 3px;
+        }
+        
+        .contact-item div p:last-child {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #222;
+            font-size: 14px;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #0040B6;
+            box-shadow: 0 0 0 3px rgba(0, 64, 182, 0.1);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        /* FOOTER */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 40px;
+            text-align: center;
+            border-top: 3px solid #0040B6;
+            font-size: 13px;
+        }
+        
+        footer p {
+            margin-bottom: 10px;
+        }
+        
+        footer a {
+            color: #0040B6;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* ANIMATIONS */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        section {
+            animation: fadeIn 0.6s ease-out;
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav {
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .hero {
+                height: 400px;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 15px;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero-buttons .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            section {
+                padding: 50px 20px;
+            }
+            
+            .section-title {
+                font-size: 32px;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+            
+            .watermark {
+                display: none;
+            }
+            
+            .floating-ctas {
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- INFO BAR -->
+    <div class="info-bar">
+        <span><strong>LEAD:</strong> Bittner & Kappler</span>
+        <span>|</span>
+        <span><strong>WEBSITE:</strong> https://www.bittner-kappler.de/</span>
+        <span>|</span>
+        <span><strong>RATING:</strong> 5,0★ (8 Bewertungen)</span>
+        <span>|</span>
+        <span><strong>STANDORT:</strong> Schwabach, Bayern</span>
+    </div>
+    
+    <!-- WATERMARK -->
+    <div class="watermark">
+        Vorschau erstellt von Gleißner & Nägel · Web, Prozesse & Automatisierung · Dies ist kein echtes Angebot
+    </div>
+    
+    <!-- HEADER -->
+    <header>
+        <img src="https://www.bittner-kappler.de/s/misc/logo.jpg?t=1774413268" alt="Bittner & Kappler Logo" class="logo">
+        <nav>
+            <a href="#about">Über uns</a>
+            <a href="#services">Leistungen</a>
+            <a href="#why-us">Warum wir</a>
+            <a href="#contact">Kontakt</a>
+        </nav>
+    </header>
+    
+    <!-- FLOATING CTAs -->
+    <div class="floating-ctas">
+        <a href="tel:09122634660" class="float-btn" title="Anrufen">📞</a>
+        <a href="#contact" class="float-btn" title="Anfrage senden">✉️</a>
+    </div>
+    
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Elektroinstallationen auf höchstem Niveau</h1>
+            <p>Moderner Fachbetrieb für Neuinstallationen, Sanierungen und individuelle Lösungen in Schwabach</p>
+            <div class="hero-buttons">
+                <a href="tel:09122634660" class="btn btn-primary">Jetzt anrufen: 09122 634660</a>
+                <a href="#contact" class="btn btn-secondary">Unverbindliche Anfrage</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ABOUT SECTION -->
+    <section id="about">
+        <h2 class="section-title">Über <span>Bittner & Kappler</span></h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Ihr zuverlässiger Elektriker in Schwabach</h3>
+                <p>Wir sind ein moderner und zuverlässiger Fachbetrieb für Elektroinstallationen in der Region Schwabach und Umgebung. Mit jahrelanger Erfahrung und neuester Technik realisieren wir Ihre Projekte reibungslos und professionell.</p>
+                <p>Ob Neuinstallationen, Sanierungsarbeiten, kleine Reparaturen wie Steckdosen- oder Klingelreparaturen oder die Planung und Ausführung komplexer Elektroarbeiten – wir setzen alle Anforderungen fachkundig und zuverlässig um.</p>
+                <p>Dabei legen wir nicht nur Wert auf hochwertige Technik, sondern beraten Sie zudem umfangreich und unkompliziert. Um das Maximum an Leistung bei niedrigem Verbrauchsniveau zu erhalten, steht Ihnen unser Team mit fachkundiger Beratung zur Seite.</p>
+                
+                <div class="values">
+                    <div class="value-item">
+                        <span>✓</span>
+                        <p>Fachkundige Beratung & individuelle Lösungen</p>
+                    </div>
+                    <div class="value-item">
+                        <span>✓</span>
+                        <p>Neueste Technik & effiziente Umsetzung</p>
+                    </div>
+                    <div class="value-item">
+                        <span>✓</span>
+                        <p>Schnell, unkompliziert & zuverlässig</p>
+                    </div>
+                    <div class="value-item">
+                        <span>✓</span>
+                        <p>Persönliche Betreuung in Schwabach & Region</p>
+                    </div>
+                </div>
+            </div>
+            <img src="https://www.bittner-kappler.de/s/cc_images/cache_2415324388.jpg?t=1313568608" alt="Bittner & Kappler Team" class="about-img">
+        </div>
+    </section>
+    
+    <!-- SERVICES SECTION -->
+    <section id="services" class="services">
+        <h2 class="section-title">Unsere <span>Leistungen</span></h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🏠</div>
+                <h3>Neuinstallationen</h3>
+                <p>Moderne Elektroinstallationen für Neubauten und Renovierungen – geplant und umgesetzt nach aktuellen Standards</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔧</div>
+                <h3>Sanierungsarbeiten</h3>
+                <p>Professionelle Sanierung veralteter Elektroinstallationen mit Beratung zur Energieeffizienz</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">💡</div>
+                <h3>Steckdosen & Schalter</h3>
+                <p>Reparatur und Installation von Steckdosen, Schaltern und Leitungsanlagen</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔔</div>
+                <h3>Klingelanlagen</h3>
+                <p>Installation und Reparatur von Klingelanlagen und Türsprechanlagen</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🏢</div>
+                <h3>Wohnanlagen</h3>
+                <p>Planung und Ausführung aller Elektroarbeiten für größere Wohnanlagen</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">⚡</div>
+                <h3>Elektroberatung</h3>
+                <p>Umfassende Beratung zu Energieeffizienz, modernen Lösungen und Kostenersparnissen</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- WHY US SECTION -->
+    <section id="why-us">
+        <h2 class="section-title">Warum <span>Bittner & Kappler</span></h2>
+        <div class="usp-grid">
+            <div class="usp-card">
+                <div class="usp-icon">⭐</div>
+                <h3>Bewährte Qualität</h3>
+                <p>5,0 Sterne Bewertung mit realen Kundenerfahrungen – Qualität, der Sie vertrauen können</p>
+            </div>
+            <div class="usp-card">
+                <div class="usp-icon">🎯</div>
+                <h3>Präzision & Zuverlässigkeit</h3>
+                <p>Reibungslose Realisierung Ihrer Projekte mit neuester Technik und fachkundiger Ausführung</p>
+            </div>
+            <div class="usp-card">
+                <div class="usp-icon">💬</div>
+                <h3>Unkomplizierte Beratung</h3>
+                <p>Offene Kommunikation, individuelle Lösungen und persönliche Unterstützung vor Ort</p>
+            </div>
+            <div class="usp-card">
+                <div class="usp-icon">📍</div>
+                <h3>Lokal & Verlässlich</h3>
+                <p>Ansässig in Schwabach – schnelle Erreichbarkeit und persönliche Kundenbindung</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- GALLERY SECTION -->
+    <section class="gallery">
+        <h2 class="section-title">Referenzen & Einblicke</h2>
+        <div class="gallery-grid">
+            <img src="https://www.bittner-kappler.de/s/cc_images/cache_2415324388.jpg?t=1313568608" alt="Projektbeispiel 1" class="gallery-img">
+            <img src="https://www.bittner-kappler.de/s/cc_images/cache_2415324387.jpg?t=1533730217" alt="Projektbeispiel 2" class="gallery-img">
+            <img src="https://www.bittner-kappler.de/s/img/emotionheader.jpg?1313569151.590px.170px" alt="Projektbeispiel 3" class="gallery-img">
+            <img src="https://www.bittner-kappler.de/s/misc/logo.jpg?t=1774413268" alt="Projektbeispiel 4" class="gallery-img">
+        </div>
+    </section>
+    
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+        <h2 class="section-title">Kontakt & Anfrage</h2>
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h3 style="font-family: 'Poppins', sans-serif; margin-bottom: 20px;">Kontaktieren Sie uns</h3>
+                
+                <div class="contact-item">
+                    <div class="contact-item-icon">📞</div>
+                    <div>
+                        <p>Telefon</p>
+                        <p><a href="tel:09122634660" style="color: #0040B6; text-decoration: none;">09122 634660</a></p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-item-icon">📍</div>
+                    <div>
+                        <p>Adresse</p>
+                        <p>Katzwanger Str. 20<br>91126 Schwabach<br>Bayern, Deutschland</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-item-icon">🌐</div>
+                    <div>
+                        <p>Website</p>
+                        <p><a href="https://www.bittner-kappler.de/" target="_blank" style="color: #0040B6; text-decoration: none;">www.bittner-kappler.de</a></p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-item-icon">⭐</div>
+                    <div>
+                        <p>Google Bewertung</p>
+                        <p>5,0 von 5 Sternen (8 Bewertungen)</p>
+                    </div>
+                </div>
+            </div>
+            
+            <form style="display: flex; flex-direction: column; gap: 0;">
+                <h3 style="font-family: 'Poppins', sans-serif; margin-bottom: 20px;">Anfrage senden</h3>
+                
+                <div class="form-group">
+                    <label for="name">Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">E-Mail *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Telefon</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Nachricht *</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Anfrage absenden</button>
+            </form>
+        </div>
+    </section>
+    
+    <!-- FOOTER -->
+    <footer>
+        <p><strong>Bittner & Kappler Elektrotechnik GmbH</strong></p>
+        <p>Katzwanger Str. 20, 91126 Schwabach | Telefon: <a href="tel:09122634660">09122 634660</a></p>
+        <p style="margin-top: 20px; border-top: 1px solid #333; padding-top: 20px; font-size: 12px;">
+            © 2024 Bittner & Kappler. Alle Rechte vorbehalten. | 
+            <a href="#">Datenschutzerklärung</a> | 
+            <a href="#">Impressum</a>
+        </p>
+    </footer>
+</body>
+</html>
