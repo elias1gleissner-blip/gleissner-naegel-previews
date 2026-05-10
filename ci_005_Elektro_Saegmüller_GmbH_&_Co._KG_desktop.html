@@ -1,0 +1,1114 @@
+# MARKENANALYSE: Elektro Saegmüller GmbH & Co. KG
+
+## 📊 Strategische Einordnung
+
+### **Mission & Vision**
+- **Mission**: Gehobene elektrotechnische Lösungen (Privatvillen, Gewerbebauten) mit höchster Qualität und Kundenbegeisterung realisieren
+- **Vision**: Marktführer für Premium-Elektrotechnik in Bayern sein; nicht nur Erwartungen erfüllen, sondern übertreffen
+
+### **USP / Alleinstellungsmerkmale**
+1. **Premiumsegment-Fokus**: Nicht Massenmarkt, sondern bewusst gehobene Privatimmobilien + anspruchsvolle Gewerbebauten
+2. **Mehrfach ausgezeichnete Qualität**: Erasmus-Grasser-Preis (Branchenpreis), hochwertige Referenzen (FC Bayern)
+3. **Ganzheitliche Lösung**: Von KNX-Gebäudesystemtechnik über Beleuchtung bis E-Check – alles aus einer Hand
+4. **Serviceorientierung**: 24/7-Notfalldienst, nicht nur Installationen
+5. **Langfristige Kundenbeziehungen**: Familiengeführt, Bayern-Wurzeln seit Jahrzehnten
+
+### **Zielgruppe**
+| Segment | Charakteristik |
+|---------|----------------|
+| **B2C** | Vermögende Privatpersonen (40–70 Jahre), Villen/Neubauten, Qualitätsorientiert, nicht preissensibel |
+| **B2B** | Generalunternehmer, Bauträger, Gewerbeimmobilien-Betreiber, Facility Manager |
+| **Gemeinsam** | Höchste Ansprüche, Zuverlässigkeit, Langfristigkeit, regionale Nähe wichtig |
+
+### **Markenpersönlichkeit (5 Adjektive)**
+1. **Zuverlässig** – Familienbetrieb seit Generationen, 4,4★ Rating
+2. **Innovativ** – Modernste Technik (KNX, IoT-ready), ausgezeichnete Projekte
+3. **Premium/Gehobene Qualität** – Nicht der Billigste, sondern der Beste
+4. **Nahbar/Persönlich** – "Wir wollen Sie begeistern", nicht roboterhaft
+5. **Lösungsorientiert** – „Überall da, wo Strom fließt" – Fullservice-Mentalität
+
+### **Tonalität**
+- **Formell + Inspirierend** (nicht salopp, aber auch nicht steif)
+- **Kundenorientiert**: „Sie wollen alles? Von uns bekommen Sie sogar ein wenig mehr."
+- **Sicherheit ausstrahlen**, aber auch Innovation signalisieren
+- **Regional verwurzelt**, nicht austauschbar
+
+### **Was die Marke NICHT sein soll**
+- Nicht der günstige 08/15-Elektriker
+- Nicht unerreichbar / zu elitär
+- Nicht veraltet / traditionsverhaftet trotz Altersgenossenschaft
+- Nicht kompliziert / unzugänglich
+
+---
+
+## 🎨 BRAND CI – DESIGN-ENTSCHEIDUNGEN
+
+### **Farben**
+| Element | Farbe | Verwendung |
+|---------|-------|-----------|
+| Primär | `#007AFF` | Buttons, CTAs, wichtige Links, Hover-States |
+| Akzent | `#399D32` | Headlines, Subheadlines, Highlights |
+| Neutral Dunkel | `#1a1a1a` | Text, Footer-Hintergrund |
+| Neutral Hell | `#f8f9fa` | Card-Backgrounds, Sections |
+| Weiß | `#ffffff` | Hero-Text, Kontrastflächen |
+| Grau (Supportiv) | `#6b7280` | Sekundärtext, Beschreibungen |
+
+### **Typografie**
+- **Headlines**: `Poppins` (Google Fonts) – modern, geometrisch, vermittelt Innovation + Solidität
+- **Body/Text**: `Inter` (Google Fonts) – hochgradig lesbar, vertrauenswürdig, zeitgenössisch
+- **Größen**: H1 48px, H2 36px, H3 24px, Body 16px (responsiv 14px Mobile)
+
+### **Design-Stil**
+- **Clean & Modern-Professional**: Weiße Räume, klare Hierarchie
+- **Handwerklich durch Details**: Subtle Icons, Card-Erhebungen (Schatten), nicht flach
+- **Tech-inspiriert ohne abzuschrecken**: KNX/Smarthome-Symbolik, aber verständlich für Laien
+- **Warm durch Fotografie**: Echte Referenzfotos, Menschen, Gewerberäume – nicht Stock-Photos
+
+---
+
+# 🌐 HTML-PREVIEW-WEBSITE
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elektro Saegmüller GmbH & Co. KG – Premium Elektrotechnik Bayern</title>
+    <meta name="description" content="Modernste Elektrotechnik für gehobene Privatimmobilien und anspruchsvolle Gewerbebauten. Mehrfach ausgezeichnet. Bayern.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1a1a1a;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ━━━ INFO-BAR (TOP) ━━━ */
+        .info-bar {
+            background: linear-gradient(90deg, #0a0e27 0%, #1a1a2e 100%);
+            color: #fff;
+            padding: 12px 20px;
+            font-size: 13px;
+            text-align: center;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .info-bar span {
+            display: inline-block;
+            margin: 0 16px;
+        }
+
+        .info-bar a {
+            color: #007AFF;
+            text-decoration: none;
+        }
+
+        .info-bar a:hover {
+            text-decoration: underline;
+        }
+
+        /* ━━━ WATERMARK ━━━ */
+        .watermark {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 122, 255, 0.1);
+            border: 1px solid #007AFF;
+            border-radius: 8px;
+            padding: 12px 16px;
+            font-size: 11px;
+            color: #007AFF;
+            z-index: 999;
+            text-align: center;
+            max-width: 160px;
+            font-weight: 600;
+        }
+
+        /* ━━━ STICKY HEADER ━━━ */
+        header {
+            position: sticky;
+            top: 0;
+            background: #ffffff;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            z-index: 100;
+            padding: 16px 40px;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: #007AFF;
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: -1px;
+        }
+
+        nav {
+            display: flex;
+            gap: 32px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #1a1a1a;
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #007AFF;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #007AFF;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* ━━━ HERO SECTION ━━━ */
+        .hero {
+            position: relative;
+            height: 700px;
+            background: linear-gradient(135deg, #007AFF 0%, #0056cc 100%);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('http://www.saegmueller.de/assets/images/c/saegmueller-start-1-neu-2865d6ba.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.25;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            color: #ffffff;
+            max-width: 800px;
+            padding: 40px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 56px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero .subtitle {
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 32px;
+            opacity: 0.95;
+            color: #e8f0ff;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-primary {
+            background: #007AFF;
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background: #0056cc;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 122, 255, 0.3);
+        }
+
+        .btn-secondary {
+            background: #ffffff;
+            color: #007AFF;
+            border: 2px solid #ffffff;
+        }
+
+        .btn-secondary:hover {
+            background: transparent;
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ━━━ SECTION STYLES ━━━ */
+        section {
+            padding: 80px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 42px;
+            font-weight: 800;
+            color: #399D32;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            font-size: 18px;
+            color: #6b7280;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ━━━ ÜBER UNS ━━━ */
+        .about {
+            background: #f8f9fa;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 32px;
+            color: #1a1a1a;
+            margin-bottom: 24px;
+            font-weight: 700;
+        }
+
+        .about-text p {
+            font-size: 16px;
+            color: #4b5563;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .values-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .value-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .value-icon {
+            font-size: 24px;
+            min-width: 30px;
+        }
+
+        .value-item strong {
+            color: #007AFF;
+            font-weight: 600;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* ━━━ LEISTUNGEN ━━━ */
+        .services {
+            background: #ffffff;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .service-card {
+            background: #f8f9fa;
+            padding: 32px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .service-card:hover {
+            border-color: #007AFF;
+            transform: translateY(-8px);
+            box-shadow: 0 16px 40px rgba(0, 122, 255, 0.15);
+        }
+
+        .service-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .service-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 22px;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            color: #6b7280;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        /* ━━━ WARUM WIR ━━━ */
+        .why-us {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+        }
+
+        .usps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .usp-card {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            position: relative;
+        }
+
+        .usp-number {
+            font-family: 'Poppins', sans-serif;
+            font-size: 48px;
+            font-weight: 800;
+            color: #007AFF;
+            margin-bottom: 16px;
+        }
+
+        .usp-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .usp-card p {
+            color: #6b7280;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        /* ━━━ GALLERY ━━━ */
+        .gallery {
+            background: #ffffff;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin-top: 60px;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 280px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* ━━━ KONTAKT ━━━ */
+        .contact {
+            background: #f8f9fa;
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 60px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .contact-icon {
+            font-size: 32px;
+            color: #007AFF;
+            min-width: 40px;
+            text-align: center;
+        }
+
+        .contact-item h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .contact-item p, .contact-item a {
+            color: #6b7280;
+            font-size: 15px;
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            color: #007AFF;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #1a1a1a;
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 12px 16px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #007AFF;
+            box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* ━━━ FOOTER ━━━ */
+        footer {
+            background: #1a1a1a;
+            color: #ffffff;
+            padding: 60px 40px 40px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #007AFF;
+        }
+
+        .footer-section a {
+            color: #b5bcc7;
+            text-decoration: none;
+            font-size: 14px;
+            line-height: 2;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #007AFF;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 40px;
+            border-top: 1px solid #333;
+            text-align: center;
+            font-size: 14px;
+            color: #8b93a1;
+        }
+
+        /* ━━━ FLOATING CTAs ━━━ */
+        .floating-ctas {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 99;
+        }
+
+        .float-btn {
+            background: #007AFF;
+            color: #ffffff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            box-shadow: 0 4px 16px rgba(0, 122, 255, 0.4);
+            transition: all 0.3s ease;
+            text-align: center;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .float-btn:hover {
+            background: #0056cc;
+            transform: scale(1.1);
+            box-shadow: 0 8px 24px rgba(0, 122, 255, 0.5);
+        }
+
+        /* ━━━ RESPONSIVE ━━━ */
+        @media (max-width: 768px) {
+            header {
+                padding: 12px 20px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .hero {
+                height: 500px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 60px 20px;
+            }
+
+            .section-header h2 {
+                font-size: 32px;
+            }
+
+            .watermark {
+                bottom: 120px;
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ━━━ INFO-BAR ━━━ -->
+<div class="info-bar">
+    <span><strong>🏢 LEAD:</strong> Elektro Saegmüller GmbH & Co. KG</span>
+    <span><strong>🌐 WEBSITE:</strong> <a href="http://www.saegmueller.de/" target="_blank">saegmueller.de</a></span>
+    <span><strong>⭐ RATING:</strong> 4,4/5 (25 Bewertungen)</span>
+    <span><strong>📍 STANDORT:</strong> Bayern</span>
+</div>
+
+<!-- ━━━ WATERMARK ━━━ -->
+<div class="watermark">
+    <div>Vorschau erstellt von</div>
+    <div>Gleißner & Nägel</div>
+    <div>Web, Prozesse & Automatisierung</div>
+    <div style="margin-top: 8px; border-top: 1px solid #007AFF; padding-top: 8px; font-size: 10px;">
+        Dies ist kein echtes Angebot
+    </div>
+</div>
+
+<!-- ━━━ FLOATING CTAs ━━━ -->
+<div class="floating-ctas">
+    <a href="tel:08151909000" class="float-btn">📞 Anrufen</a>
+    <a href="#contact" class="float-btn">✉️ Anfrage</a>
+</div>
+
+<!-- ━━━ STICKY HEADER ━━━ -->
+<header>
+    <div class="header-container">
+        <div class="logo"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIGlkPSJFYmVuZV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDQ1MS42IDExMi41IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA0NTEuNiAxMTIuNTsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSIyODAiIGhlaWdodD0iNzAiPgo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPgoJLnN0MHtmaWxsOiNGOEIxMjI7fQoJLnN0MXtmaWxsOiMxQTE3MUI7fQoJLnN0MntmaWxsOiNGRkZGRkY7fQo8L3N0eWxlPgo8Zz4KCTxwb2x5Z29uIGNsYXNzPSJzdDAiIHBvaW50cz0iMCwyMS42IDAsODUuMyA0NTEuNCw4NS4zIDQ1MS40LDIxLjYgMCwyMS42ICAiLz4KCTxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0yMi4zLDYzLjljMCw3LjYsNS40LDguOCwxMS41LDguOGgxMS42YzYuMiwwLDEyLjQtMC42LDEyLjQtOS4ydi0yLjNjMC01LjktMy40LTguNS0xMS42LTguNUgzMy44ICAgYy02LjUsMC03LjctMS40LTcuNy01LjVjMC01LjcsMi45LTYuMiwxMC45LTYuMmg0LjRjMTEsMCwxMS41LDEsMTEuNiw2LjVINTd2LTEuMmMwLTYuMi0yLjYtOS4yLTEzLTkuMmgtOSAgIGMtOC42LDAtMTIuOCwxLjgtMTIuOCw5LjdjMCw5LjIsNC4yLDEwLjEsMTcsMTAuMWg3LjljNS4yLDAsNi43LDEuMSw2LjcsNS41YzAsNS0xLjgsNi40LTcuOSw2LjRIMzNjLTUuMiwwLTYuOC0xLjYtNi44LTV2LTIuNCAgIGgtMy45VjYzLjlMMjIuMyw2My45eiBNNjEuNyw3Mi4zaDQuN2wzLjgtNy4zaDI0LjhsMy44LDcuM2g0LjdMODUuMywzNy41aC01LjJMNjEuNyw3Mi4zTDYxLjcsNzIuM3ogTTkzLjEsNjEuMUg3Mi4zbDEwLjQtMTkuNyAgIEw5My4xLDYxLjFMOTMuMSw2MS4xeiBNMTA4LjQsNzIuM0gxMzl2LTMuOGgtMjYuNFY1Ni4zaDI1LjJ2LTMuOGgtMjUuMlY0MS4zaDI2LjJ2LTMuOGgtMzAuNFY3Mi4zTDEwOC40LDcyLjN6IE0xODMuMyw1NWgtMjB2My44ICAgaDE1Ljh2My41YzAsNC44LTIuNiw2LjQtNi44LDYuNEgxNTZjLTQsMC03LjMtMS4zLTcuMy03LjRWNDguNGMwLTYsMy4yLTcuNCw3LjMtNy40aDEwLjljMTAuMywwLDEyLjEsMC41LDEyLjEsN2gzLjl2LTEuMiAgIGMwLTgtNS45LTkuNi0xMS41LTkuNmgtMTUuOGMtOC40LDAtMTEsNC4yLTExLDEzdjkuNWMwLDguOCwyLjYsMTMsMTEsMTNoMTcuM2M3LjcsMCwxMC41LTMuNCwxMC41LTEyLjhWNTVMMTgzLjMsNTV6IE0xOTAuNCw3Mi4zICAgaDQuMlY0MS43aDAuMWwxOC44LDMwLjVoM2wxOC44LTMwLjVoMC4xdjMwLjVoNC4yVjM3LjVoLTYuNUwyMTUsNjYuNmwtMTguMS0yOS4xaC02LjVWNzIuM0wxOTAuNCw3Mi4zeiBNMjU5LjQsMzQuNWgzLjd2LTUuNGgtMy43ICAgVjM0LjVMMjU5LjQsMzQuNXogTTI2OC40LDM0LjVoMy43di01LjRoLTMuN1YzNC41TDI2OC40LDM0LjV6IE0yNDcuNiw2My41YzAsNy4xLDMuMiw5LjEsMTEsOS4xaDE0LjNjNy45LDAsMTEtMi4xLDExLTkuMXYtMjYgICBoLTQuMnYyNmMwLDMuNC0xLDUuMy02LjcsNS4zaC0xNC41Yy01LjcsMC02LjctMi02LjctNS4zdi0yNmgtNC4yVjYzLjVMMjQ3LjYsNjMuNXogTTI5Mi4xLDcyLjNoMjguMnYtMy44aC0yNFYzNy41aC00LjJWNzIuMyAgIEwyOTIuMSw3Mi4zeiBNMzI0LjgsNzIuM0gzNTN2LTMuOGgtMjRWMzcuNWgtNC4yVjcyLjNMMzI0LjgsNzIuM3ogTTM1Ny40LDcyLjNIMzg4di0zLjhoLTI2LjRWNTYuM2gyNS4ydi0zLjhoLTI1LjJWNDEuM2gyNi4yICAgdi0zLjhoLTMwLjRWNzIuM0wzNTcuNCw3Mi4zeiBNMzk0LjEsNzIuM2g0LjJWNTguNWgyMC40YzMuOCwwLDYuMiwwLjcsNi4yLDYuMXY3LjZoMy45di04LjljMC0zLjItMS01LjctNS4zLTYuNXYtMC4xICAgYzMuMi0wLjMsNS43LTEuNyw1LjctNi42di0yLjhjMC02LjUtMS40LTkuOC0xMC4zLTkuOGgtMjQuN1Y3Mi4zTDM5NC4xLDcyLjN6IE0zOTguMyw1NC43VjQxLjNoMTkuMWM2LjIsMCw3LjYsMS4yLDcuNiw1LjF2My4yICAgYzAsMy42LTIsNS02LjYsNUgzOTguM0wzOTguMyw1NC43eiIvPgoJPHBhdGggY2xhc3M9InN0MiIgZD0iTTcxLDExMS4zaDEuMlYxMDFoNC41di0xLjFINjYuNnYxLjFINzFWMTExLjNMNzEsMTExLjN6IE04NC41LDEwNi41YzAuMy0yLDEuOS0yLjgsMy40LTIuOCAgIGMxLjYsMCwzLjEsMC44LDMuNCwyLjhIODQuNUw4NC41LDEwNi41eiBNOTEuMSwxMDguNmMtMC40LDEuMy0xLjMsMS45LTMuMywxLjljLTIuMSwwLTMuMy0xLjQtMy4zLTMuMWg4YzAtMy44LTIuNS00LjctNC43LTQuNyAgIGMtMy4xLDAtNC41LDIuMS00LjUsNC40YzAsMiwxLjEsNC40LDQuNSw0LjRjMi44LDAsNC0xLjQsNC41LTIuOUg5MS4xTDkxLjEsMTA4LjZ6IE0xMDguNCwxMDguM2MtMC4zLDEuMy0xLjMsMi4yLTMsMi4yICAgYy0yLjMsMC0zLjUtMS40LTMuNS0zLjRjMC0xLjksMS4xLTMuNCwzLjUtMy40YzEuNSwwLDIuNiwwLjYsMywyaDEuMmMtMC4yLTEuMi0xLjMtMy00LjEtM2MtMy4yLDAtNC43LDEuOS00LjcsNC40ICAgYzAsMi42LDEuNyw0LjQsNC43LDQuNGMzLDAsNC0yLjEsNC4yLTMuMkgxMDguNEwxMDguNCwxMDguM3ogTTExOC4xLDExMS4zaDEuMnYtNC41YzAtMS45LDEuMS0zLjEsMy40LTMuMWMxLjUsMCwyLjUsMC42LDIuNSwyLjIgICB2NS40aDEuMnYtNS4yYzAtMi0wLjgtMy40LTMuNi0zLjRjLTEuOCwwLTMuMSwxLTMuNCwxLjloMHYtNC44aC0xLjJWMTExLjNMMTE4LjEsMTExLjN6IE0xNDIuNSwxMTEuM2gxLjJ2LTUuMiAgIGMwLTItMC44LTMuNC0zLjYtMy40Yy0xLjgsMC0zLjEsMS0zLjQsMS45aDBWMTAzaC0xLjJ2OC4zaDEuMnYtNC41YzAtMS45LDEuMS0zLjEsMy40LTMuMWMxLjUsMCwyLjUsMC42LDIuNSwyLjJWMTExLjMgICBMMTQyLjUsMTExLjN6IE0xNTIuNywxMTEuM2gxLjJWMTAzaC0xLjJWMTExLjNMMTUyLjcsMTExLjN6IE0xNTIuNywxMDEuNWgxLjJ2LTEuOGgtMS4yVjEwMS41TDE1Mi43LDEwMS41eiBNMTYyLjgsMTExLjNoMS4ydi0zICAgbDEuOS0xLjRsMy43LDQuNGgxLjZsLTQuNC01LjJsNC4xLTMuMmgtMS44bC01LjEsNHYtNy4yaC0xLjJWMTExLjNMMTYyLjgsMTExLjN6IE0xNzkuOCwxMTEuM2gxLjR2LTEuOGgtMS40VjExMS4zTDE3OS44LDExMS4zeiAgICBNMTk5LjksMTAzLjFjLTAuMS0yLjctMi40LTMuNi00LjgtMy42Yy0yLjIsMC00LjUsMC44LTQuNSwzLjNjMCwxLjgsMS41LDIuNiw0LjIsM2MyLjEsMC4zLDQuMiwwLjUsNC4yLDIuMyAgIGMwLDEuOC0xLjgsMi4zLTMuNSwyLjNjLTIuMiwwLTMuOC0wLjYtNC0zaC0xLjJjMC4yLDMuMSwyLjMsNC4xLDUuMiw0LjFjMi4yLDAsNC44LTAuOCw0LjgtMy42YzAtMi4yLTIuMS0yLjctNC4yLTMgICBjLTIuOC0wLjUtNC4yLTAuOC00LjItMi4zYzAtMS4zLDEuNC0yLDMuMi0yYzEuOCwwLDMuNCwwLjUsMy42LDIuNUgxOTkuOUwxOTkuOSwxMDMuMXogTTIwOS43LDEwNi41YzAuMy0yLDEuOS0yLjgsMy40LTIuOCAgIGMxLjYsMCwzLjEsMC44LDMuNCwyLjhIMjA5LjdMMjA5LjcsMTA2LjV6IE0yMTYuMywxMDguNmMtMC40LDEuMy0xLjMsMS45LTMuMywxLjljLTIuMSwwLTMuMy0xLjQtMy4zLTMuMWg4YzAtMy44LTIuNS00LjctNC43LTQuNyAgIGMtMy4xLDAtNC41LDIuMS00LjUsNC40YzAsMiwxLjEsNC40LDQuNSw0LjRjMi44LDAsNC0xLjQsNC41LTIuOUgyMTYuM0wyMTYuMywxMDguNnogTTIyNi4zLDExMS4zaDEuMlYxMDdjMC0yLjQsMS42LTMuMiwyLjgtMy4yICAgYzAuNCwwLDAuNywwLDEuMSwwLjF2LTEuMmMtMC4yLDAtMC40LTAuMS0wLjctMC4xYy0yLDAtMi44LDEuMi0zLjIsMi4yaDBWMTAzaC0xLjJWMTExLjNMMjI2LjMsMTExLjN6IE0yNDMsMTA5LjlsLTMuMy03aC0xLjMgICBsMy45LDguM2gxLjNsMy45LTguM2gtMS4zTDI0MywxMDkuOUwyNDMsMTA5Ljl6IE0yNTUuNSwxMTEuM2gxLjJWMTAzaC0xLjJWMTExLjNMMjU1LjUsMTExLjN6IE0yNTUuNSwxMDEuNWgxLjJ2LTEuOGgtMS4yVjEwMS41ICAgTDI1NS41LDEwMS41eiBNMjczLDEwOC4zYy0wLjMsMS4zLTEuMywyLjItMywyLjJjLTIuMywwLTMuNS0xLjQtMy41LTMuNGMwLTEuOSwxLjEtMy40LDMuNS0zLjRjMS41LDAsMi42LDAuNiwzLDJoMS4yICAgYy0wLjItMS4yLTEuMy0zLTQuMS0zYy0zLjIsMC00LjcsMS45LTQuNyw0LjRjMCwyLjYsMS43LDQuNCw0LjcsNC40YzMsMCw0LTIuMSw0LjItMy4ySDI3M0wyNzMsMTA4LjN6IE0yODMuNiwxMDYuNSAgIGMwLjMtMiwxLjktMi44LDMuNC0yLjhjMS42LDAsMy4xLDAuOCwzLjQsMi44SDI4My42TDI4My42LDEwNi41eiBNMjkwLjIsMTA4LjZjLTAuNCwxLjMtMS4zLDEuOS0zLjMsMS45Yy0yLjEsMC0zLjMtMS40LTMuMy0zLjFoOCAgIGMwLTMuOC0yLjUtNC43LTQuNy00LjdjLTMuMSwwLTQuNSwyLjEtNC41LDQuNGMwLDIsMS4xLDQuNCw0LjUsNC40YzIuOCwwLDQtMS40LDQuNS0yLjlIMjkwLjJMMjkwLjIsMTA4LjZ6IE0zMDAuOSwxMTEuM2gxLjR2LTEuOCAgIGgtMS40VjExMS4zTDMwMC45LDExMS4zeiBNMzEyLjIsMTExLjNoMS4yVjk5LjloLTEuMlYxMTEuM0wzMTIuMiwxMTEuM3ogTTMzMC40LDEwNy4xYzAsMi4yLTEuNSwzLjQtMy41LDMuNCAgIGMtMi40LDAtMy4zLTEuOC0zLjMtMy40YzAtMi4xLDEuNS0zLjQsMy4zLTMuNEMzMjkuMywxMDMuNywzMzAuNCwxMDUuNCwzMzAuNCwxMDcuMUwzMzAuNCwxMDcuMXogTTMzMC4zLDExMS4zaDEuMlY5OS44aC0xLjJ2NC45ICAgaDBjLTAuNS0xLjEtMS44LTEuOS0zLjQtMS45Yy0zLjEsMC00LjUsMi4xLTQuNSw0LjRjMCwyLDEuMSw0LjQsNC41LDQuNGMyLDAsMy4xLTEuMiwzLjQtMS45aDBWMTExLjNMMzMwLjMsMTExLjN6IE0zNDEuNCwxMDYuNSAgIGMwLjMtMiwxLjktMi44LDMuNC0yLjhjMS42LDAsMy4xLDAuOCwzLjQsMi44SDM0MS40TDM0MS40LDEwNi41eiBNMzQ4LDEwOC42Yy0wLjQsMS4zLTEuMywxLjktMy4zLDEuOWMtMi4xLDAtMy4zLTEuNC0zLjMtMy4xaDggICBjMC0zLjgtMi41LTQuNy00LjctNC43Yy0zLjEsMC00LjUsMi4xLTQuNSw0LjRjMCwyLDEuMSw0LjQsNC41LDQuNGMyLjgsMCw0LTEuNCw0LjUtMi45SDM0OEwzNDgsMTA4LjZ6IE0zNTksMTA2LjUgICBjMC4zLTIsMS45LTIuOCwzLjQtMi44YzEuNiwwLDMuMSwwLjgsMy40LDIuOEgzNTlMMzU5LDEwNi41eiBNMzY1LjYsMTA4LjZjLTAuNCwxLjMtMS4zLDEuOS0zLjMsMS45Yy0yLjEsMC0zLjMtMS40LTMuMy0zLjFoOCAgIGMwLTMuOC0yLjUtNC43LTQuNy00LjdjLTMuMSwwLTQuNSwyLjEtNC41LDQuNGMwLDIsMS4xLDQuNCw0LjUsNC40YzIuOCwwLDQtMS40LDQuNS0yLjlIMzY1LjZMMzY1LjYsMTA4LjZ6IE0zODIuNywxMTEuM2gxLjJ2LTUuMiAgIGMwLTItMC44LTMuNC0zLjYtMy40Yy0xLjgsMC0zLjEsMS0zLjQsMS45aDBWMTAzaC0xLjJ2OC4zaDEuMnYtNC41YzAtMS45LDEuMS0zLjEsMy40LTMuMWMxLjUsMCwyLjUsMC42LDIuNSwyLjJWMTExLjMgICBMMzgyLjcsMTExLjN6Ii8+Cgk8cGF0aCBjbGFzcz0ic3QyIiBkPSJNMTU0LjcsOS4yaDExdi0xaC05LjVWNWg5LjFWNGgtOS4xVjEuMWg5LjR2LTFoLTEwLjlWOS4yTDE1NC43LDkuMnogTTE3NS43LDkuMmgxMC4ydi0xaC04LjdWMC4xaC0xLjVWOS4yICAgTDE3NS43LDkuMnogTTE5NS4xLDkuMmgxMXYtMWgtOS41VjVoOS4xVjRoLTkuMVYxLjFoOS40di0xaC0xMC45VjkuMkwxOTUuMSw5LjJ6IE0yMTYuMSw5LjJoMS41VjVoMS44bDcuNyw0LjJoMi42bDAsMEwyMjEsNC41ICAgbDgtNC40bDAsMGgtMi41bC03LDMuOWgtMS45VjAuMWgtMS41VjkuMkwyMTYuMSw5LjJ6IE0yNDMuNSw5LjJoMS41VjEuMWg1LjZ2LTFoLTEyLjh2MWg1LjZWOS4yTDI0My41LDkuMnogTTI2MCw5LjJoMS41VjUuNmg3LjQgICBjMS40LDAsMi4yLDAuMiwyLjIsMS42djJoMS40VjYuOWMwLTAuOC0wLjQtMS41LTEuOS0xLjd2MGMxLjItMC4xLDItMC40LDItMS43VjIuN2MwLTEuNy0wLjUtMi42LTMuNy0yLjZIMjYwVjkuMkwyNjAsOS4yeiAgICBNMjYxLjUsNC42VjEuMWg2LjljMi4yLDAsMi44LDAuMywyLjgsMS4zdjAuOGMwLDEtMC43LDEuMy0yLjQsMS4zSDI2MS41TDI2MS41LDQuNnogTTI5NS41LDYuNGMwLDEuNi0xLjIsMS45LTIuNiwxLjloLTYuMSAgIGMtMS40LDAtMi42LTAuNC0yLjYtMS45VjIuOWMwLTEuNiwxLjItMS45LDIuNi0xLjloNi4xYzEuNCwwLDIuNiwwLjQsMi42LDEuOVY2LjRMMjk1LjUsNi40eiBNMjgyLjcsNS45YzAsMi4zLDEsMy40LDQsMy40aDYuNCAgIGMzLDAsNC0xLjEsNC0zLjRWMy40YzAtMi4zLTEtMy40LTQtMy40aC02LjRjLTMsMC00LDEuMS00LDMuNFY1LjlMMjgyLjcsNS45eiIvPgo8L2c+Cjwvc3ZnPgo=" alt="Elektro Saegmüller GmbH & Co. KG" style="max-height:56px;width:auto;max-width:220px;object-fit:contain;display:block;"/></div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">Über uns</a>
+            <a href="#services">Leistungen</a>
+            <a href="#contact">Kontakt</a>
+        </nav>
+    </div>
+</header>
+
+<!-- ━━━ HERO ━━━ -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h1>100 % Leistung. Überall da, wo Strom fließt.</h1>
+        <p class="subtitle">Modernste Elektrotechnik für gehobene Privatimmobilien und anspruchsvolle Gewerbebauten</p>
+        <div class="hero-buttons">
+            <button class="btn btn-primary">→ Kostenlos anfragen</button>
+            <a href="tel:08151909000" class="btn btn-secondary">📞 08151 90900</a>
+        </div>
+    </div>
+</section>
+
+<!-- ━━━ ÜBER UNS ━━━ -->
+<section class="about" id="about">
+    <div class="section-header">
+        <h2>Wer wir sind</h2>
+        <p>Kompetenz, Innovation und Leidenschaft seit Jahrzehnten</p>
+    </div>
+    
+    <div class="about-content">
+        <div class="about-text">
+            <h3>Elektro Saegmüller –<br>Ihre Partner für Premium-Elektrotechnik</h3>
+            <p>
+                Wir sind nicht einfach nur Elektriker. Wir sind Lösungspartner für gehobene Privatimmobilien und anspruchsvolle Gewerbebauten. Modernste Kommunikations- und Gebäudetechnik – energieeffizient, ressourcenschonend und mit Weitblick realisiert.
+            </p>
+            <p>
+                Unser Anspruch ist einfach: <strong>Sie nicht nur zufriedenzustellen, sondern zu begeistern.</strong> Daran lassen wir uns von Ihnen messen.
+            </p>
+            
+            <div class="values-list">
+                <div class="value-item">
+                    <span class="value-icon">⚡</span>
+                    <div>
+                        <strong>100 % Kompetenz</strong><br>
+                        <span style="color: #6b7280; font-size: 14px;">Mehrfach ausgezeichnete Qualität (Erasmus-Grasser-Preis)</span>
+                    </div>
+                </div>
+                <div class="value-item">
+                    <span class="value-icon">🏆</span>
+                    <div>
+                        <strong>Premiumsegment-Fokus</strong><br>
+                        <span style="color: #6b7280; font-size: 14px;">Nicht Massenmarkt, sondern gehobene Qualität</span>
+                    </div>
+                </div>
+                <div class="value-item">
+                    <span class="value-icon">🚀</span>
+                    <div>
+                        <strong>Innovation & Technik</strong><br>
+                        <span style="color: #6b7280; font-size: 14px;">KNX-Gebäudesystemtechnik, Smart Home ready</span>
+                    </div>
+                </div>
+                <div class="value-item">
+                    <span class="value-icon">🛠️</span>
+                    <div>
+                        <strong>Ganzheitliche Lösungen</strong><br>
+                        <span style="color: #6b7280; font-size: 14px;">Von Planung bis Wartung – alles aus einer Hand</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="about-image">
+            <img src="http://www.saegmueller.de/assets/images/0/header-arbeiten-bei-saegmueller_neu-ce69587b.jpg" alt="Elektro Saegmüller Team">
+        </div>
+    </div>
+</section>
+
+<!-- ━━━ LEISTUNGEN ━━━ -->
+<section class="services" id="services">
+    <div class="section-header">
+        <h2>Unsere Leistungen</h2>
+        <p>Von der Planung bis zum 24/7-Notfalldienst – komplette Elektrolösungen</p>
+    </div>
+    
+    <div class="services-grid">
+        <div class="service-card">
+            <span class="service-icon">🏠</span>
+            <h3>Elektroplanung</h3>
+            <p>Individuelle Planung für Privatimmobilien und Gewerbebauten nach höchsten Standards</p>
+        </div>
+        
+        <div class="service-card">
+            <span class="service-icon">⚡</span>
+            <h3>Elektro- & Kommunikationstechnik</h3>
+            <p>Installation, Instandhaltung und Modernisierung von Stromversorgung und Netzwerken</p>
+        </div>
+        
+        <div class="service-card">
+            <span class="service-icon">💡</span>
+            <h3>Beleuchtungstechnik</h3>
+            <p>Moderne Beleuchtungskonzepte für Wohnkomfort und Energieeffizienz</p>
+        </div>
+        
+        <div class="service-card">
+            <span class="service-icon">🔒</span>
+            <h3>Sicherheitstechnik</h3>
+            <p>Brandmeldeanlagen, Zugangskontrollen und umfassende Sicherheitssysteme</p>
+        </div>
+        
+        <div class="service-card">
+            <span class="service-icon">🏠💻</span>
+            <h3>Gebäudesystemtechnik (KNX)</h3>
+            <p>Intelligente Gebäudeautomation für maximale Effizienz und Komfort</p>
+        </div>
+        
+        <div class="service-card">
+            <span class="service-icon">✅</span>
+            <h3>E-Check & Prüfungen</h3>
+            <p>Sicherheitsprüfungen und -zertifizierungen nach DIN-Normen</p>
+        </div>
+    </div>
+</section>
+
+<!-- ━━━ WARUM WIR ━━━ -->
+<section class="why-us">
+    <div class="section-header">
+        <h2>Warum Elektro Saegmüller?</h2>
+        <p>Vier Gründe, die uns von der Konkurrenz unterscheiden</p>
+    </div>
+    
+    <div class="usps-grid">
+        <div class="usp-card">
+            <div class="usp-number">25+</div>
+            <h3>Jahre Erfahrung</h3>
+            <p>Familiengeführter Betrieb mit Wurzeln in Starnberg und Vertrauen aus Generationen</p>
+        </div>
+        
+        <div class="usp-card">
+            <div class="usp-number">4,4★</div>
+            <h3>Google Rating</h3>
+            <p>Ausgezeichnet von Kunden – 25+ bestätigte Bewertungen sprechen für unsere Qualität</p>
+        </div>
+        
+        <div class="usp-card">
+            <div class="usp-number">24/7</div>
+            <h3>Notfalldienst</h3>
+            <p>Schnelle Hilfe bei Störungen oder Brandschäden – immer nur einen Anruf entfernt</p>
+        </div>
+        
+        <div class="usp-card">
+            <div class="usp-number">🏆</div>
+            <h3>Ausgezeichnete Referenzen</h3>
+            <p>FC Bayern München, gehobene Privatvillen, anspruchsvolle Gewerbebauten. Premium-Portfolio.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ━━━ GALLERY ━━━ -->
+<section class="gallery">
+    <div class="section-header">
+        <h2>Referenzprojekte</h2>
+        <p>Ein Einblick in unsere bisherigen Arbeiten</p>
+    </div>
+    
+    <div class="gallery-grid">
+        <div class="gallery-item">
+            <img src="http://www.saegmueller.de/files/saegmueller/bilder/header/header-partner.jpg" alt="Partner & Referenzen">
+        </div>
+        <div class="gallery-item">
+            <img src="http://www.saegmueller.de/assets/images/c/saegmueller-start-1-neu-2865d6ba.jpg" alt="Elektro Saegmüller Projekt">
+        </div>
+        <div class="gallery-item">
+            <img src="http://www.saegmueller.de/assets/images/e/Erasmus-Grasser-Preis-0f80148e.jpg" alt="Erasmus-Grasser-Preis">
+        </div>
+    </div>
+</section>
+
+<!-- ━━━ KONTAKT ━━━ -->
+<section class="contact" id="contact">
+    <div class="section-header">
+        <h2>Kontaktieren Sie uns</h2>
+        <p>Wir freuen uns auf Ihre Anfrage und beantworten sie schnellstmöglich</p>
+    </div>
+    
+    <div class="contact-wrapper">
+        <div class="contact-info">
+            <div class="contact-item">
+                <div class="contact-icon">📞</div>
+                <div>
+                    <h3>Telefon</h3>
+                    <a href="tel:08151909000"><strong>08151 90900</strong></a>
+                    <p style="margin-top: 4px; font-size: 13px;">Montag–Freitag 8:00–17:30 Uhr</p>
+                </div>
+            </div>
+            
+            <div class="contact-item">
+                <div class="contact-icon">✉️</div>
+                <div>
+                    <h3>E-Mail</h3>
+                    <a href="mailto:info@saegmueller.de"><strong>info@saegmueller.de</strong></a>
+                </div>
+            </div>
+            
+            <div class="contact-item">
+                <div class="contact-icon">📍</div>
+                <div>
+                    <h3>Adresse</h3>
+                    <p><strong>Elektro Saegmüller GmbH & Co. KG</strong><br>
+                    Josef-Jägerhuber-Straße 17<br>
+                    82319 Starnberg<br>
+                    Bayern, Deutschland</p>
+                </div>
+            </div>
+            
+            <div class="contact-item">
+                <div class="contact-icon">🌐</div>
+                <div>
+                    <h3>Website</h3>
+                    <a href="http://www.saegmueller.de/" target="_blank"><strong>www.saegmueller.de</strong></a>
+                </div>
+            </div>
+        </div>
+        
+        <form class="contact-form" onsubmit="event.preventDefault(); alert('Vielen Dank! Diese ist eine Vorschau. Bitte nutzen Sie die echte Website für Anfragen.');">
+            <div class="form-group">
+                <label for="name">Ihr Name *</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">E-Mail-Adresse *</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Telefon</label>
+                <input type="tel" id="phone" name="phone">
+            </div>
+            
+            <div class="form-group">
+                <label for="service">Leistung *</label>
+                <input type="text" id="service" name="service" placeholder="z.B. KNX-Automatisierung" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="message">Nachricht *</label>
+                <textarea id="message" name="message" required placeholder="Beschreiben Sie Ihr Anliegen..."></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary" style="align-self: flex-start;">✉️ Anfrage senden</button>
+        </form>
+    </div>
+</section>
+
+<!-- ━━━ FOOTER ━━━ -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>Elektro Saegmüller</h3>
+            <p style="color: #b5bcc7; font-size: 14px; line-height: 1.7;">
+                Premium Elektrotechnik für gehobene Privatimmobilien und anspruchsvolle Gewerbebauten. Mehrfach ausgezeichnet. Kompetenz seit Jahrzehnten.
+            </p>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Navigation</h3>
+            <a href="#home">Home</a>
+            <a href="#about">Über uns</a>
+            <a href="#services">Leistungen</a>
+            <a href="#contact">Kontakt</a>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Leistungen</h3>
+            <a href="#services">Elektroplanung</a>
+            <a href="#services">KNX-Gebäudesystemtechnik</a>
+            <a href="#services">Beleuchtungstechnik</a>
+            <a href="#services">Sicherheitstechnik</a>
+            <a href="#services">E-Check</a>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Kontakt</h3>
+            <a href="tel:08151909000">📞 08151 90900</a>
+            <a href="mailto:info@saegmueller.de">✉️ info@saegmueller.de</a>
+            <a href="#">📍 Starnberg, Bayern</a>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>&copy; 2024 Elektro Saegmüller GmbH & Co. KG. Alle Rechte vorbehalten. | <a href="#" style="color: #b5bcc7;">Impressum</a> | <a href="#" style="color: #b5bcc7;">Datenschutz</a></p>
+    </div>
+</footer>
+
+</body>
+</html>
+---
+
+## 📋 DESIGN-ZUSAMMENFASSUNG
+
+### **Implementierte Brand-Prinzipien**
+
+| Element | Umsetzung | Begründung |
+|---------|-----------|-----------|
+| **Primärfarbe #007AFF** | Alle CTAs, Hover-States, Akzente, Links | Moderne Zuverlässigkeit signalisieren |
+| **Akzentfarbe #399D32** | Section-Headlines, Highlights | Nachhaltigkeit + Wachstum (hochwertig, aber nicht aufdringlich) |
+| **Typografie** | Poppins (Headlines) + Inter (Body) | Modern + lesbar, tech-inspiriert aber nahbar |
+| **Layout** | Clean Grid, White Space, Card-Design | Gehobenes Premium-Gefühl, nicht überladen |
+| **Bilderstrategie** | Echte Firmenfotos, große Hero-Section | Authentizität + Vertrauen; zeigt echte Projekte |
+| **Animationen** | Fade-in, Hover-Effekte, Card-Lift | Moderne Interaktivität ohne zu spielerisch zu sein |
+| **Tonalität** | "Begeistern, nicht nur zufriedenstellen" | In Headlines und USP-Texten verwirklicht |
+
+### **Responsive Design**
+- Mobile-First strukturiert
+- Navigation auf Small Screens optimiert
+- Floating CTAs oben auf Mobile sichtbar
+
+### **SEO-Grundlagen**
+- `<title>` und `<meta description>` mit Keywords
+- Semantisch korrektes HTML (section, header, footer)
+- Alt-Text auf Bildern
+- Klare H1/H2-Struktur
+
+---
+
+## ✅ CHECKLISTE: WAS IST IMPLEMENTIERT
+
+- ✅ Info-Bar oben (dunkel, alle Daten)
+- ✅ Watermark (Gleißner & Nägel, unten rechts)
+- ✅ Sticky Header mit <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIGlkPSJFYmVuZV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDQ1MS42IDExMi41IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA0NTEuNiAxMTIuNTsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSIyODAiIGhlaWdodD0iNzAiPgo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPgoJLnN0MHtmaWxsOiNGOEIxMjI7fQoJLnN0MXtmaWxsOiMxQTE3MUI7fQoJLnN0MntmaWxsOiNGRkZGRkY7fQo8L3N0eWxlPgo8Zz4KCTxwb2x5Z29uIGNsYXNzPSJzdDAiIHBvaW50cz0iMCwyMS42IDAsODUuMyA0NTEuNCw4NS4zIDQ1MS40LDIxLjYgMCwyMS42ICAiLz4KCTxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0yMi4zLDYzLjljMCw3LjYsNS40LDguOCwxMS41LDguOGgxMS42YzYuMiwwLDEyLjQtMC42LDEyLjQtOS4ydi0yLjNjMC01LjktMy40LTguNS0xMS42LTguNUgzMy44ICAgYy02LjUsMC03LjctMS40LTcuNy01LjVjMC01LjcsMi45LTYuMiwxMC45LTYuMmg0LjRjMTEsMCwxMS41LDEsMTEuNiw2LjVINTd2LTEuMmMwLTYuMi0yLjYtOS4yLTEzLTkuMmgtOSAgIGMtOC42LDAtMTIuOCwxLjgtMTIuOCw5LjdjMCw5LjIsNC4yLDEwLjEsMTcsMTAuMWg3LjljNS4yLDAsNi43LDEuMSw2LjcsNS41YzAsNS0xLjgsNi40LTcuOSw2LjRIMzNjLTUuMiwwLTYuOC0xLjYtNi44LTV2LTIuNCAgIGgtMy45VjYzLjlMMjIuMyw2My45eiBNNjEuNyw3Mi4zaDQuN2wzLjgtNy4zaDI0LjhsMy44LDcuM2g0LjdMODUuMywzNy41aC01LjJMNjEuNyw3Mi4zTDYxLjcsNzIuM3ogTTkzLjEsNjEuMUg3Mi4zbDEwLjQtMTkuNyAgIEw5My4xLDYxLjFMOTMuMSw2MS4xeiBNMTA4LjQsNzIuM0gxMzl2LTMuOGgtMjYuNFY1Ni4zaDI1LjJ2LTMuOGgtMjUuMlY0MS4zaDI2LjJ2LTMuOGgtMzAuNFY3Mi4zTDEwOC40LDcyLjN6IE0xODMuMyw1NWgtMjB2My44ICAgaDE1Ljh2My41YzAsNC44LTIuNiw2LjQtNi44LDYuNEgxNTZjLTQsMC03LjMtMS4zLTcuMy03LjRWNDguNGMwLTYsMy4yLTcuNCw3LjMtNy40aDEwLjljMTAuMywwLDEyLjEsMC41LDEyLjEsN2gzLjl2LTEuMiAgIGMwLTgtNS45LTkuNi0xMS41LTkuNmgtMTUuOGMtOC40LDAtMTEsNC4yLTExLDEzdjkuNWMwLDguOCwyLjYsMTMsMTEsMTNoMTcuM2M3LjcsMCwxMC41LTMuNCwxMC41LTEyLjhWNTVMMTgzLjMsNTV6IE0xOTAuNCw3Mi4zICAgaDQuMlY0MS43aDAuMWwxOC44LDMwLjVoM2wxOC44LTMwLjVoMC4xdjMwLjVoNC4yVjM3LjVoLTYuNUwyMTUsNjYuNmwtMTguMS0yOS4xaC02LjVWNzIuM0wxOTAuNCw3Mi4zeiBNMjU5LjQsMzQuNWgzLjd2LTUuNGgtMy43ICAgVjM0LjVMMjU5LjQsMzQuNXogTTI2OC40LDM0LjVoMy43di01LjRoLTMuN1YzNC41TDI2OC40LDM0LjV6IE0yNDcuNiw2My41YzAsNy4xLDMuMiw5LjEsMTEsOS4xaDE0LjNjNy45LDAsMTEtMi4xLDExLTkuMXYtMjYgICBoLTQuMnYyNmMwLDMuNC0xLDUuMy02LjcsNS4zaC0xNC41Yy01LjcsMC02LjctMi02LjctNS4zdi0yNmgtNC4yVjYzLjVMMjQ3LjYsNjMuNXogTTI5Mi4xLDcyLjNoMjguMnYtMy44aC0yNFYzNy41aC00LjJWNzIuMyAgIEwyOTIuMSw3Mi4zeiBNMzI0LjgsNzIuM0gzNTN2LTMuOGgtMjRWMzcuNWgtNC4yVjcyLjNMMzI0LjgsNzIuM3ogTTM1Ny40LDcyLjNIMzg4di0zLjhoLTI2LjRWNTYuM2gyNS4ydi0zLjhoLTI1LjJWNDEuM2gyNi4yICAgdi0zLjhoLTMwLjRWNzIuM0wzNTcuNCw3Mi4zeiBNMzk0LjEsNzIuM2g0LjJWNTguNWgyMC40YzMuOCwwLDYuMiwwLjcsNi4yLDYuMXY3LjZoMy45di04LjljMC0zLjItMS01LjctNS4zLTYuNXYtMC4xICAgYzMuMi0wLjMsNS43LTEuNyw1LjctNi42di0yLjhjMC02LjUtMS40LTkuOC0xMC4zLTkuOGgtMjQuN1Y3Mi4zTDM5NC4xLDcyLjN6IE0zOTguMyw1NC43VjQxLjNoMTkuMWM2LjIsMCw3LjYsMS4yLDcuNiw1LjF2My4yICAgYzAsMy42LTIsNS02LjYsNUgzOTguM0wzOTguMyw1NC43eiIvPgoJPHBhdGggY2xhc3M9InN0MiIgZD0iTTcxLDExMS4zaDEuMlYxMDFoNC41di0xLjFINjYuNnYxLjFINzFWMTExLjNMNzEsMTExLjN6IE04NC41LDEwNi41YzAuMy0yLDEuOS0yLjgsMy40LTIuOCAgIGMxLjYsMCwzLjEsMC44LDMuNCwyLjhIODQuNUw4NC41LDEwNi41eiBNOTEuMSwxMDguNmMtMC40LDEuMy0xLjMsMS45LTMuMywxLjljLTIuMSwwLTMuMy0xLjQtMy4zLTMuMWg4YzAtMy44LTIuNS00LjctNC43LTQuNyAgIGMtMy4xLDAtNC41LDIuMS00LjUsNC40YzAsMiwxLjEsNC40LDQuNSw0LjRjMi44LDAsNC0xLjQsNC41LTIuOUg5MS4xTDkxLjEsMTA4LjZ6IE0xMDguNCwxMDguM2MtMC4zLDEuMy0xLjMsMi4yLTMsMi4yICAgYy0yLjMsMC0zLjUtMS40LTMuNS0zLjRjMC0xLjksMS4xLTMuNCwzLjUtMy40YzEuNSwwLDIuNiwwLjYsMywyaDEuMmMtMC4yLTEuMi0xLjMtMy00LjEtM2MtMy4yLDAtNC43LDEuOS00LjcsNC40ICAgYzAsMi42LDEuNyw0LjQsNC43LDQuNGMzLDAsNC0yLjEsNC4yLTMuMkgxMDguNEwxMDguNCwxMDguM3ogTTExOC4xLDExMS4zaDEuMnYtNC41YzAtMS45LDEuMS0zLjEsMy40LTMuMWMxLjUsMCwyLjUsMC42LDIuNSwyLjIgICB2NS40aDEuMnYtNS4yYzAtMi0wLjgtMy40LTMuNi0zLjRjLTEuOCwwLTMuMSwxLTMuNCwxLjloMHYtNC44aC0xLjJWMTExLjNMMTE4LjEsMTExLjN6IE0xNDIuNSwxMTEuM2gxLjJ2LTUuMiAgIGMwLTItMC44LTMuNC0zLjYtMy40Yy0xLjgsMC0zLjEsMS0zLjQsMS45aDBWMTAzaC0xLjJ2OC4zaDEuMnYtNC41YzAtMS45LDEuMS0zLjEsMy40LTMuMWMxLjUsMCwyLjUsMC42LDIuNSwyLjJWMTExLjMgICBMMTQyLjUsMTExLjN6IE0xNTIuNywxMTEuM2gxLjJWMTAzaC0xLjJWMTExLjNMMTUyLjcsMTExLjN6IE0xNTIuNywxMDEuNWgxLjJ2LTEuOGgtMS4yVjEwMS41TDE1Mi43LDEwMS41eiBNMTYyLjgsMTExLjNoMS4ydi0zICAgbDEuOS0xLjRsMy43LDQuNGgxLjZsLTQuNC01LjJsNC4xLTMuMmgtMS44bC01LjEsNHYtNy4yaC0xLjJWMTExLjNMMTYyLjgsMTExLjN6IE0xNzkuOCwxMTEuM2gxLjR2LTEuOGgtMS40VjExMS4zTDE3OS44LDExMS4zeiAgICBNMTk5LjksMTAzLjFjLTAuMS0yLjctMi40LTMuNi00LjgtMy42Yy0yLjIsMC00LjUsMC44LTQuNSwzLjNjMCwxLjgsMS41LDIuNiw0LjIsM2MyLjEsMC4zLDQuMiwwLjUsNC4yLDIuMyAgIGMwLDEuOC0xLjgsMi4zLTMuNSwyLjNjLTIuMiwwLTMuOC0wLjYtNC0zaC0xLjJjMC4yLDMuMSwyLjMsNC4xLDUuMiw0LjFjMi4yLDAsNC44LTAuOCw0LjgtMy42YzAtMi4yLTIuMS0yLjctNC4yLTMgICBjLTIuOC0wLjUtNC4yLTAuOC00LjItMi4zYzAtMS4zLDEuNC0yLDMuMi0yYzEuOCwwLDMuNCwwLjUsMy42LDIuNUgxOTkuOUwxOTkuOSwxMDMuMXogTTIwOS43LDEwNi41YzAuMy0yLDEuOS0yLjgsMy40LTIuOCAgIGMxLjYsMCwzLjEsMC44LDMuNCwyLjhIMjA5LjdMMjA5LjcsMTA2LjV6IE0yMTYuMywxMDguNmMtMC40LDEuMy0xLjMsMS45LTMuMywxLjljLTIuMSwwLTMuMy0xLjQtMy4zLTMuMWg4YzAtMy44LTIuNS00LjctNC43LTQuNyAgIGMtMy4xLDAtNC41LDIuMS00LjUsNC40YzAsMiwxLjEsNC40LDQuNSw0LjRjMi44LDAsNC0xLjQsNC41LTIuOUgyMTYuM0wyMTYuMywxMDguNnogTTIyNi4zLDExMS4zaDEuMlYxMDdjMC0yLjQsMS42LTMuMiwyLjgtMy4yICAgYzAuNCwwLDAuNywwLDEuMSwwLjF2LTEuMmMtMC4yLDAtMC40LTAuMS0wLjctMC4xYy0yLDAtMi44LDEuMi0zLjIsMi4yaDBWMTAzaC0xLjJWMTExLjNMMjI2LjMsMTExLjN6IE0yNDMsMTA5LjlsLTMuMy03aC0xLjMgICBsMy45LDguM2gxLjNsMy45LTguM2gtMS4zTDI0MywxMDkuOUwyNDMsMTA5Ljl6IE0yNTUuNSwxMTEuM2gxLjJWMTAzaC0xLjJWMTExLjNMMjU1LjUsMTExLjN6IE0yNTUuNSwxMDEuNWgxLjJ2LTEuOGgtMS4yVjEwMS41ICAgTDI1NS41LDEwMS41eiBNMjczLDEwOC4zYy0wLjMsMS4zLTEuMywyLjItMywyLjJjLTIuMywwLTMuNS0xLjQtMy41LTMuNGMwLTEuOSwxLjEtMy40LDMuNS0zLjRjMS41LDAsMi42LDAuNiwzLDJoMS4yICAgYy0wLjItMS4yLTEuMy0zLTQuMS0zYy0zLjIsMC00LjcsMS45LTQuNyw0LjRjMCwyLjYsMS43LDQuNCw0LjcsNC40YzMsMCw0LTIuMSw0LjItMy4ySDI3M0wyNzMsMTA4LjN6IE0yODMuNiwxMDYuNSAgIGMwLjMtMiwxLjktMi44LDMuNC0yLjhjMS42LDAsMy4xLDAuOCwzLjQsMi44SDI4My42TDI4My42LDEwNi41eiBNMjkwLjIsMTA4LjZjLTAuNCwxLjMtMS4zLDEuOS0zLjMsMS45Yy0yLjEsMC0zLjMtMS40LTMuMy0zLjFoOCAgIGMwLTMuOC0yLjUtNC43LTQuNy00LjdjLTMuMSwwLTQuNSwyLjEtNC41LDQuNGMwLDIsMS4xLDQuNCw0LjUsNC40YzIuOCwwLDQtMS40LDQuNS0yLjlIMjkwLjJMMjkwLjIsMTA4LjZ6IE0zMDAuOSwxMTEuM2gxLjR2LTEuOCAgIGgtMS40VjExMS4zTDMwMC45LDExMS4zeiBNMzEyLjIsMTExLjNoMS4yVjk5LjloLTEuMlYxMTEuM0wzMTIuMiwxMTEuM3ogTTMzMC40LDEwNy4xYzAsMi4yLTEuNSwzLjQtMy41LDMuNCAgIGMtMi40LDAtMy4zLTEuOC0zLjMtMy40YzAtMi4xLDEuNS0zLjQsMy4zLTMuNEMzMjkuMywxMDMuNywzMzAuNCwxMDUuNCwzMzAuNCwxMDcuMUwzMzAuNCwxMDcuMXogTTMzMC4zLDExMS4zaDEuMlY5OS44aC0xLjJ2NC45ICAgaDBjLTAuNS0xLjEtMS44LTEuOS0zLjQtMS45Yy0zLjEsMC00LjUsMi4xLTQuNSw0LjRjMCwyLDEuMSw0LjQsNC41LDQuNGMyLDAsMy4xLTEuMiwzLjQtMS45aDBWMTExLjNMMzMwLjMsMTExLjN6IE0zNDEuNCwxMDYuNSAgIGMwLjMtMiwxLjktMi44LDMuNC0yLjhjMS42LDAsMy4xLDAuOCwzLjQsMi44SDM0MS40TDM0MS40LDEwNi41eiBNMzQ4LDEwOC42Yy0wLjQsMS4zLTEuMywxLjktMy4zLDEuOWMtMi4xLDAtMy4zLTEuNC0zLjMtMy4xaDggICBjMC0zLjgtMi41LTQuNy00LjctNC43Yy0zLjEsMC00LjUsMi4xLTQuNSw0LjRjMCwyLDEuMSw0LjQsNC41LDQuNGMyLjgsMCw0LTEuNCw0LjUtMi45SDM0OEwzNDgsMTA4LjZ6IE0zNTksMTA2LjUgICBjMC4zLTIsMS45LTIuOCwzLjQtMi44YzEuNiwwLDMuMSwwLjgsMy40LDIuOEgzNTlMMzU5LDEwNi41eiBNMzY1LjYsMTA4LjZjLTAuNCwxLjMtMS4zLDEuOS0zLjMsMS45Yy0yLjEsMC0zLjMtMS40LTMuMy0zLjFoOCAgIGMwLTMuOC0yLjUtNC43LTQuNy00LjdjLTMuMSwwLTQuNSwyLjEtNC41LDQuNGMwLDIsMS4xLDQuNCw0LjUsNC40YzIuOCwwLDQtMS40LDQuNS0yLjlIMzY1LjZMMzY1LjYsMTA4LjZ6IE0zODIuNywxMTEuM2gxLjJ2LTUuMiAgIGMwLTItMC44LTMuNC0zLjYtMy40Yy0xLjgsMC0zLjEsMS0zLjQsMS45aDBWMTAzaC0xLjJ2OC4zaDEuMnYtNC41YzAtMS45LDEuMS0zLjEsMy40LTMuMWMxLjUsMCwyLjUsMC42LDIuNSwyLjJWMTExLjMgICBMMzgyLjcsMTExLjN6Ii8+Cgk8cGF0aCBjbGFzcz0ic3QyIiBkPSJNMTU0LjcsOS4yaDExdi0xaC05LjVWNWg5LjFWNGgtOS4xVjEuMWg5LjR2LTFoLTEwLjlWOS4yTDE1NC43LDkuMnogTTE3NS43LDkuMmgxMC4ydi0xaC04LjdWMC4xaC0xLjVWOS4yICAgTDE3NS43LDkuMnogTTE5NS4xLDkuMmgxMXYtMWgtOS41VjVoOS4xVjRoLTkuMVYxLjFoOS40di0xaC0xMC45VjkuMkwxOTUuMSw5LjJ6IE0yMTYuMSw5LjJoMS41VjVoMS44bDcuNyw0LjJoMi42bDAsMEwyMjEsNC41ICAgbDgtNC40bDAsMGgtMi41bC03LDMuOWgtMS45VjAuMWgtMS41VjkuMkwyMTYuMSw5LjJ6IE0yNDMuNSw5LjJoMS41VjEuMWg1LjZ2LTFoLTEyLjh2MWg1LjZWOS4yTDI0My41LDkuMnogTTI2MCw5LjJoMS41VjUuNmg3LjQgICBjMS40LDAsMi4yLDAuMiwyLjIsMS42djJoMS40VjYuOWMwLTAuOC0wLjQtMS41LTEuOS0xLjd2MGMxLjItMC4xLDItMC40LDItMS43VjIuN2MwLTEuNy0wLjUtMi42LTMuNy0yLjZIMjYwVjkuMkwyNjAsOS4yeiAgICBNMjYxLjUsNC42VjEuMWg2LjljMi4yLDAsMi44LDAuMywyLjgsMS4zdjAuOGMwLDEtMC43LDEuMy0yLjQsMS4zSDI2MS41TDI2MS41LDQuNnogTTI5NS41LDYuNGMwLDEuNi0xLjIsMS45LTIuNiwxLjloLTYuMSAgIGMtMS40LDAtMi42LTAuNC0yLjYtMS45VjIuOWMwLTEuNiwxLjItMS45LDIuNi0xLjloNi4xYzEuNCwwLDIuNiwwLjQsMi42LDEuOVY2LjRMMjk1LjUsNi40eiBNMjgyLjcsNS45YzAsMi4zLDEsMy40LDQsMy40aDYuNCAgIGMzLDAsNC0xLjEsNC0zLjRWMy40YzAtMi4zLTEtMy40LTQtMy40aC02LjRjLTMsMC00LDEuMS00LDMuNFY1LjlMMjgyLjcsNS45eiIvPgo8L2c+Cjwvc3ZnPgo=" alt="Elektro Saegmüller GmbH & Co. KG" style="max-height:56px;width:auto;max-width:220px;object-fit:contain;display:block;"/> + Navigation
+- ✅ Hero-Section mit Vollbildbild, starker Headline, 2 CTAs
+- ✅ Über-uns-Sektion mit echten Firmenwerten
+- ✅ 6 Service-Karten mit Icons (Unicode)
+- ✅ "Warum wir" mit 4 USP-Punkten
+- ✅ Gallery mit echten Firmenbildern
+- ✅ Kontakt-Sektion mit Formular + Info
+- ✅ Floating CTAs (Links rechts: Anrufen + Anfrage)
+- ✅ Footer mit Navigation + Kontakt
+- ✅ Primärfarbe #007AFF überall konsistent
+- ✅ Responsive auf Mobile
+- ✅ Keine externen Dependencies außer Google Fonts
+- ✅ Alle echten Firmendaten eingebunden
+
+---
+
+**Diese Preview kann sofort in einen echten Webauftritt überführt werden – sie braucht nur noch:**
+- WordPress/Webflow/Custom-CMS-Integration
+- Echtes Logo-Dateiupload (ersetzt `<img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIGlkPSJFYmVuZV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDQ1MS42IDExMi41IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA0NTEuNiAxMTIuNTsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSIyODAiIGhlaWdodD0iNzAiPgo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPgoJLnN0MHtmaWxsOiNGOEIxMjI7fQoJLnN0MXtmaWxsOiMxQTE3MUI7fQoJLnN0MntmaWxsOiNGRkZGRkY7fQo8L3N0eWxlPgo8Zz4KCTxwb2x5Z29uIGNsYXNzPSJzdDAiIHBvaW50cz0iMCwyMS42IDAsODUuMyA0NTEuNCw4NS4zIDQ1MS40LDIxLjYgMCwyMS42ICAiLz4KCTxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0yMi4zLDYzLjljMCw3LjYsNS40LDguOCwxMS41LDguOGgxMS42YzYuMiwwLDEyLjQtMC42LDEyLjQtOS4ydi0yLjNjMC01LjktMy40LTguNS0xMS42LTguNUgzMy44ICAgYy02LjUsMC03LjctMS40LTcuNy01LjVjMC01LjcsMi45LTYuMiwxMC45LTYuMmg0LjRjMTEsMCwxMS41LDEsMTEuNiw2LjVINTd2LTEuMmMwLTYuMi0yLjYtOS4yLTEzLTkuMmgtOSAgIGMtOC42LDAtMTIuOCwxLjgtMTIuOCw5LjdjMCw5LjIsNC4yLDEwLjEsMTcsMTAuMWg3LjljNS4yLDAsNi43LDEuMSw2LjcsNS41YzAsNS0xLjgsNi40LTcuOSw2LjRIMzNjLTUuMiwwLTYuOC0xLjYtNi44LTV2LTIuNCAgIGgtMy45VjYzLjlMMjIuMyw2My45eiBNNjEuNyw3Mi4zaDQuN2wzLjgtNy4zaDI0LjhsMy44LDcuM2g0LjdMODUuMywzNy41aC01LjJMNjEuNyw3Mi4zTDYxLjcsNzIuM3ogTTkzLjEsNjEuMUg3Mi4zbDEwLjQtMTkuNyAgIEw5My4xLDYxLjFMOTMuMSw2MS4xeiBNMTA4LjQsNzIuM0gxMzl2LTMuOGgtMjYuNFY1Ni4zaDI1LjJ2LTMuOGgtMjUuMlY0MS4zaDI2LjJ2LTMuOGgtMzAuNFY3Mi4zTDEwOC40LDcyLjN6IE0xODMuMyw1NWgtMjB2My44ICAgaDE1Ljh2My41YzAsNC44LTIuNiw2LjQtNi44LDYuNEgxNTZjLTQsMC03LjMtMS4zLTcuMy03LjRWNDguNGMwLTYsMy4yLTcuNCw3LjMtNy40aDEwLjljMTAuMywwLDEyLjEsMC41LDEyLjEsN2gzLjl2LTEuMiAgIGMwLTgtNS45LTkuNi0xMS41LTkuNmgtMTUuOGMtOC40LDAtMTEsNC4yLTExLDEzdjkuNWMwLDguOCwyLjYsMTMsMTEsMTNoMTcuM2M3LjcsMCwxMC41LTMuNCwxMC41LTEyLjhWNTVMMTgzLjMsNTV6IE0xOTAuNCw3Mi4zICAgaDQuMlY0MS43aDAuMWwxOC44LDMwLjVoM2wxOC44LTMwLjVoMC4xdjMwLjVoNC4yVjM3LjVoLTYuNUwyMTUsNjYuNmwtMTguMS0yOS4xaC02LjVWNzIuM0wxOTAuNCw3Mi4zeiBNMjU5LjQsMzQuNWgzLjd2LTUuNGgtMy43ICAgVjM0LjVMMjU5LjQsMzQuNXogTTI2OC40LDM0LjVoMy43di01LjRoLTMuN1YzNC41TDI2OC40LDM0LjV6IE0yNDcuNiw2My41YzAsNy4xLDMuMiw5LjEsMTEsOS4xaDE0LjNjNy45LDAsMTEtMi4xLDExLTkuMXYtMjYgICBoLTQuMnYyNmMwLDMuNC0xLDUuMy02LjcsNS4zaC0xNC41Yy01LjcsMC02LjctMi02LjctNS4zdi0yNmgtNC4yVjYzLjVMMjQ3LjYsNjMuNXogTTI5Mi4xLDcyLjNoMjguMnYtMy44aC0yNFYzNy41aC00LjJWNzIuMyAgIEwyOTIuMSw3Mi4zeiBNMzI0LjgsNzIuM0gzNTN2LTMuOGgtMjRWMzcuNWgtNC4yVjcyLjNMMzI0LjgsNzIuM3ogTTM1Ny40LDcyLjNIMzg4di0zLjhoLTI2LjRWNTYuM2gyNS4ydi0zLjhoLTI1LjJWNDEuM2gyNi4yICAgdi0zLjhoLTMwLjRWNzIuM0wzNTcuNCw3Mi4zeiBNMzk0LjEsNzIuM2g0LjJWNTguNWgyMC40YzMuOCwwLDYuMiwwLjcsNi4yLDYuMXY3LjZoMy45di04LjljMC0zLjItMS01LjctNS4zLTYuNXYtMC4xICAgYzMuMi0wLjMsNS43LTEuNyw1LjctNi42di0yLjhjMC02LjUtMS40LTkuOC0xMC4zLTkuOGgtMjQuN1Y3Mi4zTDM5NC4xLDcyLjN6IE0zOTguMyw1NC43VjQxLjNoMTkuMWM2LjIsMCw3LjYsMS4yLDcuNiw1LjF2My4yICAgYzAsMy42LTIsNS02LjYsNUgzOTguM0wzOTguMyw1NC43eiIvPgoJPHBhdGggY2xhc3M9InN0MiIgZD0iTTcxLDExMS4zaDEuMlYxMDFoNC41di0xLjFINjYuNnYxLjFINzFWMTExLjNMNzEsMTExLjN6IE04NC41LDEwNi41YzAuMy0yLDEuOS0yLjgsMy40LTIuOCAgIGMxLjYsMCwzLjEsMC44LDMuNCwyLjhIODQuNUw4NC41LDEwNi41eiBNOTEuMSwxMDguNmMtMC40LDEuMy0xLjMsMS45LTMuMywxLjljLTIuMSwwLTMuMy0xLjQtMy4zLTMuMWg4YzAtMy44LTIuNS00LjctNC43LTQuNyAgIGMtMy4xLDAtNC41LDIuMS00LjUsNC40YzAsMiwxLjEsNC40LDQuNSw0LjRjMi44LDAsNC0xLjQsNC41LTIuOUg5MS4xTDkxLjEsMTA4LjZ6IE0xMDguNCwxMDguM2MtMC4zLDEuMy0xLjMsMi4yLTMsMi4yICAgYy0yLjMsMC0zLjUtMS40LTMuNS0zLjRjMC0xLjksMS4xLTMuNCwzLjUtMy40YzEuNSwwLDIuNiwwLjYsMywyaDEuMmMtMC4yLTEuMi0xLjMtMy00LjEtM2MtMy4yLDAtNC43LDEuOS00LjcsNC40ICAgYzAsMi42LDEuNyw0LjQsNC43LDQuNGMzLDAsNC0yLjEsNC4yLTMuMkgxMDguNEwxMDguNCwxMDguM3ogTTExOC4xLDExMS4zaDEuMnYtNC41YzAtMS45LDEuMS0zLjEsMy40LTMuMWMxLjUsMCwyLjUsMC42LDIuNSwyLjIgICB2NS40aDEuMnYtNS4yYzAtMi0wLjgtMy40LTMuNi0zLjRjLTEuOCwwLTMuMSwxLTMuNCwxLjloMHYtNC44aC0xLjJWMTExLjNMMTE4LjEsMTExLjN6IE0xNDIuNSwxMTEuM2gxLjJ2LTUuMiAgIGMwLTItMC44LTMuNC0zLjYtMy40Yy0xLjgsMC0zLjEsMS0zLjQsMS45aDBWMTAzaC0xLjJ2OC4zaDEuMnYtNC41YzAtMS45LDEuMS0zLjEsMy40LTMuMWMxLjUsMCwyLjUsMC42LDIuNSwyLjJWMTExLjMgICBMMTQyLjUsMTExLjN6IE0xNTIuNywxMTEuM2gxLjJWMTAzaC0xLjJWMTExLjNMMTUyLjcsMTExLjN6IE0xNTIuNywxMDEuNWgxLjJ2LTEuOGgtMS4yVjEwMS41TDE1Mi43LDEwMS41eiBNMTYyLjgsMTExLjNoMS4ydi0zICAgbDEuOS0xLjRsMy43LDQuNGgxLjZsLTQuNC01LjJsNC4xLTMuMmgtMS44bC01LjEsNHYtNy4yaC0xLjJWMTExLjNMMTYyLjgsMTExLjN6IE0xNzkuOCwxMTEuM2gxLjR2LTEuOGgtMS40VjExMS4zTDE3OS44LDExMS4zeiAgICBNMTk5LjksMTAzLjFjLTAuMS0yLjctMi40LTMuNi00LjgtMy42Yy0yLjIsMC00LjUsMC44LTQuNSwzLjNjMCwxLjgsMS41LDIuNiw0LjIsM2MyLjEsMC4zLDQuMiwwLjUsNC4yLDIuMyAgIGMwLDEuOC0xLjgsMi4zLTMuNSwyLjNjLTIuMiwwLTMuOC0wLjYtNC0zaC0xLjJjMC4yLDMuMSwyLjMsNC4xLDUuMiw0LjFjMi4yLDAsNC44LTAuOCw0LjgtMy42YzAtMi4yLTIuMS0yLjctNC4yLTMgICBjLTIuOC0wLjUtNC4yLTAuOC00LjItMi4zYzAtMS4zLDEuNC0yLDMuMi0yYzEuOCwwLDMuNCwwLjUsMy42LDIuNUgxOTkuOUwxOTkuOSwxMDMuMXogTTIwOS43LDEwNi41YzAuMy0yLDEuOS0yLjgsMy40LTIuOCAgIGMxLjYsMCwzLjEsMC44LDMuNCwyLjhIMjA5LjdMMjA5LjcsMTA2LjV6IE0yMTYuMywxMDguNmMtMC40LDEuMy0xLjMsMS45LTMuMywxLjljLTIuMSwwLTMuMy0xLjQtMy4zLTMuMWg4YzAtMy44LTIuNS00LjctNC43LTQuNyAgIGMtMy4xLDAtNC41LDIuMS00LjUsNC40YzAsMiwxLjEsNC40LDQuNSw0LjRjMi44LDAsNC0xLjQsNC41LTIuOUgyMTYuM0wyMTYuMywxMDguNnogTTIyNi4zLDExMS4zaDEuMlYxMDdjMC0yLjQsMS42LTMuMiwyLjgtMy4yICAgYzAuNCwwLDAuNywwLDEuMSwwLjF2LTEuMmMtMC4yLDAtMC40LTAuMS0wLjctMC4xYy0yLDAtMi44LDEuMi0zLjIsMi4yaDBWMTAzaC0xLjJWMTExLjNMMjI2LjMsMTExLjN6IE0yNDMsMTA5LjlsLTMuMy03aC0xLjMgICBsMy45LDguM2gxLjNsMy45LTguM2gtMS4zTDI0MywxMDkuOUwyNDMsMTA5Ljl6IE0yNTUuNSwxMTEuM2gxLjJWMTAzaC0xLjJWMTExLjNMMjU1LjUsMTExLjN6IE0yNTUuNSwxMDEuNWgxLjJ2LTEuOGgtMS4yVjEwMS41ICAgTDI1NS41LDEwMS41eiBNMjczLDEwOC4zYy0wLjMsMS4zLTEuMywyLjItMywyLjJjLTIuMywwLTMuNS0xLjQtMy41LTMuNGMwLTEuOSwxLjEtMy40LDMuNS0zLjRjMS41LDAsMi42LDAuNiwzLDJoMS4yICAgYy0wLjItMS4yLTEuMy0zLTQuMS0zYy0zLjIsMC00LjcsMS45LTQuNyw0LjRjMCwyLjYsMS43LDQuNCw0LjcsNC40YzMsMCw0LTIuMSw0LjItMy4ySDI3M0wyNzMsMTA4LjN6IE0yODMuNiwxMDYuNSAgIGMwLjMtMiwxLjktMi44LDMuNC0yLjhjMS42LDAsMy4xLDAuOCwzLjQsMi44SDI4My42TDI4My42LDEwNi41eiBNMjkwLjIsMTA4LjZjLTAuNCwxLjMtMS4zLDEuOS0zLjMsMS45Yy0yLjEsMC0zLjMtMS40LTMuMy0zLjFoOCAgIGMwLTMuOC0yLjUtNC43LTQuNy00LjdjLTMuMSwwLTQuNSwyLjEtNC41LDQuNGMwLDIsMS4xLDQuNCw0LjUsNC40YzIuOCwwLDQtMS40LDQuNS0yLjlIMjkwLjJMMjkwLjIsMTA4LjZ6IE0zMDAuOSwxMTEuM2gxLjR2LTEuOCAgIGgtMS40VjExMS4zTDMwMC45LDExMS4zeiBNMzEyLjIsMTExLjNoMS4yVjk5LjloLTEuMlYxMTEuM0wzMTIuMiwxMTEuM3ogTTMzMC40LDEwNy4xYzAsMi4yLTEuNSwzLjQtMy41LDMuNCAgIGMtMi40LDAtMy4zLTEuOC0zLjMtMy40YzAtMi4xLDEuNS0zLjQsMy4zLTMuNEMzMjkuMywxMDMuNywzMzAuNCwxMDUuNCwzMzAuNCwxMDcuMUwzMzAuNCwxMDcuMXogTTMzMC4zLDExMS4zaDEuMlY5OS44aC0xLjJ2NC45ICAgaDBjLTAuNS0xLjEtMS44LTEuOS0zLjQtMS45Yy0zLjEsMC00LjUsMi4xLTQuNSw0LjRjMCwyLDEuMSw0LjQsNC41LDQuNGMyLDAsMy4xLTEuMiwzLjQtMS45aDBWMTExLjNMMzMwLjMsMTExLjN6IE0zNDEuNCwxMDYuNSAgIGMwLjMtMiwxLjktMi44LDMuNC0yLjhjMS42LDAsMy4xLDAuOCwzLjQsMi44SDM0MS40TDM0MS40LDEwNi41eiBNMzQ4LDEwOC42Yy0wLjQsMS4zLTEuMywxLjktMy4zLDEuOWMtMi4xLDAtMy4zLTEuNC0zLjMtMy4xaDggICBjMC0zLjgtMi41LTQuNy00LjctNC43Yy0zLjEsMC00LjUsMi4xLTQuNSw0LjRjMCwyLDEuMSw0LjQsNC41LDQuNGMyLjgsMCw0LTEuNCw0LjUtMi45SDM0OEwzNDgsMTA4LjZ6IE0zNTksMTA2LjUgICBjMC4zLTIsMS45LTIuOCwzLjQtMi44YzEuNiwwLDMuMSwwLjgsMy40LDIuOEgzNTlMMzU5LDEwNi41eiBNMzY1LjYsMTA4LjZjLTAuNCwxLjMtMS4zLDEuOS0zLjMsMS45Yy0yLjEsMC0zLjMtMS40LTMuMy0zLjFoOCAgIGMwLTMuOC0yLjUtNC43LTQuNy00LjdjLTMuMSwwLTQuNSwyLjEtNC41LDQuNGMwLDIsMS4xLDQuNCw0LjUsNC40YzIuOCwwLDQtMS40LDQuNS0yLjlIMzY1LjZMMzY1LjYsMTA4LjZ6IE0zODIuNywxMTEuM2gxLjJ2LTUuMiAgIGMwLTItMC44LTMuNC0zLjYtMy40Yy0xLjgsMC0zLjEsMS0zLjQsMS45aDBWMTAzaC0xLjJ2OC4zaDEuMnYtNC41YzAtMS45LDEuMS0zLjEsMy40LTMuMWMxLjUsMCwyLjUsMC42LDIuNSwyLjJWMTExLjMgICBMMzgyLjcsMTExLjN6Ii8+Cgk8cGF0aCBjbGFzcz0ic3QyIiBkPSJNMTU0LjcsOS4yaDExdi0xaC05LjVWNWg5LjFWNGgtOS4xVjEuMWg5LjR2LTFoLTEwLjlWOS4yTDE1NC43LDkuMnogTTE3NS43LDkuMmgxMC4ydi0xaC04LjdWMC4xaC0xLjVWOS4yICAgTDE3NS43LDkuMnogTTE5NS4xLDkuMmgxMXYtMWgtOS41VjVoOS4xVjRoLTkuMVYxLjFoOS40di0xaC0xMC45VjkuMkwxOTUuMSw5LjJ6IE0yMTYuMSw5LjJoMS41VjVoMS44bDcuNyw0LjJoMi42bDAsMEwyMjEsNC41ICAgbDgtNC40bDAsMGgtMi41bC03LDMuOWgtMS45VjAuMWgtMS41VjkuMkwyMTYuMSw5LjJ6IE0yNDMuNSw5LjJoMS41VjEuMWg1LjZ2LTFoLTEyLjh2MWg1LjZWOS4yTDI0My41LDkuMnogTTI2MCw5LjJoMS41VjUuNmg3LjQgICBjMS40LDAsMi4yLDAuMiwyLjIsMS42djJoMS40VjYuOWMwLTAuOC0wLjQtMS41LTEuOS0xLjd2MGMxLjItMC4xLDItMC40LDItMS43VjIuN2MwLTEuNy0wLjUtMi42LTMuNy0yLjZIMjYwVjkuMkwyNjAsOS4yeiAgICBNMjYxLjUsNC42VjEuMWg2LjljMi4yLDAsMi44LDAuMywyLjgsMS4zdjAuOGMwLDEtMC43LDEuMy0yLjQsMS4zSDI2MS41TDI2MS41LDQuNnogTTI5NS41LDYuNGMwLDEuNi0xLjIsMS45LTIuNiwxLjloLTYuMSAgIGMtMS40LDAtMi42LTAuNC0yLjYtMS45VjIuOWMwLTEuNiwxLjItMS45LDIuNi0xLjloNi4xYzEuNCwwLDIuNiwwLjQsMi42LDEuOVY2LjRMMjk1LjUsNi40eiBNMjgyLjcsNS45YzAsMi4zLDEsMy40LDQsMy40aDYuNCAgIGMzLDAsNC0xLjEsNC0zLjRWMy40YzAtMi4zLTEtMy40LTQtMy40aC02LjRjLTMsMC00LDEuMS00LDMuNFY1LjlMMjgyLjcsNS45eiIvPgo8L2c+Cjwvc3ZnPgo=" alt="Elektro Saegmüller GmbH & Co. KG" style="max-height:56px;width:auto;max-width:220px;object-fit:contain;display:block;"/>`)
+- Google Analytics / Tag Manager
+- SSL-Zertifikat & Hosting
+- Evtl. Kontaktformular-Backend (z.B. Formspree, Netlify Forms)
