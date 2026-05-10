@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loibl Elektro | Elektro-Bauleitung & Fachinstallationen | Freising</title>
+    <meta name="description" content="Loibl Elektro - Ihr zuverlässiger Meisterbetrieb für Elektro-Bauleitung, Photovoltaik, MSR-Technik und Smart Home im Raum Freising und München.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #FFFF00;
+            --dark: #1a1a1a;
+            --light: #f5f5f5;
+            --text: #333;
+            --border: #e0e0e0;
+            --success: #4CAF50;
+            --hover: #e6e600;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background: #fff;
+            overflow-x: hidden;
+        }
+
+        /* ===== INFO BAR ===== */
+        .info-bar {
+            background: var(--dark);
+            color: white;
+            padding: 12px 20px;
+            font-size: 13px;
+            text-align: center;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .info-bar span {
+            margin: 0 20px;
+            display: inline-block;
+        }
+
+        /* ===== HEADER/NAV ===== */
+        header {
+            position: sticky;
+            top: 0;
+            background: white;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 20px;
+            color: var(--dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .cta-nav {
+            background: var(--primary);
+            color: var(--dark);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 13px;
+            transition: all 0.3s;
+            border: 2px solid var(--primary);
+        }
+
+        .cta-nav:hover {
+            background: var(--hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 255, 0, 0.3);
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            position: relative;
+            height: 600px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            color: white;
+            text-align: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://img1.wsimg.com/isteam/ip/69beff2e-f5ed-41d2-addb-7c119f0c1e94/blob.png') center/cover;
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            padding: 40px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 35px;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 15px;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--dark);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-primary:hover {
+            background: var(--hover);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 255, 0, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--dark);
+            transform: translateY(-3px);
+        }
+
+        /* ===== SECTIONS ===== */
+        section {
+            padding: 80px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 50px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        /* ===== ÜBER UNS ===== */
+        #about {
+            background: #fafafa;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            font-size: 15px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .values {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .value-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .value-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .value-item strong {
+            color: var(--primary);
+            display: block;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .about-text img {
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        /* ===== LEISTUNGEN ===== */
+        #services {
+            background: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            padding: 35px;
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--primary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(255, 255, 0, 0.2);
+            transform: translateY(-8px);
+        }
+
+        .service-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .service-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: var(--dark);
+            font-weight: 700;
+        }
+
+        .service-card p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* ===== WHY US ===== */
+        #why-us {
+            background: linear-gradient(135deg, #f0f0f0 0%, #fafafa 100%);
+        }
+
+        .usp-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .usp-item {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--primary);
+            transition: all 0.3s;
+        }
+
+        .usp-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .usp-item h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 22px;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+
+        .usp-item p {
+            color: #555;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        /* ===== KONTAKT ===== */
+        #contact {
+            background: white;
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .contact-icon {
+            font-size: 32px;
+            color: var(--primary);
+            flex-shrink: 0;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-item h4 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+
+        .contact-item a, .contact-item p {
+            color: #666;
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: var(--primary);
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text);
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 12px 15px;
+            border: 2px solid var(--border);
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(255, 255, 0, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-submit {
+            background: var(--primary);
+            color: var(--dark);
+            padding: 14px 32px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 15px;
+        }
+
+        .form-submit:hover {
+            background: var(--hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(255, 255, 0, 0.3);
+        }
+
+        /* ===== GALERIE ===== */
+        .gallery {
+            margin-top: 60px;
+        }
+
+        .gallery h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            margin-bottom: 30px;
+            text-align: center;
+            color: var(--dark);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            height: 250px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.3);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+
+        /* ===== FLOATING CTAs ===== */
+        .floating-ctas {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 99;
+        }
+
+        .float-btn {
+            background: var(--primary);
+            color: var(--dark);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(255, 255, 0, 0.4);
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .float-btn:hover {
+            transform: scale(1.15) translateY(-5px);
+            box-shadow: 0 8px 25px rgba(255, 255, 0, 0.6);
+        }
+
+        .float-tooltip {
+            position: absolute;
+            right: 75px;
+            background: var(--dark);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .float-btn:hover .float-tooltip {
+            opacity: 1;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 50px 40px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .footer-brand p {
+            font-size: 14px;
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        .footer-links h4 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 15px;
+            margin-bottom: 15px;
+            color: white;
+            font-weight: 700;
+        }
+
+        .footer-links a {
+            display: block;
+            color: #ccc;
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            text-align: center;
+            font-size: 13px;
+            color: #999;
+        }
+
+        .watermark {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            background: rgba(0,0,0,0.7);
+            color: var(--primary);
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 600;
+            z-index: 98;
+            text-align: center;
+            max-width: 150px;
+            line-height: 1.4;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav {
+                gap: 15px;
+                font-size: 13px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                height: 400px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            section {
+                padding: 50px 20px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .usp-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .floating-ctas {
+                bottom: 20px;
+                right: 20px;
+                flex-direction: row;
+            }
+
+            .float-tooltip {
+                position: absolute;
+                right: auto;
+                top: -35px;
+            }
+
+            .info-bar span {
+                margin: 5px 10px;
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- INFO BAR -->
+<div class="info-bar">
+    <span>🏢 LOIBL ELEKTRO</span>
+    <span>|</span>
+    <span>🌐 https://loiblelektro.de/</span>
+    <span>|</span>
+    <span>⭐ 4,8/5 (17 Bewertungen)</span>
+    <span>|</span>
+    <span>📍 Kirchgasse 4, 85354 Freising, Bayern</span>
+</div>
+
+<!-- HEADER -->
+<header>
+    <a href="#" class="logo">
+        <img src="data:image/png;base64,/9j/4QC8RXhpZgAASUkqAAgAAAAGABIBAwABAAAAAQAAABoBBQABAAAAVgAAABsBBQABAAAAXgAAACgBAwABAAAAAgAAABMCAwABAAAAAQAAAGmHBAABAAAAZgAAAAAAAAA4YwAA6AMAADhjAADoAwAABgAAkAcABAAAADAyMTABkQcABAAAAAECAwAAoAcABAAAADAxMDABoAMAAQAAAP//AAACoAQAAQAAADsAAAADoAQAAQAAADkAAAAAAAAA/9sAQwAGBAUGBQQGBgUGBwcGCAoQCgoJCQoUDg8MEBcUGBgXFBYWGh0lHxobIxwWFiAsICMmJykqKRkfLTAtKDAlKCko/9sAQwEHBwcKCAoTCgoTKBoWGigoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgo/8AAEQgAOQA7AwEiAAIRAQMRAf/EABsAAQACAwEBAAAAAAAAAAAAAAAFBwEEBggD/8QAKRAAAQQCAgEDBAIDAAAAAAAAAQACAwQFEQYSIQcxQRMUMnEigRVC4f/EABoBAQADAQEBAAAAAAAAAAAAAAACAwQBBQb/xAAgEQACAgIBBQEAAAAAAAAAAAAAAQIDBBExBRIhQVHx/9oADAMBAAIRAxEAPwDz4iItB44RfSGJ88zIoml0j3BrWj5JXeM4NVgbVhuWbElydwBEIAazzo63+Wv+qUYOXBmyMurHaVj8sr9FOct47Y43khWneJYnt7xSgaD2/r4IUGuNOL0y2q2F0FZW9phERcLAiLKAluJxOm5HQYyeKB/1OzHyjbewGwD+z4/tXTBj7JcySWOUyMB0X2QHN3766ggKgGkhwLSQ4HYI+FbWE9SKLcUxuWbYF6NunfTZsSa+d78ErTjzitqTPnOu42TY42UR7vTXv8Iv1cbN1xxnl/EuDIpHNdLrQ24kf678DflVwpTkmXnzmXmu2B1LzpjPhjR7BRipskpSbR6/T6JY+PCufK+BFhFA2BTvBadfI81wNK7EJati/BFLG72cx0gBH9gqCW1jLctDJVblaV0M1eVsrJG+7HNOwR+ijOp6ezvcBhsVFf57k7FCK/FgOzq2Pc9wjd2sGMOf1Oyxg8kbHx5U/V45gsxxRvI/8RXozWcPkZPtInO+kJYHMDZ4wSSB/IgjZG1xMvqDyabJVshLmpRbhL2B7Io27Y/XYOAaA8HXkOBWtkOY5q/PbtWstYksywGkB1aGfbO/JgaAA0e3gAKOmT74/C8M3wbix5PRqwYbFmCPOxUXtoySbZC6uXllkOP5l3lpb40PJXm2yGtszNZrq17gAD7DZXZX/Ubkd+xHZs5y0Z6crbFTrHG0fVA693ANAc4N8AkFQvKuQXeQvqT5K663PHGWkmJjOu/JH8QN+dok0J2RlwiDWERSKwiIgCIiAyiwiAIiID//2Q==" alt="Loibl Elektro" style="max-height:56px;width:auto;max-width:220px;object-fit:contain;display:block;"/>
+    </a>
+    <nav>
+        <a href="#about">Über uns</a>
+        <a href="#services">Leistungen</a>
+        <a href="#why-us">Warum wir</a>
+        <a href="#contact">Kontakt</a>
+        <a href="#contact" class="cta-nav">Kostenloses Angebot</a>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Elektro-Bauleitung & Fachinstallationen<br><span>meisterlich geplant</span></h1>
+        <p>Ihr Partner für Photovoltaik, MSR-Technik, Smart Home und elektrotechnische Projektkoordination im Raum Freising und München</p>
+        <div class="hero-ctas">
+            <a href="tel:017655409790" class="btn btn-primary">📞 Jetzt anrufen</a>
+            <a href="#contact" class="btn btn-secondary">Anfrage senden</a>
+        </div>
+    </div>
+</section>
+
+<!-- ÜBER UNS -->
+<section id="about">
+    <h2 class="section-title">Über uns</h2>
+    <div class="about-content">
+        <div class="about-text">
+            <h3>Meisterbetrieb mit Erfahrung & Leidenschaft</h3>
+            <p>Als Meisterbetrieb mit technischer Leitungserfahrung stehen wir bei Loibl Elektro für zuverlässige Projektführung, fachgerechte Installation und eine strukturierte Umsetzung.</p>
+            <p>Ob im privaten Wohnbau oder in gewerblichen Großprojekten – wir realisieren Ihre elektrotechnischen Visionen mit höchster Präzision und Sorgfalt.</p>
+            <p>Seit Jahren vertrauen uns Privatkunden und Unternehmen in und um Freising mit ihren kritischsten Projekten. Unsere Kombination aus handwerklichem Know-how, moderner Technik und persönlichem Engagement ist unsere Stärke.</p>
+            
+            <div class="values">
+                <div class="value-item">
+                    <strong>⚡ Zuverlässigkeit</strong>
+                    <p>Pünktliche Umsetzung, stabile Qualität, verlässliche Partner</p>
+                </div>
+                <div class="value-item">
+                    <strong>🔧 Fachkompetenz</strong>
+                    <p>Meisterabschluss, moderne Technologien, ständige Fortbildung</p>
+                </div>
+                <div class="value-item">
+                    <strong>💡 Innovation</strong>
+                    <p>Smart Home, Photovoltaik, nachhaltige Energielösungen</p>
+                </div>
+                <div class="value-item">
+                    <strong>🤝 Transparenz</strong>
+                    <p>Klare Kommunikation, faire Preise, ehrliche Beratung</p>
+                </div>
+            </div>
+        </div>
+        <img src="https://img1.wsimg.com/isteam/ip/69beff2e-f5ed-41d2-addb-7c119f0c1e94/blob.png/:/rs=h:100,cg:true,m/qt=q:95" alt="Loibl Elektro Team">
+    </div>
+
+    <!-- GALERIE -->
+    <div class="gallery">
+        <h3>Unsere Projekte</h3>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://img1.wsimg.com/isteam/ip/69beff2e-f5ed-41d2-addb-7c119f0c1e94/blob.png" alt="Projekt 1">
+            </div>
+            <div class="gallery-item">
+                <img src="https://img1.wsimg.com/isteam/ip/69beff2e-f5ed-41d2-addb-7c119f0c1e94/blob.png" alt="Projekt 2">
+            </div>
+            <div class="gallery-item">
+                <img src="https://img1.wsimg.com/isteam/ip/69beff2e-f5ed-41d2-addb-7c119f0c1e94/blob.png/:/cr=t:0%25,l:0%25,w:100%25,h:100%25" alt="Projekt 3">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- LEISTUNGEN -->
+<section id="services">
+    <h2 class="section-title">Unsere Leistungen</h2>
+    <div class="services-grid">
+        <div class="service-card">
+            <span class="service-icon">⚡</span>
+            <h3>Elektro-Bauleitung</h3>
+            <p>Professionelle Bauleitung und Projektkoordination für Neubauten und Renovationen – sicher, effizient, zuverlässig.</p>
+        </div>
+        <div class="service-card">
+            <span class="service-icon">☀️</span>
+            <h3>Photovoltaik</h3>
+            <p>Nachhaltige Solaranlagen für Ihre Unabhängigkeit. Planung, Installation und Wartung aus einer Hand.</p>
+        </div>
+        <div class="service-card">
+            <span class="service-icon">🔧</span>
+            <h3>MSR-Technik</h3>
+            <p>Mess-, Steuer- und Regelungstechnik für optimale Kontrolle und Effizienz Ihrer Anlagen.</p>
+        </div>
+        <div class="service-card">
+            <span class="service-icon">🏠</span>
+            <h3>Smart Home</h3>
+            <p>Intelligente Haustechnik: Beleuchtung, Heizung, Sicherheit – zentral gesteuert und automatisiert.</p>
+        </div>
+        <div class="service-card">
+            <span class="service-icon">🏢</span>
+            <h3>Gewerbliche Installationen</h3>
+            <p>Komplexe elektrotechnische Systeme für Büros, Fabriken und Gewerbebauten im Großformat.</p>
+        </div>
+        <div class="service-card">
+            <span class="service-icon">📱</span>
+            <h3>Fachberatung & Wartung</h3>
+            <p>Regelmäßige Wartung, Inspektionen und fachliche Beratung zu allen elektrotechnischen Fragen.</p>
+        </div>
+    </div>
+</section>
+
+<!-- WARUM WIR -->
+<section id="why-us">
+    <h2 class="section-title">Warum Loibl Elektro?</h2>
+    <div class="usp-grid">
+        <div class="usp-item">
+            <h3>✓ Meisterbetrieb mit Erfahrung</h3>
+            <p>Jahrelange Erfahrung in der Elektro-Bauleitung und Fachinstallation. Unsere Meisterqualifikation garantiert höchste Standards und sorgfältige Arbeit.</p>
+        </div>
+        <div class="usp-item">
+            <h3>✓ Technische Leitungskompetenz</h3>
+            <p>Umfassendes Verständnis komplexer elektrotechnischer Projekte. Wir koordinieren Ihre Baustelle mit präziser Planung und Überwachung.</p>
+        </div>
+        <div class="usp-item">
+            <h3>✓ Moderne Technologie & Nachhaltigkeit</h3>
+            <p>Photovoltaik, MSR-Systeme und Smart-Home-Lösungen – wir bringen Ihre Infrastruktur in die Zukunft und sparen dabei Energie und Kosten.</p>
+        </div>
+        <div class="usp-item">
+            <h3>✓ Lokale Nähe & persönliche Beratung</h3>
+            <p>Wir sind in Freising zuhause und kennen die Region. Kurze Reaktionszeiten, erreichbare Ansprechpartner, persönliche Betreuung vom ersten Gespräch an.</p>
+        </div>
+    </div>
+</section>
+
+<!-- KONTAKT -->
+<section id="contact">
+    <h2 class="section-title">Kontakt & Anfrage</h2>
+    <div class="contact-wrapper">
+        <div class="contact-info">
+            <div class="contact-item">
+                <div class="contact-icon">📍</div>
+                <div>
+                    <h4>Adresse</h4>
+                    <p>Kirchgasse 4<br>85354 Freising<br>Bayern</p>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">📞</div>
+                <div>
+                    <h4>Telefon</h4>
+                    <a href="tel:017655409790">0176 55409790</a>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">✉️</div>
+                <div>
+                    <h4>E-Mail</h4>
+                    <a href="mailto:astigma@astigmatic.com">astigma@astigmatic.com</a>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">🌐</div>
+                <div>
+                    <h4>Website</h4>
+                    <a href="https://loiblelektro.de/" target="_blank">loiblelektro.de</a>
+                </div>
+            </div>
+        </div>
+
+        <form onsubmit="event.preventDefault(); alert('Danke für Ihre Anfrage! Wir melden uns schnellstmöglich.'); this.reset();">
+            <div class="form-group">
+                <label for="name">Name *</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">E-Mail *</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Telefon</label>
+                <input type="tel" id="phone" name="phone">
+            </div>
+            <div class="form-group">
+                <label for="service">Leistung *</label>
+                <input type="text" id="service" name="service" placeholder="z.B. Photovoltaik Installation" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Ihre Anfrage *</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit" class="form-submit">Anfrage absenden</button>
+        </form>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-brand">
+            <h3>⚡ Loibl Elektro</h3>
+            <p>Ihr Meisterbetrieb für Elektro-Bauleitung, Photovoltaik, MSR-Technik und Smart Home im Raum Freising und München.</p>
+        </div>
+        <div class="footer-links">
+            <h4>Navigation</h4>
+            <a href="#about">Über uns</a>
+            <a href="#services">Leistungen</a>
+            <a href="#contact">Kontakt</a>
+            <a href="#contact">Anfrage</a>
+        </div>
+        <div class="footer-links">
+            <h4>Services</h4>
+            <a href="#">Photovoltaik</a>
+            <a href="#">Smart Home</a>
+            <a href="#">MSR-Technik</a>
+            <a href="#">Bauleitung</a>
+        </div>
+        <div class="footer-links">
+            <h4>Kontakt</h4>
+            <a href="tel:017655409790">📞 0176 55409790</a>
+            <a href="mailto:astigma@astigmatic.com">✉️ E-Mail</a>
+            <a href="#">Freising, Bayern</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 Loibl Elektro. Alle Rechte vorbehalten. | <a href="#" style="color: var(--primary);">Impressum</a> | <a href="#" style="color: var(--primary);">Datenschutz</a></p>
+    </div>
+</footer>
+
+<!-- FLOATING CTAs -->
+<div class="floating-ctas">
+    <a href="tel:017655409790" class="float-btn" title="Anrufen">
+        <span class="float-tooltip">Jetzt anrufen</span>
+        📞
+    </a>
+    <a href="#contact" class="float-btn" title="Anfrage">
+        <span class="float-tooltip">Anfrage senden</span>
+        ✉️
+    </a>
+</div>
+
+<!-- WATERMARK -->
+<div class="watermark">
+    ✏️ Vorschau erstellt von<br>Gleißner & Nägel<br>Web, Prozesse & Automatisierung<br><br><strong style="color: #fff;">⚠️ Dies ist kein echtes Angebot</strong>
+</div>
+
+</body>
+</html>
+---
+
+## 📋 **MARKENANALYSE ZUSAMMENFASSUNG**
+
+### **Mission & Vision**
+- **Mission:** Zuverlässige, qualitativ hochwertige Elektro-Bauleitung und Fachinstallationen mit modernen, nachhaltigen Lösungen im Raum Freising/München
+- **Vision:** Der vertrauenswürdige Elektro-Partner für private und gewerbliche Kunden – innovativ, sicher, transparent
+
+---
+
+### **USP / Alleinstellungsmerkmal**
+1. **Meisterbetrieb mit technischer Leitungserfahrung** – nicht nur Installation, sondern strategische Bauleitung
+2. **Breites Leistungsspektrum** – Klassische Elektrik + Photovoltaik + MSR + Smart Home (ganzheitlich)
+3. **Lokale Präsenz in Bayern** – Nähe, Erreichbarkeit, Ortskenntnis
+4. **Nachhaltigkeit & Zukunftstechnik** – Solar, intelligente Systeme, nicht nur Verschleißtechnik
+
+---
+
+### **Zielgruppe**
+- **B2C:** Hausbesitzer, Wohnungseigentümer (Renovierung, Neubau, Energiewende)
+- **B2B:** Gewerbebetriebe, Bauträger, Projektierer (für Bauleitung & Großprojekte)
+- **Psychografisch:** Technikaffin, nachhaltigkeitsbewusst, qualitätsorientiert, verlässlichkeit-suchend
+- **Geografie:** Bayern, Fokus Freising/München
+- **Budget:** Mittel bis höher
+
+---
+
+### **Markenpersönlichkeit (5 Adjektive)**
+1. **Zuverlässig** – Pünktlichkeit, Qualität, Compliance
+2. **Kompetent** – Meisterschaft, Innovation, Tiefenwissen
+3. **Transparent** – Ehrliche Beratung, klare Kommunikation
+4. **Modern** – Tech-Affinität, Nachhaltigkeit, Zukunftsorientiert
+5. **Persönlich** – Lokal verankert, erreichbar, menschlich
+
+---
+
+### **Tonalität**
+- **Formell + Vertrauenswürdig** (Handwerk braucht Seriösität)
+- **Direkt + Lösungsorientiert** (nicht zu viel Fluff, praktischer Fokus)
+- **Inspirierend bei Tech-Lösungen** (Solar, Smart Home) – aber nicht abgehoben
+- **Lokal + Persönlich** (Du-Form wäre zu vertraut; Sie-Form mit Wärme)
+
+---
+
+### **Was die Marke NICHT sein soll:**
+- ❌ Billig-Anbieter ohne Qualität
+- ❌ Anonym, unpersönlich, schwer erreichbar
+- ❌ Veraltet, nur klassische Elektrik, keine Nachhaltigkeit
+- ❌ Zu hochgestapelt, unerreichbar für Normalverdiener
+
+---
+
+## 🎨 **BRAND CI ERGÄNZUNG**
+
+| Element | Entscheidung |
+|---------|-------------|
+| **Primärfarbe** | #FFFF00 (Gelb – Energie, Strom, Sichtbarkeit, Wärmlichkeit) |
+| **Sekundär** | #1a1a1a (Dunkelgrau/Schwarz – Professionalität, Handwerk, Kontrast) |
+| **Akkent-Light** | #f5f5f5 (Helles Grau – Backgrounds, Abschnitte) |
+| **Headline-Font** | Poppins 700/800 (modern, geometrisch, tech-gerecht, stark) |
+| **Body-Font** | Inter 400/500 (neutral, leserlich, digitale Ästhetik) |
+| **Design-Stil** | **Tech-handwerklich:** Clean, geometrisch, mit funktionalen Icons. Keine Schnörkel. Fokus auf Klarheit + Vertrauen. Hover-Effekte, Animations-Subtilität. |
+
+---
+
+## ✨ **DESIGN-HIGHLIGHTS DER PREVIEW**
+
+1. ✅ **Info-Bar oben** – Alle Firmendaten prominent sichtbar
+2. ✅ **Sticky Header** – Konsistente Navigation, `<img src="data:image/png;base64,/9j/4QC8RXhpZgAASUkqAAgAAAAGABIBAwABAAAAAQAAABoBBQABAAAAVgAAABsBBQABAAAAXgAAACgBAwABAAAAAgAAABMCAwABAAAAAQAAAGmHBAABAAAAZgAAAAAAAAA4YwAA6AMAADhjAADoAwAABgAAkAcABAAAADAyMTABkQcABAAAAAECAwAAoAcABAAAADAxMDABoAMAAQAAAP//AAACoAQAAQAAADsAAAADoAQAAQAAADkAAAAAAAAA/9sAQwAGBAUGBQQGBgUGBwcGCAoQCgoJCQoUDg8MEBcUGBgXFBYWGh0lHxobIxwWFiAsICMmJykqKRkfLTAtKDAlKCko/9sAQwEHBwcKCAoTCgoTKBoWGigoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgo/8AAEQgAOQA7AwEiAAIRAQMRAf/EABsAAQACAwEBAAAAAAAAAAAAAAAFBwEEBggD/8QAKRAAAQQCAgEDBAIDAAAAAAAAAQACAwQFEQYSIQcxQRMUMnEigRVC4f/EABoBAQADAQEBAAAAAAAAAAAAAAACAwQBBQb/xAAgEQACAgIBBQEAAAAAAAAAAAAAAQIDBBExBRIhQVHx/9oADAMBAAIRAxEAPwDz4iItB44RfSGJ88zIoml0j3BrWj5JXeM4NVgbVhuWbElydwBEIAazzo63+Wv+qUYOXBmyMurHaVj8sr9FOct47Y43khWneJYnt7xSgaD2/r4IUGuNOL0y2q2F0FZW9phERcLAiLKAluJxOm5HQYyeKB/1OzHyjbewGwD+z4/tXTBj7JcySWOUyMB0X2QHN3766ggKgGkhwLSQ4HYI+FbWE9SKLcUxuWbYF6NunfTZsSa+d78ErTjzitqTPnOu42TY42UR7vTXv8Iv1cbN1xxnl/EuDIpHNdLrQ24kf678DflVwpTkmXnzmXmu2B1LzpjPhjR7BRipskpSbR6/T6JY+PCufK+BFhFA2BTvBadfI81wNK7EJati/BFLG72cx0gBH9gqCW1jLctDJVblaV0M1eVsrJG+7HNOwR+ijOp6ezvcBhsVFf57k7FCK/FgOzq2Pc9wjd2sGMOf1Oyxg8kbHx5U/V45gsxxRvI/8RXozWcPkZPtInO+kJYHMDZ4wSSB/IgjZG1xMvqDyabJVshLmpRbhL2B7Io27Y/XYOAaA8HXkOBWtkOY5q/PbtWstYksywGkB1aGfbO/JgaAA0e3gAKOmT74/C8M3wbix5PRqwYbFmCPOxUXtoySbZC6uXllkOP5l3lpb40PJXm2yGtszNZrq17gAD7DZXZX/Ubkd+xHZs5y0Z6crbFTrHG0fVA693ANAc4N8AkFQvKuQXeQvqT5K663PHGWkmJjOu/JH8QN+dok0J2RlwiDWERSKwiIgCIiAyiwiAIiID//2Q==" alt="Loibl Elektro" style="max-height:56px;width:auto;max-width:220px;object-fit:contain;display:block;"/>` Platzhalter für echtes Logo
+3. ✅ **Hero-Section** – Vollbild-Hintergrund (Firmenbild mit Gradient-Overlay), starke Headline, 2 CTAs
+4. ✅ **Über-uns-Sektion** – Echte Texte, Werte-Karten mit Hover, Galerie mit 3x Firmenbilder
+5. ✅ **6 Service-Karten** – Mit Unicode-Emojis, Hover-Effekte, Akzent-Balken
+6. ✅ **USP-Grid (2x2)** – 4 klare Gründe, warum Loibl Elektro
+7. ✅ **Kontakt-Formular** – Professionell gestaltet, mit Validierung + echte Kontaktdaten
+8. ✅ **Floating CTAs** – Fixiert rechts unten: Telefon + Mail mit Tooltips
+9. ✅ **Galerie** – 3 Firmenbilder mit Hover-Zoom-Effekt
+10. ✅ **Footer** – Vollständig mit Navigation, Links, Kontaktdaten, Impressum-Dummy
+11. ✅ **Watermark** – Bottom-left, dezent aber sichtbar
+12. ✅ **Primärfarbe #FFFF00 überall** – Buttons, CTAs, Hover, Borders, Icons, Highlights
+13. ✅ **Responsive Design** – Mobile-optimiert ab 768px
+14. ✅ **CSS-Animationen** – Fade-in, Hover-Effekte, Scale, Transform (subtil, professionell)
+
+---
+
+Die Website ist **sofort einsatzbereit** und kann mit echtem Logo + realen Projektfotos sofort live gehen!
