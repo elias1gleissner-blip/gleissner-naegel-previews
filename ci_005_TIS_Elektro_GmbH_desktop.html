@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Website-Preview: TIS Elektro GmbH (Desktop)</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #080b16; color: #ffffff; overflow-x: hidden; }
+
+#intro { position: fixed; inset: 0; background: #080b16;
+         display: flex; flex-direction: column; align-items: center; justify-content: center;
+         z-index: 9999; transition: opacity 0.9s ease, visibility 0.9s ease; }
+#intro.gone { opacity: 0; visibility: hidden; pointer-events: none; }
+.i-name { font-size: 52px; font-weight: 700; letter-spacing: -2px; color: #ffffff;
+           opacity: 0; transform: translateY(24px); text-align: center;
+           animation: up 0.9s cubic-bezier(0.16,1,0.3,1) 0.3s forwards; }
+.i-name em { color: #00D084; font-style: normal; }
+.i-line { width: 0; height: 2px; margin: 20px auto;
+           background: linear-gradient(90deg, transparent, #00D084, transparent);
+           animation: iline 1s ease 0.7s forwards; }
+.i-sub { font-size: 12px; letter-spacing: 4px; text-transform: uppercase;
+          color: rgba(255,255,255,0.28); text-align: center;
+          opacity: 0; animation: up 0.9s cubic-bezier(0.16,1,0.3,1) 0.6s forwards; }
+@keyframes up { to { opacity: 1; transform: translateY(0); } }
+@keyframes iline { to { width: 180px; } }
+
+.meta-bar { background: #0D101B; border-bottom: 1px solid rgba(255,255,255,0.06);
+            padding: 12px 64px; display: flex; align-items: center; gap: 36px; flex-wrap: wrap; }
+.mi { display: flex; flex-direction: column; gap: 2px; }
+.ml { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.28); }
+.mv { font-size: 13px; color: rgba(255,255,255,0.55); font-weight: 500; }
+.mv.b { color: #00D084; }
+
+.wm { background: #00D084; color: rgba(255,255,255,0.9); text-align: center;
+      padding: 7px; font-size: 12px; font-weight: 500; }
+.wm strong { color: #ffffff; }
+
+header { position: sticky; top: 0; z-index: 100; background: rgba(8,11,22,0.92);
+         backdrop-filter: blur(24px); border-bottom: 1px solid rgba(255,255,255,0.06);
+         padding: 0 64px; display: flex; align-items: center; justify-content: space-between; height: 68px; }
+.lw { display: flex; align-items: center; gap: 12px; }
+.lb { width: 38px; height: 38px; border-radius: 10px; background: linear-gradient(135deg,#00D084,#-14BC70);
+      display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; color: #ffffff; }
+.ln { font-size: 16px; font-weight: 600; color: #ffffff; }
+.hn { display: flex; gap: 10px; }
+.nl { padding: 9px 18px; border-radius: 50px; font-size: 13px; font-weight: 500; text-decoration: none; }
+.ng { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.55); }
+.np { background: #00D084; color: #ffffff; }
+
+.hero { min-height: 100vh; position: relative; overflow: hidden;
+        display: flex; align-items: center; padding: 120px 64px 80px; }
+.hp { position: absolute; inset: 0; background-size: cover; background-position: center; transition: opacity 1s ease; }
+.ho { position: absolute; inset: 0;
+      background: linear-gradient(105deg,rgba(8,11,22,0.93) 0%,rgba(8,11,22,0.72) 55%,rgba(8,11,22,0.38) 100%); }
+.hg { position: absolute; right: -80px; top: -80px; width: 500px; height: 500px; border-radius: 50%;
+      background: radial-gradient(circle,rgba(0,208,132,0.18) 0%,transparent 65%); pointer-events: none; }
+.hc { position: relative; z-index: 2; max-width: 600px; }
+.hbadge { display: inline-flex; align-items: center; gap: 8px; background: rgba(0,208,132,0.13);
+           border: 1px solid rgba(0,208,132,0.28); color: #00D084; font-size: 12px; font-weight: 500;
+           padding: 6px 14px; border-radius: 50px; margin-bottom: 28px; }
+.bd { width: 6px; height: 6px; background: #00D084; border-radius: 50%; animation: blink 2s ease infinite; }
+@keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+.hero h1 { font-size: 62px; font-weight: 700; line-height: 1.05; letter-spacing: -3px;
+            color: #ffffff; margin-bottom: 20px; }
+.hero h1 em { color: #00D084; font-style: normal; }
+.hdesc { font-size: 16px; color: rgba(255,255,255,0.55); line-height: 1.75; margin-bottom: 40px; max-width: 480px; }
+.hbtns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 56px; }
+.bm { display: inline-flex; align-items: center; gap: 10px; background: #00D084; color: #ffffff;
+      padding: 15px 30px; border-radius: 50px; font-size: 15px; font-weight: 600; text-decoration: none;
+      box-shadow: 0 0 48px rgba(0,208,132,0.38); }
+.bs { display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.8); padding: 15px 28px;
+      border-radius: 50px; font-size: 15px; font-weight: 500; text-decoration: none; }
+.hstats { display: flex; gap: 48px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.08); flex-wrap: wrap; }
+.stn { font-size: 34px; font-weight: 700; color: #00D084; letter-spacing: -1px; }
+.stl { font-size: 11px; color: rgba(255,255,255,0.28); margin-top: 4px; letter-spacing: 1.5px; text-transform: uppercase; }
+
+.usp { background: #-1EB266; padding: 20px 64px; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 12px; }
+.ui { display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.92); font-size: 14px; font-weight: 500; }
+.uico { width: 32px; height: 32px; background: rgba(255,255,255,0.18); border-radius: 8px;
+        display: flex; align-items: center; justify-content: center; }
+
+.about { padding: 96px 64px; background: #080b16; display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+.aph { border-radius: 20px; overflow: hidden; height: 420px; position: relative; }
+.aph img { width: 100%; height: 100%; object-fit: cover; }
+.apo { position: absolute; bottom: 0; left: 0; right: 0; padding: 24px;
+       background: linear-gradient(0deg,rgba(8,11,22,0.9) 0%,transparent 100%); }
+.apb { display: inline-flex; align-items: center; gap: 8px; background: #00D084; color: #ffffff;
+       padding: 8px 16px; border-radius: 50px; font-size: 13px; font-weight: 600; }
+.stag { font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: #00D084; margin-bottom: 12px; }
+.stitle { font-size: 36px; font-weight: 700; letter-spacing: -1.5px; color: #ffffff; margin-bottom: 20px; line-height: 1.15; }
+.ac p { font-size: 15px; color: rgba(255,255,255,0.55); line-height: 1.8; margin-bottom: 16px; }
+.tbadges { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
+.tb { display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; padding: 10px 16px;
+      font-size: 13px; color: rgba(255,255,255,0.55); }
+
+.services { padding: 96px 64px; background: #121520; }
+.sgrid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+.sc { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px; padding: 28px; transition: border-color 0.2s, background 0.2s; }
+.sc:hover { border-color: rgba(0,208,132,0.28); background: rgba(0,208,132,0.13); }
+.sico { width: 48px; height: 48px; background: rgba(0,208,132,0.13); border-radius: 12px;
+        display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 18px; }
+.sc h3 { font-size: 16px; font-weight: 600; color: #ffffff; margin-bottom: 8px; }
+.sc p { font-size: 14px; color: rgba(255,255,255,0.38); line-height: 1.65; }
+
+.gallery { padding: 0 64px 96px; background: #121520; }
+.gg { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 12px; border-radius: 20px; overflow: hidden; height: 340px; }
+.gi { overflow: hidden; }
+.gi img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+.gi:hover img { transform: scale(1.04); }
+
+.reviews { padding: 72px 64px; background: #080b16; display: flex; align-items: center; gap: 60px; flex-wrap: wrap; }
+.rn { font-size: 80px; font-weight: 700; color: #ffffff; letter-spacing: -4px; line-height: 1; }
+.rs { color: #f59e0b; font-size: 22px; letter-spacing: 3px; margin: 10px 0 6px; }
+.rc { font-size: 13px; color: rgba(255,255,255,0.28); }
+.rsep { width: 1px; height: 88px; background: rgba(255,255,255,0.06); flex-shrink: 0; }
+.rq { font-size: 19px; color: rgba(255,255,255,0.55); font-style: italic; line-height: 1.7; max-width: 520px; }
+.ra { font-size: 13px; color: rgba(255,255,255,0.28); margin-top: 14px; font-style: normal; }
+
+.contact { padding: 96px 64px; background: #121520; display: grid; grid-template-columns: 1fr 1fr; gap: 72px; }
+.cl h2 { font-size: 38px; font-weight: 700; letter-spacing: -1.5px; color: #ffffff; margin-bottom: 12px; line-height: 1.15; }
+.cl > p { font-size: 15px; color: rgba(255,255,255,0.38); margin-bottom: 40px; line-height: 1.7; }
+.cr { display: flex; align-items: center; gap: 16px; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.cico { width: 42px; height: 42px; background: rgba(0,208,132,0.13); border-radius: 10px;
+        display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+.ct { font-size: 15px; color: rgba(255,255,255,0.8); font-weight: 500; }
+.cs { font-size: 12px; color: rgba(255,255,255,0.28); margin-top: 2px; }
+.cf { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.06); border-radius: 20px; padding: 36px; }
+.cf h3 { font-size: 22px; font-weight: 600; color: #ffffff; margin-bottom: 28px; }
+.fr { margin-bottom: 14px; }
+.fr input, .fr textarea { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 10px; padding: 14px 16px; font-size: 14px; color: #ffffff; outline: none;
+  transition: border-color 0.2s; font-family: inherit; }
+.fr input::placeholder, .fr textarea::placeholder { color: rgba(255,255,255,0.22); }
+.fr input:focus, .fr textarea:focus { border-color: #00D084; }
+.fr textarea { height: 100px; resize: none; }
+.fsub { width: 100%; background: #00D084; color: #ffffff; border: none; padding: 15px;
+        border-radius: 10px; font-size: 15px; font-weight: 600; cursor: pointer; margin-top: 4px; }
+
+footer { background: #080b16; border-top: 1px solid rgba(255,255,255,0.06);
+         padding: 24px 64px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+.fcp { font-size: 13px; color: rgba(255,255,255,0.28); }
+.fwm { font-size: 12px; color: rgba(255,255,255,0.18); }
+.fwm strong { color: rgba(255,255,255,0.4); }
+
+.fctas { position: fixed; right: 24px; bottom: 60px; display: flex; flex-direction: column; gap: 12px; z-index: 500; }
+.fb { display: flex; align-items: center; gap: 10px; padding: 14px 22px; border-radius: 50px;
+      font-size: 14px; font-weight: 600; text-decoration: none; white-space: nowrap; }
+.fbc { background: #00D084; color: #ffffff; box-shadow: 0 8px 32px rgba(0,208,132,0.38); }
+.fbm { background: #121520; color: rgba(255,255,255,0.55); border: 1px solid rgba(255,255,255,0.06); }
+</style>
+</head>
+<body>
+
+<div id="intro">
+  <div class="i-name">TIS <em>Elektro GmbH</em></div>
+  <div class="i-line"></div>
+  <div class="i-sub">Elektriker · Bayern</div>
+</div>
+<script>setTimeout(()=>document.getElementById('intro').classList.add('gone'),2500);</script>
+
+<div class="meta-bar">
+  <div class="mi"><span class="ml">Lead</span><span class="mv">TIS Elektro GmbH</span></div>
+  <div class="mi"><span class="ml">Aktuelle Website</span><span class="mv b">http://www.tiselektro.de/</span></div>
+  <div class="mi"><span class="ml">Google Rating</span><span class="mv">4,8★ · 25 Bewertungen</span></div>
+  <div class="mi"><span class="ml">Stadt</span><span class="mv">Bayern</span></div>
+</div>
+
+<div class="wm">Vorschau erstellt von <strong>Gleißner &amp; Nägel</strong> · Web, Prozesse &amp; Automatisierung · Dies ist kein echtes Angebot</div>
+
+<header>
+  <div class="lw"><img src="data:image/webp;base64,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" alt="TIS Elektro GmbH" style="height:36px;max-width:160px;object-fit:contain;"/></div>
+  <div class="hn">
+    <a href="#leistungen" class="nl ng">Leistungen</a>
+    <a href="#kontakt" class="nl np">Kontakt</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hp" id="heroBg" style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=85&fit=crop&crop=center')"></div>
+  <div class="ho"></div>
+  <div class="hg"></div>
+  <div class="hc">
+    <div class="hbadge"><div class="bd"></div> Ihr Elektriker in Bayern</div>
+    <h1>TIS<br><em>Elektro GmbH</em></h1>
+    <p class="hdesc">Professionelle Elektriker für Privat &amp; Gewerbe in Bayern.</p>
+    <div class="hbtns">
+      <a href="tel:01737564145" class="bm">📞  0173 7564145</a>
+      <a href="#kontakt" class="bs">Anfrage senden →</a>
+    </div>
+    <div class="hstats">
+      <div><div class="stn">4,8★</div><div class="stl">Google Rating</div></div>
+      <div><div class="stn">25</div><div class="stl">Bewertungen</div></div>
+      <div><div class="stn">24h</div><div class="stl">Notdienst</div></div>
+      <div><div class="stn">100%</div><div class="stl">Meisterbetrieb</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="usp">
+  <div class="ui"><div class="uico">✓</div> Zertifizierter Fachbetrieb</div>
+  <div class="ui"><div class="uico">⚡</div> Schnelle Reaktionszeit</div>
+  <div class="ui"><div class="uico">★</div> Top Google Bewertungen</div>
+  <div class="ui"><div class="uico">🔒</div> Festpreisgarantie</div>
+</div>
+
+<section class="about">
+  <div class="aph">
+    <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=85&fit=crop&crop=center" alt="Handwerker bei der Arbeit" loading="lazy"/>
+    <div class="apo"><div class="apb">✓ Ihr Experte in Bayern</div></div>
+  </div>
+  <div class="ac">
+    <div class="stag">Über uns</div>
+    <div class="stitle">Ihr verlässlicher<br>Partner vor Ort</div>
+    <p>Als lokaler Fachbetrieb in Bayern sind wir Ihr Ansprechpartner für alles rund um Elektriker — von der kleinen Reparatur bis zum Komplettauftrag.</p>
+    <p>Als zertifizierter Meisterbetrieb arbeiten wir nach höchsten Qualitätsstandards und stehen für unsere Arbeit gerade.</p>
+    <div class="tbadges">
+      <div class="tb">🏅 Meisterbetrieb</div>
+      <div class="tb">🔒 Festpreisgarantie</div>
+      <div class="tb">⚡ 24h Notdienst</div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="leistungen">
+  <div class="stag">Leistungen</div>
+  <div class="stitle">Was wir für Sie<br>tun können</div>
+  <div class="sgrid"><div class="sc"><div class="sico">⚡</div><h3>Elektroinstallation</h3><p>Neuinstallation und Erweiterung für Privat & Gewerbe nach VDE-Normen.</p></div>
+<div class="sc"><div class="sico">🏠</div><h3>Smart Home</h3><p>Moderne Hausautomation und intelligente Steuerungssysteme.</p></div>
+<div class="sc"><div class="sico">🔧</div><h3>Reparatur &amp; Wartung</h3><p>Schnelle Hilfe bei Störungen und Defekten — meist noch am selben Tag.</p></div>
+<div class="sc"><div class="sico">☀️</div><h3>Photovoltaik</h3><p>Planung, Installation und Wartung von Solaranlagen.</p></div>
+<div class="sc"><div class="sico">🔌</div><h3>E-Mobilität</h3><p>Wallbox-Installation für alle Elektrofahrzeuge.</p></div>
+<div class="sc"><div class="sico">📋</div><h3>Prüfungen &amp; E-Check</h3><p>DGUV V3, E-Check und Anlagenprüfungen nach VDE.</p></div>
+</div>
+</section>
+
+<div class="gallery">
+  <div class="gg">
+    <div class="gi"><img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=800&q=80&fit=crop" alt="" loading="lazy"/></div>
+    <div class="gi"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80&fit=crop" alt="" loading="lazy"/></div>
+    <div class="gi"><img src="https://images.unsplash.com/photo-1516156008625-3a9d6067fab5?w=600&q=80&fit=crop" alt="" loading="lazy"/></div>
+  </div>
+</div>
+
+<div class="reviews">
+  <div>
+    <div class="rn">4.8</div>
+    <div class="rs">★★★★½</div>
+    <div class="rc">25 Google Bewertungen</div>
+  </div>
+  <div class="rsep"></div>
+  <div>
+    <div class="rq">"Sehr professionell und zuverlässig. Schnelle Terminvereinbarung, saubere Arbeit, faire Preise. Absolute Empfehlung!"</div>
+    <div class="ra">— Verifizierter Google-Kunde · Bayern</div>
+  </div>
+</div>
+
+<section class="contact" id="kontakt">
+  <div class="cl">
+    <h2>Sprechen wir<br>miteinander.</h2>
+    <p>Rufen Sie uns an oder senden Sie eine kurze Anfrage. Wir melden uns innerhalb von 24 Stunden.</p>
+    <div class="cr"><div class="cico">📍</div><div><div class="ct"> Landshuter Straße 15, Hans-Sachs-Weg 3, 85435 Erding</div><div class="cs">Standort</div></div></div>
+<div class="cr"><div class="cico">📞</div><div><div class="ct"> 0173 7564145</div><div class="cs">Mo–Fr 07–17 Uhr</div></div></div>
+<div class="cr"><div class="cico">✉️</div><div><div class="ct">info@tiselektro.de</div><div class="cs">E-Mail</div></div></div>
+<div class="cr"><div class="cico">⏰</div><div><div class="ct">Mo–Fr 07:00–17:00 Uhr</div><div class="cs">Öffnungszeiten</div></div></div>
+  </div>
+  <div class="cf">
+    <h3>Kostenlose Anfrage</h3>
+    <div class="fr"><input type="text" placeholder="Ihr Name"/></div>
+    <div class="fr"><input type="text" placeholder="Telefon oder E-Mail"/></div>
+    <div class="fr"><textarea placeholder="Womit kann ich Ihnen helfen?"></textarea></div>
+    <button class="fsub">Anfrage absenden →</button>
+  </div>
+</section>
+
+<footer>
+  <div class="fcp">© 2025 TIS Elektro GmbH · Bayern</div>
+  <div class="fwm">Vorschau erstellt von <strong>Gleißner &amp; Nägel</strong> · Web, Prozesse &amp; Automatisierung</div>
+</footer>
+
+<div class="fctas">
+  <a href="tel:01737564145" class="fb fbc">📞 Jetzt anrufen</a>
+  <a href="mailto:info@tiselektro.de" class="fb fbm">✉️ E-Mail senden</a>
+</div>
+
+<script>
+(function(){
+  const imgs = ["https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=85&fit=crop&crop=center", "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=1600&q=85&fit=crop&crop=center", "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1600&q=85&fit=crop&crop=center", "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1600&q=85&fit=crop&crop=center", "https://images.unsplash.com/photo-1516156008625-3a9d6067fab5?w=1600&q=85&fit=crop&crop=center"];
+  let i = 0;
+  const hp = document.getElementById('heroBg');
+  setInterval(function(){
+    hp.style.opacity='0';
+    setTimeout(function(){
+      i=(i+1)%imgs.length;
+      hp.style.backgroundImage="url('"+imgs[i]+"')";
+      hp.style.opacity='1';
+    },1000);
+  },5000);
+})();
+</script>
+</body></html>
