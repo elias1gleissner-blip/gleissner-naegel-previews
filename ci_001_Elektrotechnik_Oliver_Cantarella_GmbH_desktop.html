@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elektrotechnik Oliver Cantarella GmbH | Elektromeisterbetrieb Herzogenaurach</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #65BC7B;
+            --dark: #1a1a1a;
+            --light: #f8f9fa;
+            --text: #2a2a2a;
+            --gray: #6b7280;
+            --border: #e5e7eb;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Info Bar */
+        .info-bar {
+            background: var(--dark);
+            color: white;
+            padding: 12px 20px;
+            font-size: 12px;
+            text-align: center;
+            border-bottom: 3px solid var(--primary);
+            font-weight: 500;
+        }
+
+        .info-bar span {
+            display: inline-block;
+            margin: 0 20px;
+            vertical-align: middle;
+        }
+
+        .info-bar strong {
+            color: var(--primary);
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo img {
+            max-height: 52px;
+            object-fit: contain;
+            width: auto;
+        }
+
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(101, 188, 123, 0.85), rgba(26, 26, 26, 0.85)), url('http://www.cantarella.de/wp-content/uploads/2024/02/DSC_2588-scaled.jpg');
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 52px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            line-height: 1.4;
+            font-weight: 300;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 30px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #52a968;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(101, 188, 123, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: transparent;
+            transform: translateY(-3px);
+        }
+
+        /* Floating CTAs */
+        .floating-cta {
+            position: fixed;
+            bottom: 30px;
+            right: 20px;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .cta-button {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 4px 15px rgba(101, 188, 123, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(101, 188, 123, 0.5);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray);
+            margin-bottom: 50px;
+            font-size: 16px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .highlight {
+            color: var(--primary);
+        }
+
+        /* About Section */
+        .about {
+            background: var(--light);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        .about-grid img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .about-content h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .about-content p {
+            margin-bottom: 15px;
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        .values {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .value-box {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            border-top: 4px solid var(--primary);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .value-box h4 {
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 10px;
+            color: var(--text);
+        }
+
+        .value-box p {
+            font-size: 14px;
+            color: var(--gray);
+        }
+
+        /* Services Section */
+        .services {
+            background: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--light);
+            padding: 40px 25px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .service-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(101, 188, 123, 0.15);
+        }
+
+        .service-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .service-card h4 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+
+        .service-card p {
+            color: var(--gray);
+            font-size: 14px;
+        }
+
+        /* Why Us Section */
+        .why-us {
+            background: var(--light);
+        }
+
+        .usp-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .usp-item {
+            display: flex;
+            gap: 25px;
+        }
+
+        .usp-icon {
+            font-size: 48px;
+            flex-shrink: 0;
+        }
+
+        .usp-content h4 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: var(--text);
+        }
+
+        .usp-content p {
+            color: var(--gray);
+            font-size: 15px;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            background: white;
+            margin-top: 60px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            height: 280px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--light);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-top: 40px;
+        }
+
+        .contact-info h4 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 22px;
+            margin-bottom: 25px;
+            color: var(--text);
+        }
+
+        .contact-item {
+            margin-bottom: 25px;
+        }
+
+        .contact-item strong {
+            display: block;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .contact-item p {
+            color: var(--gray);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            border: 2px solid var(--border);
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 50px 20px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h5 {
+            margin-bottom: 15px;
+            color: var(--primary);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .footer-col p,
+        .footer-col a {
+            color: #d1d5db;
+            text-decoration: none;
+            margin-bottom: 8px;
+            display: block;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            font-size: 12px;
+            color: #9ca3af;
+        }
+
+        /* Watermark */
+        .watermark {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            font-size: 10px;
+            color: rgba(0,0,0,0.3);
+            z-index: 100;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        section {
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .services-grid,
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .values {
+                grid-template-columns: 1fr;
+            }
+
+            .usp-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .floating-cta {
+                bottom: 20px;
+                right: 10px;
+            }
+
+            .cta-button {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                height: 400px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            section {
+                padding: 50px 15px;
+            }
+
+            .hero-ctas {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Info Bar -->
+    <div class="info-bar">
+        <span><strong>LEAD:</strong> Elektrotechnik Oliver Cantarella GmbH</span>
+        <span><strong>WEBSITE:</strong> http://www.cantarella.de/</span>
+        <span><strong>RATING:</strong> 4,7★ (18 Bewertungen)</span>
+        <span><strong>STANDORT:</strong> Bayern</span>
+    </div>
+
+    <!-- Watermark -->
+    <div class="watermark">
+        Vorschau erstellt von<br>Gleißner & Nägel<br>Web, Prozesse & Automatisierung<br>Dies ist kein echtes Angebot
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <img src="data:image/png;base64,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" alt="Elektrotechnik Oliver Cantarella GmbH" style="max-height:52px;width:auto;max-width:200px;object-fit:contain;display:block;"/>
+            </div>
+            <nav>
+                <a href="#home">Startseite</a>
+                <a href="#about">Über uns</a>
+                <a href="#services">Leistungen</a>
+                <a href="#contact">Kontakt</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Elektrotechnik <span class="highlight">sicher ist sicher!</span></h1>
+            <p>Mehr als 25 Jahre Erfahrung in professioneller Elektroinstallation, Photovoltaik und Smart Home Lösungen aus Herzogenaurach</p>
+            <div class="hero-ctas">
+                <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Anfrage senden</button>
+                <a href="tel:09132734455" class="btn btn-secondary">09132 / 73 44 55</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="section-title">Über uns</div>
+        <div class="section-subtitle">Der zuverlässige Partner für alle Ihre elektrischen Anforderungen</div>
+
+        <div class="about-grid">
+            <div>
+                <img src="http://www.cantarella.de/wp-content/uploads/2024/02/DSC_0128-scaled.jpg" alt="Elektrotechnik Oliver Cantarella Team">
+            </div>
+            <div class="about-content">
+                <h3>Handwerk mit Herz und Verstand</h3>
+                <p>Seit über 25 Jahren steht der Elektromeisterbetrieb Cantarella aus Herzogenaurach für höchste Qualität, optimale Sicherheit und ein ständig wachsendes Know-how auf allen Gebieten der Elektrotechnik – von der Niederspannung bis zur Kommunikationstechnik.</p>
+                <p>Persönliche Kundenbetreuung und professionelle Projektabwicklung haben bei uns oberste Priorität. Wir beraten Sie absolut individuell, überwachen lückenlos den gesamten Arbeitsfortschritt und sorgen dafür, dass Ihr Auftrag pünktlich und auf höchstem Qualitätsniveau erledigt wird.</p>
+                <p><strong>Hand drauf – das ist unser Versprechen an Sie.</strong></p>
+            </div>
+        </div>
+
+        <div class="values">
+            <div class="value-box">
+                <h4>⭐ Qualität</h4>
+                <p>Höchste Standards bei allen Arbeiten und Materialien</p>
+            </div>
+            <div class="value-box">
+                <h4>🔒 Sicherheit</h4>
+                <p>Optimale Sicherheit in der Planung und Ausführung</p>
+            </div>
+            <div class="value-box">
+                <h4>🤝 Zuverlässigkeit</h4>
+                <p>25+ Jahre Erfahrung und 4,7★ Kundenzufriedenheit</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="section-title">Unsere Leistungen</div>
+        <div class="section-subtitle">Umfassende Elektrotechnik-Lösungen für Ihr Zuhause und Ihr Gewerbe</div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <span class="service-icon">⚡</span>
+                <h4>Elektroinstallation</h4>
+                <p>Professionelle Installation und Wartung aller Elektroleitungen und Systeme nach aktuellen Sicherheitsstandards</p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">☀️</span>
+                <h4>Photovoltaik & Speicher</h4>
+                <p>Analyse, Planung und Installation von Solaranlagen mit modernen Speichersystemen für maximale Unabhängigkeit</p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">💡</span>
+                <h4>Beleuchtungstechnik</h4>
+                <p>Hochwertige Lichtlösungen von BRUMBERG für nahezu alle Anwendungsbereiche und Ästhetik</p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">🏠</span>
+                <h4>Smart Home</h4>
+                <p>Intelligente Automatisierung von Beleuchtung, Heizung, Schließ- und Alarmanlagen</p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">📡</span>
+                <h4>Kommunikationstechnik</h4>
+                <p>Netzwerk, Datenverkabelung und moderne Kommunikationslösungen für Privat und Gewerbe</p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">🔧</span>
+                <h4>Wartung & Service</h4>
+                <p>Zuverlässige Wartung und schnelle Reparaturen mit 25+ Jahren Fachkompetenz</p>
+            </div>
+        </div>
+
+        <!-- Gallery -->
+        <div class="gallery">
+            <div class="section-title" style="margin-top: 60px;">Einblicke in unsere Arbeit</div>
+            <div class="gallery-grid" style="margin-top: 40px;">
+                <div class="gallery-item">
+                    <img src="http://www.cantarella.de/wp-content/uploads/2024/02/DSC_0128-scaled.jpg" alt="Projektarbeiten Cantarella">
+                </div>
+                <div class="gallery-item">
+                    <img src="http://www.cantarella.de/wp-content/uploads/2024/02/DSC_2588-scaled.jpg" alt="Elektroinstallation">
+                </div>
+                <div class="gallery-item">
+                    <img src="http://www.cantarella.de/wp-content/uploads/2024/02/DSC_0280-scaled.jpg" alt="Professionelle Elektrotechnik">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us Section -->
+    <section class="why-us">
+        <div class="section-title">Warum Cantarella?</div>
+        <div class="section-subtitle">Das zeichnet uns von anderen Elektrikerbetrieben aus</div>
+
+        <div class="usp-grid">
+            <div class="usp-item">
+                <div class="usp-icon">📅</div>
+                <div class="usp-content">
+                    <h4>25+ Jahre Erfahrung</h4>
+                    <p>Über ein Vierteljahrhundert kontinuierliches Wachstum an Know-how und Kundenzufriedenheit in der Elektrotechnik</p>
+                </div>
+            </div>
+            <div class="usp-item">
+                <div class="usp-icon">🏆</div>
+                <div class="usp-content">
+                    <h4>Ausgezeichnete Bewertungen</h4>
+                    <p>4,7 Sterne von 18 verifizierten Kundenrezensionen – das ist echte Qualitätsgarantie</p>
+                </div>
+            </div>
+            <div class="usp-item">
+                <div class="usp-icon">👥</div>
+                <div class="usp-content">
+                    <h4>Individuelle Beratung</h4>
+                    <p>Nicht jedes Projekt ist gleich – wir erarbeiten maßgeschneiderte Lösungen für Ihre speziellen Anforderungen</p>
+                </div>
+            </div>
+            <div class="usp-item">
+                <div class="usp-icon">✅</div>
+                <div class="usp-content">
+                    <h4>Vollständige Projektabwicklung</h4>
+                    <p>Von der Planung über die Installation bis zur Wartung – wir kümmern uns um alles und halten strikte Qualitätskontrolle</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="section-title">Kontakt & Anfrage</div>
+        <div class="section-subtitle">Wir freuen uns auf Ihre Nachricht – sprechen Sie uns an!</div>
+
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h4>📍 Kontaktdaten</h4>
+
+                <div class="contact-item">
+                    <strong>Adresse</strong>
+                    <p>Elektrotechnik Oliver Cantarella GmbH<br>Gustav-Hertz-Straße 6<br>91074 Herzogenaurach</p>
+                </div>
+
+                <div class="contact-item">
+                    <strong>Telefon</strong>
+                    <p><a href="tel:09132734455" style="color: var(--primary);">09132 / 73 44 55</a></p>
+                </div>
+
+                <div class="contact-item">
+                    <strong>E-Mail</strong>
+                    <p><a href="mailto:info@cantarella.de" style="color: var(--primary);">info@cantarella.de</a></p>
+                </div>
+
+                <div class="contact-item">
+                    <strong>Öffnungszeiten</strong>
+                    <p>Mo – Do: 08:00 – 16:00 Uhr<br>Fr: 08:00 – 12:00 Uhr</p>
+                </div>
+            </div>
+
+            <form class="contact-form" onsubmit="handleSubmit(event)">
+                <input type="text" placeholder="Ihr Name" required>
+                <input type="email" placeholder="Ihre E-Mail-Adresse" required>
+                <input type="tel" placeholder="Telefonnummer (optional)">
+                <input type="text" placeholder="Betreff">
+                <textarea placeholder="Ihre Nachricht / Anfrage..." required></textarea>
+                <button type="submit" class="btn btn-primary">Anfrage senden</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h5>Unternehmen</h5>
+                <a href="#about">Über uns</a>
+                <a href="#services">Leistungen</a>
+                <a href="http://www.cantarella.de/">Website</a>
+            </div>
+            <div class="footer-col">
+                <h5>Kontakt</h5>
+                <p>Gustav-Hertz-Str. 6<br>91074 Herzogenaurach</p>
+                <a href="tel:09132734455">09132 / 73 44 55</a>
+                <a href="mailto:info@cantarella.de">info@cantarella.de</a>
+            </div>
+            <div class="footer-col">
+                <h5>Weitere Links</h5>
+                <a href="http://www.cantarella.de/">360° Rundgang</a>
+                <a href="http://www.cantarella.de/">Impressum</a>
+                <a href="http://www.cantarella.de/">Datenschutz</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 Elektrotechnik Oliver Cantarella GmbH | Alle Rechte vorbehalten
+        </div>
+    </footer>
+
+    <!-- Floating CTAs -->
+    <div class="floating-cta">
+        <button class="cta-button" onclick="window.location.href='tel:09132734455'" title="Anrufen">📞</button>
+        <button class="cta-button" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" title="Anfrage senden">✉️</button>
+    </div>
+
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+            alert('Vielen Dank für Ihre Anfrage! Wir werden uns schnellstmöglich bei Ihnen melden.');
+            event.target.reset();
+        }
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && document.querySelector(href)) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
